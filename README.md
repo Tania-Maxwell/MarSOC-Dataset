@@ -1,2 +1,2 @@
-# Saltmarsh_soilC
-Current working scripts for literature search
+# Saltmarsh soil C project
+Currently working scripts for literature search
