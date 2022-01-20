@@ -1,0 +1,328 @@
+---
+title: "Using litsearchr "
+author: "Tania L.G. Maxwell"
+date: "`r format(Sys.time(), '%d/%m/%Y')`"
+output: 
+  html_document: 
+    toc: TRUE
+    toc_float: 
+      toc_collapsed: FALSE
+      smooth_scroll: FALSE
+bibliography: SaltmarshC_refs.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+```
+
+This document tracks the literature search used to acquire the global database of soil C in tidal salt marshes. 
+
+This workflow is based from the paper @grames2019, and from the online tutorial: https://luketudge.github.io/litsearchr-tutorial/litsearchr_tutorial.html#Getting_potential_search_terms
+
+## Setup
+```{r}
+library(remotes)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(ggraph)
+library(igraph)
+library(readr)
+```
+
+
+## Naive search
+```{r}
+#download github repro
+#install_github("elizagrames/litsearchr", ref="main")
+library(litsearchr)
+```
+
+First step is the naive search for studies with soil carbon data in tidal marshes or salt marshes. 
+
+Guidelines for writing a naive search (from Grames et al. 2019 S1)
+
+*1. Identify your research question:*
+
+What are the soil carbon stocks and carbon sequestration rates in tidal (salt) marshes at the global scale? 
+
+*2. Identify your concept groups (population more broadly as the study system, intervention as the predictor variables, and outcome as the response variables):*
+
+Population/study system = tidal (salt) marshes
+
+Intervention/predictor variables = what we are looking for
+
+Outcome = soil carbon stocks and/or sequestration rates
+
+*3. Use your prior knowledge, or consult with colleagues or experts in your field to generate an initial list of search terms that fit in your concept groups.*
+
+We are interested in soil carbon, but we should include both inorganic and organic carbon, as well as specify if we want soil carbon stocks or sequestration. 
+
+*4. Combine your concept groups into a search string.*
+
+```
+      (("soil C" OR "soil carbon" OR "soil inorganic carbon" OR "soil organic carbon") OR
+      ("soil carbon sequestrat*" OR "soil carbon stabiliz*" OR "soil carbon stock*"))
+      
+      AND ("tidal marsh*" OR "salt marsh*" OR saltmarsh*)
+```
+
+*5. Assess how discrete your search is and modify as needed.* Generally speaking, if you get more than 700 for a narrowly defined question or more than 1500 for a broader question, you are not being precise enough
+
+## Import native search
+
+In order to upload both naive search result files, we will use the `import_results()` function. Unfortunately, to upload the files we need to use absolute paths and cannot use relative paths. 
+```{r}
+naive_results_import  <- 
+    import_results(
+    directory = "/home/lukas/Desktop/SaltmarshC/reports/01_litsearchr/native_search", #absolute path
+    verbose = TRUE
+  )
+
+table(naive_results_import$database)
+```
+
+Because the naive_results_import database column only labelled the references picked up from Scopus, the web of science file has NA written in the database column. We will change the NA values to "WOS". 
+
+
+```{r}
+naive_results_import$database <- naive_results_import$database %>% replace_na('WOS')
+table(naive_results_import$database)
+```
+
+This will allow us to then remove duplicates by title from both literature searches. 
+```{r}
+naive_results <- 
+  remove_duplicates(df = naive_results_import, field = "title", method = "exact" )
+```
+
+
+## Extract potential search terms
+
+### Keywords
+First, let's take a look at the keywords from the papers. 
+
+```{r}
+# example: see the keywords of the 1st paper
+naive_results[1, "keywords"]
+# number of articles missing keywords
+sum(is.na(naive_results[, "keywords"]))
+
+keyword_na <- sum(is.na(naive_results[, "keywords"]))
+# from the Youtube video - doesn't work
+# titles_abstracts <- paste(BBWO_data$title, BBWO_data$abstract, collapse = "; ")
+# 
+# raked_keywords <- 
+#   extract_terms(
+#     text = titles_abstracts,
+#     keywords = NULL,
+#     method = "fakerake",
+#     min_freq = 2,
+#     ngrams = TRUE,
+#     min_n = 2,
+#     max_n = 5,
+#     stopwords = NULL,
+#     language = "English"
+#   )
+# 
+# head(raked_keywords)
+```
+
+Around **`r keyword_na` out of the `r nrow(naive_results)` studies ** are NAs. But let's take a look at them. The `extract_terms()` function gathers the keywords using a series of arguments. Here, we will set the minimum frequency to 3 instead of the default of 2, which comes up with twice the number of keywords. We will pick up more keywords from scanning the title and abstracts. 
+
+They `method = "tagged"` argument is because we are extracting keywords that the article authors themselves have provided. 
+
+```{r}
+keywords <- extract_terms(keywords=naive_results[, "keywords"],
+              min_freq = 3, method="tagged") 
+```
+
+### Titles and abstracts
+
+We will  also look through titles and abstracts to extract key words for the literature search.
+
+```{r}
+title_terms <- extract_terms(
+  text=naive_results[, "title"],
+  method="fakerake",
+  min_freq=3, min_n=2
+)
+
+abstract_terms <- extract_terms(
+  text=naive_results[, "abstract"],
+  method="fakerake",
+  min_freq=3, min_n=2
+)
+```
+
+
+We can finish by adding together the search terms from the keywords, article titles, abstracts, and remove deplicates using the `unique()` function. 
+
+```{r}
+terms_full <- unique(c(keywords, title_terms, abstract_terms))
+terms_min <- unique(c(keywords, title_terms))
+```
+
+Considering that we get **`r length(terms_min)`** terms from the combination of keywords and title terms, we will continue just with this string of characters. 
+
+
+## Network analysis
+
+We want to analyze the search terms as a network, to systematicaly remove isolated terms which are unrelated to the others and to our main topic. We want to pick out groups of terms that are referring to the same topic. 
+
+We will do this in three steps: 
+
+1\. We will combine the title and abstract of each article to generate the 'content' of that article. 
+
+```{r}
+docs <- paste(naive_results[, "title"], naive_results[, "abstract"])
+```
+
+2\. Now we create a matrix that records which of our selected terms (from the kewywords and titles) appear in which articles (in their title and abstract). We will sue the `create_dfm()` function which stands for 'Document-feature matrix'. In this matrix, the rows represent the articles and the columns are the search terms. Each entry thus records how many times a term is mentioned in the article content. 
+
+```{r}
+dfm <- create_dfm(elements=docs, features=terms_min)
+```
+
+
+3\. Finally, we cam turn this matrix into a network of linked terms, by selecting terms that occur in at least 3 different articles. 
+
+```{r}
+g <- create_network(dfm, min_studies = 3)
+```
+
+
+### ggraph
+
+To visualize our network, we will use the `ggraph()` function. However, because we have many values, it will be hard to distinguish the different nodes and connections. 
+
+```{r}
+ggraph(g, layout="stress") + #layout draws terms closely linked close together
+  coord_fixed() +
+  expand_limits(x=c(-3, 3)) +
+  geom_edge_link(aes(alpha=weight)) + #darker lines linking terms that appear in more articles together
+  geom_node_point(shape="circle filled", fill="white") +
+  geom_node_text(aes(label=name), hjust="outward",  check_overlap=TRUE) + #including only an arbirary subset to visualiwze
+  guides(edge_alpha=FALSE)
+```
+
+### Pruning
+
+Using the network, we can calculate the strength of each term within the network, i.e. the number of terms that it appears with.
+
+```{r}
+salt_marsh_strengths_raw <- strength(g)
+
+salt_marsh_strengths <- data.frame( # creating a dataframe with the names of the terms and the strength of each term
+  term=names(salt_marsh_strengths_raw),
+  strength=salt_marsh_strengths_raw,
+  row.names=NULL)
+
+term_strengths <- salt_marsh_strengths %>%
+  mutate(rank=rank(strength, ties.method="min")) %>%
+  dplyr::arrange(desc(strength)) 
+  
+term_strengths
+```
+
+The **strongest** terms are near the top of the list. We want to remove the terms that only rarely occur together with others. We can first visualize the node strength of the terms: 
+
+```{r, fig.align= 'center', fig.height= 8, fig.width=6}
+cutoff_fig <- ggplot(term_strengths, aes(x=rank, y=strength, label=term)) +
+  geom_line() +
+  geom_point() +
+  geom_text(data=filter(term_strengths, rank>5), hjust="right", nudge_y=20, check_overlap=TRUE)
+
+cutoff_fig
+```
+
+#### Cutting off 
+
+We want to keep the terms with large node strengths. We want to find a cutoff to choose to retain a certain proportion of the total strenght of the search terms (i.e. 80%). Note: this percentage can be discussed. 
+
+```{r}
+cutoff_cumul <- find_cutoff(g, method="cumulative", percent=0.8)
+cutoff_cumul
+```
+
+```{r, fig.align= 'center', fig.height= 8, fig.width=6}
+cutoff_fig + 
+  geom_hline(yintercept=cutoff_cumul, linetype="dashed")
+```
+
+```{r}
+reduced_terms <- reduce_graph(g, cutoff_cumul)
+
+reduced_keywords <- get_keywords(reduced_terms)
+reduced_keywords
+```
+
+## Grouping
+
+We need to group our terms manually, either by exporting these terms to a csv, or by placing them into separate vectors. 
+
+From this list of terms, we can see that a certain species presence or invasions occur frequently in papers on soil carbon in tidal salt marshes (i.e. *spartina alterniflora, phragmites australis*). While this is an interesting observation, the presence or absence of these species is not part of our broader research question. 
+
+Note: should we include river delta (# 34) and river estuary (# 35)?
+
+```{r}
+grouped_terms <-list(
+  carbon_related = reduced_keywords[c(3:10, 30, 31, 40:43, 58:60 )],
+  marsh_related =reduced_keywords[c(14:19, 36, 37, 48:52, 55, 61, 65, 66)]
+)
+
+grouped_terms
+```
+
+## Writing a new search
+
+```{r, eval = FALSE}
+write_search(
+  grouped_terms,
+  languages="English",
+  exactphrase=TRUE,
+  stemming=FALSE,
+  closure="left",
+  writesearch=TRUE
+)
+```
+
+```{r}
+cat(read_file("search-inEnglish.txt"))
+```
+
+### In another language
+
+Using the `get_languages()` function, the topics query a database of non-English language journals compiled from Ulrich (currently only STEM fields are included in the dataset).
+```{r}
+head(get_languages(key_topics = c("soil", "carbon", "wetland")))
+```
+
+It seems that we should also be searching journals in Russian. The `write_search()` function supports different languages, but to do so I would need a Google Translate API key. I may just translate the search in google translate. 
+
+```{r}
+# write_search(
+#   grouped_terms,
+#   languages="Russian",
+#   exactphrase=TRUE,
+#   stemming=FALSE,
+#   closure="left",
+#   writesearch=TRUE
+# )
+```
+
+## To-do
+
+### Checking the new search
+
+We need to reduce the keywords, I think mostly those with habitat. 
+
+I tried the search string in Scopus and it comes out with over 4,000 hits, compared to the original 259 in the first naive search. 
+
+### Adding additional recent papers
+
+Once the final literature search has been completed, additional searches will be conduted every (x) months to add new data to the dataset
+
+- note: how can we automatize this process? 
+
+## References
