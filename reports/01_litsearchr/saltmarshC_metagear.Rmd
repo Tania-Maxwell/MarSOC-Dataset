@@ -1,0 +1,134 @@
+---
+title: "Using metagear"
+author: "Tania L.G. Maxwell"
+date: "`r format(Sys.time(), '%d/%m/%Y')`"
+output: 
+  html_document: 
+    toc: TRUE
+    toc_float: 
+      toc_collapsed: FALSE
+      smooth_scroll: FALSE
+bibliography: SaltmarshC_refs.bib
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+```
+
+# Setup 
+```{r}
+# # first load Bioconductor resources needed to install the EBImage package 
+# # and accept/download all of its dependencies
+# install.packages("BiocManager"); 
+# BiocManager::install("EBImage")
+
+# then load metagear
+library(metagear)
+library(dplyr)
+```
+
+
+
+# Importing
+
+```{r}
+
+```
+
+```{r}
+#merging the datasets
+```
+
+
+```{r}
+#removing useless columns
+#keep only authors, title, journal, volumnem lower pages, upper pages, DOI, year, abstract
+```
+
+
+```{r}
+#testing just with the naive results
+theStudies <- naive_results
+```
+
+
+# Screening abstracts
+
+The way metagear is set up, it is only possible when doing dual-reviewing to look through the same amount of references (i.e. all of them). 
+
+Ideally, we want Tania (the lead) to go through all of the abstracts (which will be several thousand) and Tom to check through a subset of these studies (i.e. a couple hundred). 
+
+To do so, we need to have a random subset 
+
+```{r, echo = T, eval = F}
+distribute_ex <- effort_distribute(theStudies,
+                                   reviewers= c("Tania", "Tom"),
+                                  effort = c(80,20),
+                                   initialize = TRUE,
+                                   #save_split = TRUE,
+                                   #dual = TRUE,
+                                   directory = "~/Desktop/SaltmarshC/reports/01_litsearchr/effort_metagear")
+
+#creating a new data column 
+distribute_sep <- distribute_ex %>% 
+  mutate(REVIEWERS = as.factor(REVIEWERS)) %>%  #to use case_when next
+  mutate(REVIEWERS_A = case_when(REVIEWERS == "Tania" |
+                                  REVIEWERS == "Tom" ~ "Tania"),
+         REVIEWERS_B = case_when(REVIEWERS == "Tania" ~ "NA",
+                                REVIEWERS == "Tom" ~ "Tom")) %>% 
+  mutate(INCLUDE_A = "not vetted",
+         INCLUDE_B = "not vetted") %>% 
+  relocate(REVIEWERS_A, INCLUDE_A, REVIEWERS_B, INCLUDE_B, .before = REVIEWERS) %>% 
+  dplyr::select(-REVIEWERS, - INCLUDE)
+
+
+distribute_Tania <- distribute_sep %>% 
+  filter(REVIEWERS_A == "Tania") %>% 
+  dplyr::select(-REVIEWERS_B, -INCLUDE_B)
+
+distribute_Tom <- distribute_sep %>% 
+  filter(REVIEWERS_B == "Tom") %>% 
+  dplyr::select(-REVIEWERS_A, -INCLUDE_A)
+
+
+
+write.csv(distribute_Tania, "effort_Tania_test.csv", row.names = F)
+write.csv(distribute_Tom, "effort_Tom_test.csv", row.names = F)
+
+```
+
+```{r, echo = T, eval = F}
+#will create a new file in the working directory  
+
+abstract_screener(file = "effort_Tania_test.csv",
+                  aReviewer = "Tania", 
+                  reviewerColumnName = "REVIEWERS_A", #REVIEWERS_B for 2nd reviewer
+                  unscreenedColumnName = "INCLUDE_A", #INCLUDE_B for 2nd reviewer
+                  unscreenedValue = "not vetted",
+                  abstractColumnName = "abstract", #case sensitive
+                  titleColumnName = "title", #case sensitive
+                  highlightKeywords = c("soil carbon", "marsh"))
+
+abstract_screener(file = "effort_Tom_test.csv",
+                  aReviewer = "Tom", 
+                  reviewerColumnName = "REVIEWERS_B", #REVIEWERS_B for 2nd reviewer
+                  unscreenedColumnName = "INCLUDE_B", #INCLUDE_B for 2nd reviewer
+                  unscreenedValue = "not vetted",
+                  abstractColumnName = "abstract", #case sensitive
+                  titleColumnName = "title", #case sensitive
+                  highlightKeywords = c("soil carbon", "marsh"))
+```
+
+```{r}
+#this does NOT work, as both files have different dimensions. 
+#will try merge_by Study ID
+
+a <- data.frame(col=c(0,1,2,3,4,5,6))
+b <- c(4,5)
+
+a$col[b]
+
+# theRefs_screened <- effort_merge(reviewers = c("Tania", "Tom"), dual = TRUE)
+```
+

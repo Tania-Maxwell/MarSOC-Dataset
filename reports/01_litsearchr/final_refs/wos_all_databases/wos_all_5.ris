@@ -1,0 +1,706 @@
+﻿TY  - JOUR
+AU  - Sharma, Shaneel S.
+AU  - Alfaro, Andrea C.
+AU  - Campbell, Kathleen A.
+TI  - Influence of habitat on meiofaunal abundance and distribution in a New Zealand temperate estuary
+T2  - NEW ZEALAND JOURNAL OF MARINE AND FRESHWATER RESEARCH
+M3  - Article
+AB  - Meiofaunal assemblages are often overlooked, yet they are important ecological components of estuarine ecosystems. To evaluate variations in meiofaunal communities in estuarine habitats, we conducted a comprehensive analysis of meiofaunal density, distribution and relationships with environmental parameters in a mangrove-dominated ecosystem at Mangawhai, Northern New Zealand, in summer (March) and winter (October), 2013. Five habitat types were studied including mangrove stands, pneumatophore zones, sandflats, mudflats and saltmarshes. In addition, data were recorded for sediment grain size, organic content, and primary benthic productivity (chlorophyll a). Twelve major taxa were identified, with meiofaunal densities ranging between 269 and 8090 ind. 10 cm(-2). Highest abundances were found in fine-grained organic-rich sediments compared to coarse-grained organically poor sediments; the former were generally associated with mangroves stands and pneumatophore zones. Nematodes dominated all observed habitats. Foraminifera ranked second in fine-grained organically rich sediments, whereas copepods ranked second in coarser-grained sediments. Results suggest that meiofaunal taxonomic abundance and distribution are highly sensitive to local physical and biological parameters (e.g. sediment grain size, organic content, benthic primary productivity). The findings revealed that environmental characteristics have an important influence within this temperate estuary.
+PU  - TAYLOR & FRANCIS LTD
+PI  - ABINGDON
+PA  - 2-4 PARK SQUARE, MILTON PARK, ABINGDON OR14 4RN, OXON, ENGLAND
+DA  - 2022 JAN 2
+PY  - 2022
+VL  - 56
+IS  - 1
+SP  - 107
+EP  - 134
+DO  - 10.1080/00288330.2020.1865415
+AN  - WOS:000606884200001
+ER  -
+
+TY  - DATA
+AU  - Lewis, David Bruce
+TI  - Florida mangrove saltmarsh reference surface soils
+T2  - Environmental Data Initiative
+M3  - Data set
+AB  - Site description.            This data package consists of data obtained from sampling surface soil (the 0-7.6 cm depth profile) in black mangrove (Avicennia germinans) dominated forest and black needlerush (Juncus roemerianus) saltmarsh along the Gulf of Mexico coastline in peninsular west-central Florida, USA. This location has a subtropical climate with mean daily temperatures ranging from 15.4 °C in January to 27.8 °C in August, and annual precipitation of 1336 mm. Precipitation falls as rain primarily between June and September. Tides are semi-diurnal, with 0.57 m median amplitudes during the year preceding sampling (U.S. NOAA National Ocean Service, Clearwater Beach, Florida, station 8726724). Sea-level rise is 4.0  0.6 mm per year (1973-2020 trend, mean  95 % confidence interval, NOAA NOS Clearwater Beach station). The A. germinans mangrove zone is either adjacent to water or fringed on the seaward side by a narrow band of red mangrove (Rhizophora mangle). A near-monoculture of J. roemerianus is often adjacent to and immediately landward of the A. germinans zone. The transition from the mangrove to the J. roemerianus zone is variable in our study area. An abrupt edge between closed-canopy mangrove and J. roemerianus monoculture may extend for up to several hundred meters in some locations, while other stretches of ecotone present a gradual transition where smaller, widely spaced trees are interspersed into the herbaceous marsh. Juncus roemerianus then extends landward to a high marsh patchwork of succulent halophytes (including Salicornia bigellovi, Sesuvium sp., and Batis maritima), scattered dwarf mangrove, and salt pans, followed in turn by upland vegetation that includes Pinus sp. and Serenoa repens.            Field design and sample collection.            We established three study sites spaced at approximately 5 km intervals along the western coastline of the central Florida peninsula. The sites consisted of the Salt Springs (28.3298°, -82.7274°), Energy Marine Center (28.2903°, -82.7278°), and Green Key (28.2530°, -82.7496°) sites on the Gulf of Mexico coastline in Pasco County, Florida, USA. At each site, we established three plot pairs, each consisting of one saltmarsh plot and one mangrove plot. Plots were 50 m^2 in size. Plots pairs within a site were separated by 230-1070 m, and the mangrove and saltmarsh plots composing a pair were 70-170 m apart. All plot pairs consisted of directly adjacent patches of mangrove forest and J. roemerianus saltmarsh, with the mangrove forests exhibiting a closed canopy and a tree architecture (height 4-6 m, crown width 1.5-3 m). Mangrove plots were located at approximately the midpoint between the seaward edge (water-mangrove interface) and landward edge (mangrove-marsh interface) of the mangrove zone. Saltmarsh plots were located 20-25 m away from any mangrove trees and into the J. roemerianus zone (i.e., landward from the mangrove-marsh interface). Plot pairs were coarsely similar in geomorphic setting, as all were located on the Gulf of Mexico coastline, rather than within major sheltering formations like Tampa Bay, and all plot pairs fit the tide-dominated domain of the Woodroffe classification (Woodroffe, 2002, "Coasts: Form, Process and Evolution", Cambridge University Press), given their conspicuous semi-diurnal tides. There was nevertheless some geomorphic variation, as some plot pairs were directly open to the Gulf of Mexico while others sat behind keys and spits or along small tidal creeks. Our use of a plot-pair approach is intended to control for this geomorphic variation. Plot center elevations (cm above mean sea level, NAVD 88) were estimated by overlaying the plot locations determined with a global positioning system (Garmin GPS 60, Olathe, KS, USA) on a LiDAR-derived bare-earth digital elevation model (Dewberry, Inc., 2019). The digital elevation model had a vertical accuracy of  10 cm (95 % CI) and a horizontal accuracy of  116 cm (95 % CI).            Soil samples were collected via coring at low tide in June 2011. From each plot, we collected a composite soil sample consisting of three discrete 5.1 cm diameter soil cores taken at equidistant points to 7.6 cm depth. Cores were taken by tapping a sleeve into the soil until its top was flush with the soil surface, sliding a hand under the core, and lifting it up. Cores were then capped and transferred on ice to our laboratory at the University of South Florida (Tampa, Florida, USA), where they were combined in plastic zipper bags, and homogenized by hand into plot-level composite samples on the day they were collected. A damp soil subsample was immediately taken from each composite sample to initiate 1 y incubations for determination of active C and N (see below). The remainder of each composite sample was then placed in a drying oven (60 °C) for 1 week with frequent mixing of the soil to prevent aggregation and liberate water. Organic wetland soils are sometimes dried at 70 °C, however high drying temperatures can volatilize non-water liquids and oxidize and decompose organic matter, so 50 °C is also a common drying temperature for organic soils (Gardner 1986, "Methods of Soil Analysis: Part 1", Soil Science Society of America); we accordingly chose 60 °C as a compromise between sufficient water removal and avoidance of non-water mass loss. Bulk density was determined as soil dry mass per core volume (adding back the dry mass equivalent of the damp subsample removed prior to drying). Dried subsamples were obtained for determination of soil organic matter (SOM), mineral texture composition, and extractable and total carbon (C) and nitrogen (N) within the following week.            Sample analyses.            A dried subsample was apportioned from each composite sample to determine SOM as mass loss on ignition at 550 °C for 4 h. After organic matter was removed from soil via ignition, mineral particle size composition was determined using a combination of wet sieving and density separation in 49 mM (3 %) sodium hexametaphosphate ((NaPO_3)_6) following procedures in Kettler et al. (2001, Soil Science Society of America Journal 65, 849-852). The percentage of dry soil mass composed of silt and clay particles (hereafter, fines) was calculated as the mass lost from dispersed mineral soil after sieving (0.053 mm mesh sieve). Fines could have been slightly underestimated if any clay particles were burned off during the preceding ignition of soil. An additional subsample was taken from each composite sample to determine extractable N and organic C concentrations via 0.5 M potassium sulfate (K_2SO_4) extractions. We combined soil and extractant (ratio of 1 g dry soil:5 mL extractant) in plastic bottles, reciprocally shook the slurry for 1 h at 120 rpm, and then gravity filtered it through Fisher G6 (1.6 mum pore size) glass fiber filters, followed by colorimetric detection of nitrite (NO_2^-) + nitrate (NO_3^-) and ammonium (NH_4^+) in the filtrate (Hood Nowotny et al., 2010,Soil Science Society of America Journal 74, 1018-1027) using a microplate spectrophotometer (Biotek Epoch, Winooski, VT, USA). Filtrate was also analyzed for dissolved organic C (referred to hereafter as extractable organic C) and total dissolved N via combustion and oxidation followed by detection of the evolved CO_2 and N oxide gases on a Formacs HT TOC/TN analyzer (Skalar, Breda, The Netherlands). Extractable organic N was then computed as total dissolved N in filtrate minus extractable mineral N (itself the sum of extractable NH_4-N and NO_2-N + NO_3-N). We determined soil total C and N from dried, milled subsamples subjected to elemental analysis (ECS 4010, Costech, Inc., Valencia, CA, USA) at the University of South Florida Stable Isotope Laboratory. Median concentration of inorganic C in unvegetated surface soil at our sites is 0.5 % of soil mass (Anderson, 2019, Univ. of South Florida M.S. thesis via methods in Wang et al., 2011, Environmental Monitoring and Assessment 174, 241-257). Inorganic C concentrations are likely even lower in our samples from under vegetation, where organic matter would dilute the contribution of inorganic C to soil mass. Nevertheless, the presence of a small inorganic C pool in our soils may be counted in the total C values we report. Extractable organic C is necessarily of organic C origin given the method (sparging with HCl) used in detection.            Active C and N represent the fractions of organic C and N that are mineralizable by soil microorganisms under aerobic conditions in long-term soil incubations. To quantify active C and N, 60 g of field-moist soil were apportioned from each composite sample, placed in a filtration apparatus, and incubated in the dark at 25 °C and field capacity moisture for 365 d (as in Lewis et al., 2014, Ecosphere 5, art59). Moisture levels were maintained by frequently weighing incubated soil and wetting them up to target mass. Daily CO_2 flux was quantified on 29 occasions at 0.5-3 week intervals during the incubation period (with shorter intervals earlier in the incubation), and these per day flux rates were integrated over the 365 d period to compute an estimate of active C. Observations of per day flux were made by sealing samples overnight in airtight chambers fitted with septa and quantifying headspace CO_2 accumulation by injecting headspace samples (obtained through the septa via needle and syringe) into an infrared gas analyzer (PP Systems EGM 4, Amesbury, MA, USA). To estimate active N, each incubated sample was leached with a C  and N free, 35 psu solution containing micronutrients (Nadelhoffer, 1990, Soil Science Society of America Journal 54, 411-415) on 19 occasions at increasing 1-6 week intervals during the 365 d incubation, and then extracted in 0.5 M K_2SO_4 at the end of the incubation in order to remove any residual mineral N. Active N was then quantified as the total mass of mineral N leached and extracted. Mineral N in leached and extracted solutions was detected as NH_4-N and NO_2-N + NO_3-N via colorimetry as above. This incubation technique precludes new C and N inputs and persistently leaches mineral N, forcing microorganisms to meet demand by mineralizing existing pools, and thereby directly assays the potential activity of soil organic C and N pools present at the time of soil sampling. Because this analysis commences with disrupting soil physical structure, it is biased toward higher estimates of active fractions.            Calculations.            Non-mobile C and N fractions were computed as total C and N concentrations minus the extractable and active fractions of each element. This data package reports surface-soil constituents (moisture, fines, SOM, and C and N pools and fractions) in both gravimetric units (mass constituent / mass soil) and areal units (mass  constituent / soil surface area integrated through 7.6 cm soil depth, the depth of sampling). Areal concentrations were computed as X * D * 7.6, where X is the gravimetric concentration of a soil constituent, D is soil bulk density (g dry soil / cm^3), and 7.6 is the sampling depth in cm.
+DA  - 2021 
+PY  - 2021
+DO  - 10.6073/PASTA/0E08CBE07C84488CB7B9DD16669946D0
+AN  - DRCI:DATA2021174022421157
+ER  -
+
+TY  - JOUR
+AU  - Chen, Yining
+AU  - Thompson, Charlotte
+AU  - Collins, Michael
+TI  - Controls on creek margin stability by the root systems of saltmarsh vegetation, Beaulieu Estuary, Southern England
+T2  - ANTHROPOCENE COASTS
+M3  - Article
+AB  - The retreat of cliffs (lateral expansion) within tidal creeks results in a net loss of saltmarshes, but this retreat process can be retarded by root systems. To understand the interaction between root presence and bank sediment, quantitative measurements of two saltmarsh species root systems (Atriplex portulacoides and Juncus maritima) were carried out in a saltmarsh in Southern England, and their relationships with bank stability were examined. Computed Tomography (CT) Scanning techniques were used to investigate three-dimensional root architecture. The data obtained (e.g., root volume, diameter, and distribution patterns of roots) were examined alongside more traditional root density measurements. The volumetric percentage, ratio between horizontal (lateral) and vertical roots (1-1/V ratio), and root diameter distribution are discussed in relation to their influence on bank sediment erosion threshold and shear strength. The results suggest that Atriplex portulacoides is more effective than Juncus maritimus in stabilising banks. This is because root systems that provide a high resistance to flow-induced erosion are better than those that provide a high resistance to gravity-induced erosion in stabilising cliff banks. This conclusion is relevant to future saltmarsh protection and re-establishment.
+PU  - CANADIAN SCIENCE PUBLISHING
+PI  - OTTAWA
+PA  - 65 AURIGA DR, SUITE 203, OTTAWA, ON K2E 7W6, CANADA
+DA  - 2019 JAN
+PY  - 2019
+VL  - 2
+IS  - 1
+SP  - 21
+EP  - 38
+DO  - 10.1139/anc-2018-0005
+AN  - WOS:000548324100003
+ER  -
+
+TY  - DATA
+AU  - Zhang, Pei
+AU  - Yang, Zaichao
+AU  - Wu, Jihua
+TI  - Livestock grazing promoted ecosystem multifunctionality of a coastal saltmarsh
+T2  - Dryad
+M3  - Data set
+AB  - The effects of livestock grazing on terrestrial grasslands have garnered a lot of attention; however, little is known about the effects of grazing on multiple ecosystem functions (EFs) and ecosystem multifunctionality (EMF) in coastal saltmarshes.To comprehensively evaluate the ecological effects of grazing and tidal flooding on the saltmarsh, we conducted a grazing-exclusion experiment in the high and middle marsh zones of the Yangtze River Estuary, China.In general, grazing enhanced EMF in saltmarsh, suggesting the potential of rational grazing as an efficient land management practice in estuaries. Although plant biomass, aboveground N of plants, soil organic C, and deposition rate decreased under grazing, activities of soil microbes and nematodes, soil N pool, N mineralization, decomposition and soil respiration increased. The magnitude and mechanisms of grazing effects on EMF differed between high and middle marshes which have different tidal regimes. Grazing had greater impact on the EMF in the middle marsh probably via effects on soil biota and soil conditions, than in the high marshes where alternations of plants played the main role in affecting EMF. We suggest that tidal flooding and associated replenishment of sediments may mitigate the negative effects of grazing on plants and sedimentation and strengthen positive grazing impacts on nutrient cycling and buildup of nutrient pools, thus reinforcing the beneficial effects of grazing on EMF. Our results provide an integrated framework of ecosystem-level responses to livestock grazing in the saltmarsh and highlight the regulatory role of external environmental factors such as tidal flooding. Copyright: CC0 1.0 Universal (CC0 1.0) Public Domain Dedication
+DA  - 2020 
+PY  - 2020
+DO  - 10.5061/DRYAD.JDFN2Z38N
+AN  - DRCI:DATA2020229020471217
+ER  -
+
+TY  - JOUR
+AU  - Smith, Carter S.
+AU  - Rudd, Morgan E.
+AU  - Gittman, Rachel K.
+AU  - Melvin, Emily C.
+AU  - Patterson, Virginia S.
+AU  - Renzi, Julianna J.
+AU  - Wellman, Emory H.
+AU  - Silliman, Brian R.
+TI  - Coming to Terms With Living Shorelines: A Scoping Review of Novel Restoration Strategies for Shoreline Protection.
+T2  - Frontiers in Marine Science
+M3  - Article
+AB  - In an era of rapid coastal population expansion and habitat degradation, restoration is becoming an increasingly important strategy for combating coastal habitat loss and maintaining ecosystem services. In particular, techniques that use habitat restoration alone or restoration in combination with built infrastructure to provide coastal protective services are growing in popularity. These novel approaches, often called living shorelines, have the potential to expand the reach and applicability of coastal restoration projects. To understand how living shorelines research has expanded over time, we conducted a scoping review of English-language peer-reviewed articles. We included papers that self-identified as living shorelines research, as well as studies that used other related terminology, to investigate trends in publication rates, geography, site characteristics, and outcomes measured. Using a systematic search protocol, we compiled a database of 46 papers; the earliest study was published in 1981, and the earliest study to use the term living shoreline was published in 2008. Eighty-three percent of studies were conducted in North America, followed by 11% in Asia, and 7% in Europe, but the use of the term living shoreline was almost exclusively restricted to North America. Saltmarshes, oyster reefs, mangroves, and freshwater vegetation were used in living shoreline designs, but 91% of studies also incorporated structural materials like oyster shell and rock. Most living shorelines research was conducted at sites that were <5 years old. The vast majority of studies exclusively reported on ecological outcomes (89%), and of those, ecological processes were measured in 74% of studies. Processes related to coastal protection were measured most frequently (52% of ecological studies), followed by biological interactions, water filtration, nutrient cycling, and carbon sequestration. Altogether, our data suggest that living shorelines research is on the rise, but there is a need for more long-term data, socio-economic research, further consensus on the terminology used to describe different types of projects, and research on the types of living shorelines that are most effective in different environmental contexts. Future long-term and interdisciplinary research will help to elucidate the full effects of living shorelines.
+DA  - 2020 
+PY  - 2020
+VL  - 7
+SP  - 1
+EP  - 14
+AN  - ZOOREC:ZOOR15610069865
+ER  -
+
+TY  - DATA
+AU  - Smith, Carter S
+AU  - Rudd, Morgan E
+AU  - Gittman, Rachel K
+AU  - Melvin, Emily C
+AU  - Patterson, Virginia S
+AU  - Renzi, Julianna J
+AU  - Wellman, Emory H
+AU  - Silliman, Brian R
+TI  - Table_1_Coming to Terms With Living Shorelines: A Scoping Review of Novel Restoration Strategies for Shoreline Protection.XLSX
+T2  - Figshare
+M3  - Data set
+AB  - In an era of rapid coastal population expansion and habitat degradation, restoration is becoming an increasingly important strategy for combating coastal habitat loss and maintaining ecosystem services. In particular, techniques that use habitat restoration alone or restoration in combination with built infrastructure to provide coastal protective services are growing in popularity. These novel approaches, often called living shorelines, have the potential to expand the reach and applicability of coastal restoration projects. To understand how living shorelines research has expanded over time, we conducted a scoping review of English-language peer-reviewed articles. We included papers that self-identified as living shorelines research, as well as studies that used other related terminology, to investigate trends in publication rates, geography, site characteristics, and outcomes measured. Using a systematic search protocol, we compiled a database of 46 papers; the earliest study was published in 1981, and the earliest study to use the term living shoreline was published in 2008. Eighty-three percent of studies were conducted in North America, followed by 11% in Asia, and 7% in Europe, but the use of the term living shoreline was almost exclusively restricted to North America. Saltmarshes, oyster reefs, mangroves, and freshwater vegetation were used in living shoreline designs, but 91% of studies also incorporated structural materials like oyster shell and rock. Most living shorelines research was conducted at sites that were <5 years old. The vast majority of studies exclusively reported on ecological outcomes (89%), and of those, ecological processes were measured in 74% of studies. Processes related to coastal protection were measured most frequently (52% of ecological studies), followed by biological interactions, water filtration, nutrient cycling, and carbon sequestration. Altogether, our data suggest that living shorelines research is on the rise, but there is a need for more long-term data, socio-economic research, further consensus on the terminology used to describe different types of projects, and research on the types of living shorelines that are most effective in different environmental contexts. Future long-term and interdisciplinary research will help to elucidate the full effects of living shorelines. Copyright: CC BY 4.0
+DA  - 2020 
+PY  - 2020
+DO  - 10.3389/fmars.2020.00434.s001
+AN  - DRCI:DATA2020141019608562
+ER  -
+
+TY  - JOUR
+AU  - Lamichhane, Ram Sharan
+AU  - Neville, Peter J.
+AU  - Oosthuizen, Jacques
+AU  - Clark, Kim
+AU  - Mainali, Samir
+AU  - Fatouros, Maria
+AU  - Beatty, Shelley
+TI  - The Highs and Lows of Making a Bucket List - Quantifying Potential Mosquito Breeding Habitats in Metropolitan Backyards
+T2  - FRONTIERS IN PUBLIC HEALTH
+M3  - Article
+AB  - While the development of land for residential housing along the Swan and Canning Rivers in Perth, WA, Australia has reduced natural mosquito breeding sites, the role of backyard container breeding remains a relatively unknown factor. Local Governments responsible for these areas focus management and control efforts on low lying, tidally driven mosquito habitats to control Aedes vigilax (Skuse) and Aedes camptorhynchus (Thomson) mosquitoes in an effort to reduce both the nuisance and disease risk to residents. In spite of their efforts, Local Governments continue to receive complaints regarding mosquito nuisance, even when environmental conditions do not favor hatching and development of the two species in the Swan River tidal flats. In this study, 150 backyard inspections were conducted in the residential suburb of Bassendean, Perth, WA, Australia, situated in close proximity to the Swan River tidal plain. The occurrence and species composition of the mosquito fauna found in residential backyards was documented. Of the backyards inspected, 94% were found to possess containers capable of breeding mosquitoes, although only 3% contained mosquito larvae. Nine species of mosquito were collected from containers ranging in capacity from 0.05 to 50 L across the study area. Additionally, encephalitis virus surveillance trapping was conducted within residential properties and compared to the tidally driven natural habitat at Ashfield Flats and a tidally influenced brackish creekline at Bindaring Park. The species composition of the fauna at the three habitat types differed significantly, with Aedes notoscriptus (Skuse) dominating residential lots and A. vigilax more prevalent at the saltmarsh site. Bindaring Park had an adult composition at the mid-point of these two habitats, reflecting its proximity to both the Swan River and residential lots.
+PU  - FRONTIERS MEDIA SA
+PI  - LAUSANNE
+PA  - AVENUE DU TRIBUNAL FEDERAL 34, LAUSANNE, CH-1015, SWITZERLAND
+DA  - 2017 NOV 6
+PY  - 2017
+VL  - 5
+DO  - 10.3389/fpubh.2017.00292
+AN  - WOS:000415902700001
+ER  -
+
+TY  - JOUR
+AU  - Taylor, Benjamin W.
+AU  - Paterson, David M.
+AU  - Baxter, John M.
+TI  - Sediment Dynamics of Natural and Restored Bolboschoenus maritimus Saltmarsh
+T2  - FRONTIERS IN ECOLOGY AND EVOLUTION
+M3  - Article
+AB  - Saltmarshes are biogeomorphic ecosystems comprising halophytic plant communities typically located on low energy temperate coasts. Their distribution and structure are controlled by several key drivers, including sediment supply, type of vegetation, elevation, and local hydrodynamics. These dynamic systems are highly vulnerable and estimated to be experiencing annual losses of 1-2% globally. Past restoration efforts have largely implemented managed realignment strategies, however, examples of, and research on, conservation initiatives employing direct transplantation of saltmarsh vegetation into damaged or receding saltmarsh stands is less common. Here an example of transplantation restoration was investigated to understand its influence on sediment dynamics. Sediment settlement, deposition, and accretion rates of natural and restored vegetation (Bolboschoenus maritimus) and adjacent bare mudflats in a small estuary system were studied across consecutive seasons from summer 2015 to spring 2016 to examine the success of transplantation. Natural areas of B. maritimus were shown to be most effective at retaining deposited material, although experiencing the least amount of deposition (an average of 48 g/m(2) per day), accreting by nearly 7.5 mm over the experimental period. Mudflat areas experienced the most deposition (an average of 322 g/m(2) per day) whilst exhibiting the greatest erosion over the study, a decrease in level of 6 mm. Restored areas experience similar rates of deposition as their natural counterparts, however, did not retain this material as efficiently, presenting an erosion of 1.6 mm. The study indicates certain biogeomorphic processes have been altered within the restored area and beginning to reflect those of the natural area. However, the restored vegetation does not yet fully match the functionality of the natural B. maritimus stand, specifically where the natural stand displayed a net accretion of material the restored area did not. Such discrepancies may impact on the continued survival of the restoration site, which may have implications for the potential of transplanting to deliver ecosystem services, such as climate change mitigation through carbon burial.
+PU  - FRONTIERS MEDIA SA
+PI  - LAUSANNE
+PA  - AVENUE DU TRIBUNAL FEDERAL 34, LAUSANNE, CH-1015, SWITZERLAND
+DA  - 2019 JUN 26
+PY  - 2019
+VL  - 7
+DO  - 10.3389/fevo.2019.00237
+AN  - WOS:000473143700001
+ER  -
+
+TY  - CPAPER
+AU  - Reed, J
+AU  - Chappell, A
+AU  - French, JR
+AU  - Oliver, MA
+ED  - Monestiez, P
+ED  - Allard, D
+ED  - Froidevaux, R
+TI  - Geostatistical analysis of PCB-contaminated sediment in a commercial dock, Swansea, UK
+T2  - GEOENV III - GEOSTATISTICS FOR ENVIRONMENTAL APPLICATIONS
+M3  - Proceedings Paper
+CP  - 3rd European Conference on Geostatistics for Environmental Applications
+CL  - Avignon, FRANCE
+AB  - Dredge materials are now regarded as a resource and are being promoted for beneficial uses such as beach, saltmarsh and wetland restoration. Such a variety of end-uses requires more complex risk assessments, particularly with regard to contaminant loadings and their likely fate in sensitive receiving environments. A case study of Polychlorinated biphenyl (PCBs) concentrations in the sediments of a large (1.5 km x 0.5 km) industrialised dock is used to explore sampling issues and their analysis using geostatistics. A nested sampling scheme of 101 sites is used to identify the magnitude and scale of spatial variation of sediment PCBs. Experimental variograms of individual congeners, total PCBs, particle size, total organic carbon and their principal components are computed and modelled. These provide a clear description of the spatial structure of PCBs and some insight into possible processes affecting their distribution. Ordinary kriging is used to estimate PCB concentrations over the dock. Two areas in the dock exhibit elevated PCB concentrations, which might reflect particular point sources of contamination. The results confirm the effectiveness of the sampling for detecting the spatial scale of variation, and the suitability of geostatistical techniques for investigating the processes controlling the spatial distribution of contaminants. Accurate description of the spatial distribution of contaminants can reduce the risk of misclassification of material designated for remediation, disposal or beneficial use.
+PU  - SPRINGER
+PI  - DORDRECHT
+PA  - PO BOX 17, 3300 AA DORDRECHT, NETHERLANDS
+DA  - 2001 
+PY  - 2001
+VL  - 11
+SP  - 487
+EP  - 497
+AN  - WOS:000172422200042
+ER  -
+
+TY  - DATA
+AU  - Gomez-Saez, Gonzalo V
+AU  - Pohlabeln, Anika M
+AU  - Stubbins, Aron
+AU  - Marsay, Chris M
+AU  - Dittmar, Thorsten
+TI  - Photochemical Alteration of Dissolved Organic Sulfur from Sulfidic Porewater
+T2  - Figshare
+M3  - Data set
+AB  - Sulfidic sediments are a source of dissolved organic sulfur (DOS) to the ocean but the fate of sedimentary DOS in the oxic, sunlit water column is unknown. We hypothesized that photodegradation after discharge from the dark sedimentary environment results in DOS molecular transformation and decomposition. To test this hypothesis, sulfidic porewater from a saltmarsh was exposed to potential abiotic transformations of dissolved organic matter (DOM) in the water column. We quantitatively investigated DOM transformations via elemental analysis and molecularly via ultrahigh-resolution mass spectrometry. Our study indicated that photoreactivity is dependent on DOM elemental composition as DOS molecular formulas were more photolabile than those without sulfur. Prior to solar irradiation, of the 6451 identified molecular formulas in sulfidic porewater, 39% contained sulfur. After 29 days of irradiation, the DOS concentration was depleted from 13 to 1 muM, together with a 9% decrease in the number of DOS molecular formulas. Comparing porewater and oceanic DOS molecular formulas, solar irradiation increased the similarity due to the removal of photolabile DOS formulas not present in the ocean. In conclusion, DOS from sulfidic sediments is preferentially photolabile and solar irradiation can be a potential mechanism controlling the stability and fate of porewater DOS. Copyright: CC BY-NC
+DA  - 2017 
+PY  - 2017
+DO  - 10.1021/acs.est.7b03713.s001
+AN  - DRCI:DATA2018101013094720
+ER  -
+
+TY  - JOUR
+AU  - CUNNINGHAM, PA
+TI  - A REVIEW OF TOXICITY TESTING AND DEGRADATION STUDIES USED TO PREDICT THE EFFECTS OF DIFLUBENZURON (DIMILIN) ON ESTUARINE CRUSTACEANS
+T2  - ENVIRONMENTAL POLLUTION SERIES A-ECOLOGICAL AND BIOLOGICAL
+M3  - Review
+PU  - ELSEVIER SCI LTD
+PI  - OXFORD
+PA  - THE BOULEVARD, LANGFORD LANE, KIDLINGTON, OXFORD OX5 1GB, OXON, ENGLAND
+DA  - 1986 
+PY  - 1986
+VL  - 40
+IS  - 1
+SP  - 63
+EP  - 86
+DO  - 10.1016/0143-1471(86)90058-9
+AN  - WOS:A1986AYJ8700005
+ER  -
+
+TY  - JOUR
+AU  - Gu, Jiali
+AU  - Jin, Runjie
+AU  - Chen, Guangwei
+AU  - Ye, Zhanjiang
+AU  - Li, Qi
+AU  - Wang, Hengwei
+AU  - Li, Dan
+AU  - Christakos, George
+AU  - Agusti, Susana
+AU  - Duarte, Carlos M.
+AU  - Luo, Yongming
+AU  - Wu, Jiaping
+TI  - Areal Extent, Species Composition, and Spatial Distribution of Coastal Saltmarshes in China
+T2  - IEEE JOURNAL OF SELECTED TOPICS IN APPLIED EARTH OBSERVATIONS AND REMOTE SENSING
+M3  - Article
+AB  - Coastal saltmarshes are key ecosystems with important ecological functions. Yet, they have experienced a widespread decline. Due to their importance, the conservation and restoration of saltmarshes are globally shared objectives, including China. Despite multiple local studies, nationwide information about saltmarshes in China is scarce. Thus, we used remote sensing to delineate the spatial distribution and areal extent of saltmarshes along coastal China and resolve their species composition. By interpreting 10 m spatial resolution Sentinel-2 images on Google Earth Engine, assisted with field survey and literature search, a total of 118 010 ha of saltmarshes were delineated in coastal China in 2019. Seven typical saltmarsh species were identified, with Phragmites australis, Spartina alterniflora, and Scirpus mariquater as dominant species, accounting for 95.5% of total saltmarsh extent, while Suaeda salsa, Tamarix chinensis, Cyperus malaccensis, and Sesuvium portulacastrum were present in limited abundance. The P. australis and exotic species S. alterniflora grow along almost all coastal provinces, but P. australis dominates in the north while S. alterniflora dominates in the middle part of coastal China. Suaeda salsa occurs mainly in the north and has suffered large losses. Tamarix chinensis is abundant in Shandong province, S. mariquater in the Yangtze River delta, C. malaccensis in Guangdong and Guangxi provinces, and S. portulacastrum in Taiwan. The exotic species S. alterniflora expanded extensively along the coast and its expansion rate continues to increase. The results provided conform a much-needed baseline for future monitoring efforts and the assessment of progress in the conservation and restoration projects toward recovering saltmarshes in China.
+PU  - IEEE-INST ELECTRICAL ELECTRONICS ENGINEERS INC
+PI  - PISCATAWAY
+PA  - 445 HOES LANE, PISCATAWAY, NJ 08855-4141 USA
+DA  - 2021 
+PY  - 2021
+VL  - 14
+SP  - 7085
+EP  - 7094
+DO  - 10.1109/JSTARS.2021.3093673
+AN  - WOS:000678338200013
+ER  -
+
+TY  - JOUR
+AU  - Alderson, Brendan
+AU  - Mazumder, Debashish
+AU  - Saintilan, Neil
+AU  - Zimmerman, Ken
+AU  - Mulry, Phil
+TI  - Application of isotope mixing models to discriminate dietary sources over small-scale patches in saltmarsh
+T2  - MARINE ECOLOGY PROGRESS SERIES
+M3  - Article
+AB  - Intertidal grazing crabs play an important role in estuarine ecosystems, transforming carbon fixed by autotrophs into forms available to a wide range of consumers. Whether the autotrophic carbon is derived primarily from intertidal vegetation or microalgae is an important question to be resolved, as the modification of estuaries alters the balance between these potential food sources, and restoration efforts are best guided by an understanding of the primary drivers of ecosystem energy flow. We utilised the mosaic of C-3 and C-4 vegetated patches in a temperate saltmarsh to clarify the relative contributions of potential sources of carbon and nitrogen to the diet of 2 species of grapsid crabs: Paragrapsus laevis and Helograpsis haswellianus. The 2 vegetation communities occupied the same position in relation to tidal elevation. We analysed stable isotopes of carbon (delta C-13) and nitrogen (delta N-15) to discriminate 3 potential sources of dietary carbon using an IsoSource mixing model: microphytobenthos (MPB); fine benthic organic matter (FBOM); and fresh plant material. We found enrichment of delta C-13 and depletion of delta N-15 in crabs sampled from patches of the C-4 grass Sporobolus virginicus, consistent with the use of C-4 derived carbon compared to those sampled in the C-3 chenopod Sarcocornia quinqueflora. However, microphytobenthos was similarly depleted within large patches of S. virginicus, implying uptake of dissolved inorganic carbon originating from plant respiration. Multiple-source mixing (IsoSource) models indicated a primary role for MPB and FBOM in crab diets, with locally derived plant material making little contribution to crab diet. The result contrasts with those of studies from subtropical and tropical systems.
+PU  - INTER-RESEARCH
+PI  - OLDENDORF LUHE
+PA  - NORDBUNTE 23, D-21385 OLDENDORF LUHE, GERMANY
+DA  - 2013 
+PY  - 2013
+VL  - 487
+SP  - 113
+EP  - 122
+DO  - 10.3354/meps10335
+AN  - WOS:000322577400010
+ER  -
+
+TY  - CPAPER
+AU  - Giani, L
+AU  - Dittrich, K
+ED  - Broll, G
+ED  - Merbach, W
+ED  - Pfeiffer, EM
+TI  - Methane dynamics of saltmarsh soils built up from marine and peat material at the German North Sea coast
+T2  - WETLANDS IN CENTRAL EUROPE: SOIL ORGANISMS, SOIL ECOLOGICAL PROCESSES AND TRACE GAS EMISSIONS
+M3  - Proceedings Paper
+CP  - Workshop on Soil Ecological Processes in Wetlands
+CL  - ZALF, CTR AGR LANDSCAPE & LAND USE RES, MUNCHEBERG, GERMANY
+AB  - Humus-rich saltmarsh soils near the Sehestedter Aubetaendeichsmoor at the German North Sea coast are considered to be a source for methane. To get more information on the extent of methanogenesis and its influencing factors in the seasonal course we investigated the methane dynamics in long-term experiments. The methane concentrations were mostly 0-2 mumol g(-1) in the topsoil and 0->10 mumol g(-1) in the subsoil, thus showing increasing values and increasing variability with increasing soil depths. With significant positive correlations to the methane concentrations the methane production rates were often in the range of 100-200 mmol g(-1) d(-1). The sulfate concentrations were 0->10 mM in the topsoil and mostly 0-2 mM in the subsoil, showing an inverse behaviour as compared to the methane dynamics, expressed by the highly negative correlation coefficient and indicating that competitive substrates are the predominant cause for the intense methanogenesis. Allochthonous organic matter is the cause for the natural or geological eutrophy of this site. The SO42-/Cl- ratios ranged from 0.01 -0.11 in the topsoil and from 0-0.03 in the subsoil, showing that sulfate reduction prevails over sulfate oxidation with increasing soil depths. The temporal variability of the methane dynamics indicated that besides substrates the redox potential is an important factor controlling methanogenesis. Methane emission rates were highly variable with up to 120 mg m(-2) d(-1) in the areas with vegetation and even up to 7751 mg m(-2) d(-1) in those without vegetation, clearly revealing the soils to be a source for methane.
+PU  - SPRINGER-VERLAG BERLIN
+PI  - BERLIN
+PA  - HEIDELBERGER PLATZ 3, D-14197 BERLIN, GERMANY
+DA  - 2002 
+PY  - 2002
+SP  - 197
+EP  - 213
+AN  - WOS:000177816100011
+ER  -
+
+TY  - JOUR
+AU  - Garcia, Alexandre M.
+AU  - Claudino, Marlucy Coelho
+AU  - Mont'Alverne, Renata
+AU  - Rubira Pereyra, Paula Evelyn
+AU  - Copertino, Margareth
+AU  - Vieira, Joao Paes
+TI  - Temporal variability in assimilation of basal food sources by an omnivorous fish at Patos Lagoon Estuary revealed by stable isotopes (2010-2014)
+T2  - MARINE BIOLOGY RESEARCH
+M3  - Article
+AB  - Estuarine systems are characterized by complex physicochemical and hydrological changes occurring across multiple scales, which determine spatiotemporal variation in distribution and abundance of consumers and their resources. However, little is known about the effects of these biophysical interactions on the interannual dynamics of estuarine food webs. In this work, a five-year stable isotope data set was used to investigate interannual variability in trophic links between basal production sources (seagrass, macroalgae, saltmarsh, particulate organic matter in suspension and in the sediment) and an omnivorous fish (Jenynsia multidentata) in a subtropical estuary emptying in the Southwestern Atlantic. The isotopic variability (C-13, N-15) of basal sources and the consumer was analysed seasonally on a mudflat from 2010 to 2014. Jenynsia multidentata showed significant interannual variation in their trophic links with primary producers. In most seasons and years, the consumer relied heavily on benthic-associated food resources, but shifted to pelagic food resources during certain seasons. A green tide' caused by a massive bloom of vicariant macroalgae occurred on the mudflat, but our findings suggested that the carbon-derived portion of this basal production source was not assimilated by J. multidentata. Instead, seagrass was the most assimilated benthic basal food source in most seasons and years. These results suggest that the intensity of benthic and pelagic trophic pathways sustaining estuarine consumers are not static, but change in response to intra- and interannual variation in the availability of basal production sources. Our findings reinforce the need to account for interannual trends in availability of resources when modelling estuarine food web dynamics.
+PU  - TAYLOR & FRANCIS AS
+PI  - OSLO
+PA  - KARL JOHANS GATE 5, NO-0154 OSLO, NORWAY
+DA  - 2017 
+PY  - 2017
+VL  - 13
+IS  - 1
+SP  - 98
+EP  - 107
+DO  - 10.1080/17451000.2016.1206939
+AN  - WOS:000395084400009
+ER  -
+
+TY  - JOUR
+AU  - El-Ghani, Monier M. Abd
+TI  - Vegetation composition of Egyptian inland saltmarshes
+T2  - Botanical Bulletin of Academia Sinica (Taipei)
+M3  - Article
+AB  - The vegetation-environment relationships in the inland saltmarshes of two geographically distant oases of the Western Desert of Egypt, Siwa, and Dakhla Oases, are described. Two data sets (25 species X 68 stands for Siwa Oasis and 29 species X 89 stands for Dakhla Oasis) were analysed, using multivariate procedures, i.e., two-way indicator species analysis (TWINSPAN), detrended correspondence analysis (DCA), and detrended canonical correspondence analysis (DCCA), to produce a classification of plant communities in the studied areas, and to examine the relationships of these plant communities to certain edaphic factors, namely soil reaction, total soluble salts, calcium carbonate, organic matter, moisture content, and fine fractions. Twelve halophytic plant communities linked to two main habitats (wet-moist and dry-mesic) were identified. Alhagi graecorum, Tamarix nilotica, Cressa cretica, Juncus rigidus and Phragmites australis were the most common in the two oases. Whereas communities of Cyperus laevigatus, Suaeda aegyptiaca, Suaeda vermiculata, Typha domingensis, and Aeluropus lagopoides are recorded from the Dakhla Oasis, Cladium mariscus and Arthrocnemum macrostachyum communities are recorded from the Siwa Oasis. The most important edaphic variables affecting the distribution and structure of the plant communities are salinity, moisture content and fine fractions, nevertheless CaCO3 content seems to be more effective in the Dakhla Oasis. A new agricultural strategy that minimizes the increase of salinized lands is called for.
+DA  - 2000 
+PY  - 2000
+VL  - 41
+IS  - 4
+SP  - 305
+EP  - 314
+AN  - BCI:BCI200100040476
+ER  -
+
+TY  - DATA
+AU  - Gollety, C
+AU  - Davidson, I
+AU  - Paterson, DM
+TI  - Coastal Biodiversity and Ecosystem Service Sustainability (CBESS) greenhouse gas fluxes in saltmarsh and mudflat habitats
+T2  - NERC Environmental Information Data Centre
+M3  - Data set
+AB  - The dataset details greenhouse gas fluxes as carbon dioxide (CO2), methane (CH4) and nitrous oxide (N2O) across six intertidal sites in the winter and summer of 2013. Three of the sites were in Morecambe Bay, North West England and three of the sites were in Essex, South East England, each of these sites consisted of a saltmarsh area and adjacent mudflat area, twenty two sampling quadrats were placed on each area. Light and dark incubations were performed using a benthic chamber on seven of the twenty two quadrats of each site. This data was collected as part of Coastal Biodiversity and Ecosystem Service Sustainability (CBESS): NE/J015644/1. The project was funded with support from the Biodiversity and Ecosystem Service Sustainability (BESS) programme. BESS is a six-year programme (2011-2017) funded by the UK Natural Environment Research Council (NERC) and the Biotechnology and Biological Sciences Research Council (BBSRC) as part of the UK's Living with Environmental Change (LWEC) programme. Each site consisted of a polygon of roughly 400 x 500 m to 1000 x 1000 m in size, dependent upon site length (parallel to shore) and width (perpendicular to shore). Twenty two 1 x 1 m quadrats were randomly placed within each site polygon using R (R Development Core Team, 2014) to specify placement at four different spatial scales (A = 1 quadrat only, B = 3 quadrats at 1 m to 10 m apart, C = 6 quadrats at 10 m to 100 m apart, D = 12 quadrats at 100 m to 1000 m or site maximum). Only the quadrat from scale A, two quadrats from scale B and four quadrats from scale C were sampled for greenhouse gas fluxes. Light and dark incubations were performed using a benthic chamber connected to an infrared gas analyser. This allowed direct measurements of CO2. CH4 and N2O fluxes were measured from gas samples collected at five time points during the dark incubation and stored in glass Exetainer bottles for later processing. The samples were analysed using a gas chromatograph. Copyright: This resource is made available under the terms of the Open Government Licence
+DA  - 2015 
+PY  - 2015
+DO  - 10.5285/186FDB05-CC14-4315-BE30-FEC28048B310
+AN  - DRCI:DATA2016117009479893
+ER  -
+
+TY  - JOUR
+AU  - Kim, Ha-Song
+AU  - 박정원
+AU  - 김진석
+TI  - The Soil Properties of the Halophytes in the Saltmarsh of Suncheon Bay
+TI  - 순천만 염생식물의 생육지 토양환경 특성 모니터링
+T2  - the Journal of Korean Island
+T2  - 한국도서연구
+M3  - research-article
+AB  - This study was carried out in the soil environment of the halophyte habitant in Suncheon Bay, from April 2010～ May 2011. The Halophyte community of the Suncheon Bay was classified into 10 sites : Phragmites communis community(5 sites), Carex scabrifolia community(1 sites), Bare ground(1 sites) and Suaeda japonica community(3 sites), which were a distributed zonation throughout the halophyte habitant.The pH was low in the A-1 site from April 2010 and was high in the C-1 site from November 2010, with the Value of 6.24 and 7.34, respectively. The salinity was high in the A-1 site from November 2010, low in the D-1, D-2 site from October 2010, with value of 5.20ppt and 1.7ppt. The moisture contents were high in the A-2 site from April 2010 and were low in the D-3 site from April 2010, with the value of 50.50% and 28.38%.The organic matter was high in the A-2 site from July 2010 and was low in the A-3 from November 2010, with the value of 11.35% and 3.81% respectively. The total nitrogen was highest in the A-2 site from May 2010 and lowest in the A-2 site from April 2011 with value 2.0 mg/g and 0.15mg/g. The electronic conductivity was high in the A-5 from November 2010 and was low in the D-1 site from May 2010 with the value 10700us and 3030us respectively. The soil particle size distribution in the sites showed a soil particle size(250㎛) a higher percent in June than April according to the change of season. The results of this investigation on environmental characteristics of the substratum in the halophyte habitant show that there are significant differences in halophyte community according to the properties contained in the soil of Suncheon Bay. Further, we suppose that more precise information in the halophyte habitant of Suncheon Bay will be a important data in the knowledge of the formation of soil environment.
+PU  - 한국도서(섬)학회
+DA  - 2011 
+PY  - 2011
+VL  - 23
+IS  - 2
+SP  - 135
+EP  - 152
+AN  - KJD:ART001581317
+ER  -
+
+TY  - JOUR
+AU  - Huang, Jing
+AU  - Lei, Shao
+AU  - Tang, Liang
+AU  - Wang, Aihua
+AU  - Wang, Zhanghua
+TI  - Mid-Holocene environmental change and human response at the Neolithic Wuguishan site in the Ningbo coastal lowland of East China
+T2  - HOLOCENE
+M3  - Article
+AB  - Coastal wetlands provided a favorable settling site for Neolithic people because of their highly exploitable biomass, but were vulnerable to marine hazards such as coastal flooding. The Chinese Hemudu culture persisted for similar to 2000 years (7200-5300 cal. year BP) in the Ningbo coastal lowland of East China. This study explores the Hemudu people's survival strategy using sedimentological and chronological records, and organic and acetic-acid-leachable alkaline-earth (Ca, Sr, and Ba) chemistry on a well-dated profile from the coastal Wuguishan site in the Ningbo Plain. Analyses of alkaline-earth elements in surficial sediments collected from present-day alluvial plain, tidal river, and saltmarsh/tidal flat environments in the Ningbo Plain were also undertaken to explain sedimentary environmental changes and their linkage to Hemudu activity at the Wuguishan site. Results indicate high sediment acetic-acid-leachable Ca and Sr contents with high Sr/Ba ratios, and high sediment total inorganic carbon contents at the site during 6300-6000 cal. year BP, which coincided with a marine incursion at the nearby Neolithic Yushan site. However, the increasing sediment total organic carbon contents and decreasing delta C-13 values suggest that the Wuguishan site evolved from an upper tidal flat to a saltmarsh environment, attracting settlement by the prehistoric Hemudu people after similar to 6200 cal. year BP. Sr and Ca contents and Sr/Ba ratios decreased after similar to 6000 cal. year BP, indicating that the site developed into a low-salinity marsh in the supratidal environment after rapid accumulation caused by a storm event at similar to 6020 cal. year BP. Furthermore, the high Sr and Ba contents in the layers of Hemudu Culture Period III indicate the Hemudu people's consumption of seafood and their adaption strategy for living in the vulnerable coastal wetland.
+PU  - SAGE PUBLICATIONS LTD
+PI  - LONDON
+PA  - 1 OLIVERS YARD, 55 CITY ROAD, LONDON EC1Y 1SP, ENGLAND
+DA  - 2020 NOV
+PY  - 2020
+VL  - 30
+IS  - 11
+SP  - 1591
+EP  - 1605
+DO  - 10.1177/0959683620941070
+AN  - WOS:000548877800001
+ER  -
+
+TY  - JOUR
+AU  - Simpson, Lorae T.
+AU  - Cherry, Julia A.
+AU  - Smith, Rachel S.
+AU  - Feller, Ilka C.
+TI  - Mangrove Encroachment Alters Decomposition Rate in Saltmarsh Through Changes in Litter Quality
+T2  - ECOSYSTEMS
+M3  - Article
+AB  - Global climate change is driving the expansion of mangroves into saltmarsh habitat, which may alter the rate and magnitude of organic matter decomposition and nutrient cycling due to differences in the structural complexity, litter quality, and other ecophysiological traits of foundation species. This work quantified and compared aboveground litter decomposition of the range-expanding mangrove,Avicennia germinans,and resident saltmarsh cordgrass,Spartina alterniflora, and decomposition of a standard substrate belowground, in the saltmarsh and saltmarsh-mangrove ecotone habitat along the Atlantic coast of Florida, USA. Plant and soil fractions were tested for natural abundances of delta C-13 and delta N-15 stable isotopes to elucidate soil nutrient sources. Although aboveground decomposition rates differed between marsh and mangrove species due to differences in litter quality, decomposition rates did not vary between saltmarsh and ecotonal habitats. Decay rates were higher forA. germinansleaf litter (0.007 +/- 0.0003 k day(-1)) than forS. alterniflora(0.004 +/- 0.0003 k day(-1)) regardless of habitat, which suggests that increasing inputs ofA. germinanslitter with encroachment may increase nutrient availability through rapid turnover. Furthermore, belowground decomposition was similar between habitats (0.015 +/- 0.0008 k day(-1)), whereas soil delta C-13 and delta N-15 stable isotopes differed significantly. Collectively, these results suggest that mangrove encroachment may not modify the environmental factors driving decomposition, but alterations in foundation plant species may ultimately alter nutrient cycling within habitats through shifts in litter quality.
+PU  - SPRINGER
+PI  - NEW YORK
+PA  - ONE NEW YORK PLAZA, SUITE 4600, NEW YORK, NY, UNITED STATES
+DA  - 2021 JUN
+PY  - 2021
+VL  - 24
+IS  - 4
+SP  - 840
+EP  - 854
+DO  - 10.1007/s10021-020-00554-z
+AN  - WOS:000570840200002
+ER  -
+
+TY  - JOUR
+AU  - Miller, Carson B.
+AU  - Rodriguez, Antonio B.
+AU  - Bost, Molly C.
+TI  - Sea-level rise, localized subsidence, and increased storminess promote saltmarsh transgression across low-gradient upland areas
+T2  - QUATERNARY SCIENCE REVIEWS
+M3  - Review
+AB  - Saltmarsh area is decreasing globally from natural and anthropogenic stressors. Accelerating relative sea-level rise (SLR) is projected to exacerbate losses if not offset by upland saltmarsh migration (transgression). In the absence of coastal upland development, saltmarsh transgression rates increase with accelerating SLR and lower upland surface gradients. Storm wind and surge stress coastal upland forests causing defoliation, uprooting, and soil salinization, which makes upland areas more habitable for saltmarsh species and can promote transgression. This study aims to elucidate the contribution of storms to saltmarsh transgression by reconstructing transgression rates over the past 600 years during stormy and non-stormy conditions and fast and slow SLR rates. Our reconstructions are based on the stratigraphic record and historical aerial photography at three sites in North Carolina, U.S.A. where low-gradient pocosin upland grades into expansive saltmarsh. When sea level was rising <0.9 mm yr(-1), saltmarsh transgression rates at the two sites where saltmarsh is > 100 years were an average of 2 and 10 times faster during a paleo-stormy period (1400-1675 CE) than a subsequent non-stormy period. After 1865 CE when SLR accelerated to 2.4 mm yr(-1), transgression rates were an average of 7 times faster than the preceding slow SLR non-stormy period. The two sites where the historical record was not confounded by dredging show transgression was 7 times faster and saltmarsh areas increased an average of 28% during stormy decades than non-stormy decades; however, the rate of transgression only increased at the site with greatest surge during the stormy period characterized by strong northeast winds. Modeled transgression rates, using the paleo-upland slope and a sea level curve, do not match observed transgression rates for the paleo-stormy and rapid SLR periods. Furthermore, the thickness of saltmarsh peat younger than 1957 CE is greater than what would be predicted from independent records of SLR. Changes in the elevation of the upland surface, which is composed of peat, contributes to the disparity between predicted and observed transgression rates. The upland surface elevation can keep pace with some rates of SLR through vertical accretion; however, salinization and decomposition of upland vegetation from storm surge plus SLR decreases the elevation of the paleo-upland surface and increases accommodation and transgression rates. Along low-gradient coastlines with pocosin upland areas, SLR, subsidence, and storminess are coupled in modulating transgression rates and those processes need to be included in forecasts of saltmarsh response to climate change. (C) 2021 Elsevier Ltd. All rights reserved.
+PU  - PERGAMON-ELSEVIER SCIENCE LTD
+PI  - OXFORD
+PA  - THE BOULEVARD, LANGFORD LANE, KIDLINGTON, OXFORD OX5 1GB, ENGLAND
+DA  - 2021 AUG 1
+PY  - 2021
+VL  - 265
+DO  - 10.1016/j.quascirev.2021.107000
+AN  - WOS:000677549500006
+ER  -
+
+TY  - JOUR
+AU  - THOMAS, SM
+AU  - LONG, SP
+TI  - C-4 PHOTOSYNTHESIS IN SPARTINA-TOWNSENDII AT LOW AND HIGH-TEMPERATURES
+T2  - PLANTA
+M3  - Article
+PU  - SPRINGER VERLAG
+PI  - NEW YORK
+PA  - 175 FIFTH AVE, NEW YORK, NY 10010
+DA  - 1978 
+PY  - 1978
+VL  - 142
+IS  - 2
+SP  - 171
+EP  - 174
+DO  - 10.1007/BF00388208
+AN  - WOS:A1978FQ95900006
+ER  -
+
+TY  - JOUR
+AU  - Guiry, Eric
+AU  - Noel, Stephane
+AU  - Fowler, Jonathan
+TI  - Archaeological herbivore delta C-13 and delta S-34 provide a marker for saltmarsh use and new insights into the process of N-15-enrichment in coastal plants
+T2  - JOURNAL OF ARCHAEOLOGICAL SCIENCE
+M3  - Article
+AB  - Saltmarshes are tremendously important culturally and ecologically because they can provide abundant nutrient-rich fodder for grazing livestock, with relatively little resource investment. They also perform critical ecological services, including detoxifying water and stabilizing coastlines. For these reasons, methods for investigating the nature and extent of past saltmarsh use have significant potential to provide new insights into patterns in coastal adaptations among past agricultural societies as well as paleoenvimnmental change. Stable nitrogen isotope (delta N-15) analyses of animal bone collagen have been used to investigate ancient saltmarsh use based on the idea that plants growing in saline and/or coastal regions can have higher delta N-15 values. However, interpretation of delta N-15 evidence for saltmarsh use can be challenging because variation in terrestrial nitrogen sources and cycling can result in similarly elevated in delta N-15 values in animals that did not feed in saltmarshes. Ecological studies show that stable carbon (delta C-13) and sulfur (delta S-34) isotope analyses are well suited for investigating saltmarsh use because key species (particularly those in the genus Spartina) that dominate these ecosystems in many areas of the world are C-4 plants capable of incorporating sulfuide-derived, S-34-depleted sulfur. We investigate the utility of delta C-13, delta S-34, and delta N-15 for tracking saltmarsh use in archaeological herbivores (n = 80) from seventeenth-to-eighteenth-century Acadian settlements in Canada, which were renowned for their agricultural use of saltmarsh ecosystems. Results show extreme variation in delta C-13 and delta S-34 consistent with feeding along C-3-to-C-4 and sulfate-to-sulfide-derived sulfur continuums. Significant correlations between delta C-13 and delta S-34 suggests that variation in these isotopic compositions reflects the relative importance of Spartina in past Acadian animal husbandry. These findings indicate that, even in areas where other C-13-eniched food sources are available (e.g., seaweeds, maize), combined delta C-13 and delta S-34 analyses should be able to identify Spartina use in coastal regions. A strong negative correlation was also found between delta S-34 and delta N-15, suggesting that processes driving coastal sulfur and nitrogen cycles in the region are coupled (independently of Spartina consumption) and provide new insights into the mechanism behind N-15 enrichment observed in saltmarsh plants.
+PU  - ACADEMIC PRESS LTD- ELSEVIER SCIENCE LTD
+PI  - LONDON
+PA  - 24-28 OVAL RD, LONDON NW1 7DX, ENGLAND
+DA  - 2021 JAN
+PY  - 2021
+VL  - 125
+DO  - 10.1016/j.jas.2020.105295
+AN  - WOS:000608760600004
+ER  -
+
+TY  - JOUR
+AU  - Duarte, B.
+AU  - Santos, D.
+AU  - Silva, H.
+AU  - Marques, J. C.
+AU  - Cacador, I.
+AU  - Sleimi, N.
+TI  - Light-dark O-2 dynamics in submerged leaves of C-3 and C-4 halophytes under increased dissolved CO2: clues for saltmarsh response to climate change
+T2  - AOB PLANTS
+M3  - Article
+AB  - Waterlogging and submergence are the major constraints to which wetland plants are subjected, with inevitable impacts on their physiology and productivity. Global warming and climate change, as driving forces of sea level rise, tend to increase such submersion periods and also modify the carbonate chemistry of the water column due to the increased concentration of CO2 in the atmosphere. In the present work, the underwater O-2 fluxes in the leaves of two abundant Mediterranean halophytes were evaluated at different levels of dissolved CO2. Photosynthetic enhancement due to increased dissolved CO2 was confirmed for both Halimione portulacoides and Spartina maritima, probably due to high tissue porosity, formation of leaf gas films and reduction of the oxygenase activity of Rubisco. Enhancement of the photosynthetic rates in H. portulacoides and S. maritima was concomitant with an increase in energy trapping and transfer, mostly due to enhancement of the carboxylation reaction of Rubisco, leading to a reduction of the energy costs for carbon fixation. Transposing these findings to the ecosystem, and assuming increased dissolved CO2 concentration scenarios, the halophyte community displays a new ecosystem function, increasing the water column oxygenation and thus reinforcing their role as principal primary producers of the estuarine system.
+PU  - OXFORD UNIV PRESS
+PI  - OXFORD
+PA  - GREAT CLARENDON ST, OXFORD OX2 6DP, ENGLAND
+DA  - 2014 
+PY  - 2014
+VL  - 6
+DO  - 10.1093/aobpla/plu067
+AN  - WOS:000349438600006
+ER  -
+
+TY  - JOUR
+AU  - Mahmoudi, Nagissa
+AU  - Porter, Teresita M.
+AU  - Zimmerman, Andrew R.
+AU  - Fulthorpe, Roberta R.
+AU  - Kasozi, Gabriel N.
+AU  - Silliman, Brian R.
+AU  - Slater, Greg F.
+TI  - Rapid Degradation of Deepwater Horizon Spilled Oil by Indigenous Microbial Communities in Louisiana Saltmarsh Sediments
+T2  - ENVIRONMENTAL SCIENCE & TECHNOLOGY
+M3  - Article
+AB  - The Deepwater Horizon oil spill led to the severe contamination of coastal environments in the Gulf of Mexico. A previous study detailed coastal saltmarsh erosion and recovery in a number of oil-impacted and nonimpacted reference sites in Barataria Bay, Louisiana over the first 18 months after the spill. Concentrations of alkanes and polyaromatic hydrocarbons (PAHs) at oil-impacted sites significantly decreased over this time period. Here, a combination of DNA, lipid, and isotopic approaches confirm that microbial biodegradation was contributing to the observed petroleum mass loss. Natural abundance C-14 analysis of microbial phospholipid fatty acids (PLFA) reveals that petroleum-derived carbon was a primary carbon source for microbial communities at impacted sites several months following oil intrusion when the highest concentrations of oil were present. Also at this time, microbial community analysis suggests that community structure of all three domains has shifted with the intrusion of oil. These results suggest that Gulf of Mexico marsh sediments have considerable biodegradation potential and that natural attenuation is playing a role in impacted sites.
+PU  - AMER CHEMICAL SOC
+PI  - WASHINGTON
+PA  - 1155 16TH ST, NW, WASHINGTON, DC 20036 USA
+DA  - 2013 DEC 3
+PY  - 2013
+VL  - 47
+IS  - 23
+SP  - 13303
+EP  - 13312
+DO  - 10.1021/es4036072
+AN  - WOS:000327999400016
+ER  -
+
+TY  - JOUR
+AU  - Fock, Heino Ove
+TI  - Littoral endofauna associations of the Schleswig-Holstein Wadden Sea as well as Eider and Elbe rivers with special regard to upper eulittoral and lower supralittoral
+T2  - Faunistisch-Oekologische Mitteilungen
+M3  - Article
+AB  - In the intertidal and supratidal zone of the Wadden Sea of Schleswig-Holstein 38 stations including estuarine habitats of the rivers Elbe and Eider, and 1 station in the epitidal zone have been investigated in 1989/90 and 1991/92. Parameters investigated were composition, structure and dynamics of benthic and edaphic communities (Annelida, Mollusca, Crustacea). Additionally, collembola have been investigated at six supratidal stations from 1990 to 1991. The physical environment is characterized by gradients of inundation, and salinity. The inundation-index varies between 0 in epitidal and 3500 in mid-level intertidal habitats. Salinity ranges from limnetic to marine conditions. Mean salinities in the supratidal zone are lower than in the adjacent intertidal zone. Maximum values for chlorophyll were recorded in the intertidal zone (492 mg chl a m-2). Average values for extractable organic carbon were 67.1 g C m-2 in the intertidal and 61.7 g C m-2 in the supratidal zone. Calculated average microbial production ranged from 249.4 gC m-2 yr-1 in the intertidal zone to 250.2 gC m-2 yr-1 in supratidal zone. Marine hemiedaphic supratidal communities are characterized by Lumbricillus enteromorphae and L. lineatus in lower saltmarsh habitats, Fridericia callosa in higher habitats and Enchytraeus albidus in both zones. Characteristic collembolan species are Tullbergia krausbaueri and Folsomia sexoculata. Brackish supratidal habitats with higher salinities are characterized by Lumbricillus cf. helgolandicus and L. rivalis, with lower salinities by Fridericia alata, Fr. gracilis and Fr. bulbosa. Eiseniella tetraedra and Lumbricus rubellus inhabit stations with average salinities below 2.5 ppt. In the epitidal station zone Marionina communis, M. minutus and Enchytraeus lacteus, and earthworms occur. Marine mid-level intertidal benthic communities are characterized by Tubificoides benedii, Arenicola marina, Nephthys hombergi, Anaitides maculata and Cerastoderma edule. High-level intertidal communities are inhabited by Tubifex costatus, Manayunkia aestuarina, Pygospio elegans and Nereis diversicolor. Marenzellaria viridis is typical for brackish intertidal habitats. Limnetic communities are dominated by Limnodrilus spp. Biomasses range from 0.5 to 2.5 g AFDw/m2 for supratidal soil fauna to av. 15 g AFDW/m2 for high-level benthic communities. P/B-ratios are 2.6 for the intertidal and 2.57 for the supratidal fauna.
+DA  - 1997 
+PY  - 1997
+VL  - 0
+IS  - SUPPL. 23
+SP  - 63
+EP  - 121
+AN  - BCI:BCI199800300086
+ER  -
+
+TY  - JOUR
+AU  - Dowrick, David J.
+AU  - Freeman, Chris
+AU  - Lock, Maurice A.
+AU  - Reynolds, Briian
+TI  - Sulphate reduction and the suppression of peatland methane emissions following summer drought
+T2  - GEODERMA
+M3  - Article
+AB  - Peatland methane emissions have been proposed to decrease during summer drought as the onset of more aerobic conditions causes enhanced methane oxidation and suppressed methane production. However, emissions often fail to return to pre-drought levels for a year or more after the water table has retained to the peat surface and conditions favourable for methane production have been restored. Droughts release sulphate into the soil solution, and such increases in sulphate abundance could stimulate sulphate-reducing bacteria. These microbes are known to compete with methanogens for access to organic substrates. To examine whether this effect could continue to cause suppression of methanogenesis even after a drought, peat cores from a gully mire were incubated with either (a) the water table held at the surface of the peat, or (b) with a lowered water table for 4 weeks, followed by a period of rewetting. After a brief pulse of high methane release, methane emissions were confirmed to decrease during the drought, and to remain lower than the control emission rates throughout the rewetting period. Addition of an inhibitor of sulphate-reducing bacteria (molybdate) to the peat core slurries confirmed that sulphate reduction was significantly impairing methanogenesis and that this effect can persist longer than the end of a drought. However, low primary production during drought may be more important than the impact of sulphate in suppressing peatland methane emissions following drought. (c) 2005 Elsevier B.V. All rights reserved.
+PU  - ELSEVIER SCIENCE BV
+PI  - AMSTERDAM
+PA  - PO BOX 211, 1000 AE AMSTERDAM, NETHERLANDS
+DA  - 2006 JUN
+PY  - 2006
+VL  - 132
+IS  - 3-4
+SP  - 384
+EP  - 390
+DO  - 10.1016/j.geoderma.2005.06.003
+AN  - WOS:000237998100010
+ER  -
+
+TY  - JOUR
+AU  - Kristensen, Erik
+AU  - Rabenhorst, Martin C.
+TI  - Do marine rooted plants grow in sediment or soil? A critical appraisal on definitions, methodology and communication
+T2  - EARTH-SCIENCE REVIEWS
+M3  - Article
+AB  - Mangroves, saltmarsh plants and seagrasses grow in coastal areas near the land-ocean interface. Marine scientists normally identify the substratum in which these plants grow as sediments. For half a century, sediments supporting emergent vegetation have been described by pedologists and some ecologists as soils. However, more recently, some pedologists began to suggest that subtidal marine substrata should be "subaqueous soils." This followed a change in the definition of soil in the 2nd (1999) edition of Soil Taxonomy by the US Department of Agriculture. These developments have caused concerns among many coastal marine scientists, and have led to the emergence of serious and important questions which we address in this paper. We conclude that the terms "sediment" and "soil" to describe the substrata in coastal environments vegetated by mangrove forests, saltmarshes and seagrass beds are not mutually exclusive. Coastal marine substrata will still be denoted sediments by most marine scientists. Pedologists should recognize and affirm the appropriateness of this historical convention, while they at the same time for specific purposes can use the term "soil" when justifiable according to the definition. Furthermore, research methodology must be appropriate to the environments under study and recognize the uniqueness of these water saturated and largely anoxic environments. This is critical to avoid flawed and incomparable results and to facilitate better communication among scientists working in the coastal zone. A mutual awareness and appreciation among involved communities will help to avoid confusion and improve the understanding among the marine and soil researchers studying these systems. We hope that these ideas can be adopted by the marine and terrestrial scientific communities and look forward to further cooperation through a continued positive dialogue. (C) 2015 Elsevier B.V. All rights reserved.
+PU  - ELSEVIER
+PI  - AMSTERDAM
+PA  - RADARWEG 29, 1043 NX AMSTERDAM, NETHERLANDS
+DA  - 2015 JUN
+PY  - 2015
+VL  - 145
+SP  - 1
+EP  - 8
+DO  - 10.1016/j.earscirev.2015.02.005
+AN  - WOS:000355885300001
+ER  -
+
+TY  - JOUR
+AU  - Gray, AJ
+AU  - Mogg, RJ
+TI  - Climate impacts on pioneer saltmarsh plants
+T2  - CLIMATE RESEARCH
+M3  - Article
+M3  - Proceedings Paper
+CP  - 30th Annual International Symposium of the Estuarine-and-Coastal-Sciences-Association (ECSA)
+CL  - HAMBURG, GERMANY
+AB  - The 2 grass species that dominate the lower zones of North European saltmarshes utilise different photosynthetic pathways. Puccinellia maritima, a C(3) species, occurs at higher elevations than Spartina anglica, a C(4) species, which is a relatively recent invader and appears not to form extensive swards in latitudes north of similar to 54 degreesN because of the limiting effect of low early-season temperatures and the greater competitive ability of Puccinellia. We investigate the differential responses of the 2 grasses to rising temperatures and CO(2) Concentrations in the light of earlier work that predicts increases in their primary production, assuming a 3 degreesC rise in temperature and a doubling of atmospheric CO(2), Predictions of their responses to climate change are made using evidence from present day competitive interactions in relation to marsh elevation and latitude, and from a competition experiment in which the 2 species were grown under ambient and elevated temperature (+3 degreesC) and ambient and enriched CO(2) (+340 ppm) in all factorial combinations. Puccinellia biomass was significantly increased, as expected, by CO(2) enrichment and, probably from increasing early-season growth, by elevated temperature; the effect appeared additive, with the highest yield at the +3 degreesC +340 ppm treatment. Spartina growth increased as predicted in response to elevated temperature, but also unexpectedly in high CO(2) treatment, possibly through increased efficiency in water-use. Competition was largely asymmetric in favour of Puccinellia, affecting Spartina height and shoot weight, with intraspecific effects on tiller production and total biomass; Spartina mainly responded to both treatments and competition by increased below-ground growth. These results are compared with other, single-factor, experiments and suggest that, depending critically on some other aspects of climate change such as rising relative sea level and nutrient dynamics, Spartina is likely to extend its range northwards as CO(2) and temperatures rise, but Puccinella will continue to replace it in the succession, and probably at lower marsh elevations than at present.
+PU  - INTER-RESEARCH
+PI  - OLDENDORF LUHE
+PA  - NORDBUNTE 23, D-21385 OLDENDORF LUHE, GERMANY
+DA  - 2001 OCT 18
+PY  - 2001
+VL  - 18
+IS  - 1-2
+SP  - 105
+EP  - 112
+DO  - 10.3354/cr018105
+AN  - WOS:000172936300015
+ER  -
+
+TY  - JOUR
+AU  - Camacho, Sarita
+AU  - Moura, Delminda
+AU  - Connor, Simon
+AU  - Boski, Tomasz
+AU  - Gomes, Ana
+T2  - Revista de Gestão Costeira Integrada
+M3  - research-article
+PU  - Associação Portuguesa dos Recursos Hídricos
+PI  - Lisboa
+PA  - Lisboa
+DA  - 2014 03
+PY  - 2014
+VL  - 14
+IS  - 1
+SP  - 129
+EP  - 148
+DO  - 10.5894/rgci452
+AN  - SCIELO:S1646-88722014000100011
+ER  -
+
+TY  - JOUR
+AU  - Pillay, D.
+AU  - Branch, G. M.
+AU  - Dawson, J.
+AU  - Henry, D.
+TI  - Contrasting effects of ecosystem engineering by the cordgrass Spartina maritima and the sandprawn Callianassa kraussi in a marine-dominated lagoon
+T2  - ESTUARINE COASTAL AND SHELF SCIENCE
+M3  - Article
+AB  - Ecosystem engineering by plants and animals significantly influences community structure and the physico-chemical characteristics of marine habitats. In this paper we document the contrasting effects of ecosystem engineering by the cordgrass Spartina maritima and the burrowing sandprawn Callianassa kraussi on physico-chemical characteristics, microflora, macrofaunal community structure and morphological attributes in the high shore intertidal sandflats of Langebaan Lagoon, a marine-dominated system on the west coast of South Africa. Comparisons were made at six sites in the lagoon within Spartina and Callianassa beds, and in a "bare zone" of sandflat between these two habitats that lacks both sandprawns and cordgrass. Sediments in Spartina habitats were consolidated by the root-shoot systems of the cordgrass, leading to low sediment penetrability, while sediments in beds of C. kraussi were more penetrable, primarily due to the destabilising effects of sandprawn bioturbation. Sediments in the "bare zone" had intermediate to low values of penetrability. Sediment organic content was lowest in bare zones and greatest in Spartina beds, while sediment chl-a levels were greatest on bare sand, but were progressively reduced in the Spartina and Callianassa beds. These differences among habitats induced by ecosystem engineering in turn affected the macrofauna. Community structure was different between all three habitats sampled, with species richness being surprisingly greater in Callianassa beds than either the bare zone or Spartina beds. In general, the binding of surface sediments by the root systems of Spartina favoured rigid-bodied, surface-dwelling and tube-building species, while the destabilising effect of bioturbation by C kraussi favoured burrowing species. The contrasting effects of these ecosystem engineers suggest that they play important roles in increasing habitat heterogeneity. Importantly, the role of bioturbation by C. kraussi in enhancing macrofaunal richness was unexpected. By loosening sediments, reducing anoxia and enhancing organic content, C. kraussi may engineer these high shore habitats to ameliorate environmental stresses or increase food availability. (C) 2010 Elsevier Ltd. All rights reserved.
+PU  - ACADEMIC PRESS LTD- ELSEVIER SCIENCE LTD
+PI  - LONDON
+PA  - 24-28 OVAL RD, LONDON NW1 7DX, ENGLAND
+DA  - 2011 JAN 20
+PY  - 2011
+VL  - 91
+IS  - 2
+SP  - 169
+EP  - 176
+DO  - 10.1016/j.ecss.2010.10.010
+AN  - WOS:000286715500001
+ER  -
+
+TY  - JOUR
+AU  - Svensson, Carl J.
+AU  - Hyndes, Glenn A.
+AU  - Lavery, Paul S.
+TI  - Food web analysis in two permanently open temperate estuaries: Consequences of saltmarsh loss?
+T2  - MARINE ENVIRONMENTAL RESEARCH
+M3  - Article
+AB  - Saltmarsh vegetation, seston and microphytobenthos are all conspicuous components of most temperate estuaries and they potentially contribute to the estuarine food chain. Yet their relative contributions are unclear, as is the significance of saltmarsh losses through natural and human-induced impacts. This study aimed to quantitatively determine the contribution of various types of primary producers to detritus in the Walpole-Nornalup Estuary and Leschenault Inlet, two permanently open estuaries in SW Australia, and, estimate the flow of different types of detritus to higher trophic levels, using carbon (C-13) and nitrogen (N-15) stable isotopes as tracers. Results of the mixing model indicated that seston, microphytobenthos and to some extent seagrass and fringing saltmarsh were the main contributors to the detrital pool in both estuaries. However, the relative contribution of different primary producers varied both within and between estuaries. The contribution of saltmarsh was higher at sites close to rivers and dense fringing vegetation, while seston, microphytobenthos and seagrass dominated the detrital material at other sites. Benthic harpacticoid copepods were shown to feed on detritus though they appeared to actively select for different components of the detritus depending on site and estuary. Isotopic signatures of other consumers indicated that fish and invertebrates derived nutrients from MPB and detritus, either directly as food or indirectly through feeding on invertebrates. The overall contribution of saltmarsh to detritus was lower in Leschenault Inlet than in Walpole-Nornalup Estuary, possibly as a result of increased clearing of fringing vegetation around Leschenault Inlet. This pattern was however not reflected in harpacticoid food. Therefore, although losses of fringing saltmarsh around estuaries have the potential to significantly affect estuarine food webs, the significance of such losses will be site- and estuary-dependent. (c) 2007 Elsevier Ltd. All rights reserved.
+PU  - ELSEVIER SCI LTD
+PI  - OXFORD
+PA  - THE BOULEVARD, LANGFORD LANE, KIDLINGTON, OXFORD OX5 1GB, OXON, ENGLAND
+DA  - 2007 SEP
+PY  - 2007
+VL  - 64
+IS  - 3
+SP  - 286
+EP  - 304
+DO  - 10.1016/j.marenvres.2007.02.002
+AN  - WOS:000249147000003
+ER  -
+
+TY  - JOUR
+AU  - MATTHEWS, S
+AU  - LUCAS, MI
+AU  - STENTONDOZEY, JME
+AU  - BROWN, AC
+TI  - CLEARANCE AND YIELD OF BACTERIOPLANKTON AND PARTICULATES FOR 2 SUSPENSION-FEEDING INFAUNAL BIVALVES, DONAX-SERRA RODING AND MACTRA-LILACEA LAM
+T2  - JOURNAL OF EXPERIMENTAL MARINE BIOLOGY AND ECOLOGY
+M3  - Article
+PU  - ELSEVIER SCIENCE BV
+PI  - AMSTERDAM
+PA  - PO BOX 211, 1000 AE AMSTERDAM, NETHERLANDS
+DA  - 1989 
+PY  - 1989
+VL  - 125
+IS  - 3
+SP  - 219
+EP  - 234
+DO  - 10.1016/0022-0981(89)90098-1
+AN  - WOS:A1989T536500004
+ER  -
+
+TY  - JOUR
+AU  - Carve, Megan
+AU  - Coggan, Timothy L.
+AU  - Myers, Jackie H.
+AU  - Clarke, Bradley
+AU  - Nugegoda, Dayanthi
+AU  - Shimeta, Jeff
+TI  - Impacts on the seagrass, Zostera nigricaulis, from the herbicide Fusilade Forte (R) used in the management of Spartina anglica infestations
+T2  - AQUATIC TOXICOLOGY
+M3  - Article
+AB  - The herbicide Fusilade Forte (R) (FF) is widely applied in agricultural weed management and in the management of the invasive saltmarsh grass, Spartina anglica (ricegrass or cordgrass). FF (active ingredient fluazifop-P acid, FPA) is selective for poaceous grasses. Its primary mode of action is inhibition of the acetyl coenzyme-A carboxylase (ACCase) specific to this taxonomic group, and its secondary mode is by promotion of oxidative stress. FF is applied to S. anglica infestations in the intertidal zone, in proximity to seagrass meadows. Despite the potential for vital seagrass ecosystems to be exposed to FF, there is limited knowledge of any potential impacts. We investigated impacts of FPA on the endemic Australian seagrass, Zostera nigricaulis, measuring ACCase activity and parameters that reflect oxidative stress: photosynthetic performance, lipid peroxidation and photosynthetic pigment content. Seagrass was exposed to FF (0.01-10 mg L-1 FPA and a control) for 7 d, followed by a 7-d recovery in uncontaminated seawater. An enzyme assay demonstrated that FPA 10 mg L-1 did not inhibit the activity of ACCase isolated from Z. nigricaulis, demonstrating that this seagrass is resistant to FF's primary mode of action. However, physiological impacts occurred following 7 days exposure to 0.1 mg L-1 FPA, including up to a 72% reduction in photosynthetic pigment concentration. After 7-d recovery, photosynthetic pigment content improved in treatment plants; however, treated plants exhibited higher levels of lipid peroxidation. This study demonstrates that while Z. nigricaulis is resistant to FF's primary mode of action, significant physiological impacts occur following 7 days exposure to 0.1 mg L-1 FPA. This study provides valuable information on the effects of FF on a non-target species that can better inform approaches to Spartina management in coastal sea grass ecosystems.
+PU  - ELSEVIER SCIENCE BV
+PI  - AMSTERDAM
+PA  - PO BOX 211, 1000 AE AMSTERDAM, NETHERLANDS
+DA  - 2018 FEB
+PY  - 2018
+VL  - 195
+SP  - 15
+EP  - 23
+DO  - 10.1016/j.aquatox.2017.11.021
+AN  - WOS:000424723800003
+ER  -
+
+TY  - JOUR
+AU  - Gómez Samus, Mauro L
+AU  - Comerio, Marcos
+AU  - Boff, Laura D
+AU  - Montes, María Luciana
+AU  - Ontivero, Pablo E
+AU  - Mercader, Roberto C
+AU  - Bidegain, Juan Carlos
+T2  - Latin American journal of sedimentology and basin analysis
+M3  - research-article
+PU  - Asociación Argentina de Sedimentología
+DA  - 2017 06
+PY  - 2017
+VL  - 24
+IS  - 1
+SP  - 61
+EP  - 83
+AN  - SCIELO:S1851-49792017000100005
+ER  -
+

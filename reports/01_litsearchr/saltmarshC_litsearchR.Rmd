@@ -15,7 +15,7 @@ bibliography: SaltmarshC_refs.bib
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 ```
 
-This document tracks the literature search used to acquire the global database of soil C in tidal salt marshes. 
+This document tracks the literature search used to acquire the global database of soil carbon in tidal salt marshes. We are not yet distinguishing between carbon stocks and sequestration rates; we will determine based on the data whether we can model global C sequestration rates. 
 
 This workflow is based from the paper @grames2019, and from the online tutorial: https://luketudge.github.io/litsearchr-tutorial/litsearchr_tutorial.html#Getting_potential_search_terms
 
@@ -30,6 +30,20 @@ library(igraph)
 library(readr)
 ```
 
+```{r, include=FALSE}
+# for scrollable output
+options(width = 60)
+local({
+  hook_output <- knitr::knit_hooks$get('output')
+  knitr::knit_hooks$set(output = function(x, options) {
+    if (!is.null(options$max.height)) options$attr.output <- c(
+      options$attr.output,
+      sprintf('style="max-height: %s;"', options$max.height)
+    )
+    hook_output(x, options)
+  })
+})
+```
 
 ## Naive search
 ```{r}
@@ -109,23 +123,6 @@ naive_results[1, "keywords"]
 sum(is.na(naive_results[, "keywords"]))
 
 keyword_na <- sum(is.na(naive_results[, "keywords"]))
-# from the Youtube video - doesn't work
-# titles_abstracts <- paste(BBWO_data$title, BBWO_data$abstract, collapse = "; ")
-# 
-# raked_keywords <- 
-#   extract_terms(
-#     text = titles_abstracts,
-#     keywords = NULL,
-#     method = "fakerake",
-#     min_freq = 2,
-#     ngrams = TRUE,
-#     min_n = 2,
-#     max_n = 5,
-#     stopwords = NULL,
-#     language = "English"
-#   )
-# 
-# head(raked_keywords)
 ```
 
 Around **`r keyword_na` out of the `r nrow(naive_results)` studies ** are NAs. But let's take a look at them. The `extract_terms()` function gathers the keywords using a series of arguments. Here, we will set the minimum frequency to 3 instead of the default of 2, which comes up with twice the number of keywords. We will pick up more keywords from scanning the title and abstracts. 
@@ -210,7 +207,7 @@ ggraph(g, layout="stress") + #layout draws terms closely linked close together
 
 Using the network, we can calculate the strength of each term within the network, i.e. the number of terms that it appears with.
 
-```{r}
+```{r, max.height='100px'}
 salt_marsh_strengths_raw <- strength(g)
 
 salt_marsh_strengths <- data.frame( # creating a dataframe with the names of the terms and the strength of each term
@@ -250,11 +247,14 @@ cutoff_fig +
   geom_hline(yintercept=cutoff_cumul, linetype="dashed")
 ```
 
-```{r}
+```{r, max.height='100px'}
 reduced_terms <- reduce_graph(g, cutoff_cumul)
 
 reduced_keywords <- get_keywords(reduced_terms)
-reduced_keywords
+
+#to extract the numbered row
+keywords_table <- cbind((1:length(reduced_keywords)), reduced_keywords)
+keywords_table
 ```
 
 ## Grouping
@@ -263,12 +263,12 @@ We need to group our terms manually, either by exporting these terms to a csv, o
 
 From this list of terms, we can see that a certain species presence or invasions occur frequently in papers on soil carbon in tidal salt marshes (i.e. *spartina alterniflora, phragmites australis*). While this is an interesting observation, the presence or absence of these species is not part of our broader research question. 
 
-Note: should we include river delta (# 34) and river estuary (# 35)?
+We removed any terms that were not specific to tidal salt marsh literature (i.e. coastland wetland, tidal wetland), as it would target papers on mangroves. 
 
 ```{r}
 grouped_terms <-list(
-  carbon_related = reduced_keywords[c(3:10, 30, 31, 40:43, 58:60 )],
-  marsh_related =reduced_keywords[c(14:19, 36, 37, 48:52, 55, 61, 65, 66)]
+  carbon_related = reduced_keywords[c(3:10, 30, 31, 40:43, 58:60)],
+  marsh_related =reduced_keywords[c(15:17, 36, 37, 48:50, 61, 65, 66)]
 )
 
 grouped_terms
@@ -287,9 +287,21 @@ write_search(
 )
 ```
 
-```{r}
+```{r, echo = TRUE, eval = FALSE}
 cat(read_file("search-inEnglish.txt"))
 ```
+
+```
+\(\("blue carbon" OR "carbon accumulation" OR "carbon cycle" OR "carbon dioxide" OR "carbon sequestration" OR "carbon stock" OR "carbon storage" OR "organic carbon" OR "organic matter" OR "soil carbon" OR "soil organic carbon" OR "soil organic matter" OR "soil respiration" OR "carbon content" OR "carbon dynamics" OR "carbon pools"\) AND \("coastal marsh" OR "coastal salt marsh" OR "salt marsh" OR "tidal marsh" OR "tidal salt marsh" OR "marsh ecosystems" OR "marsh soils"\)\)
+```
+
+**Important note**: the keyword search using litsearchr only looks for keywords of 2 or more words (this was set in the `extract_terms()` funcation as `min_n`). We will thus add one-word terms that are pertinent to us. Here, I will add "**saltmarsh**" as a term, but not "**marsh**" as this will likely bring in too many freshwater ecosystem data. Finally, we will add asterisks to broaden the scope of the terms: 
+
+```
+("blue carbon" OR "carbon accumulation" OR "carbon cycle" OR "carbon dioxide" OR "carbon sequestration" OR "carbon stock*" OR "carbon stor*" OR "organic carbon" OR "organic matter" OR "soil carbon" OR "soil organic carbon" OR "soil organic matter" OR "soil respiration" OR "carbon content" OR "carbon dynamic*" OR "carbon pool*") AND ("coastal marsh*" OR "coastal salt marsh*" OR "salt marsh*" OR "tidal marsh*" OR "tidal salt marsh*" OR "marsh ecosystem*" OR "marsh soil*" OR "saltmarsh*")
+```
+
+
 
 ### In another language
 
@@ -301,7 +313,7 @@ head(get_languages(key_topics = c("soil", "carbon", "wetland")))
 It seems that we should also be searching journals in Russian. The `write_search()` function supports different languages, but to do so I would need a Google Translate API key. I may just translate the search in google translate. 
 
 ```{r}
-# write_search(
+# write_search()
 #   grouped_terms,
 #   languages="Russian",
 #   exactphrase=TRUE,
@@ -311,18 +323,89 @@ It seems that we should also be searching journals in Russian. The `write_search
 # )
 ```
 
+## Comparing databases in WOS
+
+In the abstract search, we would like to have include references from more than one bibliographical source (i.e. from Scopus and from web of science, WOS). However, WOS gives the option for 'All Databases', which includes the following databases: 
+
+![list of databases](img/databases.png)
+
+We want to see whether adding databases that are not from the core collection, add additional studies that would be relevant to us. To analyze this, we will compare the search results: 
+
+```{r}
+wos_all_databases  <- 
+    import_results(
+    directory = "/home/lukas/Desktop/SaltmarshC/reports/01_litsearchr/final_refs/wos_all_databases", #absolute path
+    verbose = TRUE
+  )
+
+wos_core_collection  <- 
+    import_results(
+    directory = "/home/lukas/Desktop/SaltmarshC/reports/01_litsearchr/final_refs/wos_core_collection", #absolute path
+    verbose = TRUE
+  )
+
+#adding a column to distinguish the databases
+wos_all_databases <- wos_all_databases %>% 
+  mutate(wos_database = "all") %>% 
+  relocate(wos_database, .before = date_generated )
+
+wos_core_collection <- wos_core_collection %>% 
+  mutate(wos_database = "core") %>% 
+  relocate(wos_database, .before = date_generated )
+
+wos_all <-bind_rows(wos_all_databases, wos_core_collection)
+
+table(wos_all$wos_database)
+```
+
+Now we will remove duplicates by title name. 
+
+```{r}
+
+length(!is.na(wos_all$title)) #all of our journal entries have titles
+
+wos_no_duplicates <- remove_duplicates(df = wos_all, field = "title", method = "exact" )
+
+table(wos_no_duplicates$wos_database)
+```
+
+By searching all other databases, only `r nrow(wos_all_databases)-nrow(wos_no_duplicates)` were duplicates of the core collection. Now we will exploring the hits that did not come from the core collection (i.e. those still labeled 'all' after the deduplication)
+```{r}
+wos_except_core <- wos_no_duplicates %>% 
+  filter(wos_database == "all") %>% 
+  droplevels()
+
+# table(wos_except_core$source)
+# other_sources <- c(levels(as.factor(wos_except_core$source)))
+
+wos_except_core_ASE <- wos_except_core %>% 
+  filter(source == "APPLIED SOIL ECOLOGY") %>% 
+  droplevels()
+
+wos_core_collectio_ASE <- wos_core_collection %>% 
+  filter(source == "APPLIED SOIL ECOLOGY") %>% 
+  droplevels()
+
+#comparing title names 
+c(levels(as.factor(wos_except_core_ASE$title)))
+c(levels(as.factor(wos_core_collectio_ASE$title)))
+```
+
+Here, we can see that for the journal Applied Soil Ecology, the core collection detected 12 titles while using all other databases, an additional 4 papers were found.  
+
 ## To-do
 
-### Checking the new search
+1. Is it worthwhile to search the keywords in Russian? This likely depends on salt marsh extent in Russia. 
 
-We need to reduce the keywords, I think mostly those with habitat. 
+2. Checking the new search
 
-I tried the search string in Scopus and it comes out with over 4,000 hits, compared to the original 259 in the first naive search. 
+Using the final new search, the following hits came up on 28 Jan 2022: 
 
-### Adding additional recent papers
+- 3,009 on Web of Science (core collection only)
+- 4,035 on Wed of Science (all databases)
+- 2,276 on Scopus
 
-Once the final literature search has been completed, additional searches will be conduted every (x) months to add new data to the dataset
+3. How to export references when more than 2,000 available??
 
-- note: how can we automatize this process? 
 
 ## References
