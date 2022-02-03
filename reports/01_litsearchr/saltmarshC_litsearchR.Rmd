@@ -1,5 +1,5 @@
 ---
-title: "Using litsearchr "
+title: "Using litsearchr and synthesisr"
 author: "Tania L.G. Maxwell"
 date: "`r format(Sys.time(), '%d/%m/%Y')`"
 output: 
@@ -17,8 +17,11 @@ knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 
 This document tracks the literature search used to acquire the global database of soil carbon in tidal salt marshes. We are not yet distinguishing between carbon stocks and sequestration rates; we will determine based on the data whether we can model global C sequestration rates. 
 
-This workflow is based from the paper @grames2019, and from the online tutorial: https://luketudge.github.io/litsearchr-tutorial/litsearchr_tutorial.html#Getting_potential_search_terms
+First, we will do a naive search with our initial Boolean keyword search, and then use the `litsearchr` package to include more terms representative of the literature. This workflow is based from the paper @grames2019, and from the online tutorial: https://luketudge.github.io/litsearchr-tutorial/litsearchr_tutorial.html#Getting_potential_search_terms
 
+Once the final references have been extracted, we will use the `synthesisr` package 
+
+# Using litsearchr
 ## Setup
 ```{r}
 library(remotes)
@@ -393,7 +396,7 @@ c(levels(as.factor(wos_core_collectio_ASE$title)))
 
 Here, we can see that for the journal Applied Soil Ecology, the core collection detected 12 titles while using all other databases, an additional 4 papers were found.  
 
-## To-do
+## Final search terms
 
 1. Is it worthwhile to search the keywords in Russian? This likely depends on salt marsh extent in Russia. 
 
@@ -403,9 +406,287 @@ Using the final new search, the following hits came up on 28 Jan 2022:
 
 - 3,009 on Web of Science (core collection only)
 - 4,035 on Wed of Science (all databases)
-- 2,276 on Scopus
+- 2,428 on Scopus
 
-3. How to export references when more than 2,000 available??
+# Using synthesisr
+
+```{r}
+library(litsearchr)
+library(synthesisr)
+library(tidyr)
+library(dplyr)
+```
+
+## Import and deduplicate references
+```{r}
+wos_final_all  <- 
+    import_results(
+    directory = "/home/lukas/Desktop/SaltmarshC/reports/01_litsearchr/final_refs/wos_all_databases", #absolute path
+    verbose = TRUE
+  )
+
+scopus_final  <- 
+    import_results(
+    directory = "/home/lukas/Desktop/SaltmarshC/reports/01_litsearchr/final_refs/scopus", #absolute path
+    verbose = TRUE
+  )
+
+refs_combined <- bind_rows(wos_final_all, scopus_final)
+```
+
+```{r}
+# run deduplication
+dups <- find_duplicates(
+  refs_combined$title,
+  method = "string_osa",
+  rm_punctuation = TRUE,
+  to_lower = TRUE)
+
+final_refs <- extract_unique_references(refs_combined, matches = dups)
+```
+
+## Format the final reference table
+```{r}
+#clean column and author names 
+final_refs <- clean_df(final_refs)
+
+#remove unnecessary columns
+
+final_refs <- final_refs %>% 
+  dplyr::select(author:doi, publisher, M3, PI, database, 
+                document_type, n_duplicates) %>% 
+  rename(scopus_doc_type = document_type,
+         wos_doc_type = M3,
+         publish_location = PI)
+
+final_refs$database <- final_refs$database %>% 
+  replace_na('WOS') #adding WOS
+
+```
+
+```{r, eval = F, echo = T}
+write_refs(final_refs, format = "ris", file = TRUE)
+```
 
 
-## References
+## Check by comparison
+
+We will double-check our literature search using the following two sources: 
+
+- @alongi2020, which presents soil carbon in tidal marsh data from a list of 32 references. To extract the reference list from this paper (references 16-47), I copied them into a .txt file, made sure all references were on one line and removed the reference numbers from the journal, and then copy-pasted the list into AnyStyle.io to parse and export the reference list
+
+- the Smithsonian Coastal Carbon Atlas downloaded data for saltmarshes in the continental U.S., extracted from the following website on Feb 3rd 2022: https://ccrcn.shinyapps.io/CoastalCarbonAtlas/ 
+
+
+### Alongi 2020 JSME
+```{r}
+alongi_refs  <- 
+    import_results(
+    directory = "/home/lukas/Desktop/SaltmarshC/reports/01_litsearchr/alongi_2020", #absolute path
+    # file = "alongi_refs.ris",
+    verbose = TRUE
+  )
+
+alongi_refs <- alongi_refs %>% 
+  dplyr::select(author:end_page, source_type)
+```
+
+```{r, results = 'hide', echo = T}
+compare_alongi <- bind_rows(final_refs, alongi_refs)
+
+dups_alongi <- find_duplicates(
+  compare_alongi$title,
+  method = "string_osa",
+  rm_punctuation = TRUE,
+  to_lower = TRUE)
+
+dups_alongi_review <- review_duplicates(compare_alongi$title, 
+                                        matches = dups_alongi)
+dups_alongi_review
+```
+
+Here, we can see that 25 references from the original 32 from Alongi were found in our search. We will now find which were the 7 references that were not found by our search to explore them. They may have just included aboveground or belowground carbon, which was also included in the list of references by @alongi2020, in addition to the soil carbon data. 
+
+
+```{r, results = 'hide', echo = T}
+compare_alongi$database <- compare_alongi$database %>% 
+  replace_na('Alongi') #adding WOS
+
+table(compare_alongi$database)
+
+
+deduplicate_alongi <- extract_unique_references(compare_alongi,
+                                                 matches = dups_alongi)
+
+table(deduplicate_alongi$database)
+
+alongi_not_found <- deduplicate_alongi %>% 
+  filter(database == "Alongi")
+```
+Here are the 8 papers not found :
+
+[1] "Invasive Spartina anglica Greatly Alters the Rates and Pathways of Organic Carbon Oxidation and Associated Microbial Communities in an Intertidal Wetland of the Han River Estuary, Yellow Sea" 2020
+- this was actually found in the search
+
+[2] "Cordgrass biomass in coastal marshes" 2010
+- this only includes aboveground and belowground biomass of cordgrass, so it is normal that it is not in our search
+
+[3] "Mapping coastal wetland biomass from high resolution unmanned aerial vehicle (UAV) imagery" 2019     
+- this only includes aboveground biomass of cordgrass, so it is normal that it is not in our search
+
+[4] "Blue carbon’ and nutrient stocks of salt marshes at a temperate coastal lagoon (Ria de Aveiro)"  2017
+- this was in our search, there was just the first apostrophe missing 
+
+[5] "Belowground biomass of Phragmites australis in coastal marshes" 2012    
+- this paper only includes root biomass, so it is normal that it is not in our search
+
+[6] "Carbon stocks and accumulation rates in salt marshes of the Pacific coast of Canada" 2018     
+- the revision of this paper was not accepted in Biogeosciences. It is now under revies as "Quantification of Blue Carbon in Salt Marshes of the Pacific Coast of Canada", but **how can we extract this kind of data?** Should we wait until it has been officially published? 
+
+[7] "Coastal blue carbon assessment of mangroves, salt marshes, and salt barrens in Tampa" NA year - 2018
+- this was in our search, but as "...Tampa Bay, Florida, USA" 
+
+[8] "Carbon storage increases with site age as created salt marshes transition to mangrove forests in Tampa" NA year - 2020
+- this was in our search, but as "...Tampa Bay, Florida, USA" 
+
+
+We conclude that our search terms correctly extract the available information on soil carbon, that was used in Alongi 2020 estimates of soil carbon in tidal salt marshes. 
+
+### Smithsonian coastal carbon 
+
+```{r, results = 'hide', echo = T}
+ccrcn_refs  <- 
+    import_results(
+    directory = "/home/lukas/Desktop/SaltmarshC/reports/01_litsearchr/CCRCN", #absolute path
+    verbose = TRUE
+  )
+```
+
+```{r, results = 'hide', echo = T}
+compare_ccrcn <- bind_rows(final_refs, ccrcn_refs)
+
+dups_ccrcn <- find_duplicates(
+  compare_ccrcn$title,
+  method = "string_osa",
+  rm_punctuation = TRUE,
+  to_lower = TRUE)
+
+dups_ccrcn_review <- review_duplicates(compare_ccrcn$title, 
+                                        matches = dups_ccrcn)
+dups_ccrcn_review
+```
+
+There are 52 references from the CCRCN. Only 32 were recovered in our final data search. We will explore the 20 not found. 
+
+```{r, results = 'hide', echo = T}
+compare_ccrcn$database <- compare_ccrcn$database %>% 
+  replace_na('ccrcn') #adding CCRCN
+
+table(compare_ccrcn$database)
+
+
+deduplicate_ccrcn <- extract_unique_references(compare_ccrcn,
+                                                 matches = dups_ccrcn)
+
+table(deduplicate_ccrcn$database)
+
+ccrcn_not_found <- deduplicate_ccrcn %>% 
+  filter(database == "ccrcn")
+
+ccrcn_not_found  
+
+levels(as.factor(ccrcn_not_found$publisher))
+```
+First, it seems like half of the references not found were from the Smithsonian directly. 
+
+```{r}
+ccrcn_not_found_smith <- ccrcn_not_found %>% 
+  filter(publisher == "The Smithsonian Institution" | 
+           publisher == "Smithsonian Research Online")
+nrow(ccrcn_not_found_smith)
+
+final_refs_smith <- final_refs %>% 
+  filter(publisher == "THE SMITHSONIAN INSTITUTION" | 
+           publisher == "SMITHSONIAN RESEARCH ONLINE")
+
+final_refs_smith
+```
+There are thus 16 references directly published by the Smithsonium Institute that were not caught in our search. 
+
+We will now look through the other 12 references not caught by our search. 
+
+```{r, results = 'hide', echo = T}
+ccrcn_not_found_res <- ccrcn_not_found %>% 
+  filter(publisher != "The Smithsonian Institution") %>% 
+  filter(publisher != "Smithsonian Research Online")
+
+list(ccrcn_not_found_res$title)
+```
+
+
+[1] "Geomorphic and ecological effects of Hurricanes Katrina and Rita on coastal Louisiana marsh communities" 
+- this was in our search 
+
+ [2] "Sediment Deposition and Accretion in a Mid-Atlantic (U.S.A.) Tidal Freshwater Marsh"      
+ - this was in our search (U.S.A. as USA)
+ 
+ [3] "Atmospheric Deposition of Metals to Coastal Waters (Long Island Sound, New York U.S.A.): Evidence from Saltmarsh Deposits"
+ - THIS IS MISSING. Nowhere in the abstract is carbon written, there is only a graph with "organic matter" 
+ 
+ [4] "Peat Accretion Histories During the Past 6,000~Years in Marshes of the Sacramento{\\textendash}San Joaquin Delta, {CA}, {USA"   
+ - this was in our search
+ 
+ [5] "Reconstructing Common Era relative sea-level change on the Gulf Coast of Florida"      
+ - THIS IS MISSING. Irrelevant
+ 
+ [6] "PIE LTER high marsh sediment chemistry and activity measurements, Nelson Island Creek marsh, Rowley, MA"  
+  - THIS IS MISSING. Can't find on google scholar
+ 
+ [7] "Use of lead isotopes for developing chronologies in recent salt-marsh sediments"    
+ - THIS IS MISSING. **We should add salt-marsh\* to the key terms**. Nowhere in the abstract is carbon written, there is only a graph with "organic matter" 
+ 
+ [8] "Influence of wind-driven inundation and coastal geomorphology on sedimentation in two microtidal marshes, Pamlico River Estuary, NC"     
+  - THIS IS MISSING. There is interesting organic matter data, but no indication of this in the abstract. also, they refer to marshes instead of tidal or salt marshes
+  
+ [9] "Carbon storage in US wetlands" 
+ - THIS IS MISSING. This is a review - maybe it's ok that it's not included in our search? Would be interesting to read the paper
+ Nahlik, A. M., & Fennessy, M. (2016). Carbon storage in US wetlands. Nature Communications, 7(1), 1-9.
+ 
+[10] "Vegetation, soil, and landscape data"  
+- THIS IS MISSING (US Survey). Not found on google scholar. 
+
+[11] "Vertical Accretion Rates and Heavy Metal Chronologies in Wetland Sediments of the Tijuana Estuary"   
+- THIS IS MISSING. This is in a salt marsh and has a table with organic matter content. But not indicated in the abstract  
+
+[12] "Biogeochemical processes in an urban, restored wetland of San Francisco Bay, California, 2007-2009$\\mathsemicolon$ methods and data for plant, sediment and water parameters"
+- THIS IS MISSING. This has supplementary data with organic carbon content that would be useful to include. In the abstract they mention carbon, **should we include "carbon\*" as a search term?**
+
+**Maybe we should include the term accretion rate\* in our search?** This would be to get these extra data files. As for the data from the Smithsonian Institute, since the data is systematically not picked up with web of science and scopus with our search terms, we can include this data as external data to our search. We should just decide whether to actively include more search terms in our final search, such as "carbon" or "accretian rate". 
+
+## Exploring the final reference list
+
+```{r}
+final_refs_observe <- final_refs %>% 
+  mutate(year_num = as.numeric(year)) %>% 
+  mutate_if(is.character, as.factor)
+
+library(ggplot2)
+
+hist(final_refs_observe$year_num) # too spread out
+
+summary(final_refs_observe$year_num)
+
+p <- final_refs_observe %>% 
+  filter(year_num > 1980) %>% 
+  ggplot(aes(x = year_num))+
+  geom_histogram()+
+  theme_bw()
+p
+
+table(final_refs_observe$wos_doc_type)
+
+table(final_refs_observe$scopus_doc_type)
+
+```
+
+  ## References
