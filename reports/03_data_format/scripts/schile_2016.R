@@ -140,8 +140,9 @@ input_data_soil04 <- input_data_soil03 %>%
          OC_perc = X_organic_carbon_OC_, #percent OC
          IC_perc = X_inorganic_carbon_IC_,
          N_perc = X_nitrogen_N_ ,
-         BD_reported_g_cm3 = dry_bulk_density_g_cm3_)  #1 g cm-3 = 1 Mg m-3
-
+         BD_reported_g_cm3 = dry_bulk_density_g_cm3_) %>%  #1 g cm-3 = 1 Mg m-3
+  mutate(Method = "EA")
+  
 input_data_soil04$L_depth_m <- round(input_data_soil04$L_depth_m, 2)
 
 
@@ -151,7 +152,7 @@ input_data_soil04$L_depth_m <- round(input_data_soil04$L_depth_m, 2)
 
 export_data_soil <- input_data_soil04 %>% 
   dplyr::select(Source, Site_name, Site, Plot, Habitat_type, 
-         Emirate, U_depth_m, L_depth_m, 
+         Emirate, U_depth_m, L_depth_m, Method,
          IC_perc, OC_perc, SOM_perc, BD_reported_g_cm3, N_perc)
 
 

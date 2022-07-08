@@ -110,7 +110,8 @@ input_data_soil04 <- input_data_soil03 %>%
          Depth_to_bedrock = NA) %>% 
   rename(OC_perc = Carbon_content__, #percent OC)
           BD_reported_g_cm3 = Bulk_density_g_cm3_, 
-          N_perc = Nitrogen_content__) #percent N
+          N_perc = Nitrogen_content__) %>%  #percent N
+  mutate(Method = "EA")
   
 #### merge location and soil datasets ####
 
@@ -118,8 +119,8 @@ input_data_location05 <- input_data_location04 %>%
   dplyr::select(Plot, Sub_plot, Latitude, Longitude, accuracy_flag, accuracy_code)
 
 input_data_soil05 <- input_data_soil04 %>% 
-  dplyr::select(Source, Site_name, Plot, Sub_plot, Habitat_type, Country, Year_collected,
-                U_depth_m, L_depth_m, OC_perc, BD_reported_g_cm3, N_perc)
+  dplyr::select(Source, Site_name, Plot, Sub_plot, Habitat_type, Country, Year_collected, 
+                U_depth_m, L_depth_m, Method, OC_perc, BD_reported_g_cm3, N_perc)
 
 
 export_data_merged01 <- full_join(input_data_soil05, input_data_location05,  

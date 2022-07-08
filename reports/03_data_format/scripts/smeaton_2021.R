@@ -46,7 +46,8 @@ input_data03 <- input_data02 %>%
          Month = lubridate::month(Date), 
          Day = lubridate::day(Date)) %>% 
   mutate(accuracy_flag = "direct from dataset",
-         accuracy_code = "1")
+         accuracy_code = "1") %>% 
+  mutate(Method = "EA")
 
 
 ## edit depth
@@ -63,7 +64,7 @@ input_data04 <- input_data03 %>%
 export_data01 <- input_data04 %>% 
   dplyr::select(Source, Site_name, Site, Plot, Habitat_type, Country, Year_collected,
                 Latitude, Longitude, accuracy_flag, accuracy_code,
-                U_depth_m, L_depth_m, OC_perc, BD_reported_g_cm3)
+                U_depth_m, L_depth_m, Method, OC_perc, BD_reported_g_cm3)
 
 
 export_data02 <- export_data01 %>% 
