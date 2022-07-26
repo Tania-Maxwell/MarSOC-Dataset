@@ -1,10 +1,16 @@
 ### useful scripts for data reformatting
 
+library(tidyverse)
+library(measurements) #to convert to decimal degrees
+library(stringr) # extract first n values for date
+library(janitor) # to clean names
 
 #### reformat columns
 rename_with(~ gsub("..", "_", .x, fixed = TRUE)) %>% #replacing .. in columns by _
-  rename_with(~ gsub(".", "_", .x, fixed = TRUE)) %>%  #replacing . in columns by _
+  rename_with(~ gsub(".", "_", .x, fixed = TRUE))   #replacing . in columns by _
 
+###recode factor
+  fct_recode(x, "an apple" = "apple", "a bear" = "bear")
 
 
 #### deg min sec to dec deg ####
