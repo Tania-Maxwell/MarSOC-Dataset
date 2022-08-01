@@ -8,7 +8,7 @@
 library(tidyverse)
 
 
-input_file01 <- "reports/03_data_format/data/site_level/He_2020_SI/He_2020_SI.csv"
+input_file01 <- "reports/03_data_format/data/meta_analysis/He_2020_SI/He_2020_SI.csv"
 
 input_data01 <- read.csv(input_file01)
 
@@ -16,7 +16,7 @@ input_data01 <- input_data01 %>%
   slice(1:947) %>% 
   dplyr::select(-X)
 
-input_file02 <- "reports/03_data_format/data/site_level/He_2020_SI/He_2020_SI_studies.csv"
+input_file02 <- "reports/03_data_format/data/meta_analysis/He_2020_SI/He_2020_SI_studies.csv"
 
 study_IDs <- read.csv(input_file02)
 
@@ -56,7 +56,8 @@ input_data04 <-  input_data03 %>%
 #### reformat data ####
 
 input_data05 <- input_data04 %>% 
-  rename(Year_collected = Year) %>% 
+  rename(Publication = X,
+         Year_collected = Year) %>% 
   mutate(accuracy_flag = "direct from dataset",
          accuracy_code = "2") %>% 
   mutate(Method = NA) %>% 
@@ -93,5 +94,51 @@ input_data_soil2 <- input_data_soil1 %>%
 input_data_soil3 <- input_data_soil2 %>% 
   pivot_wider(names_from = c("Carbon_measure","name"),
               values_from = "value")
+
+## removing sand layer depths 
+## removing lab studies - none located for the study_venue (only field studies)
+
+input_data_soil4 <- input_data_soil3 %>% 
+  filter(U_depth_cm != "Sand layer") 
+
+
+
+#### export ####
+
+export_data01 <- input_data_soil4 %>% 
+  dplyr::select(Source, Original_source, Site_name, DataID, Habitat_type, Country, State, Year_collected,
+                Latitude, Longitude, accuracy_flag, accuracy_code, Treatment, Publication,
+                U_depth_m, L_depth_m, Method, Soil_OCcon_n:Soil_CS_SD)
+
+
+export_data02 <- export_data01 %>% 
+  relocate(Source, Original_source, Publication, Site_name, DataID, Habitat_type, Latitude, Longitude, 
+           accuracy_flag, accuracy_code, Country, State, Year_collected, .before = U_depth_m) %>% 
+  arrange(DataID)
+
+
+###removing treatment values
+
+export_data03 <- export_data02 %>% 
+  filter(Treatment == "Control")
+
+## keeping only OC concentration and BD values 
+export_data04 <- export_data03 %>% 
+  filter(Soil_OCcon_mean != is.na(Soil_OCcon_mean) |
+           Soil_TCcon_mean != is.na(Soil_TCcon_mean) |
+           Soil_BD_mean != is.na(Soil_BD_mean) )
+
+table(export_data04$Country)
+
+## export
+
+path_out = 'reports/03_data_format/data/exported/'
+
+export_file <- paste(path_out, source_name, ".csv", sep = '') 
+export_df <- export_data04
+
+write.csv(export_df, export_file)
+
+
 
                

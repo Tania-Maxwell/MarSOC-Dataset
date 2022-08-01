@@ -36,19 +36,25 @@ input_data02 <- input_data01 %>%
                 Site = site_id,
                 Core = core_id,
                 Habitat_type = habitat,
-                State = admin_division,) 
+                State = admin_division,) %>% 
+  mutate(accuracy_flag = "direct from dataset",
+         accuracy_code = "1")
+
+
+#making carbon data  match main dataset
+input_data03 <- input_data02 %>% 
+  mutate(OC_perc = fraction_carbon*100,
+         SOM_perc = fraction_organic_matter*100) %>% 
+  dplyr::rename(BD_reported_g_cm3 = dry_bulk_density)
+
 
 #### export
 
+export_data01 <- input_data03 %>% 
+  dplyr::select(Source, Original_source, Core, Habitat_type, Country,
+                Latitude, Longitude, accuracy_flag, accuracy_code,
+                U_depth_m, L_depth_m, OC_perc, SOM_perc, BD_reported_g_cm3)
 
-export_data <- input_data02 %>% 
-  select(Source, Original_source, Site, Core, Habitat_type, Latitude, Longitude, 
-         Country, U_depth_m, L_depth_m)
-
-
-# select(Source, Original_source, Site_name, Site, Core, Habitat_type, Latitude, Longitude, 
-#        accuracy_flag, accuracy_code, Country, Year_collected, U_depth_m, L_depth_m, 
-#        Method, Conv_factor, OC_perc, SOM_perc, BD_reported_g_cm3)
 
 ## export
 
@@ -56,7 +62,7 @@ source_name <- "CCRCN"
 path_out = 'reports/03_data_format/data/exported/'
 
 export_file <- paste(path_out, source_name, ".csv", sep = '') 
-export_df <- export_data
+export_df <- export_data01
 
 write.csv(export_df, export_file)
 

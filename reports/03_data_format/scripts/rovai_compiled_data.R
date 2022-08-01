@@ -38,7 +38,9 @@ input_data03 <- input_data02 %>%
          Longitude = core_longitude,
          Site = site_id.x,
          Core = core_id,
-         Habitat_type = vg_typ) 
+         Habitat_type = vg_typ) %>% 
+  mutate(accuracy_flag = "direct from dataset",
+         accuracy_code = "1")
   
 #rename source "This study" to Rovai
 
@@ -46,16 +48,28 @@ input_data03$Source <- input_data03$Source %>%
   fct_relabel(~ gsub("This study", "Rovai compiled", .x))
 
 
-export_data <- input_data03 %>% 
-  select(Source, Original_source, Site, Core, Habitat_type, Latitude, Longitude, 
-         Country, U_depth_m, L_depth_m)
-  
-  
-  # select(Source, Original_source, Site_name, Site, Core, Habitat_type, Latitude, Longitude, 
-  #        accuracy_flag, accuracy_code, Country, Year_collected, U_depth_m, L_depth_m, 
-  #        Method, Conv_factor, OC_perc, SOM_perc, BD_reported_g_cm3)
+#making carbon data  match main dataset
+input_data04 <- input_data03 %>% 
+  mutate(OC_perc = fraction_carbon*100,
+         SOM_perc = fraction_organic_matter*100) %>% 
+  dplyr::rename(BD_reported_g_cm3 = dry_bulk_density)
 
-write.csv(export_data, "Data from Andre.csv")
+
+export_data01 <- input_data04 %>% 
+  dplyr::select(Source, Original_source, Core, Habitat_type, Country,
+                Latitude, Longitude, accuracy_flag, accuracy_code,
+                U_depth_m, L_depth_m, OC_perc, SOM_perc, BD_reported_g_cm3)
+  
+#write.csv(export_data, "Data from Andre.csv")
+
+
+### exploring the data
+
+
+data_subset <- export_data01 %>% 
+  filter(Latitude >60) %>% 
+  dplyr::select(Source, Original_source, Latitude, Longitude, Core, U_depth_m, L_depth_m)
+
 
 
 
