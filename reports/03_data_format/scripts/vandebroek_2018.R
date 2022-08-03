@@ -6,6 +6,7 @@
 
 library(readxl)  
 library(tidyverse)
+library(measurements)
 
 
 ##read all excel sheets
@@ -34,33 +35,109 @@ mysheets_noinfo <- mysheets[-1]
 
 ###extracting the depth and average bulk density from each sheet - this is the 1st and 6th columns
 
-columns <- c("...1", "...6")
+columns <- c("...1", "...6", "...7")
 
 bulkdensity0 <- lapply(mysheets_noinfo, '[', columns)
 
 ##adding a column with site name
 bulkdensity1 <- Map(cbind, bulkdensity0, Site = names(bulkdensity0))
 
-names(bulkdensity1)
-list2env(bulkdensity1,envir=.GlobalEnv)
+##renaming the columns
+colnames <- c("Depth_m", "BD_average", "BD_sd", "Site")
+bulkdensity2 <- lapply(bulkdensity1, setNames, colnames)
+
+##convert from list to dataframe
+bulkdensity_df0 <- do.call(rbind.data.frame, bulkdensity2)
+
+# this splits up the list to different data frames - not to use
+#list2env(bulkdensity1,envir=.GlobalEnv)
+
+
+
+##renaming the rows
+rownames(bulkdensity_df0) <- 1:nrow(bulkdensity_df0)
+
+
+###removing useless rows
+bulkdensity_df1 <- bulkdensity_df0 %>%
+  arrange(Depth_m) %>% 
+  slice(-c(108:143)) %>% 
+  arrange(Site) %>% 
+  mutate(BD_average = as.numeric(BD_average),
+         BD_sd = as.numeric(BD_sd))
+
 
 ##### importing soil carbon ####
 
-input_file02 <- "reports/03_data_format/data/core_level/VandeBroek_2018_Mendeley_Data/Bulk density.xlsx"
+input_file02 <- "reports/03_data_format/data/core_level/VandeBroek_2018_Mendeley_Data/Organic_carbon.csv"
+
+soilcarbon0 <- read.csv(input_file02)
+
+##renaming sites to match
+
+soilcarbon1 <- soilcarbon0 %>% 
+  mutate(Site = gsub("Young", "young",
+                     gsub("Old", "old", Site)))
+
+soilcarbon1$Site <- str_trim(soilcarbon1$Site)
+
+  
+### import locations
+
+input_file03 <- "reports/03_data_format/data/core_level/VandeBroek_2018_Mendeley_Data/locations.csv"
+
+locations0 <- read.csv(input_file03)
+
+locations1 <- locations0 %>% 
+  rename(lat_detail = Latitude,
+         long_detail = Longitude,
+         Latitude = Lat.DD,
+         Longitude = Long.DD) %>% 
+  mutate(accuracy_flag = "direct from dataset",
+         accuracy_code = "1")
+
+##replace all "low" with "young" and "high" with "old"
+
+locations2 <- locations1 %>% 
+  mutate(Site = gsub("low", "young",
+                     gsub("high", "old", Site))) 
+
+locations2$Site <- str_trim(locations2$Site)
+
+###merge soil carbon
+
+soilcarbon2 <- full_join(soilcarbon1,locations2, by = "Site") %>% 
+  slice(1:301)
 
 
-mysheets2 <- read_excel_allsheets(input_file02)
-
-#remove the information list
-mysheets_noinfo <- mysheets2[-1]
+##### edit dataset with info ####
 
 
-###extracting the depth and average bulk density from each sheet - this is the 1st and 6th columns
+##### add informational  
+source_name <- "Van de Broek et al 2018"
+author_initials <- "MVdB"
 
-columns <- c("...1", "...6")
 
-soilcarbon0 <- lapply(mysheets_noinfo, '[', columns)
+soilcarbon3 <- soilcarbon2 %>% 
+  mutate(Source = source_name,
+         Source_abbr = author_initials,
+         Site_name = paste(Source_abbr, Site),
+         Country = "Belgium",
+         Method = "EA",
+         Year_collected = "2016") %>% 
+  rename(OC_perc = OC......mass.spec.)
 
-##adding a column with site name
-soilcarbon1 <- Map(cbind, soilcarbon0, Site = names(soilcarbon0))
 
+## edit depth
+
+soilcarbon4 <- soilcarbon3 %>% 
+  group_by(Site) %>% 
+  mutate(difference_m = diff(Depth..m.))
+
+
+
+  mutate(L_depth_m = Depth..m.,
+         )
+  separate(Depth_cm, c("U_depth_cm", "L_depth_cm"), sep = '-') %>%   #separate upper and lower depth
+  mutate(U_depth_m = as.numeric(U_depth_cm)/100 , #cm to m
+         L_depth_m = as.numeric(L_depth_cm)/100)# cm to m
