@@ -1,0 +1,14 @@
+,Source,Site_name,Site,Plot,Habitat_type,Latitude,Longitude,accuracy_flag,accuracy_code,Country,Year_collected,U_depth_m,L_depth_m,Method,Ctot_perc,Cinorg_perc,Ntot_perc
+1,Shamrikova et al 2019,EVS Plot I,Khaypudyrskaya Bay,Plot I,Marsh,68.33027778,59.51805556,direct from dataset,1,Russia,,0,0.03,EA,9.1,1.8,0.89
+2,Shamrikova et al 2019,EVS Plot I,Khaypudyrskaya Bay,Plot I,Marsh,68.33027778,59.51805556,direct from dataset,1,Russia,,0.03,0.24,EA,41,NA,3.3
+3,Shamrikova et al 2019,EVS Plot I,Khaypudyrskaya Bay,Plot I,Marsh,68.33027778,59.51805556,direct from dataset,1,Russia,,0.24,0.67,EA,10.7,0.4,0.79
+4,Shamrikova et al 2019,EVS Plot I,Khaypudyrskaya Bay,Plot I,Marsh,68.33027778,59.51805556,direct from dataset,1,Russia,,0.67,0.89,EA,14.4,0.8,0.98
+5,Shamrikova et al 2019,EVS Plot II,Khaypudyrskaya Bay,Plot II,Marsh,68.33038889,59.51883333,direct from dataset,1,Russia,,0,0.1,EA,75,NA,5
+6,Shamrikova et al 2019,EVS Plot II,Khaypudyrskaya Bay,Plot II,Marsh,68.33038889,59.51883333,direct from dataset,1,Russia,,0.1,0.19,EA,13.4,NA,0.95
+7,Shamrikova et al 2019,EVS Plot II,Khaypudyrskaya Bay,Plot II,Marsh,68.33038889,59.51883333,direct from dataset,1,Russia,,0.19,0.3,EA,4.8,NA,0.43
+8,Shamrikova et al 2019,EVS Plot II,Khaypudyrskaya Bay,Plot II,Marsh,68.33038889,59.51883333,direct from dataset,1,Russia,,0.3,0.63,EA,7.1,NA,0.57
+9,Shamrikova et al 2019,EVS Plot II,Khaypudyrskaya Bay,Plot II,Marsh,68.33038889,59.51883333,direct from dataset,1,Russia,,0.63,0.78,EA,11.4,NA,0.88
+10,Shamrikova et al 2019,EVS Plot III,Khaypudyrskaya Bay,Plot III,Marsh,68.30736111,59.07022222,direct from dataset,1,Russia,,0,0.04,EA,6.1,0,0.49
+11,Shamrikova et al 2019,EVS Plot III,Khaypudyrskaya Bay,Plot III,Marsh,68.30736111,59.07022222,direct from dataset,1,Russia,,0.04,0.11,EA,38,0,3
+12,Shamrikova et al 2019,EVS Plot III,Khaypudyrskaya Bay,Plot III,Marsh,68.30736111,59.07022222,direct from dataset,1,Russia,,0.11,0.3,EA,26,0,1.8
+13,Shamrikova et al 2019,EVS Plot III,Khaypudyrskaya Bay,Plot III,Marsh,68.30736111,59.07022222,direct from dataset,1,Russia,,0.3,0.57,EA,5.3,0.6,0.32
