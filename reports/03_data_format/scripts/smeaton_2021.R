@@ -4,7 +4,6 @@
 # contact Tania Maxwell, tlgm2@cam.ac.uk
 # 04.07.22
 
-library(tidyverse)
 library(measurements) #to convert to decimal degrees
 library(stringr) # extract first n values for date
 library(janitor)
@@ -15,6 +14,7 @@ library(maptools)
 library(maps)
 
 
+library(tidyverse)
 input_file01 <- "reports/03_data_format/data/core_level/Smeaton_2021_UKCEH/Hammer_Cores_KoT.csv"
 
 input_data01 <- read.csv(input_file01)

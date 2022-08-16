@@ -35,7 +35,7 @@ mysheets_noinfo <- mysheets[-1]
 
 ###extracting the depth and average bulk density from each sheet - this is the 1st and 6th columns
 
-columns <- c("...1", "...6", "...7")
+columns <- c("...1", "...3")
 
 bulkdensity0 <- lapply(mysheets_noinfo, '[', columns)
 
@@ -43,7 +43,7 @@ bulkdensity0 <- lapply(mysheets_noinfo, '[', columns)
 bulkdensity1 <- Map(cbind, bulkdensity0, Site = names(bulkdensity0))
 
 ##renaming the columns
-colnames <- c("Depth_m", "BD_average", "BD_sd", "Site")
+colnames <- c("Depth_m", "BD_reported_g_cm3", "Site")
 bulkdensity2 <- lapply(bulkdensity1, setNames, colnames)
 
 ##convert from list to dataframe
@@ -63,9 +63,10 @@ bulkdensity_df1 <- bulkdensity_df0 %>%
   arrange(Depth_m) %>% 
   slice(-c(108:143)) %>% 
   arrange(Site) %>% 
-  mutate(BD_average = as.numeric(BD_average),
-         BD_sd = as.numeric(BD_sd))
+  mutate(BD_reported_g_cm3 = as.numeric(BD_reported_g_cm3))
 
+bulkdensity_df2 <- bulkdensity_df1 %>% 
+  separate(Depth_m, c("U_depth_m", "L_depth_m"), sep = ' - ')
 
 ##### importing soil carbon ####
 
@@ -132,12 +133,7 @@ soilcarbon3 <- soilcarbon2 %>%
 
 soilcarbon4 <- soilcarbon3 %>% 
   group_by(Site) %>% 
-  mutate(difference_m = diff(Depth..m.))
+  mutate(U_depth_m = Depth..m. + 0.015,
+         L_depth_m = Depth..m. - 0.015)
 
 
-
-  mutate(L_depth_m = Depth..m.,
-         )
-  separate(Depth_cm, c("U_depth_cm", "L_depth_cm"), sep = '-') %>%   #separate upper and lower depth
-  mutate(U_depth_m = as.numeric(U_depth_cm)/100 , #cm to m
-         L_depth_m = as.numeric(L_depth_cm)/100)# cm to m

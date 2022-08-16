@@ -42,8 +42,25 @@ mutate(Date = lubridate::dmy(Collection_Date)) %>%
 
 separate(Depth_range___cm_, c("U_depth_cm", "L_depth_cm"), sep = '-') %>%  #separate upper and lower depth
   mutate(U_depth_m = as.numeric(U_depth_cm)/100,
-         L_depth_m = as.numeric(L_depth_cm)/100) %>% 
+         L_depth_m = as.numeric(L_depth_cm)/100)  
   
+
+  
+  ### pivot table to extract relevant data 
+  input_data_soil2 <- input_data_soil1 %>% 
+    pivot_longer(cols = c("n1":"SD2")) %>% 
+    mutate(Treatment = case_when(name == "n1"|
+                                   name == "mean1" |
+                                   name == "SD1" ~ "Control",
+                                 name == "n2"|
+                                   name == "mean2" |
+                                   name == "SD2" ~ "Consumer presence")) %>% 
+    mutate(name = fct_recode(name, "n" = "n1", "mean" = "mean1", "SD" = "SD1",
+                             "n" = "n2", "mean" = "mean2", "SD" = "SD2"))
+  
+  input_data_soil3 <- input_data_soil2 %>% 
+    pivot_wider(names_from = c("Carbon_measure","name"),
+                values_from = "value")
   
   
 #### bind datasets #### 
