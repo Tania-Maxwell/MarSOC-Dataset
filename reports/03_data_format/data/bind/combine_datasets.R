@@ -1,0 +1,153 @@
+library(plyr) #for data bind
+library(tidyverse)
+
+library(ggplot2)
+library(sf) #to map
+library(rnaturalearth) #privides map of countries of world
+library(rnaturalearthdata) 
+
+
+
+setwd("~/07_Cam_postdoc/Data")
+andre_data = read.csv("Data from Andre.csv")
+
+
+setwd("~/07_Cam_postdoc/SaltmarshC")  
+lst = list.files("reports/03_data_format/data/exported/", ".csv", full.names = TRUE)
+
+data_compile0 = plyr::rbind.fill(lapply(lst, function(i){read.csv(i)})) ## tom.hengl@envirometrix.net
+
+
+
+data_compile1 = plyr::rbind.fill(data_compile0, andre_data)
+
+
+data_compile2 <- data_compile1 %>% 
+  mutate(Original_source = case_when(is.na(Original_source) ~ Source,
+                                     TRUE ~ Original_source))
+
+sum(is.na(data_compile2$Original_source))
+
+
+data_compile2$Latitude <- as.numeric(data_compile2$Latitude)
+data_compile2$Longitude <- as.numeric(data_compile2$Longitude)
+data_compile2$OC_perc <- as.numeric(data_compile2$OC_perc)
+data_compile2$BD_reported_g_cm3 <- as.numeric(data_compile2$BD_reported_g_cm3)
+data_compile2$SOM_perc <- as.numeric(data_compile2$SOM_perc)
+
+
+
+## note: to upload to GEE, need to replace NA values with blanks
+#but this is NOT possible with numeric vectors
+
+data_compile3 <- data_compile2 %>% 
+  filter(!is.na(Latitude), !is.na(Longitude)) %>% 
+  dplyr::rename(ID = X)
+
+
+str(data_compile3)
+
+### export data file
+# 
+# ## need to first change directory to working directory
+# setwd("~/07_Cam_postdoc/SaltmarshC/reports/03_data_format/data/bind")
+# write.csv(data_compile3, "data_compile.csv", row.names =F)
+
+#### other data subsets ####
+
+
+data_compile2$Site <- as.factor(data_compile2$Site)
+
+data_no_sites <- data_compile2 %>% 
+  group_by(Source) %>%
+  summarise(n_sites = n_distinct(Site)) %>% 
+  ungroup()
+
+
+data_no_cores <- data_compile2 %>% 
+  group_by(Source) %>%
+  summarise(n_cores = n_distinct(Latitude)) %>% 
+  ungroup()
+
+
+data_noCCRCN <- data_compile2 %>% 
+  filter(Source != "CCRCN")
+
+
+data_compile0$Latitude <- as.numeric(data_compile0$Latitude)
+data_compile0$Longitude <- as.numeric(data_compile0$Longitude)
+data_compile0$OC_perc <- as.numeric(data_compile0$OC_perc)
+data_compile0$BD_reported_g_cm3 <- as.numeric(data_compile0$BD_reported_g_cm3)
+data_compile0$SOM_perc <- as.numeric(data_compile0$SOM_perc)
+
+
+
+data_noCCRCN_andre <- data_compile0 %>% 
+  filter(Source != "CCRCN")
+
+
+data_sub <- data_noCCRCN_andre %>% 
+  filter(U_depth_m > 0.3)
+
+data_uk <- data_compile2 %>% 
+  filter(Country == "UK" | Country == "Ireland")
+# write.csv(data_uk, "data_uk.csv", row.names = F)
+
+
+
+#### check locations ####
+
+
+world <- ne_countries(scale = "medium", returnclass = "sf")
+
+fig_n_points <- ggplot(data = world) +
+  geom_sf() +
+  coord_sf(ylim = c(-60, 80), expand = FALSE)+
+  theme_bw()+
+  ggtitle("Number of data points with soil carbon data in marshes (+permafrost?)")+
+  geom_point(data = data_noCCRCN, aes(x = Longitude, y = Latitude, 
+                                       color = Source), size = 2, alpha = 0.2)+
+  scale_size(range = c(2,8))+
+  theme(legend.position = "bottom")+
+  guides(col = guide_legend(ncol = 2))+
+  guides(colour = guide_legend(override.aes = list(alpha = 1)))
+
+fig_n_points
+
+
+#### export figure
+path_out = 'reports/03_data_format/data/bind/'
+
+
+fig_name <- "22_8_11_n_points_noCCRCN"
+export_file <- paste(path_out, fig_name, ".png", sep = '') 
+export_fig <- fig_n_points
+
+ggsave(export_file, export_fig, width = 15.36, height = 8.14)
+
+
+#### exploring data (not ccrcn/andre) ####
+
+hist(data_noCCRCN_andre$OC_perc)
+
+
+
+
+
+#### exploring data #####
+
+### total number of original studies 
+data_compile_n_studies <- data_compile2 %>% 
+  dplyr::count(Original_source) 
+
+
+
+
+data_subset <- data_compile2 %>% 
+  filter(Latitude >60) %>% 
+  dplyr::select(Source, Original_source, Latitude, Longitude, Core, U_depth_m, L_depth_m)
+
+table(data_subset$Original_source)
+  
+
+##subset            
