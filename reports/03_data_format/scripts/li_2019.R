@@ -8,7 +8,7 @@
 library(tidyverse)
 
 
-input_file01 <- "reports/03_data_format/data/core_level/Li_2019_Fig2/li_2019_locations.csv"
+input_file01 <- "reports/03_data_format/data/core_level/Li_2019_Table1/li_2019_locations_data.csv"
 
 input_data01 <- read.csv(input_file01)
 
@@ -29,7 +29,6 @@ input_data02 <- input_data01 %>%
          Country = "China") %>% 
   rename(Site = Location)
 
-
 #### reformat data ####
 
 input_data03 <- input_data02 %>% 
@@ -37,7 +36,7 @@ input_data03 <- input_data02 %>%
          Longitude = gsub("E", "", Longitude)) %>% 
   mutate(Latitude = gsub(" ", "", Latitude),
          Longitude = gsub(" ", "", Longitude)) %>% 
-  rename(OC_perc = SOC_g_kg) %>% 
+  mutate(OC_perc = SOC_g_kg/10) %>% #to go to percent
   mutate(Year_collected = "2018",
          accuracy_flag = "direct from dataset",
          accuracy_code = "1") %>% 

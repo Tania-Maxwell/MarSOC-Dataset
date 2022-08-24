@@ -1,0 +1,7 @@
+"","Source","Site_name","Site","Plot","Replicate","Habitat_type","Latitude","Longitude","accuracy_flag","accuracy_code","Country","Year_collected","U_depth_m","L_depth_m","Method","OC_perc","BD_reported_g_cm3"
+"1","Gonzalez-Alcaraz et al 2012","MNGA El Carmoli Plot 1 Rep 1","El Carmoli","Plot 1",1,"Salt marsh",37.69672127,-0.856681827,"direct from dataset","1","Spain","2005",0,0.1,"EA",1.45633333333333,0.933333333333333
+"2","Gonzalez-Alcaraz et al 2012","MNGA El Carmoli Plot 1 Rep 2","El Carmoli","Plot 1",2,"Salt marsh",37.69672127,-0.856681827,"direct from dataset","1","Spain","2005",0,0.1,"EA",1.48266666666667,0.7
+"3","Gonzalez-Alcaraz et al 2012","MNGA El Carmoli Plot 1 Rep 3","El Carmoli","Plot 1",3,"Salt marsh",37.69672127,-0.856681827,"direct from dataset","1","Spain","2005",0,0.1,"EA",0.998666666666667,0.69
+"4","Gonzalez-Alcaraz et al 2012","MNGA El Carmoli Plot 2 Rep 1","El Carmoli","Plot 2",1,"Salt marsh",37.69962576,-0.860868269,"direct from dataset","1","Spain","2005",0,0.1,"EA",1.26466666666667,1.10666666666667
+"5","Gonzalez-Alcaraz et al 2012","MNGA El Carmoli Plot 2 Rep 2","El Carmoli","Plot 2",2,"Salt marsh",37.69962576,-0.860868269,"direct from dataset","1","Spain","2005",0,0.1,"EA",1.39066666666667,1.07
+"6","Gonzalez-Alcaraz et al 2012","MNGA El Carmoli Plot 2 Rep 3","El Carmoli","Plot 2",3,"Salt marsh",37.69962576,-0.860868269,"direct from dataset","1","Spain","2005",0,0.1,"EA",1.109,1.13333333333333
