@@ -62,13 +62,13 @@ input_data04 <- input_data03 %>%
 #### export ####
 
 export_data01 <- input_data04 %>% 
-  dplyr::select(Source, Site_name, Site, Habitat_type, Country, Year_collected,
+  dplyr::select(Source, Original_source, Site_name, Site, Habitat_type, Country, Year_collected,
                 Latitude, Longitude, accuracy_flag, accuracy_code,
                 U_depth_m, L_depth_m, Method, OC_perc_mean)
 
 
 export_data02 <- export_data01 %>% 
-  relocate(Source, Site_name, Site, Habitat_type, Latitude, Longitude, 
+  relocate(Source, Original_source, Site_name, Site, Habitat_type, Latitude, Longitude, 
            accuracy_flag, accuracy_code, Country, Year_collected, .before = U_depth_m) %>% 
   arrange(Site, Habitat_type)
 

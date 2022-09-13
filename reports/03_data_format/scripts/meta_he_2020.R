@@ -130,12 +130,24 @@ export_data04 <- export_data03 %>%
 
 table(export_data04$Country)
 
+
+## removing data extracted elsewhere
+## in CCRCN: Nolte et al. 2013 Does livestock grazing affect sediment deposition and accretion rates in salt marshes? Estuarine, Coastal and Shelf Science 135, 296-305. 
+##
+
+table(export_data04$Original_source)
+export_data05 <- export_data04 %>%  
+  filter(Original_source != "Nolte et al 2013")
+
+
+
+
 ## export
 
 path_out = 'reports/03_data_format/data/exported/'
 
 export_file <- paste(path_out, source_name, ".csv", sep = '') 
-export_df <- export_data04
+export_df <- export_data05
 
 write.csv(export_df, export_file)
 

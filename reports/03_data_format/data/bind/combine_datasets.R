@@ -1,3 +1,9 @@
+##script top combine all datasets (from Andre and extracted from TM)
+#18.08.22
+
+
+#CAUTION: once this script runs, tidyverse doesn't work properly (due to plyr being loaded)
+
 library(plyr) #for data bind
 library(tidyverse)
 
@@ -47,6 +53,7 @@ data_compile3 <- data_compile2 %>%
 
 str(data_compile3)
 
+
 ### export data file
 # 
 # ## need to first change directory to working directory
@@ -94,9 +101,15 @@ data_uk <- data_compile2 %>%
 # write.csv(data_uk, "data_uk.csv", row.names = F)
 
 
+data_unique <- data_compile2 %>% 
+  distinct(Latitude, .keep_all = TRUE)
+
+table(data_unique$Country)
 
 #### check locations ####
 
+
+fig_title <- paste("Training dataset (unique location) as of", Sys.Date())
 
 world <- ne_countries(scale = "medium", returnclass = "sf")
 
@@ -104,9 +117,9 @@ fig_n_points <- ggplot(data = world) +
   geom_sf() +
   coord_sf(ylim = c(-60, 80), expand = FALSE)+
   theme_bw()+
-  ggtitle("Number of data points with soil carbon data in marshes (+permafrost?)")+
-  geom_point(data = data_noCCRCN, aes(x = Longitude, y = Latitude, 
-                                       color = Source), size = 2, alpha = 0.2)+
+  ggtitle(fig_title)+
+  geom_point(data = data_unique, aes(x = Longitude, y = Latitude, 
+                                       color = Source), size = 3, alpha = 0.4)+
   scale_size(range = c(2,8))+
   theme(legend.position = "bottom")+
   guides(col = guide_legend(ncol = 2))+
@@ -116,10 +129,10 @@ fig_n_points
 
 
 #### export figure
-path_out = 'reports/03_data_format/data/bind/'
+path_out = 'reports/03_data_format/data/bind/point_maps/'
 
 
-fig_name <- "22_8_11_n_points_noCCRCN"
+fig_name <- paste(Sys.Date(),"n_points", sep = "_")
 export_file <- paste(path_out, fig_name, ".png", sep = '') 
 export_fig <- fig_n_points
 
