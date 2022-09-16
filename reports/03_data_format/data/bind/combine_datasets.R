@@ -57,8 +57,8 @@ str(data_compile3)
 ### export data file
 # 
 # ## need to first change directory to working directory
-# setwd("~/07_Cam_postdoc/SaltmarshC/reports/03_data_format/data/bind")
-# write.csv(data_compile3, "data_compile.csv", row.names =F)
+#setwd("~/07_Cam_postdoc/SaltmarshC/reports/03_data_format/data/bind")
+#write.csv(data_compile3, "data_compile.csv", row.names =F)
 
 #### other data subsets ####
 

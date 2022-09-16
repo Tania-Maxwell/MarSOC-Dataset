@@ -63,6 +63,12 @@ separate(Depth_range___cm_, c("U_depth_cm", "L_depth_cm"), sep = '-') %>%  #sepa
                 values_from = "value")
   
   
+
+  
+### fill### 
+  fill(Sample_ID, .direction = "down") 
+  
+  
 #### bind datasets #### 
 input_data01 = plyr::rbind.fill(input_data_inner02, input_data_main02)
 
@@ -104,4 +110,125 @@ export_file <- paste(path_out, source_name, ".csv", sep = '')
 export_df <- export_data_marsh
 
 write.csv(export_df, export_file)
+
+
+
+##### interpolation ####
+
+#### test to interpolate
+
+carbon_test <- soilcarbon4 %>% 
+  filter(Site == "Sloehaven old")
+
+
+BD_test <- bulkdensity_df3 %>% 
+  filter(Site == "Sloehaven old")
+
+
+approx(x = BD_test$mid_depth_m, y = BD_test$BD_reported_g_cm3,
+       xout = carbon_test$mid_depth_m, method = "linear")
+
+funcA <- approxfun(x = BD_test$mid_depth_m, y = BD_test$BD_reported_g_cm3,
+                   method = "linear", rule = 2)
+
+carbon_test2<- carbon_test %>% 
+  mutate(BD_estimated = funcA(mid_depth_m)) %>% 
+  select(Site, U_depth_m, L_depth_m, mid_depth_m, OC_perc, BD_estimated)
+
+# ##trying BD test 
+# 
+# BD_test2 <- bulkdensity_df3 %>% 
+#   filter(Site == "Sloehaven old") %>% 
+#   rename(mid_depth_BD = mid_depth_m,
+#          L_depth_BD = L_depth_m, 
+#          U_depth_BD = U_depth_m)
+# 
+# carbon_testBD <- left_join(carbon_test, BD_test)
+
+
+BD_interpol <- function(df, site){
+  df2 <- eval(as.name(df)) %>% 
+    filter(Site == site)
+  
+  BD <- BD_final %>% 
+    filter(Site == site)
+  
+  a <- approx(x = BD$mid_depth_m, y = BD$BD_reported_g_cm3, 
+              xout = df2$mid_depth_m, method = "linear", rule = 2 )
+  
+  df2$depth_check <- a$x
+  
+  df2$BD_estimated <- a$y
+  
+  
+  return(df2)
+}
+
+test <- BD_interpol(df = "soilcarbon4", site = "Sloehaven old")
+test
+
+
+dfs <- rep("soilcarbon4", times =12)
+
+sites <- c("Sloehaven old",  "Sloehaven young", "Zuidgors old", "Zuidgors young", 
+           "Hellegat old", "Hellegat young", "Kruispolder old", "Kruispolder young", 
+           "Mariekerke old", "Mariekerke young",
+           "Grembergen old", "Appels young" )
+
+
+soilcarbon5 <- mapply(BD_interpol, df = dfs, site = sites)
+
+soilcarbon5 <- soilcarbon4 %>% 
+  group_by(Site)
+
+
+df_list <- by(soilcarbon4, soilcarbon4[c("Site")], function(df, site){
+  df2 <- eval(as.name(df)) %>% 
+    filter(Site == site)
+  
+  BD <- BD_final %>% 
+    filter(Site == site)
+  
+  a <- approx(x = BD$mid_depth_m, y = BD$BD_reported_g_cm3, 
+              xout = df2$mid_depth_m, method = "linear", rule = 2 )
+  
+  df2$depth_check <- a$x
+  
+  df2$BD_estimated <- a$y
+  
+  
+  return(df2)
+})
+
+
+soilcarbon4$Site <- as.factor(soilcarbon4$Site)
+
+BD_interpol2 <- function(site){
+  df2 <- soilcarbon4  %>% 
+    filter(Site == site)
+  
+  BD <- BD_final %>% 
+    filter(Site == site)
+  
+  a <- approx(x = BD$mid_depth_m, y = BD$BD_reported_g_cm3, 
+              xout = df2$mid_depth_m, method = "linear", rule = 2 )
+  
+  df2$depth_check <- a$x
+  
+  df2$BD_estimated <- a$y
+  
+  
+  return(df2)
+}
+
+test2 <- BD_interpol2(site = "Sloehaven old")
+
+soilcarbon4$A_new <- unlist(by(soilcarbon4, soilcarbon4$Site, BD_interpol2))
+
+test3 <- lapply(unique(soilcarbon4$Site), BD_interpol2)
+
+## THIS IS WHAT WORKS
+test4 <- as.data.frame(do.call(rbind,lapply(unique(soilcarbon4$Site), BD_interpol2)))
+
+
 

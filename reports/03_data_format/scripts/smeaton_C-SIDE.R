@@ -35,7 +35,7 @@ input_data02 <- input_data01 %>%
          Site_name = paste(Source_abbr, Core_ID),
          Habitat_type = "Saltmarsh",
          Country = "UK") %>% 
-  rename(Plot = Core_ID,
+  rename(Core = Core_ID,
          Site = Saltmarsh)
 
 #### reformat data ####
@@ -60,17 +60,24 @@ input_data04 <- input_data03 %>%
   mutate(U_depth_m = as.numeric(U_depth_cm)/100 , #cm to m
          L_depth_m = as.numeric(L_depth_cm)/100)# cm to m
 
+#note: one row miss-written
+
+input_data05 <- input_data04 %>% 
+  mutate(L_depth_cm = case_when(U_depth_cm == "2022" ~ "22",
+                                TRUE ~ L_depth_cm),
+         U_depth_cm = case_when(U_depth_cm == "2022" ~ "20",
+                                TRUE ~ U_depth_cm))
 
 #### export ####
 
-export_data01 <- input_data04 %>% 
-  dplyr::select(Source, Site_name, Site, Plot, Habitat_type, Substrate, Country, Nation, Year_collected,
+export_data01 <- input_data05 %>% 
+  dplyr::select(Source, Site_name, Site, Core, Habitat_type, Substrate, Country, Nation, Year_collected,
                 Latitude, Longitude, accuracy_flag, accuracy_code,
                 U_depth_m, L_depth_m, Core_type, Method, OC_perc, N_perc, BD_reported_g_cm3)
 
 
 export_data02 <- export_data01 %>% 
-  relocate(Source, Site_name, Site, Plot, Habitat_type,Substrate, Latitude, Longitude, 
+  relocate(Source, Site_name, Site, Core, Habitat_type,Substrate, Latitude, Longitude, 
            accuracy_flag, accuracy_code, Country, Nation, Year_collected, .before = U_depth_m) %>% 
   arrange(Site, Habitat_type)
 

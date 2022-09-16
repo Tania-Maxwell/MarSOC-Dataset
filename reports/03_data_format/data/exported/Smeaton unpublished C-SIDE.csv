@@ -1,4 +1,4 @@
-"","Source","Site_name","Site","Plot","Habitat_type","Substrate","Latitude","Longitude","accuracy_flag","accuracy_code","Country","Nation","Year_collected","U_depth_m","L_depth_m","Core_type","Method","OC_perc","N_perc","BD_reported_g_cm3"
+"","Source","Site_name","Site","Core","Habitat_type","Substrate","Latitude","Longitude","accuracy_flag","accuracy_code","Country","Nation","Year_collected","U_depth_m","L_depth_m","Core_type","Method","OC_perc","N_perc","BD_reported_g_cm3"
 "1","Smeaton unpublished C-SIDE","CS ARN-20-01","Arne","ARN-20-01","Saltmarsh","Fibrous Peat (Silty)",50.690512,-2.0286577,"direct from dataset","1","UK","England",2020,0,0.02,"Narrow","EA",10.291,NA,0.23794725
 "2","Smeaton unpublished C-SIDE","CS ARN-20-01","Arne","ARN-20-01","Saltmarsh","Fibrous Peat (Silty)",50.690512,-2.0286577,"direct from dataset","1","UK","England",2020,0.04,0.06,"Narrow","EA",10.455,NA,0.315034831
 "3","Smeaton unpublished C-SIDE","CS ARN-20-01","Arne","ARN-20-01","Saltmarsh","Silt with Organics",50.690512,-2.0286577,"direct from dataset","1","UK","England",2020,0.1,0.12,"Narrow","EA",6.917,NA,0.550831721

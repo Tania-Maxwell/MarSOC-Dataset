@@ -30,7 +30,8 @@ input_data02 <- input_data01 %>%
          Source_abbr = author_initials,
          Site_name = paste(Source_abbr, Core),
          Habitat_type = "Salt marsh",
-         Site = "Kyle of Tongue, Scotland",
+         Site = "Kyle of Tongue",
+         Nation = "Scotland",
          Country = "UK") %>% 
   rename(Plot = Core)
 
@@ -62,14 +63,14 @@ input_data04 <- input_data03 %>%
 #### export ####
 
 export_data01 <- input_data04 %>% 
-  dplyr::select(Source, Site_name, Site, Plot, Habitat_type, Country, Year_collected,
+  dplyr::select(Source, Site_name, Site, Plot, Habitat_type, Country, Nation, Year_collected,
                 Latitude, Longitude, accuracy_flag, accuracy_code,
                 U_depth_m, L_depth_m, Method, OC_perc, BD_reported_g_cm3)
 
 
 export_data02 <- export_data01 %>% 
   relocate(Source, Site_name, Site, Plot, Habitat_type, Latitude, Longitude, 
-           accuracy_flag, accuracy_code, Country, Year_collected, .before = U_depth_m) %>% 
+           accuracy_flag, accuracy_code, Country, Nation, Year_collected, .before = U_depth_m) %>% 
   arrange(Site, Habitat_type)
 
 ## export
