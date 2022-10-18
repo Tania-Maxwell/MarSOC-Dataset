@@ -1,0 +1,47 @@
+"","Source","Site_name","Original_source","Habitat_type","Latitude","Longitude","accuracy_flag","accuracy_code","Country","Year_collected","U_depth_m","L_depth_m","C_stock_MgC_ha"
+"1","Meng et al 2019","WM Xinyanggang Estuary1","missing ref","Salt marsh",33.6014277777778,120.631294444444,"direct from dataset","4","China","see original study",0,1,244
+"2","Meng et al 2019","WM Xinyanggang Estuary2","missing ref","Salt marsh",33.5960555555556,120.601866666667,"direct from dataset","4","China","see original study",0,1,352
+"3","Meng et al 2019","WM Xinyanggang Estuary3","missing ref","Salt marsh",33.5861111111111,120.566275,"direct from dataset","4","China","see original study",0,1,210
+"4","Meng et al 2019","WM Xinyanggang Estuary4","missing ref","Salt marsh",33.5969361111111,120.523516666667,"direct from dataset","4","China","see original study",0,1,338
+"5","Meng et al 2019","WM laizhou bay1","missing ref","Salt marsh",38.0564111111111,118.917144444444,"direct from dataset","4","China","see original study",0,0.3,54.21
+"6","Meng et al 2019","WM laizhou bay2","missing ref","Salt marsh",38.0558055555556,118.915305555556,"direct from dataset","4","China","see original study",0,0.3,36.91
+"7","Meng et al 2019","WM laizhou bay3","missing ref","Salt marsh",38.0557444444444,118.915816666667,"direct from dataset","4","China","see original study",0,0.3,63.49
+"8","Meng et al 2019","WM laizhou bay4","missing ref","Salt marsh",38.0554972222222,118.911347222222,"direct from dataset","4","China","see original study",0,0.3,54.38
+"9","Meng et al 2019","WM Dafeng1","Yang et al 2017 ","Salt marsh",33.0497055555556,120.841563888889,"direct from dataset","4","China","see original study",0,0.3,62.06
+"10","Meng et al 2019","WM Dafeng2","Yang et al 2017 ","Salt marsh",33.0478138888889,120.851361111111,"direct from dataset","4","China","see original study",0,0.3,32.24
+"11","Meng et al 2019","WM Hangzhou Bay6","Deng et al 2016 ","Salt marsh",30.3279694444444,121.092541666667,"direct from dataset","4","China","see original study",0,0.2,106
+"12","Meng et al 2019","WM Hangzhou Bay7","Deng et al 2016 ","Salt marsh",30.1918277777778,121.334475,"direct from dataset","4","China","see original study",0,0.2,190.33
+"13","Meng et al 2019","WM Jiangsu province1","Chuai et al 2012 ","Salt marsh",32.3364277777778,120.963161111111,"direct from dataset","4","China","see original study",0,0.2,182.8
+"14","Meng et al 2019","WM Jiangsu province2","Chuai et al 2012 ","Salt marsh",33.2182611111111,120.556108333333,"direct from dataset","4","China","see original study",0,0.2,133
+"15","Meng et al 2019","WM Jiangsu province3","Chuai et al 2012 ","Salt marsh",34.6423861111111,119.297413888889,"direct from dataset","4","China","see original study",0,0.2,155.7
+"16","Meng et al 2019","WM Jiangsu province4","Chuai et al 2012 ","Salt marsh",34.8488861111111,119.178586111111,"direct from dataset","4","China","see original study",0,0.2,192
+"17","Meng et al 2019","WM Wafangdian1","Wang et al 2017b ","Salt marsh",39.8861111111111,121.635641666667,"direct from dataset","4","China","see original study",0,0.2,56.3
+"18","Meng et al 2019","WM Wafangdian2","Wang et al 2017b ","Salt marsh",39.8538,121.578802777778,"direct from dataset","4","China","see original study",0,0.2,86.5
+"19","Meng et al 2019","WM Wafangdian","Wang et al 2017b ","Salt marsh",39.8089722222222,121.509302777778,"direct from dataset","4","China","see original study",0,0.2,94.1
+"20","Meng et al 2019","WM Chongming island1","Jiang et al 2015 ","Salt marsh",31.5258722222222,121.91865,"direct from dataset","4","China","see original study",0,0.3,77.33
+"21","Meng et al 2019","WM Chongming island2","Shi et al 2010 ","Salt marsh",31.7606277777778,121.383883333333,"direct from dataset","4","China","see original study",0,0.2,71.28
+"22","Meng et al 2019","WM Yellow River delta","Yu et al 2013 ","Salt marsh",37.8929527777778,118.847261111111,"direct from dataset","4","China","see original study",0,0.3,80.33
+"23","Meng et al 2019","WM Binhai Tiianjin","Hao et al 2011 ","Salt marsh",38.796725,117.416575,"direct from dataset","4","China","see original study",0,0.3,156.67
+"24","Meng et al 2019","WM Chongming island3 ","Chen et al 2017 ","Salt marsh",31.5759222222222,121.830355555556,"direct from dataset","4","China","see original study",0,0.5,85
+"25","Meng et al 2019","WM Chongming island4 ","Chen et al 2017 ","Salt marsh",31.5052138888889,121.907186111111,"direct from dataset","4","China","see original study",0,0.5,75.2
+"26","Meng et al 2019","WM Chongming island5 ","Chen et al 2017 ","Salt marsh",31.4693361111111,121.8633,"direct from dataset","4","China","see original study",0,0.5,85
+"27","Meng et al 2019","WM Chongming island6 ","Zhang et al 2017 ","Salt marsh",31.6182555555556,121.576333333333,"direct from dataset","4","China","see original study",0,1,105
+"28","Meng et al 2019","WM Jiaozhou Bay1","Zi et al 2016","Salt marsh",36.14205,120.129394444444,"direct from dataset","4","China","see original study",0,0.6,113
+"29","Meng et al 2019","WM Jiaozhou Bay2","Zi et al 2016","Salt marsh",36.1824055555556,120.118108333333,"direct from dataset","4","China","see original study",0,0.6,93
+"30","Meng et al 2019","WM Jiaozhou Bay3","Zi et al 2016","Salt marsh",36.2386666666667,120.106119444444,"direct from dataset","4","China","see original study",0,0.6,99
+"31","Meng et al 2019","WM Minjiang","Pan et al 2015 ","Salt marsh",26.0661833333333,119.529813888889,"direct from dataset","4","China","see original study",0,0.6,137.17
+"32","Meng et al 2019","WM Yellow River delta2","Mou et al 2012 ","Salt marsh",37.7660333333333,119.161294444444,"direct from dataset","4","China","see original study",0,0.6,59.83
+"33","Meng et al 2019","WM Yellow River delta3","Mou et al 2012 ","Salt marsh",37.7771583333333,119.161463888889,"direct from dataset","4","China","see original study",0,0.6,65.67
+"34","Meng et al 2019","WM Jiangsu province5","Wang et al 2017a","Salt marsh",32.852425,120.741252777778,"direct from dataset","4","China","see original study",0,0.4,303.26
+"35","Meng et al 2019","WM Jiangsu province6","Wang et al 2017a","Salt marsh",32.845275,120.887027777778,"direct from dataset","4","China","see original study",0,0.4,286.44
+"36","Meng et al 2019","WM Jiangsu province7","Wang et al 2017a","Salt marsh",32.8678027777778,120.919975,"direct from dataset","4","China","see original study",0,0.4,260.3
+"37","Meng et al 2019","WM Jiangsu province8","Wang et al 2017a","Salt marsh",32.6909222222222,120.915936111111,"direct from dataset","4","China","see original study",0,0.4,313.34
+"38","Meng et al 2019","WM laizhou bay5","Xie et al 2017 ","Salt marsh",37.1084472222222,119.389066666667,"direct from dataset","4","China","see original study",0,0.3,85.6
+"39","Meng et al 2019","WM huanghe Estuary","Luo et al 2015 ","Salt marsh",38.0452194444444,118.798211111111,"direct from dataset","4","China","see original study",0,0.6,136
+"40","Meng et al 2019","WM liaohe Estuary","Luo et al 2015 ","Salt marsh",40.9805083333333,121.886922222222,"direct from dataset","4","China","see original study",0,0.6,421
+"41","Meng et al 2019","WM Minjiang Estuary up","Wang et al 2012 ","Salt marsh",26.0493611111111,119.282277777778,"direct from dataset","4","China","see original study",0,0.6,153.42
+"42","Meng et al 2019","WM Minjiang Estuary middle ","Wang et al 2012 ","Salt marsh",26.0511111111111,119.528333333333,"direct from dataset","4","China","see original study",0,0.6,154.82
+"43","Meng et al 2019","WM Minjiang Estuary down","Wang et al 2012 ","Salt marsh",26.0297777777778,119.625944444444,"direct from dataset","4","China","see original study",0,0.6,156.92
+"44","Meng et al 2019","WM Tianjin1","Chen et al 2013 ","Salt marsh",38.7237305555556,117.408086111111,"direct from dataset","4","China","see original study",0,0.3,235.33
+"45","Meng et al 2019","WM Tianjin2","Chen et al 2013 ","Salt marsh",39.1171888888889,117.712472222222,"direct from dataset","4","China","see original study",0,0.3,190
+"46","Meng et al 2019","WM Tianjin3","Chen et al 2013 ","Salt marsh",39.1651444444444,117.764347222222,"direct from dataset","4","China","see original study",0,0.3,213

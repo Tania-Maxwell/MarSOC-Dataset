@@ -15,6 +15,11 @@ input_file <- "reports/03_data_format/data/meta_analysis/Fu_2021/Fu_2021_SI_for_
 
 input_data0 <- read.csv(input_file)
 
+input_file2 <- "reports/03_data_format/data/bind/data_compile.csv"
+
+data_compile <- read.csv(input_file2)
+
+
 ##### format data  #####
 
 input_data0[input_data0 == "nd"] <- NA_real_
@@ -62,28 +67,15 @@ input_data2 <- input_data1 %>%
 input_data2$accuracy_code <-as.factor(input_data2$accuracy_code) 
 
 
-#### compare to Sanderman v1 ####,
 
-
-input_file <- "Sanderman_mangroveC_refs.csv"
-
-sanderman_refs <- read.csv(input_file)
-
-sanderman_refs <- sanderman_refs[c(1:149), c(1:3)]
-
-sanderman_refs <- sanderman_refs %>% 
-  rename(Original_source = Source)
-
-test_join <- inner_join(sanderman_refs, input_data2, by = "Original_source")
-table(test_join$Original_source)
-
-## remove Xia et al 2015 and Wang et al 2013
-
+## filter to salt marsh only
 input_data3 <- input_data2 %>% 
-  filter(Original_source != "Xia et al 2015",
-         Original_source != "Wang et al 2013")
+  
 
 
+##compare to other meta-analysis studies
+
+data_test <- left_join(input_data2, data_compile, by = "Original_source")
 
 ##### prepare for export  #####
 

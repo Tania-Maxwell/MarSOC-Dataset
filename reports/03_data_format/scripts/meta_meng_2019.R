@@ -1,11 +1,8 @@
-
-### NOTE: UNFINISHED. need to check papers cited. ####
-
 ## import data from Meng et al 2019, Estuarine, Coastal and Shelf Science
 ## supplementary information
 ## export for marsh soil C (and previously mangrove soil C)
 # contact Tania Maxwell, tlgm2@cam.ac.uk
-# 04.07.22
+# 20.09.22
 
 # NOTE - this is an aggregated dataset. Raw values are in individual datasets 
 
@@ -17,6 +14,11 @@ library(stringr)
 input_file <- "reports/03_data_format/data/meta_analysis/Meng_2019/Meng_2019_SI_for_reformat.csv"
 
 input_data0 <- read.csv(input_file)
+
+input_file2 <- "reports/03_data_format/data/bind/data_compile.csv"
+
+data_compile <- read.csv(input_file2)
+
 
 ##### format data  #####
 
@@ -81,57 +83,47 @@ input_data4 <- input_data3 %>%
   mutate_if(is.character, as.factor)
 
 
-#### compare to Sanderman v1 ####
-
-input_file <- "Sanderman_mangroveC_refs.csv"
-
-sanderman_refs <- read.csv(input_file)
-
-sanderman_refs <- sanderman_refs[c(1:149), c(1:3)]
-
-sanderman_refs <- sanderman_refs %>% 
-  rename(Original_source = Source) %>% 
-  mutate_if(is.character, as.factor)
-
-
-#original_source names from data frame sometimes have space afterwards
-input_data4$Original_source <- trimws(input_data4$Original_source)
-
-
-test_join <- inner_join(sanderman_refs, input_data4, by = "Original_source")
-table(test_join$Original_source)
-
-
-## remove Liu et al 2014, Lunstrum and Chen 2014 and Mao et al 2011
-## also check Wang et al 2017a and 2017b manually: OK, not included
+#### subset for marshes ####
 
 
 input_data5 <- input_data4 %>% 
-  filter(Original_source != "Liu et al 2014",
-         Original_source != "Lunstrum and Chen 2014",
-         Original_source != "Mao et al 2011")
+  filter(Habitat_type == "Salt marsh")
+
+
+##compare to other meta-analysis studies
+
+data_test <- left_join(input_data5, data_compile, by = "Original_source")
+
+
+## compare to other single-source data 
+input_data_fortest <- input_data5 %>% 
+  rename(This_paper = Source, 
+         Source = Original_source) # rename to match the source column in all other datasets
+
+data_test2  <- left_join(input_data_fortest, data_compile, by = "Source") 
+
+## ref from Original_source Xu et al 2014 already extracted by Hu et al 2020
+
+input_data6 <- input_data5 %>% 
+  filter(Original_source != "Xu et al 2014")
 
 
 
 #### export data ####
 
-export_data <- input_data5 %>% 
+export_data <- input_data6 %>% 
   select(Source, Site_name, Original_source, Habitat_type, Latitude, Longitude, 
          accuracy_flag, accuracy_code, Country, Year_collected, U_depth_m, L_depth_m, 
          C_stock_MgC_ha)
 
-## subset for mangroves
-
-export_data_marsh <- export_data %>% 
-  filter(Habitat_type == "Salt marsh")
 
 
 ## export
 
-path_out = 'data_export/'
+path_out = 'reports/03_data_format/data/exported/'
 
 export_file <- paste(path_out, source_name, ".csv", sep = '') 
-export_df <- export_data_marsh
+export_df <- export_data
 
-#write.csv(export_df, export_file)
+write.csv(export_df, export_file)
 
