@@ -30,7 +30,8 @@ data_compile1 = plyr::rbind.fill(data_compile0, andre_data)
 
 data_compile2 <- data_compile1 %>% 
   mutate(Original_source = case_when(is.na(Original_source) ~ Source,
-                                     TRUE ~ Original_source))
+                                     TRUE ~ Original_source)) %>% 
+  mutate(Country = fct_recode(Country, "United States" = "USA"))
 
 sum(is.na(data_compile2$Original_source))
 
@@ -57,8 +58,8 @@ str(data_compile3)
 # ## export data file
 # 
 # ## need to first change directory to working directory
-# setwd("~/07_Cam_postdoc/SaltmarshC/reports/03_data_format/data/bind")
-# write.csv(data_compile3, "data_compile.csv", row.names =F)
+setwd("~/07_Cam_postdoc/SaltmarshC/reports/03_data_format/data/bind")
+write.csv(data_compile3, "data_compile.csv", row.names =F)
 
 #### other data subsets ####
 
@@ -93,8 +94,9 @@ data_noCCRCN_andre <- data_compile0 %>%
   filter(Source != "CCRCN")
 
 
-data_sub <- data_noCCRCN_andre %>% 
-  filter(U_depth_m > 0.3)
+data_sub <- data_compile2 %>% 
+  filter(U_depth_m > 0.3) %>% 
+  distinct(Latitude, .keep_all = TRUE)
 
 data_uk <- data_compile2 %>% 
   filter(Country == "UK" | Country == "Ireland")
@@ -136,13 +138,42 @@ fig_name <- paste(Sys.Date(),"n_points", sep = "_")
 export_file <- paste(path_out, fig_name, ".png", sep = '') 
 export_fig <- fig_n_points
 
-ggsave(export_file, export_fig, width = 15.36, height = 8.14)
+ggsave(export_file, export_fig, width = 14.24, height = 8.46)
+
+
+
+### figure for TNC
+
+fig_TNC <- ggplot(data = world) +
+  geom_sf() +
+  coord_sf(ylim = c(-60, 80), expand = FALSE)+
+  theme_bw()+
+  labs(title = "Global tidal marsh soil carbon training dataset")+
+  theme(plot.title = element_text(size = 18, hjust = 0.5))+
+  geom_point(data = data_unique, aes(x = Longitude, y = Latitude, 
+                                     color = Source), size = 3, alpha = 0.4)+
+  scale_size(range = c(2,8))+
+  theme(legend.position = "bottom")+
+  theme(legend.position = "none")
+
+fig_TNC
+
+#### export figure
+path_out = 'reports/03_data_format/data/bind/point_maps/'
+
+
+fig_name <- paste(Sys.Date(),"n_points", sep = "_")
+export_file <- paste(path_out, fig_name, ".png", sep = '') 
+export_fig <- fig_n_points
+
+ggsave("2022_11_04_training-points_TNC.png", fig_TNC, width = 12.29, height = 7.12)
+
+
 
 
 #### exploring data (not ccrcn/andre) ####
 
 hist(data_noCCRCN_andre$OC_perc)
-
 
 
 

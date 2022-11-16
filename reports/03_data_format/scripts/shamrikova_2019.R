@@ -37,14 +37,31 @@ input_data03 <- input_data02 %>%
          U_depth_m = as.numeric(U_depth_cm)/100 , #cm to m
          L_depth_m = as.numeric(L_depth_cm)/100)# cm to m
 
+### replace NAs from depth and calculate Corg 
+
+input_data04 <- input_data03 %>% 
+  mutate(L_depth_m = case_when(Plot == "Plot V" & U_depth_cm == 38 ~ 55/100,
+                               Plot == "Plot V" & L_depth_cm == 76 ~ 76/100,
+                               TRUE ~ L_depth_m)) %>% 
+  mutate(U_depth_m = case_when(Plot == "Plot V" & L_depth_m == 0.76 ~ 55/100,
+                               TRUE ~ U_depth_m))
+
+### DATA IS IN PER MILLE (g / kg), so need to divide by 10 to get percent
+
+input_data05 <- input_data04 %>% 
+  mutate(Ctot_perc = Ctot_perc/10,
+         Cinorg_perc = Cinorg_perc/10,
+         Ntot_perc = Ntot_perc/10) %>% 
+  mutate(OC_perc = case_when(is.na(Cinorg_perc) == F ~ Ctot_perc - Cinorg_perc,
+                             TRUE ~ Ctot_perc))
 
 
 #### export ####
 
-export_data01 <- input_data03 %>% 
+export_data01 <- input_data05 %>% 
   dplyr::select(Source, Site_name, Site, Plot, Habitat_type, Country, Year_collected,
                 Latitude, Longitude, accuracy_flag, accuracy_code,
-                U_depth_m, L_depth_m, Method, Ctot_perc, Cinorg_perc, Ntot_perc)
+                U_depth_m, L_depth_m, Method, OC_perc, Ctot_perc, Cinorg_perc, Ntot_perc)
 
 
 export_data02 <- export_data01 %>% 

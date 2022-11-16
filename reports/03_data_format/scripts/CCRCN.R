@@ -36,7 +36,8 @@ input_data02 <- input_data01 %>%
                 Site = site_id,
                 Core = core_id,
                 Habitat_type = habitat,
-                State = admin_division,) %>% 
+                State = admin_division,
+                Year_collected = year) %>% 
   mutate(accuracy_flag = "direct from dataset",
          accuracy_code = "1")
 
@@ -51,7 +52,7 @@ input_data03 <- input_data02 %>%
 #### export
 
 export_data01 <- input_data03 %>% 
-  dplyr::select(Source, Original_source, Core, Habitat_type, Country,
+  dplyr::select(Source, Original_source, Core, Habitat_type, Country, State, Year_collected,
                 Latitude, Longitude, accuracy_flag, accuracy_code,
                 U_depth_m, L_depth_m, OC_perc, SOM_perc, BD_reported_g_cm3)
 

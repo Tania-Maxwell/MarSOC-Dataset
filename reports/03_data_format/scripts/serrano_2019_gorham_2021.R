@@ -1,0 +1,88 @@
+## import data from Oscar Serrano
+## Gorham 2020, Science of the Total Environment
+## and unpublished data
+## export for marsh soil C
+# contact Tania Maxwell, tlgm2@cam.ac.uk
+# 25.10.22
+
+
+library(tidyverse)
+input_file01 <- "reports/03_data_format/data/core_level/Serrano_2019_Gorham_2021_email/Serrano_data_sent.csv"
+
+
+input_data01 <- read.csv(input_file01) %>% 
+  rename_with(~ gsub("..", "_", .x, fixed = TRUE)) %>% #replacing .. in columns by _
+  rename_with(~ gsub(".", "_", .x, fixed = TRUE))   #replacing . in columns by _
+
+
+
+##### add informational 
+input_data02 <- input_data01 %>% 
+  mutate(Source = fct_recode(Publication, 
+                             "Gorham et al 2021" = "Gorham et al Ecosystems",
+                             "Serrano et al 2019" = "Serrano et al 2019 NatComms",
+                             "Serrano unpublished" = "unpublished")) %>% 
+  mutate(accuracy_code = 1) %>% 
+  mutate(author_initials = case_when(Source == "Gorham et al 2021"~ "CG",
+                                     Source == "Serrano et al 2019"~ "OS",
+                                     Source == "Serrano unpublished"~ "OS")) %>% 
+  mutate(Site_name = paste(author_initials, ID_CORE)) %>% 
+  rename(Core = ID_CORE,
+         Habitat_type = Habitat,
+         Latitude = lat,
+         Longitude = long,
+         Year_collected = year_of_sampling)
+
+
+### editing data a bit more
+input_data03 <- input_data02 %>% 
+  rename(U_depth_cm = Upper_depth_decompressed_cm_,
+         L_depth_cm = Lower_depth_decompressed_cm_,
+         OC_perc = X_Corg_bulk, 
+         BD_reported_g_cm3 = X_DBD_g_cm_3_decompresed) %>% 
+  mutate(accuracy_flag = "direct from dataset",
+         accuracy_code = "1",
+         Country = "Australia") %>% 
+  mutate(Method = "EA")
+
+
+
+## edit depth
+
+input_data04 <- input_data03 %>% 
+  mutate(U_depth_m = as.numeric(U_depth_cm)/100 , #cm to m
+         L_depth_m = as.numeric(L_depth_cm)/100)# cm to m
+
+
+##keeping Serrano et al 2019, although previously exported, because now we have raw data
+#instead of just calculated stocks
+# the published CSIRO dataset has been moved the folder 07_Cam_postdoc/Data/Done
+
+#### export ####
+
+export_data01 <- input_data04 %>% 
+  dplyr::select(Source, Site_name, Core, Habitat_type, Country, Year_collected,
+                Latitude, Longitude, accuracy_flag, accuracy_code,
+                U_depth_m, L_depth_m, Method, OC_perc, BD_reported_g_cm3)
+
+
+export_data02 <- export_data01 %>% 
+  relocate(Source, Site_name, Core, Habitat_type, Latitude, Longitude, 
+           accuracy_flag, accuracy_code, Country, Year_collected, .before = U_depth_m) %>% 
+  arrange(Source, Site_name)
+
+## export
+
+path_out = 'reports/03_data_format/data/exported/'
+source_name = "Gorham2021 Serrano2019unpublished"
+
+export_file <- paste(path_out, source_name, ".csv", sep = '') 
+export_df <- export_data02
+
+write.csv(export_df, export_file)
+
+
+
+
+
+

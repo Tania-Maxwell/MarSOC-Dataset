@@ -60,7 +60,7 @@ export_data01 <- input_data04 %>%
                 Latitude, Longitude, accuracy_flag, accuracy_code,
                 U_depth_m, L_depth_m, OC_perc, SOM_perc, BD_reported_g_cm3)
   
-#write.csv(export_data, "Data from Andre.csv")
+#write.csv(export_data01, "Data from Andre.csv")
 
 
 ### exploring the data

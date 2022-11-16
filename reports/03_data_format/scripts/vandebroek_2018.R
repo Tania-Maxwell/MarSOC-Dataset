@@ -215,6 +215,17 @@ export_data02 <- export_data01 %>%
            accuracy_flag, accuracy_code, Country, Year_collected, .before = U_depth_m) %>% 
   arrange(Site, Habitat_type)
 
+
+mapWorld <- borders("world", colour="gray50", fill="white")
+
+mp <- ggplot() + 
+  mapWorld +
+  ylim(-60,80)+
+  geom_point(data = export_data02, aes(x = Longitude, y = Latitude, 
+                                      color = Site), alpha = 0.5)
+mp
+
+
 ## export
 
 path_out = 'reports/03_data_format/data/exported/'
