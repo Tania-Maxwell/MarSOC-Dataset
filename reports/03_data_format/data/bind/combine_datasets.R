@@ -29,7 +29,7 @@ data_compile1 = plyr::rbind.fill(data_compile0, andre_data)
 
 
 data_compile2 <- data_compile1 %>% 
-  mutate(Original_source = case_when(is.na(Original_source) ~ Source,
+  mutate(Original_source = case_when(is.na(Original_source) == TRUE ~ Source,
                                      TRUE ~ Original_source)) %>% 
   mutate(Country = fct_recode(Country, "United States" = "USA"))
 
@@ -48,11 +48,10 @@ data_compile2$SOM_perc <- as.numeric(data_compile2$SOM_perc)
 #but this is NOT possible with numeric vectors
 
 data_compile3 <- data_compile2 %>% 
-  filter(!is.na(Latitude), !is.na(Longitude)) %>% 
+#  filter(is.na(Latitude) == FALSE & is.na(Longitude) == FALSE) %>% 
   dplyr::rename(ID = X)
 
-
-str(data_compile3)
+## 18.11 resolved issue of CCRCN location data 
 
 
 # ## export data file
@@ -62,6 +61,15 @@ setwd("~/07_Cam_postdoc/SaltmarshC/reports/03_data_format/data/bind")
 write.csv(data_compile3, "data_compile.csv", row.names =F)
 
 #### other data subsets ####
+
+
+#only run this if not running the code above ##
+input_file01 <- "reports/04_data_process/data/data_cleaned.csv"
+
+data_compile2 <- read.csv(input_file01)
+
+str(data_compile2)
+
 
 
 data_compile2$Site <- as.factor(data_compile2$Site)
@@ -106,7 +114,25 @@ data_uk <- data_compile2 %>%
 data_unique <- data_compile2 %>% 
   distinct(Latitude, .keep_all = TRUE)
 
-table(data_unique$Country)
+country_table <- table(data_unique$Country)
+country_table
+
+country_table <- data_compile2 %>%  
+  group_by(Country) %>% 
+  distinct(Latitude, .keep_all = TRUE) %>% 
+  count()
+
+
+
+## saving the list of countries 
+setwd("~/07_Cam_postdoc/SaltmarshC")
+
+library(gridExtra)
+png("reports/03_data_format/data/bind/point_maps/sites_per_country.png", height = 50*nrow(country_table), width = 200*ncol(country_table))
+grid.table(country_table)
+dev.off()
+
+
 
 #### check locations ####
 

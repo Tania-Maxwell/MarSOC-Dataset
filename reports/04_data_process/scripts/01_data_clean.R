@@ -5,6 +5,7 @@
 
 rm(list=ls()) # clear the workspace
 library(tidyverse)
+setwd("~/07_Cam_postdoc/SaltmarshC")
 input_file01 <- "reports/03_data_format/data/bind/data_compile.csv"
 
 data0 <- read.csv(input_file01)
@@ -25,11 +26,20 @@ table(is.na(data1$Year_collected))
 hist(data1$Year_collected)
 
 
-#### 2. merge columns ####
+#### 2. data corrections ####
+
+## CCRCN database Keshta study has perfect fit between OC and SOM --> OC was calculated from SOM
+
+data2 <- data1 %>% 
+  mutate(Conv_factor = case_when( Original_source == "Keshta et al 2020 a" ~ "0.4068x+0.6705", 
+                                  TRUE ~ Conv_factor))
+
+
+#### 3. merge columns ####
 
 #to merge OC_perc with OC_perc_mean with Soil_OCcon_mean
 
-data2 <- data1 %>% 
+data3 <- data2 %>% 
   #in column OC_perc_sd, keep OC_perc_sd values, and when empty fill with OC_perc_SD, or OC_perc_s values
   mutate(OC_perc_sd = coalesce(OC_perc_sd, OC_perc_SD, OC_perc_s)) %>% 
   mutate(OC_perc_mean = coalesce(OC_perc_mean, Soil_OCcon_mean, Soil_TCcon_mean)) %>% 
@@ -52,15 +62,15 @@ data2 <- data1 %>%
 #need to KEEP C_stock_MgC_ha (Meng et al 2019 review only has this data)
 
 
-data3 <- data2 %>% 
+data4 <- data3 %>% 
   dplyr::select(Source:Original_source, Conv_factor, Core, State, Location, Depth_to_bedrock_m,
                Season, Treatment, Replicate, n_cores, Core_type, SOM_perc_mean:OC_perc_se, BD_reported_g_cm3_mean, 
                BD_reported_g_cm3_se, BD_reported_g_cm3_sd)
 
 
-#### 3. Add data type & combining raw with site-level data  ####
+#### 4. Add data type & combining raw with site-level data  ####
 
-data4 <- data3 %>% 
+data5 <- data4 %>% 
   mutate(Data_type = case_when(Source == "Cusack et al 2018" | Source == "Gailis et al 2021" |
                                  Source == "Gispert et al 2020" | Source == "Gispert et al 2021" |
                                  Source == "Perera et al 2022" | Source == "Rathore et al 2016" |
@@ -81,7 +91,7 @@ data4 <- data3 %>%
 path_out = 'reports/04_data_process/data/'
 
 export_file <- paste(path_out, "data_cleaned.csv", sep = '') 
-export_df <- data4
+export_df <- data5
 
 write.csv(export_df, export_file, row.names = F)
 

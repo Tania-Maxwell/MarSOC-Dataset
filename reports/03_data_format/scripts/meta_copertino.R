@@ -20,9 +20,9 @@ input_data02 <- input_data01 %>%
 
 
 input_data02[,c("SOM_perc", "SOM_perc_mean", 
-                "SOM_perc_sd", "OC_perc_mean", "OC_perc")] <- lapply(
+                "SOM_perc_sd", "OC_perc_mean","OC_perc_sd", "OC_perc")] <- lapply(
                   input_data02[,c("SOM_perc", "SOM_perc_mean", 
-                                  "SOM_perc_sd", "OC_perc_mean", "OC_perc")], 
+                                  "SOM_perc_sd", "OC_perc_mean","OC_perc_sd", "OC_perc")], 
                   gsub, pattern = "\\,", replacement = "\\.")
 
 input_data02 <- input_data02 %>% 
@@ -64,7 +64,8 @@ input_data05 <- input_data04 %>%
                               "Argentina" = "UK/Argentina")) %>% 
   # calculating a sd for OC_perc when OC is calculated from SOM with a mean and sd
   #using same conversion factor
-  mutate(OC_perc_sd = case_when(is.na(SOM_perc_sd) == FALSE ~ (0.47*SOM_perc_sd + 0.0008)))
+  mutate(OC_perc_sd = case_when(is.na(OC_perc_mean) == TRUE & is.na(SOM_perc_sd) == FALSE ~ (0.47*SOM_perc_sd + 0.0008),
+                                TRUE ~ OC_perc_sd))
 
 
 

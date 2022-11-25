@@ -13,7 +13,7 @@ input_depthseries <- read.csv(input_file1)
 input_cores <- read.csv(input_file2)
 
 input_data01 <- right_join(input_cores, input_depthseries,
-                        by = c("study_id", "site_id","core_id"))
+                        by = c("study_id", "core_id"))
 
 
 #### reformat to match other datasets
@@ -33,13 +33,14 @@ input_data02 <- input_data01 %>%
                 Country = country,
                 Latitude = latitude,
                 Longitude = longitude,
-                Site = site_id,
+                Site = site_id.x,
                 Core = core_id,
                 Habitat_type = habitat,
                 State = admin_division,
                 Year_collected = year) %>% 
   mutate(accuracy_flag = "direct from dataset",
-         accuracy_code = "1")
+         accuracy_code = "1",
+         Method = "EA") # LOI measurements have not been converted to OC_perc
 
 
 #making carbon data  match main dataset
@@ -49,11 +50,18 @@ input_data03 <- input_data02 %>%
   dplyr::rename(BD_reported_g_cm3 = dry_bulk_density)
 
 
+### removing Schile-Beers_and_Megonigal_2017 dataset
+# same dataset with more information is available from DRYAD
+#https://datadryad.org/stash/dataset/doi:10.15146/R3K59Z
+
+input_data04 <- input_data03 %>% 
+  filter(Original_source != "Schile-Beers and Megonigal 2017")
+
 #### export
 
-export_data01 <- input_data03 %>% 
+export_data01 <- input_data04 %>% 
   dplyr::select(Source, Original_source, Core, Habitat_type, Country, State, Year_collected,
-                Latitude, Longitude, accuracy_flag, accuracy_code,
+                Latitude, Longitude, accuracy_flag, accuracy_code, Method,
                 U_depth_m, L_depth_m, OC_perc, SOM_perc, BD_reported_g_cm3)
 
 
