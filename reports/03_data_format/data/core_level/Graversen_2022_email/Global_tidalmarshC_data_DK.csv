@@ -1,4 +1,4 @@
-﻿Source,Site,Management,Marshzone,Core,Habitat_type,Latitude,Longitude,accuracy_flag-see note in metadata,Country,Year_collected,U_depth_m (compressed) ,L_depth_m (compressed),U_depth_m (decompressed) ,L_depth_m (decompressed),Method,OC_perc,BD_reported_g_cm3,SOM_perc
+﻿Source,Site,Management,Marshzone,Core,Habitat_type,Latitude,Longitude,accuracy_flag-see note in metadata,Country,Year_collected,U_depth_m (compressed) ,L_depth_m (compressed),U_depth_m (decompressed) ,L_depth_m (decompressed),Method,SOM_perc,BD_reported_g_cm3,OC_perc
 Graversen et al 2022,Mariager,Grazed,Low,P,Saltmarsh,56.708652,10.166294,direct from dataset,DK,2018,0.00,1.00,0.00,1.17,LOI and EA,13.9,0.93,2.874
 Graversen et al 2022,Mariager,Grazed,Low,1,Saltmarsh,,,direct from dataset,DK,2018,1.00,2.00,1.30,2.60,LOI and EA,4.67,1.38,0.823
 Graversen et al 2022,Mariager,Grazed,Low,2,Saltmarsh,,,direct from dataset,DK,2018,1.00,2.00,1.10,2.20,LOI and EA,4.3,1.23,1.258

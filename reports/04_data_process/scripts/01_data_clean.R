@@ -17,6 +17,7 @@ str(data0)
 
 ## year_collected
 data1 <- data0 %>% 
+  mutate_all(na_if,"") %>% # replacing blanks with na
   dplyr::select(-ID) %>%  #ID from each export; doesn't have meaning
   separate(Year_collected, c("Year_collected", "Year_collected_end"), sep = '-' ) %>% 
   mutate(Year_collected = as.numeric(Year_collected)) %>% 
@@ -75,7 +76,7 @@ data5 <- data4 %>%
                                  Source == "Gispert et al 2020" | Source == "Gispert et al 2021" |
                                  Source == "Perera et al 2022" | Source == "Rathore et al 2016" |
                                  Source == "Yang et al 2021" | Source == "Yu and Chmura 2010" |
-                                 Source == "Yuan et al 2019" ~ "Site-level",
+                                 Source == "Yuan et al 2019" | Source == "Voltz et al 2021" ~ "Site-level",
                                Source == "Copertino et al under review" | Source == "He et al 2020" |
                                  Source == "Hu et al 2020" | Source == "Meng et al 2019" |
                                  Source == "Wails et al 2021" ~ "Meta-analysis",
@@ -94,5 +95,17 @@ export_file <- paste(path_out, "data_cleaned.csv", sep = '')
 export_df <- data5
 
 write.csv(export_df, export_file, row.names = F)
+
+
+# ### export for GEE
+# 
+# file_name <- paste(Sys.Date(),"data_cleaned", sep = "_")
+# export_file_GEE <- paste(path_out, file_name, ".csv", sep = '') 
+# 
+# export_df_GEE <- data5 %>% 
+#   filter(is.na(Latitude) == FALSE & is.na(Longitude) == FALSE)
+# 
+# write.csv(export_df_GEE, export_file_GEE, row.names = F)
+
 
 

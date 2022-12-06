@@ -3,7 +3,7 @@
 
 
 #CAUTION: once this script runs, tidyverse doesn't work properly (due to plyr being loaded)
-
+rm(list=ls()) # clear the workspace
 library(plyr) #for data bind
 library(tidyverse)
 

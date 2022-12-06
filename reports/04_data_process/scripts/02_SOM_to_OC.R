@@ -16,10 +16,19 @@ data0<- read.csv(input_file01)
 
 str(data0)
 
+data_unique <- data0 %>% 
+  distinct(Latitude, .keep_all = TRUE)
+
+country_table <- table(data_unique$Country)
+country_table
+
+
+data_CCRCN <- data_unique %>% 
+  filter(Source == "CCRCN")
 
 #### 1. background info ######
 
-#19,282 observations with SOM instead of OC
+#19,232 observations with SOM instead of OC
 test <-data0 %>% 
   filter(is.na(OC_perc_combined) == TRUE & is.na(SOM_perc_combined) == FALSE)
 
@@ -31,14 +40,12 @@ test1 <- data0 %>%
 table(test1$Original_source)
 
 
-# 4025 observations with both SOM and OC
+# 4175 observations with both SOM and OC
 
 data_SOM_OC <-data0 %>% 
   filter(is.na(Conv_factor) == TRUE) %>% 
   filter(is.na(OC_perc_combined) == FALSE & is.na(SOM_perc_combined) == FALSE
          & Method == "EA") %>% 
-  mutate(OC_perc_combined = case_when(Source == "Graversen et al 2022" ~ OC_perc_combined/10,
-                                      TRUE ~ OC_perc_combined)) %>% 
   mutate(Source_country = paste(Original_source, Country)) %>% 
   filter(Original_source != "Elsey Quirk et al 2011")  ##issue with this study (seems SOM or OC was interpreted)
 
@@ -56,6 +63,7 @@ SOM_OC_observed <- ggplot(data_SOM_OC, aes(x = SOM_perc_combined, y = OC_perc_co
   stat_poly_eq(aes(label = paste(after_stat(eq.label),
                                  after_stat(rr.label), sep = "*\", \"*")))+
   geom_point()+
+  labs(x = "SOM (%)", y = "OC (%)")+
   facet_wrap(~Source_country)
 
 SOM_OC_observed
@@ -86,6 +94,11 @@ SOM_to_OC <- function(x, a, b, c) {
   (a*(x^2)) + (b*x) + c
 }
 
+# SOM_to_OC_at0 <- function(x, a, b) {
+#   (a*(x^2)) + (b*x)
+# }
+
+
 ## use the start values for the model from sanderman paper
 quadratic_model <- nls(OC_perc_combined ~ SOM_to_OC(SOM_perc_combined, a, b, c), 
                   data=data_SOM_OC, 
@@ -100,6 +113,13 @@ c_est <- summary(quadratic_model)[['coefficients']][[3]]
 a_std <- summary(quadratic_model)[['coefficients']][[1,2]]
 b_std <- summary(quadratic_model)[['coefficients']][[2,2]]
 c_std <- summary(quadratic_model)[['coefficients']][[3,2]]
+
+
+# ##quadratic model fixed to 0,0
+# quadratic_model_at0 <- nls(OC_perc_combined ~ SOM_to_OC_at0(SOM_perc_combined, a, b), 
+#                        data=data_SOM_OC, 
+#                        start=list(a=0.074, b=0.0421))
+# summary(quadratic_model_at0)
 
 
 #### calculating fitted values 
@@ -151,12 +171,13 @@ modelr::rsquare(quadratic_model, data_SOM_OC)
 
 ### comparing linear to full quadratic 
 AIC(linear_model, quadratic_model)
+AIC(quadratic_model, quadratic_model_at0)
 
 
 
 #### 4. figure exports ####
-export_fig <- SOM_to_OC_quadratic
-fig_main_name <- "SOM_to_OC_quadratic"
+export_fig <- SOM_OC_observed
+fig_main_name <- "SOM_OC_observed"
 
 path_out = 'reports/04_data_process/figures/'
 fig_name <- paste(Sys.Date(),fig_main_name, sep = "_")
@@ -165,25 +186,6 @@ ggsave(export_file, export_fig, width = 14.86, height = 8.46)
 
 
 #### 5. errors #####
-# looks like Graversen data is in per mille, and not percent? 
-#i.e. test divided by 10
-
-data_SOM_OC_grav <- data_SOM_OC %>% 
-  mutate(OC_perc_corr = case_when(Original_source == "Graversen et al 2022" ~ OC_perc_combined/10,
-                                  TRUE ~ OC_perc_combined)) %>% 
-  relocate(OC_perc_corr, .before = OC_perc_combined) %>% 
-  filter(Original_source == "Graversen et al 2022" | Original_source == "Ruranska et al 2020"
-         | Original_source == "Ruranska et al 2022" | Original_source == "Burden et al 2018")
-
-
-## to send to Graversen 
-
-Grav_SOM_OC_observed <- ggplot(data_SOM_OC_grav, aes(x = SOM_perc_combined, y = OC_perc))+
-  geom_point()+
-  labs(x = "Soil organic matter (%)", y = "Organic carbon (%)")+
-  facet_wrap(~Source_country)
-
-Grav_SOM_OC_observed
 
 
 #### 6. conversion factors used ######
@@ -202,7 +204,7 @@ dev.off()
 
 #### 7. compare study SOM conversion factors to ours ####
 
-data_converted <-data0 %>% 
+data_converted_compare <-data0 %>% 
   filter(is.na(Conv_factor) == FALSE &
            is.na(SOM_perc_combined) == FALSE &
            is.na(OC_perc_combined) == FALSE) %>% 
@@ -211,19 +213,19 @@ data_converted <-data0 %>%
   mutate(OC_perc_from_eq = replace(OC_perc_from_eq, which(OC_perc_from_eq<0.00001), NA))%>%
   mutate(OC_calcualted_diff_perc = (OC_perc_from_eq - OC_perc_combined)/OC_perc_combined*100)
 
-hist(data_converted$OC_perc_from_eq)
+hist(data_converted_compare$OC_perc_from_eq)
 
 
 
 
-OC_eq_vs_OC_from_SOM <- ggplot(data_converted, aes(x = OC_perc_combined, y = OC_perc_from_eq))+
+OC_eq_vs_OC_from_SOM <- ggplot(data_converted_compare, aes(x = OC_perc_combined, y = OC_perc_from_eq))+
   geom_point(size = 0.75, aes(color = Source))+
   theme_bw()+
   labs(x = "OC (%) calculated from SOM from original study's equation",
        y = "OC (%) calculated from our general equation")
 OC_eq_vs_OC_from_SOM
 
-OC_calcualted_diff_graph <- ggplot(data_converted, aes(x = Source, y = OC_calcualted_diff_perc))+
+OC_calcualted_diff_graph <- ggplot(data_converted_compare, aes(x = Source, y = OC_calcualted_diff_perc))+
   geom_boxplot(aes(color = Source))+
   theme_bw()+
   labs(x = "Source",
@@ -234,9 +236,58 @@ OC_calcualted_diff_graph
 
 #### 8. apply our conversion factor to ones without CFs ####
 
+data_SOMconverted <-  data0 %>%
+  mutate(OC_perc_estimated = 
+           case_when(is.na(OC_perc_combined) == FALSE 
+                     & is.na(SOM_perc_combined) == FALSE
+                     & is.na(Conv_factor) == FALSE
+                      ~ OC_perc_combined,
+                     
+             #only replace values when OC_perc is NA and the Conv_factor is NA
+                      is.na(OC_perc_combined) == TRUE 
+                      & is.na(SOM_perc_combined) == FALSE 
+                      & is.na(Conv_factor) == TRUE 
+             #using our quadratic equation
+                       ~ a_est*(SOM_perc_combined^2) + b_est*SOM_perc_combined + c_est,
+           
+             #observed values           
+            is.na(OC_perc_combined) == FALSE
+            & is.na(SOM_perc_combined) == TRUE
+            & is.na(Conv_factor) == TRUE
+            ~ NA_real_ )) %>%
+  
+    #adding a column to indicate if an OC value is observed, estimated from study equation or estimated from our equation
+  mutate(OC_obs_est = case_when(is.na(OC_perc_combined) == FALSE & is.na(Conv_factor) == TRUE ~  "Observed",
+                                is.na(Conv_factor) == FALSE ~ "Estimated (study equation)",
+                                is.na(OC_perc_combined) == TRUE & is.na(Conv_factor) == TRUE ~ "Estimated (our equation)")) %>%
+  #adding a column whether it's observed or 
+  mutate(OC_perc_final = coalesce(OC_perc_combined, OC_perc_estimated)) %>% 
+  
+  #delete negative values but keep 0
+  mutate(OC_perc_final = replace(OC_perc_final, which(OC_perc_final<=0), NA)) 
+  # dplyr::select(Source, Site, Site_name, OC_perc, OC_perc_combined, OC_obs_est,
+  #               SOM_perc_combined, OC_perc_estimated, Conv_factor, Method,
+  #              OC_perc_final)
 
 
+SOM_OC_converted <- data_SOMconverted %>% 
+  filter(is.na(OC_perc_final) == FALSE
+         & is.na(SOM_perc_combined) == FALSE) %>% 
+  ggplot(aes(x = SOM_perc_combined, y = OC_perc_final))+
+  geom_point(aes(color = OC_obs_est))+
+  theme_bw()+
+  labs(x = "SOM (%)",
+       y = "OC (%) both observed and calcualted")
+SOM_OC_converted
 
+data_test <- data_SOMconverted %>% 
+  filter(is.na(OC_perc_estimated) == TRUE
+         & is.na(OC_perc_combined) == TRUE) %>% 
+  dplyr::select(Source, Site, Site_name, OC_perc, OC_perc_combined, 
+                OC_obs_est,
+                SOM_perc_combined, OC_perc_estimated, Conv_factor, Method ,OC_perc_final)
+
+## NOTE: 5953 values with neither OC or SOM data. no values for data imports
 
 
 #### 9. explore OC_perc and SOM_perc data in general
@@ -254,14 +305,12 @@ histogram
 
 
 
-
-
 #### last. export cleaned and converted data ####
 
 path_out = 'reports/04_data_process/data/'
 
-export_file <- paste(path_out, "data_cleaned_converted.csv", sep = '') 
-export_df <- data4
+export_file <- paste(path_out, "data_cleaned_SOMconverted.csv", sep = '') 
+export_df <- data_SOMconverted
 
 write.csv(export_df, export_file, row.names = F)
 
