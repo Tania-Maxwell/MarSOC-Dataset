@@ -87,12 +87,18 @@ data5 <- data4 %>%
   mutate(BD_reported_combined = coalesce(BD_reported_g_cm3, BD_reported_g_cm3_mean))
 
 
+##### 5. remove rows with neither OC nor SOM data ####
+
+data6 <- data5 %>% 
+  filter(is.na(OC_perc_combined) == FALSE | 
+           is.na(SOM_perc_combined) == FALSE)
+
 #### export cleaned data
 
 path_out = 'reports/04_data_process/data/'
 
 export_file <- paste(path_out, "data_cleaned.csv", sep = '') 
-export_df <- data5
+export_df <- data6
 
 write.csv(export_df, export_file, row.names = F)
 
@@ -100,10 +106,12 @@ write.csv(export_df, export_file, row.names = F)
 # ### export for GEE
 # 
 # file_name <- paste(Sys.Date(),"data_cleaned", sep = "_")
-# export_file_GEE <- paste(path_out, file_name, ".csv", sep = '') 
+# export_file_GEE <- paste(path_out, file_name, ".csv", sep = '')
 # 
-# export_df_GEE <- data5 %>% 
-#   filter(is.na(Latitude) == FALSE & is.na(Longitude) == FALSE)
+# export_df_GEE <- data5 %>%
+#   filter(is.na(Latitude) == FALSE & is.na(Longitude) == FALSE) %>% 
+#   distinct(Latitude, .keep_all = TRUE)
+#   
 # 
 # write.csv(export_df_GEE, export_file_GEE, row.names = F)
 

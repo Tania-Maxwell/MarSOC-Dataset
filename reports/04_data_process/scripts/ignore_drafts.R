@@ -1,6 +1,36 @@
 ## file to dump unused scripts in files - might be useful later
 
-#### 01_bulk_density ####
+#### 02_SOM_to_OC ####
+
+
+# mutate(OC_perc_estimated = 
+#          
+#          case_when(
+#            # is.na(OC_perc_combined) == FALSE 
+#            #         & is.na(SOM_perc_combined) == FALSE
+#            #         & is.na(Conv_factor) == FALSE
+#            #          ~ OC_perc_combined,
+#                    
+#            #only replace values when OC_perc is NA and the Conv_factor is NA
+#                     is.na(OC_perc_combined) == TRUE 
+#                     & is.na(SOM_perc_combined) == FALSE 
+#                     & is.na(Conv_factor) == TRUE 
+#            #using our quadratic equation
+#                      ~ OC_from_SOM_our_eq,
+#          
+#            #observed values           
+#           is.na(OC_perc_combined) == FALSE
+#           & is.na(SOM_perc_combined) == TRUE
+#           & is.na(Conv_factor) == TRUE
+#           ~ NA_real_ )) %>%
+
+
+
+
+#### 03_bulk_density ####
+
+
+
 
 #### help from Lukas ####
 
@@ -88,3 +118,12 @@ fitted_values <- BD_simple(xBD, a_est, b_est)
 
 plot(input_data_model$OC_perc, input_data_model$BD_reported_g_cm3)
 lines(xBD, fitted_values, col="red")
+
+
+# ### calculation prediction intervals for the predictions 
+# predictions <- predictNLS(quadratic_model, newdata = data.frame(SOM_perc_combined = xOC2),
+#                           interval="pred")
+# predictions$summary
+# 
+# 
+# modelr::rsquare(quadratic_model, data_SOM_OC)

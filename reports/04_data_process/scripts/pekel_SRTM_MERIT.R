@@ -48,8 +48,9 @@ srtm_pekel <- export_all %>%
   theme_bw()
 srtm_pekel
 
+library(ggpubr)
 combined <- ggarrange(srtm_merit, merit_pekel,srtm_pekel)
-
+combined
 
 slope_occ <- export_all %>% 
   filter(MERIT_elevation <20) %>% 
