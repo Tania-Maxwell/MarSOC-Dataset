@@ -4,6 +4,7 @@
 ## export for marsh soil C (and previously mangrove soil C)
 # contact Tania Maxwell, tlgm2@cam.ac.uk
 # 20.05.22
+#edit 20.12.22
 
 library(tidyverse)
 library(measurements) #to convert to decimal degrees
@@ -23,7 +24,9 @@ input_data1 <- input_data0 %>%
   slice(1:858) %>% 
   rename_with(~ gsub("..", "_", .x, fixed = TRUE)) %>% #replacing .. in columns by _
   rename_with(~ gsub(".", "_", .x, fixed = TRUE)) %>%  #replacing . in columns by _
-  mutate_if(is.character, as.factor)
+  mutate_if(is.character, as.factor) %>% 
+  dplyr::select(1:21) %>% 
+  mutate_all(na_if,"")
 
 ##### add informational  #####
 
@@ -37,7 +40,10 @@ input_data2 <- input_data1 %>%
                                    "Tidal marsh" = "SM", "Seagrass" = "SG")) %>% 
   mutate(Source = source_name,
          Source_abbr = author_initials,
-         Site_name = paste(Source_abbr, Location, Site))
+         Core = paste(Location, Site, "Rep", Replicate),
+         Site_name = paste(Source_abbr,Core)) %>% 
+  rename(Site_number = Site) %>% 
+  mutate(Site = coalesce(Park, NearbyPark, Location))
 
 
 ## add information from paper
@@ -53,7 +59,6 @@ input_data3 <- input_data2 %>%
          accuracy_code = "1",
          Year_collected = 2014,
          Country = "Australia")
-
 
 ##### horizon data  #####
 
@@ -72,7 +77,7 @@ mutate(Method = "MIR predicted")
 #### export data ####
 
 export_data <- input_data4 %>% 
-  select(Source, Site_name, BlueCarbonID, Location, Site, Habitat_type, Latitude, Longitude, 
+  select(Source, Site_name, Site, Core, Habitat_type, Latitude, Longitude, 
          accuracy_flag, accuracy_code, Country, Year_collected, U_depth_m, L_depth_m, Method,
          OC_perc, BD_reported_g_cm3, TC_mg_g, OC_mg_g, IC_mg_g, TN_mg_g)
 

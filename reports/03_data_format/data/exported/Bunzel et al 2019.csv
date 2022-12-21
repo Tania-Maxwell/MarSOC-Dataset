@@ -1,469 +1,469 @@
-"","Source","Site_name","Site","Habitat_type","Latitude","Longitude","accuracy_flag","accuracy_code","Country","Year_collected","U_depth_m","L_depth_m","Method","OC_perc","BD_reported_g_cm3"
-"1","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0,0.01,"EA",1.79,NA
-"2","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.01,0.02,"EA",1.96,NA
-"3","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.02,0.03,"EA",1.74,NA
-"4","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.03,0.04,"EA",0.71,NA
-"5","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.04,0.05,"EA",0.95,NA
-"6","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.05,0.06,"EA",1.2,NA
-"7","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.06,0.07,"EA",1.27,NA
-"8","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.07,0.08,"EA",0.51,NA
-"9","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.08,0.09,"EA",1.45,NA
-"10","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.09,0.1,"EA",1.11,NA
-"11","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.1,0.11,"EA",0.41,NA
-"12","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.11,0.12,"EA",0.71,NA
-"13","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.12,0.13,"EA",0.83,NA
-"14","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.13,0.14,"EA",0.59,NA
-"15","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.14,0.15,"EA",0.28,NA
-"16","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.15,0.16,"EA",1.07,NA
-"17","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.16,0.17,"EA",0.86,NA
-"18","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.17,0.18,"EA",0.95,NA
-"19","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.18,0.19,"EA",0.8,NA
-"20","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.19,0.2,"EA",NA,NA
-"21","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.2,0.21,"EA",0.89,NA
-"22","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.21,0.22,"EA",NA,NA
-"23","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.22,0.23,"EA",0.93,NA
-"24","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.23,0.24,"EA",NA,NA
-"25","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.24,0.25,"EA",0.93,NA
-"26","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.25,0.26,"EA",0.8,NA
-"27","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.26,0.27,"EA",0.87,NA
-"28","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.27,0.28,"EA",0.51,NA
-"29","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.28,0.29,"EA",0.42,NA
-"30","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.29,0.3,"EA",NA,NA
-"31","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.3,0.31,"EA",0.54,NA
-"32","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.31,0.32,"EA",NA,NA
-"33","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.32,0.33,"EA",0.81,NA
-"34","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.33,0.34,"EA",0.92,NA
-"35","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.34,0.35,"EA",0.74,NA
-"36","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.35,0.36,"EA",NA,NA
-"37","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.36,0.37,"EA",0.72,NA
-"38","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.37,0.38,"EA",NA,NA
-"39","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.38,0.39,"EA",0.6,NA
-"40","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.39,0.4,"EA",0.67,NA
-"41","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.4,0.41,"EA",0.96,NA
-"42","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.41,0.42,"EA",0.86,NA
-"43","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.42,0.43,"EA",1.01,NA
-"44","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.43,0.44,"EA",1.04,NA
-"45","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.44,0.45,"EA",0.82,NA
-"46","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.45,0.46,"EA",0.57,NA
-"47","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.46,0.47,"EA",0.87,NA
-"48","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.47,0.48,"EA",1.2,NA
-"49","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.48,0.49,"EA",0.62,NA
-"50","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.49,0.5,"EA",1.01,NA
-"51","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.5,0.51,"EA",1.06,NA
-"52","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.51,0.52,"EA",1.09,NA
-"53","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.52,0.53,"EA",1.07,NA
-"54","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.53,0.54,"EA",0.77,NA
-"55","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.54,0.55,"EA",0.67,NA
-"56","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.55,0.56,"EA",NA,NA
-"57","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.56,0.57,"EA",0.73,NA
-"58","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.57,0.58,"EA",0.75,NA
-"59","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.58,0.59,"EA",0.93,NA
-"60","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.59,0.6,"EA",0.91,NA
-"61","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.6,0.61,"EA",0.59,NA
-"62","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.61,0.62,"EA",0.81,NA
-"63","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.62,0.63,"EA",0.37,NA
-"64","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.63,0.64,"EA",0.54,NA
-"65","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.64,0.65,"EA",0.75,NA
-"66","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.65,0.66,"EA",NA,NA
-"67","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.66,0.67,"EA",1.14,NA
-"68","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.67,0.68,"EA",NA,NA
-"69","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.68,0.69,"EA",0.64,NA
-"70","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.69,0.7,"EA",NA,NA
-"71","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.7,0.71,"EA",0.93,NA
-"72","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.71,0.72,"EA",0.65,NA
-"73","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.72,0.73,"EA",0.13,NA
-"74","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.73,0.74,"EA",0.43,NA
-"75","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.74,0.75,"EA",0.38,NA
-"76","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.75,0.76,"EA",NA,NA
-"77","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.76,0.77,"EA",0.65,NA
-"78","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.77,0.78,"EA",NA,NA
-"79","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.78,0.79,"EA",0.84,NA
-"80","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.79,0.8,"EA",0.96,NA
-"81","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.8,0.81,"EA",0.74,NA
-"82","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.81,0.82,"EA",1.17,NA
-"83","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.82,0.83,"EA",1.08,NA
-"84","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.83,0.84,"EA",0.83,NA
-"85","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.84,0.85,"EA",0.34,NA
-"86","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.85,0.86,"EA",NA,NA
-"87","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.86,0.87,"EA",0.29,NA
-"88","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.87,0.88,"EA",NA,NA
-"89","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.88,0.89,"EA",0.86,NA
-"90","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.89,0.9,"EA",NA,NA
-"91","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.9,0.91,"EA",1.19,NA
-"92","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.91,0.92,"EA",NA,NA
-"93","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.92,0.93,"EA",0.34,NA
-"94","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.93,0.94,"EA",0.48,NA
-"95","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.94,0.95,"EA",1.08,NA
-"96","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.95,0.96,"EA",1.35,NA
-"97","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.96,0.97,"EA",0.63,NA
-"98","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.98,0.99,"EA",1.12,NA
-"99","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",1,1.01,"EA",1,NA
-"100","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",1.02,1.03,"EA",1.02,NA
-"101","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",1.04,1.05,"EA",0.96,NA
-"102","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",1.05,1.06,"EA",1.12,NA
-"103","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",1.06,1.07,"EA",1.72,NA
-"104","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",1.07,1.08,"EA",1.61,NA
-"105","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",1.08,1.09,"EA",0.95,NA
-"106","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",1.1,1.11,"EA",0.7,NA
-"107","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",1.11,1.12,"EA",NA,NA
-"108","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",1.12,1.13,"EA",NA,NA
-"109","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",1.13,1.14,"EA",NA,NA
-"110","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",1.14,1.15,"EA",NA,NA
-"111","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",1.15,1.16,"EA",NA,NA
-"112","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",1.16,1.17,"EA",NA,NA
-"113","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",1.18,1.19,"EA",NA,NA
-"114","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",1.2,1.21,"EA",NA,NA
-"115","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",1.22,1.23,"EA",NA,NA
-"116","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",1.24,1.25,"EA",NA,NA
-"117","Bunzel et al 2019","DB Bay of Tumlau","Bay of Tumlau","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",1.26,1.27,"EA",NA,NA
-"118","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0,0.01,"EA",4.02,NA
-"119","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.01,0.02,"EA",6.12,NA
-"120","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.02,0.03,"EA",7.44,NA
-"121","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.03,0.04,"EA",3.83,NA
-"122","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.04,0.05,"EA",5.21,NA
-"123","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.05,0.06,"EA",4.37,NA
-"124","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.06,0.07,"EA",4.44,NA
-"125","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.07,0.08,"EA",3.2,NA
-"126","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.08,0.09,"EA",4.17,NA
-"127","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.09,0.1,"EA",3.23,NA
-"128","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.1,0.11,"EA",2.64,NA
-"129","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.11,0.12,"EA",1.37,NA
-"130","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.12,0.13,"EA",1.52,NA
-"131","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.13,0.14,"EA",1.43,NA
-"132","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.14,0.15,"EA",1.59,NA
-"133","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.15,0.16,"EA",1.87,NA
-"134","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.16,0.17,"EA",1.44,NA
-"135","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.17,0.18,"EA",1.09,NA
-"136","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.18,0.19,"EA",0.72,NA
-"137","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.19,0.2,"EA",1.37,NA
-"138","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.2,0.21,"EA",1.17,NA
-"139","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.21,0.22,"EA",0.99,NA
-"140","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.22,0.23,"EA",0.3,NA
-"141","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.23,0.24,"EA",0.43,NA
-"142","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.24,0.25,"EA",0.31,NA
-"143","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.25,0.26,"EA",0.46,NA
-"144","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.26,0.27,"EA",0.31,NA
-"145","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.27,0.28,"EA",0.66,NA
-"146","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.28,0.29,"EA",0.39,NA
-"147","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.29,0.3,"EA",0.76,NA
-"148","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.3,0.31,"EA",0.65,NA
-"149","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.31,0.32,"EA",0.72,NA
-"150","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.32,0.33,"EA",0.54,NA
-"151","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.33,0.34,"EA",0.33,NA
-"152","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.34,0.35,"EA",0.44,NA
-"153","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.35,0.36,"EA",0.71,NA
-"154","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.36,0.37,"EA",0.33,NA
-"155","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.37,0.38,"EA",0.54,NA
-"156","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.38,0.39,"EA",0.47,NA
-"157","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.39,0.4,"EA",0.64,NA
-"158","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.4,0.41,"EA",0.58,NA
-"159","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.41,0.42,"EA",0.5,NA
-"160","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.42,0.43,"EA",0.32,NA
-"161","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.43,0.44,"EA",0.95,NA
-"162","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.44,0.45,"EA",0.69,NA
-"163","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.45,0.46,"EA",0.46,NA
-"164","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.46,0.47,"EA",0.11,NA
-"165","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.47,0.48,"EA",0.3,NA
-"166","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.48,0.49,"EA",0.28,NA
-"167","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.49,0.5,"EA",0.51,NA
-"168","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.5,0.51,"EA",0.15,NA
-"169","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.51,0.52,"EA",0.57,NA
-"170","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.52,0.53,"EA",0.25,NA
-"171","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.53,0.54,"EA",0.29,NA
-"172","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.54,0.55,"EA",0.08,NA
-"173","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.55,0.56,"EA",0.68,NA
-"174","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.56,0.57,"EA",0.22,NA
-"175","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.57,0.58,"EA",0.3,NA
-"176","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.58,0.59,"EA",0.32,NA
-"177","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.59,0.6,"EA",0.4,NA
-"178","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.6,0.61,"EA",0.07,NA
-"179","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.61,0.62,"EA",0.46,NA
-"180","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.62,0.63,"EA",0.49,NA
-"181","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.63,0.64,"EA",0.57,NA
-"182","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.64,0.65,"EA",0.61,NA
-"183","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.65,0.66,"EA",0.45,NA
-"184","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.66,0.67,"EA",0.24,NA
-"185","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.67,0.68,"EA",0.88,NA
-"186","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.68,0.69,"EA",0.33,NA
-"187","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.69,0.7,"EA",0.66,NA
-"188","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.7,0.71,"EA",0.32,NA
-"189","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.71,0.72,"EA",0.74,NA
-"190","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.72,0.73,"EA",0.35,NA
-"191","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.73,0.74,"EA",0.64,NA
-"192","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.74,0.75,"EA",1.15,NA
-"193","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.75,0.76,"EA",1.17,NA
-"194","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.76,0.77,"EA",0.26,NA
-"195","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.77,0.78,"EA",0.59,NA
-"196","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.78,0.79,"EA",0.49,NA
-"197","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.79,0.8,"EA",0.81,NA
-"198","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.8,0.81,"EA",0.4,NA
-"199","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.81,0.82,"EA",NA,NA
-"200","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.82,0.83,"EA",0.76,NA
-"201","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.83,0.84,"EA",NA,NA
-"202","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.84,0.85,"EA",1.02,NA
-"203","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.85,0.86,"EA",0.67,NA
-"204","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.86,0.87,"EA",0.28,NA
-"205","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.87,0.88,"EA",0.6,NA
-"206","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.88,0.89,"EA",0.99,NA
-"207","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.89,0.9,"EA",1.14,NA
-"208","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.9,0.91,"EA",1.33,NA
-"209","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.91,0.92,"EA",1.09,NA
-"210","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.92,0.93,"EA",1.09,NA
-"211","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.93,0.94,"EA",NA,NA
-"212","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.94,0.95,"EA",0.63,NA
-"213","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.95,0.96,"EA",NA,NA
-"214","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.96,0.97,"EA",0.43,NA
-"215","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.98,0.99,"EA",0.72,NA
-"216","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",1,1.01,"EA",0.19,NA
-"217","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",1.02,1.03,"EA",0.98,NA
-"218","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",1.04,1.05,"EA",0.39,NA
-"219","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",1.05,1.06,"EA",NA,NA
-"220","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",1.06,1.07,"EA",1.32,NA
-"221","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",1.07,1.08,"EA",NA,NA
-"222","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",1.08,1.09,"EA",1.21,NA
-"223","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",1.1,1.11,"EA",0.96,NA
-"224","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",1.11,1.12,"EA",NA,NA
-"225","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",1.12,1.13,"EA",0.91,NA
-"226","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",1.13,1.14,"EA",NA,NA
-"227","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",1.14,1.15,"EA",0.72,NA
-"228","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",1.15,1.16,"EA",NA,NA
-"229","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",1.16,1.17,"EA",0.92,NA
-"230","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",1.18,1.19,"EA",0.9,NA
-"231","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",1.2,1.21,"EA",1,NA
-"232","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",1.22,1.23,"EA",1.3,NA
-"233","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",1.24,1.25,"EA",0.65,NA
-"234","Bunzel et al 2019","DB Eider estuary","Eider estuary","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",1.26,1.27,"EA",0.71,NA
-"235","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0,0.01,"EA",2.3,NA
-"236","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.01,0.02,"EA",NA,NA
-"237","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.02,0.03,"EA",1.54,NA
-"238","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.03,0.04,"EA",NA,NA
-"239","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.04,0.05,"EA",1.71,NA
-"240","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.05,0.06,"EA",NA,NA
-"241","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.06,0.07,"EA",1.36,NA
-"242","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.07,0.08,"EA",NA,NA
-"243","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.08,0.09,"EA",0.69,NA
-"244","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.09,0.1,"EA",NA,NA
-"245","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.1,0.11,"EA",0.45,NA
-"246","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.11,0.12,"EA",NA,NA
-"247","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.12,0.13,"EA",0.39,NA
-"248","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.13,0.14,"EA",NA,NA
-"249","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.14,0.15,"EA",0.8,NA
-"250","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.15,0.16,"EA",NA,NA
-"251","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.16,0.17,"EA",0.87,NA
-"252","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.17,0.18,"EA",NA,NA
-"253","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.18,0.19,"EA",0.71,NA
-"254","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.19,0.2,"EA",NA,NA
-"255","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.2,0.21,"EA",0.75,NA
-"256","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.21,0.22,"EA",NA,NA
-"257","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.22,0.23,"EA",0.87,NA
-"258","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.23,0.24,"EA",NA,NA
-"259","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.24,0.25,"EA",0.6,NA
-"260","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.25,0.26,"EA",NA,NA
-"261","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.26,0.27,"EA",0.32,NA
-"262","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.27,0.28,"EA",NA,NA
-"263","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.28,0.29,"EA",0.47,NA
-"264","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.29,0.3,"EA",NA,NA
-"265","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.3,0.31,"EA",0.61,NA
-"266","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.31,0.32,"EA",NA,NA
-"267","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.32,0.33,"EA",0.39,NA
-"268","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.33,0.34,"EA",NA,NA
-"269","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.34,0.35,"EA",0.6,NA
-"270","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.35,0.36,"EA",NA,NA
-"271","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.36,0.37,"EA",0.36,NA
-"272","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.37,0.38,"EA",NA,NA
-"273","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.38,0.39,"EA",0.37,NA
-"274","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.39,0.4,"EA",NA,NA
-"275","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.4,0.41,"EA",0.62,NA
-"276","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.41,0.42,"EA",NA,NA
-"277","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.42,0.43,"EA",0.34,NA
-"278","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.43,0.44,"EA",NA,NA
-"279","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.44,0.45,"EA",0.53,NA
-"280","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.45,0.46,"EA",NA,NA
-"281","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.46,0.47,"EA",0.54,NA
-"282","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.47,0.48,"EA",NA,NA
-"283","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.48,0.49,"EA",0.33,NA
-"284","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.49,0.5,"EA",NA,NA
-"285","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.5,0.51,"EA",0.42,NA
-"286","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.51,0.52,"EA",NA,NA
-"287","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.52,0.53,"EA",0.49,NA
-"288","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.53,0.54,"EA",NA,NA
-"289","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.54,0.55,"EA",0.31,NA
-"290","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.55,0.56,"EA",NA,NA
-"291","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.56,0.57,"EA",0.59,NA
-"292","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.57,0.58,"EA",NA,NA
-"293","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.58,0.59,"EA",0.52,NA
-"294","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.59,0.6,"EA",NA,NA
-"295","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.6,0.61,"EA",0.41,NA
-"296","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.61,0.62,"EA",0.52,NA
-"297","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.62,0.63,"EA",0.84,NA
-"298","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.63,0.64,"EA",0.84,NA
-"299","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.64,0.65,"EA",0.64,NA
-"300","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.65,0.66,"EA",0.45,NA
-"301","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.66,0.67,"EA",0.36,NA
-"302","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.67,0.68,"EA",NA,NA
-"303","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.68,0.69,"EA",0.56,NA
-"304","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.69,0.7,"EA",NA,NA
-"305","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.7,0.71,"EA",0.33,NA
-"306","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.71,0.72,"EA",NA,NA
-"307","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.72,0.73,"EA",0.38,NA
-"308","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.73,0.74,"EA",NA,NA
-"309","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.74,0.75,"EA",0.61,NA
-"310","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.75,0.76,"EA",NA,NA
-"311","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.76,0.77,"EA",0.68,NA
-"312","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.77,0.78,"EA",NA,NA
-"313","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.78,0.79,"EA",0.69,NA
-"314","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.79,0.8,"EA",0.48,NA
-"315","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.8,0.81,"EA",0.77,NA
-"316","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.81,0.82,"EA",0.49,NA
-"317","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.82,0.83,"EA",0.35,NA
-"318","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.83,0.84,"EA",NA,NA
-"319","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.84,0.85,"EA",0.57,NA
-"320","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.85,0.86,"EA",NA,NA
-"321","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.86,0.87,"EA",0.28,NA
-"322","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.87,0.88,"EA",NA,NA
-"323","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.88,0.89,"EA",0.4,NA
-"324","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.89,0.9,"EA",NA,NA
-"325","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.9,0.91,"EA",0.64,NA
-"326","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.91,0.92,"EA",NA,NA
-"327","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.92,0.93,"EA",0.54,NA
-"328","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.93,0.94,"EA",NA,NA
-"329","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.94,0.95,"EA",0.29,NA
-"330","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.95,0.96,"EA",NA,NA
-"331","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.96,0.97,"EA",0.17,NA
-"332","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.98,0.99,"EA",0.23,NA
-"333","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",1,1.01,"EA",0.15,NA
-"334","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",1.02,1.03,"EA",0.35,NA
-"335","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",1.04,1.05,"EA",0.32,NA
-"336","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",1.05,1.06,"EA",NA,NA
-"337","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",1.06,1.07,"EA",0.26,NA
-"338","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",1.07,1.08,"EA",NA,NA
-"339","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",1.08,1.09,"EA",0.18,NA
-"340","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",1.1,1.11,"EA",0.28,NA
-"341","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",1.11,1.12,"EA",NA,NA
-"342","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",1.12,1.13,"EA",0.73,NA
-"343","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",1.13,1.14,"EA",0.46,NA
-"344","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",1.14,1.15,"EA",0.25,NA
-"345","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",1.15,1.16,"EA",0.73,NA
-"346","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",1.16,1.17,"EA",0.88,NA
-"347","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",1.18,1.19,"EA",NA,NA
-"348","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",1.2,1.21,"EA",NA,NA
-"349","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",1.22,1.23,"EA",NA,NA
-"350","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",1.24,1.25,"EA",NA,NA
-"351","Bunzel et al 2019","DB Friedrichskoog","Friedrichskoog","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",1.26,1.27,"EA",NA,NA
-"352","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0,0.01,"EA",NA,NA
-"353","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.01,0.02,"EA",NA,NA
-"354","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.02,0.03,"EA",1.27,NA
-"355","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.03,0.04,"EA",NA,NA
-"356","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.04,0.05,"EA",0.79,NA
-"357","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.05,0.06,"EA",NA,NA
-"358","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.06,0.07,"EA",1.24,NA
-"359","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.07,0.08,"EA",NA,NA
-"360","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.08,0.09,"EA",1.12,NA
-"361","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.09,0.1,"EA",NA,NA
-"362","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.1,0.11,"EA",0.46,NA
-"363","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.11,0.12,"EA",NA,NA
-"364","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.12,0.13,"EA",0.46,NA
-"365","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.13,0.14,"EA",NA,NA
-"366","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.14,0.15,"EA",0.53,NA
-"367","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.15,0.16,"EA",NA,NA
-"368","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.16,0.17,"EA",0.71,NA
-"369","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.17,0.18,"EA",1.37,NA
-"370","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.18,0.19,"EA",2.12,NA
-"371","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.19,0.2,"EA",1.13,NA
-"372","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.2,0.21,"EA",1.08,NA
-"373","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.21,0.22,"EA",NA,NA
-"374","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.22,0.23,"EA",0.5,NA
-"375","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.23,0.24,"EA",NA,NA
-"376","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.24,0.25,"EA",0.65,NA
-"377","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.25,0.26,"EA",NA,NA
-"378","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.26,0.27,"EA",0.32,NA
-"379","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.27,0.28,"EA",NA,NA
-"380","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.28,0.29,"EA",1.18,NA
-"381","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.29,0.3,"EA",NA,NA
-"382","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.3,0.31,"EA",2.06,NA
-"383","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.31,0.32,"EA",NA,NA
-"384","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.32,0.33,"EA",0.44,NA
-"385","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.33,0.34,"EA",NA,NA
-"386","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.34,0.35,"EA",0.27,NA
-"387","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.35,0.36,"EA",NA,NA
-"388","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.36,0.37,"EA",0.96,NA
-"389","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.37,0.38,"EA",NA,NA
-"390","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.38,0.39,"EA",0.45,NA
-"391","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.39,0.4,"EA",NA,NA
-"392","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.4,0.41,"EA",0.64,NA
-"393","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.41,0.42,"EA",NA,NA
-"394","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.42,0.43,"EA",0.7,NA
-"395","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.43,0.44,"EA",NA,NA
-"396","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.44,0.45,"EA",0.44,NA
-"397","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.45,0.46,"EA",NA,NA
-"398","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.46,0.47,"EA",0.63,NA
-"399","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.47,0.48,"EA",NA,NA
-"400","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.48,0.49,"EA",0.6,NA
-"401","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.49,0.5,"EA",NA,NA
-"402","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.5,0.51,"EA",0.36,NA
-"403","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.51,0.52,"EA",NA,NA
-"404","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.52,0.53,"EA",0.35,NA
-"405","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.53,0.54,"EA",NA,NA
-"406","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.54,0.55,"EA",0.45,NA
-"407","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.55,0.56,"EA",NA,NA
-"408","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.56,0.57,"EA",0.22,NA
-"409","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.57,0.58,"EA",NA,NA
-"410","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.58,0.59,"EA",0.52,NA
-"411","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.59,0.6,"EA",NA,NA
-"412","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.6,0.61,"EA",0.44,NA
-"413","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.61,0.62,"EA",NA,NA
-"414","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.62,0.63,"EA",0.29,NA
-"415","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.63,0.64,"EA",NA,NA
-"416","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.64,0.65,"EA",0.27,NA
-"417","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.65,0.66,"EA",NA,NA
-"418","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.66,0.67,"EA",0.55,NA
-"419","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.67,0.68,"EA",NA,NA
-"420","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.68,0.69,"EA",0.35,NA
-"421","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.69,0.7,"EA",NA,NA
-"422","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.7,0.71,"EA",0.17,NA
-"423","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.71,0.72,"EA",NA,NA
-"424","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.72,0.73,"EA",0.37,NA
-"425","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.73,0.74,"EA",NA,NA
-"426","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.74,0.75,"EA",0.22,NA
-"427","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.75,0.76,"EA",NA,NA
-"428","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.76,0.77,"EA",0.16,NA
-"429","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.77,0.78,"EA",NA,NA
-"430","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.78,0.79,"EA",0.27,NA
-"431","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.79,0.8,"EA",NA,NA
-"432","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.8,0.81,"EA",0.3,NA
-"433","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.81,0.82,"EA",NA,NA
-"434","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.82,0.83,"EA",0.24,NA
-"435","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.83,0.84,"EA",NA,NA
-"436","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.84,0.85,"EA",0.24,NA
-"437","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.85,0.86,"EA",0.14,NA
-"438","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.86,0.87,"EA",0.38,NA
-"439","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.87,0.88,"EA",0.15,NA
-"440","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.88,0.89,"EA",0.15,NA
-"441","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.89,0.9,"EA",NA,NA
-"442","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.9,0.91,"EA",0.34,NA
-"443","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.91,0.92,"EA",NA,NA
-"444","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.92,0.93,"EA",0.15,NA
-"445","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.93,0.94,"EA",NA,NA
-"446","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.94,0.95,"EA",0.11,NA
-"447","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.95,0.96,"EA",NA,NA
-"448","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.96,0.97,"EA",0.26,NA
-"449","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.98,0.99,"EA",0.15,NA
-"450","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",1,1.01,"EA",0.14,NA
-"451","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",1.02,1.03,"EA",0.17,NA
-"452","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",1.04,1.05,"EA",0.3,NA
-"453","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",1.05,1.06,"EA",NA,NA
-"454","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",1.06,1.07,"EA",0.32,NA
-"455","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",1.07,1.08,"EA",NA,NA
-"456","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",1.08,1.09,"EA",0.29,NA
-"457","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",1.1,1.11,"EA",0.12,NA
-"458","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",1.11,1.12,"EA",0.17,NA
-"459","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",1.12,1.13,"EA",0.42,NA
-"460","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",1.13,1.14,"EA",0.26,NA
-"461","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",1.14,1.15,"EA",0.23,NA
-"462","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",1.15,1.16,"EA",NA,NA
-"463","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",1.16,1.17,"EA",0.07,NA
-"464","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",1.18,1.19,"EA",0.13,NA
-"465","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",1.2,1.21,"EA",NA,NA
-"466","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",1.22,1.23,"EA",NA,NA
-"467","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",1.24,1.25,"EA",NA,NA
-"468","Bunzel et al 2019","DB Kaiser-Wilhelm-Koog","Kaiser-Wilhelm-Koog","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",1.26,1.27,"EA",NA,NA
+"","Source","Site_name","Site","Core","Habitat_type","Latitude","Longitude","accuracy_flag","accuracy_code","Country","Year_collected","U_depth_m","L_depth_m","Method","OC_perc","BD_reported_g_cm3"
+"1","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0,0.01,"EA",1.79,NA
+"2","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.01,0.02,"EA",1.96,NA
+"3","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.02,0.03,"EA",1.74,NA
+"4","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.03,0.04,"EA",0.71,NA
+"5","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.04,0.05,"EA",0.95,NA
+"6","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.05,0.06,"EA",1.2,NA
+"7","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.06,0.07,"EA",1.27,NA
+"8","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.07,0.08,"EA",0.51,NA
+"9","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.08,0.09,"EA",1.45,NA
+"10","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.09,0.1,"EA",1.11,NA
+"11","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.1,0.11,"EA",0.41,NA
+"12","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.11,0.12,"EA",0.71,NA
+"13","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.12,0.13,"EA",0.83,NA
+"14","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.13,0.14,"EA",0.59,NA
+"15","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.14,0.15,"EA",0.28,NA
+"16","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.15,0.16,"EA",1.07,NA
+"17","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.16,0.17,"EA",0.86,NA
+"18","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.17,0.18,"EA",0.95,NA
+"19","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.18,0.19,"EA",0.8,NA
+"20","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.19,0.2,"EA",NA,NA
+"21","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.2,0.21,"EA",0.89,NA
+"22","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.21,0.22,"EA",NA,NA
+"23","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.22,0.23,"EA",0.93,NA
+"24","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.23,0.24,"EA",NA,NA
+"25","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.24,0.25,"EA",0.93,NA
+"26","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.25,0.26,"EA",0.8,NA
+"27","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.26,0.27,"EA",0.87,NA
+"28","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.27,0.28,"EA",0.51,NA
+"29","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.28,0.29,"EA",0.42,NA
+"30","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.29,0.3,"EA",NA,NA
+"31","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.3,0.31,"EA",0.54,NA
+"32","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.31,0.32,"EA",NA,NA
+"33","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.32,0.33,"EA",0.81,NA
+"34","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.33,0.34,"EA",0.92,NA
+"35","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.34,0.35,"EA",0.74,NA
+"36","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.35,0.36,"EA",NA,NA
+"37","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.36,0.37,"EA",0.72,NA
+"38","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.37,0.38,"EA",NA,NA
+"39","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.38,0.39,"EA",0.6,NA
+"40","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.39,0.4,"EA",0.67,NA
+"41","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.4,0.41,"EA",0.96,NA
+"42","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.41,0.42,"EA",0.86,NA
+"43","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.42,0.43,"EA",1.01,NA
+"44","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.43,0.44,"EA",1.04,NA
+"45","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.44,0.45,"EA",0.82,NA
+"46","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.45,0.46,"EA",0.57,NA
+"47","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.46,0.47,"EA",0.87,NA
+"48","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.47,0.48,"EA",1.2,NA
+"49","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.48,0.49,"EA",0.62,NA
+"50","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.49,0.5,"EA",1.01,NA
+"51","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.5,0.51,"EA",1.06,NA
+"52","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.51,0.52,"EA",1.09,NA
+"53","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.52,0.53,"EA",1.07,NA
+"54","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.53,0.54,"EA",0.77,NA
+"55","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.54,0.55,"EA",0.67,NA
+"56","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.55,0.56,"EA",NA,NA
+"57","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.56,0.57,"EA",0.73,NA
+"58","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.57,0.58,"EA",0.75,NA
+"59","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.58,0.59,"EA",0.93,NA
+"60","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.59,0.6,"EA",0.91,NA
+"61","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.6,0.61,"EA",0.59,NA
+"62","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.61,0.62,"EA",0.81,NA
+"63","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.62,0.63,"EA",0.37,NA
+"64","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.63,0.64,"EA",0.54,NA
+"65","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.64,0.65,"EA",0.75,NA
+"66","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.65,0.66,"EA",NA,NA
+"67","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.66,0.67,"EA",1.14,NA
+"68","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.67,0.68,"EA",NA,NA
+"69","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.68,0.69,"EA",0.64,NA
+"70","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.69,0.7,"EA",NA,NA
+"71","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.7,0.71,"EA",0.93,NA
+"72","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.71,0.72,"EA",0.65,NA
+"73","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.72,0.73,"EA",0.13,NA
+"74","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.73,0.74,"EA",0.43,NA
+"75","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.74,0.75,"EA",0.38,NA
+"76","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.75,0.76,"EA",NA,NA
+"77","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.76,0.77,"EA",0.65,NA
+"78","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.77,0.78,"EA",NA,NA
+"79","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.78,0.79,"EA",0.84,NA
+"80","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.79,0.8,"EA",0.96,NA
+"81","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.8,0.81,"EA",0.74,NA
+"82","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.81,0.82,"EA",1.17,NA
+"83","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.82,0.83,"EA",1.08,NA
+"84","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.83,0.84,"EA",0.83,NA
+"85","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.84,0.85,"EA",0.34,NA
+"86","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.85,0.86,"EA",NA,NA
+"87","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.86,0.87,"EA",0.29,NA
+"88","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.87,0.88,"EA",NA,NA
+"89","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.88,0.89,"EA",0.86,NA
+"90","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.89,0.9,"EA",NA,NA
+"91","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.9,0.91,"EA",1.19,NA
+"92","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.91,0.92,"EA",NA,NA
+"93","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.92,0.93,"EA",0.34,NA
+"94","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.93,0.94,"EA",0.48,NA
+"95","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.94,0.95,"EA",1.08,NA
+"96","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.95,0.96,"EA",1.35,NA
+"97","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.96,0.97,"EA",0.63,NA
+"98","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",0.98,0.99,"EA",1.12,NA
+"99","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",1,1.01,"EA",1,NA
+"100","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",1.02,1.03,"EA",1.02,NA
+"101","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",1.04,1.05,"EA",0.96,NA
+"102","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",1.05,1.06,"EA",1.12,NA
+"103","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",1.06,1.07,"EA",1.72,NA
+"104","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",1.07,1.08,"EA",1.61,NA
+"105","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",1.08,1.09,"EA",0.95,NA
+"106","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",1.1,1.11,"EA",0.7,NA
+"107","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",1.11,1.12,"EA",NA,NA
+"108","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",1.12,1.13,"EA",NA,NA
+"109","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",1.13,1.14,"EA",NA,NA
+"110","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",1.14,1.15,"EA",NA,NA
+"111","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",1.15,1.16,"EA",NA,NA
+"112","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",1.16,1.17,"EA",NA,NA
+"113","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",1.18,1.19,"EA",NA,NA
+"114","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",1.2,1.21,"EA",NA,NA
+"115","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",1.22,1.23,"EA",NA,NA
+"116","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",1.24,1.25,"EA",NA,NA
+"117","Bunzel et al 2019","DB TB13-1","Bay of Tumlau","TB13-1","Salt marsh",54.3642,8.6764,"direct from dataset","1","Germany","2013",1.26,1.27,"EA",NA,NA
+"118","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0,0.01,"EA",4.02,NA
+"119","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.01,0.02,"EA",6.12,NA
+"120","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.02,0.03,"EA",7.44,NA
+"121","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.03,0.04,"EA",3.83,NA
+"122","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.04,0.05,"EA",5.21,NA
+"123","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.05,0.06,"EA",4.37,NA
+"124","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.06,0.07,"EA",4.44,NA
+"125","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.07,0.08,"EA",3.2,NA
+"126","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.08,0.09,"EA",4.17,NA
+"127","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.09,0.1,"EA",3.23,NA
+"128","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.1,0.11,"EA",2.64,NA
+"129","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.11,0.12,"EA",1.37,NA
+"130","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.12,0.13,"EA",1.52,NA
+"131","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.13,0.14,"EA",1.43,NA
+"132","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.14,0.15,"EA",1.59,NA
+"133","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.15,0.16,"EA",1.87,NA
+"134","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.16,0.17,"EA",1.44,NA
+"135","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.17,0.18,"EA",1.09,NA
+"136","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.18,0.19,"EA",0.72,NA
+"137","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.19,0.2,"EA",1.37,NA
+"138","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.2,0.21,"EA",1.17,NA
+"139","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.21,0.22,"EA",0.99,NA
+"140","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.22,0.23,"EA",0.3,NA
+"141","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.23,0.24,"EA",0.43,NA
+"142","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.24,0.25,"EA",0.31,NA
+"143","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.25,0.26,"EA",0.46,NA
+"144","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.26,0.27,"EA",0.31,NA
+"145","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.27,0.28,"EA",0.66,NA
+"146","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.28,0.29,"EA",0.39,NA
+"147","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.29,0.3,"EA",0.76,NA
+"148","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.3,0.31,"EA",0.65,NA
+"149","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.31,0.32,"EA",0.72,NA
+"150","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.32,0.33,"EA",0.54,NA
+"151","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.33,0.34,"EA",0.33,NA
+"152","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.34,0.35,"EA",0.44,NA
+"153","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.35,0.36,"EA",0.71,NA
+"154","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.36,0.37,"EA",0.33,NA
+"155","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.37,0.38,"EA",0.54,NA
+"156","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.38,0.39,"EA",0.47,NA
+"157","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.39,0.4,"EA",0.64,NA
+"158","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.4,0.41,"EA",0.58,NA
+"159","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.41,0.42,"EA",0.5,NA
+"160","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.42,0.43,"EA",0.32,NA
+"161","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.43,0.44,"EA",0.95,NA
+"162","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.44,0.45,"EA",0.69,NA
+"163","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.45,0.46,"EA",0.46,NA
+"164","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.46,0.47,"EA",0.11,NA
+"165","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.47,0.48,"EA",0.3,NA
+"166","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.48,0.49,"EA",0.28,NA
+"167","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.49,0.5,"EA",0.51,NA
+"168","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.5,0.51,"EA",0.15,NA
+"169","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.51,0.52,"EA",0.57,NA
+"170","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.52,0.53,"EA",0.25,NA
+"171","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.53,0.54,"EA",0.29,NA
+"172","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.54,0.55,"EA",0.08,NA
+"173","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.55,0.56,"EA",0.68,NA
+"174","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.56,0.57,"EA",0.22,NA
+"175","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.57,0.58,"EA",0.3,NA
+"176","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.58,0.59,"EA",0.32,NA
+"177","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.59,0.6,"EA",0.4,NA
+"178","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.6,0.61,"EA",0.07,NA
+"179","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.61,0.62,"EA",0.46,NA
+"180","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.62,0.63,"EA",0.49,NA
+"181","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.63,0.64,"EA",0.57,NA
+"182","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.64,0.65,"EA",0.61,NA
+"183","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.65,0.66,"EA",0.45,NA
+"184","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.66,0.67,"EA",0.24,NA
+"185","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.67,0.68,"EA",0.88,NA
+"186","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.68,0.69,"EA",0.33,NA
+"187","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.69,0.7,"EA",0.66,NA
+"188","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.7,0.71,"EA",0.32,NA
+"189","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.71,0.72,"EA",0.74,NA
+"190","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.72,0.73,"EA",0.35,NA
+"191","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.73,0.74,"EA",0.64,NA
+"192","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.74,0.75,"EA",1.15,NA
+"193","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.75,0.76,"EA",1.17,NA
+"194","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.76,0.77,"EA",0.26,NA
+"195","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.77,0.78,"EA",0.59,NA
+"196","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.78,0.79,"EA",0.49,NA
+"197","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.79,0.8,"EA",0.81,NA
+"198","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.8,0.81,"EA",0.4,NA
+"199","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.81,0.82,"EA",NA,NA
+"200","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.82,0.83,"EA",0.76,NA
+"201","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.83,0.84,"EA",NA,NA
+"202","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.84,0.85,"EA",1.02,NA
+"203","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.85,0.86,"EA",0.67,NA
+"204","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.86,0.87,"EA",0.28,NA
+"205","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.87,0.88,"EA",0.6,NA
+"206","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.88,0.89,"EA",0.99,NA
+"207","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.89,0.9,"EA",1.14,NA
+"208","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.9,0.91,"EA",1.33,NA
+"209","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.91,0.92,"EA",1.09,NA
+"210","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.92,0.93,"EA",1.09,NA
+"211","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.93,0.94,"EA",NA,NA
+"212","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.94,0.95,"EA",0.63,NA
+"213","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.95,0.96,"EA",NA,NA
+"214","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.96,0.97,"EA",0.43,NA
+"215","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",0.98,0.99,"EA",0.72,NA
+"216","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",1,1.01,"EA",0.19,NA
+"217","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",1.02,1.03,"EA",0.98,NA
+"218","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",1.04,1.05,"EA",0.39,NA
+"219","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",1.05,1.06,"EA",NA,NA
+"220","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",1.06,1.07,"EA",1.32,NA
+"221","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",1.07,1.08,"EA",NA,NA
+"222","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",1.08,1.09,"EA",1.21,NA
+"223","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",1.1,1.11,"EA",0.96,NA
+"224","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",1.11,1.12,"EA",NA,NA
+"225","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",1.12,1.13,"EA",0.91,NA
+"226","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",1.13,1.14,"EA",NA,NA
+"227","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",1.14,1.15,"EA",0.72,NA
+"228","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",1.15,1.16,"EA",NA,NA
+"229","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",1.16,1.17,"EA",0.92,NA
+"230","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",1.18,1.19,"EA",0.9,NA
+"231","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",1.2,1.21,"EA",1,NA
+"232","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",1.22,1.23,"EA",1.3,NA
+"233","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",1.24,1.25,"EA",0.65,NA
+"234","Bunzel et al 2019","DB GeoHH-GIE","Eider estuary","GeoHH-GIE","Salt marsh",54.2837,8.8943,"direct from dataset","1","Germany","2016",1.26,1.27,"EA",0.71,NA
+"235","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0,0.01,"EA",2.3,NA
+"236","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.01,0.02,"EA",NA,NA
+"237","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.02,0.03,"EA",1.54,NA
+"238","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.03,0.04,"EA",NA,NA
+"239","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.04,0.05,"EA",1.71,NA
+"240","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.05,0.06,"EA",NA,NA
+"241","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.06,0.07,"EA",1.36,NA
+"242","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.07,0.08,"EA",NA,NA
+"243","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.08,0.09,"EA",0.69,NA
+"244","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.09,0.1,"EA",NA,NA
+"245","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.1,0.11,"EA",0.45,NA
+"246","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.11,0.12,"EA",NA,NA
+"247","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.12,0.13,"EA",0.39,NA
+"248","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.13,0.14,"EA",NA,NA
+"249","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.14,0.15,"EA",0.8,NA
+"250","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.15,0.16,"EA",NA,NA
+"251","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.16,0.17,"EA",0.87,NA
+"252","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.17,0.18,"EA",NA,NA
+"253","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.18,0.19,"EA",0.71,NA
+"254","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.19,0.2,"EA",NA,NA
+"255","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.2,0.21,"EA",0.75,NA
+"256","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.21,0.22,"EA",NA,NA
+"257","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.22,0.23,"EA",0.87,NA
+"258","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.23,0.24,"EA",NA,NA
+"259","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.24,0.25,"EA",0.6,NA
+"260","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.25,0.26,"EA",NA,NA
+"261","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.26,0.27,"EA",0.32,NA
+"262","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.27,0.28,"EA",NA,NA
+"263","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.28,0.29,"EA",0.47,NA
+"264","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.29,0.3,"EA",NA,NA
+"265","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.3,0.31,"EA",0.61,NA
+"266","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.31,0.32,"EA",NA,NA
+"267","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.32,0.33,"EA",0.39,NA
+"268","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.33,0.34,"EA",NA,NA
+"269","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.34,0.35,"EA",0.6,NA
+"270","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.35,0.36,"EA",NA,NA
+"271","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.36,0.37,"EA",0.36,NA
+"272","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.37,0.38,"EA",NA,NA
+"273","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.38,0.39,"EA",0.37,NA
+"274","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.39,0.4,"EA",NA,NA
+"275","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.4,0.41,"EA",0.62,NA
+"276","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.41,0.42,"EA",NA,NA
+"277","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.42,0.43,"EA",0.34,NA
+"278","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.43,0.44,"EA",NA,NA
+"279","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.44,0.45,"EA",0.53,NA
+"280","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.45,0.46,"EA",NA,NA
+"281","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.46,0.47,"EA",0.54,NA
+"282","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.47,0.48,"EA",NA,NA
+"283","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.48,0.49,"EA",0.33,NA
+"284","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.49,0.5,"EA",NA,NA
+"285","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.5,0.51,"EA",0.42,NA
+"286","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.51,0.52,"EA",NA,NA
+"287","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.52,0.53,"EA",0.49,NA
+"288","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.53,0.54,"EA",NA,NA
+"289","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.54,0.55,"EA",0.31,NA
+"290","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.55,0.56,"EA",NA,NA
+"291","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.56,0.57,"EA",0.59,NA
+"292","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.57,0.58,"EA",NA,NA
+"293","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.58,0.59,"EA",0.52,NA
+"294","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.59,0.6,"EA",NA,NA
+"295","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.6,0.61,"EA",0.41,NA
+"296","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.61,0.62,"EA",0.52,NA
+"297","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.62,0.63,"EA",0.84,NA
+"298","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.63,0.64,"EA",0.84,NA
+"299","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.64,0.65,"EA",0.64,NA
+"300","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.65,0.66,"EA",0.45,NA
+"301","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.66,0.67,"EA",0.36,NA
+"302","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.67,0.68,"EA",NA,NA
+"303","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.68,0.69,"EA",0.56,NA
+"304","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.69,0.7,"EA",NA,NA
+"305","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.7,0.71,"EA",0.33,NA
+"306","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.71,0.72,"EA",NA,NA
+"307","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.72,0.73,"EA",0.38,NA
+"308","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.73,0.74,"EA",NA,NA
+"309","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.74,0.75,"EA",0.61,NA
+"310","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.75,0.76,"EA",NA,NA
+"311","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.76,0.77,"EA",0.68,NA
+"312","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.77,0.78,"EA",NA,NA
+"313","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.78,0.79,"EA",0.69,NA
+"314","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.79,0.8,"EA",0.48,NA
+"315","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.8,0.81,"EA",0.77,NA
+"316","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.81,0.82,"EA",0.49,NA
+"317","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.82,0.83,"EA",0.35,NA
+"318","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.83,0.84,"EA",NA,NA
+"319","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.84,0.85,"EA",0.57,NA
+"320","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.85,0.86,"EA",NA,NA
+"321","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.86,0.87,"EA",0.28,NA
+"322","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.87,0.88,"EA",NA,NA
+"323","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.88,0.89,"EA",0.4,NA
+"324","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.89,0.9,"EA",NA,NA
+"325","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.9,0.91,"EA",0.64,NA
+"326","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.91,0.92,"EA",NA,NA
+"327","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.92,0.93,"EA",0.54,NA
+"328","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.93,0.94,"EA",NA,NA
+"329","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.94,0.95,"EA",0.29,NA
+"330","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.95,0.96,"EA",NA,NA
+"331","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.96,0.97,"EA",0.17,NA
+"332","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",0.98,0.99,"EA",0.23,NA
+"333","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",1,1.01,"EA",0.15,NA
+"334","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",1.02,1.03,"EA",0.35,NA
+"335","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",1.04,1.05,"EA",0.32,NA
+"336","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",1.05,1.06,"EA",NA,NA
+"337","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",1.06,1.07,"EA",0.26,NA
+"338","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",1.07,1.08,"EA",NA,NA
+"339","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",1.08,1.09,"EA",0.18,NA
+"340","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",1.1,1.11,"EA",0.28,NA
+"341","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",1.11,1.12,"EA",NA,NA
+"342","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",1.12,1.13,"EA",0.73,NA
+"343","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",1.13,1.14,"EA",0.46,NA
+"344","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",1.14,1.15,"EA",0.25,NA
+"345","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",1.15,1.16,"EA",0.73,NA
+"346","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",1.16,1.17,"EA",0.88,NA
+"347","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",1.18,1.19,"EA",NA,NA
+"348","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",1.2,1.21,"EA",NA,NA
+"349","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",1.22,1.23,"EA",NA,NA
+"350","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",1.24,1.25,"EA",NA,NA
+"351","Bunzel et al 2019","DB GeoHH-FK","Friedrichskoog","GeoHH-FK","Salt marsh",54.0431,8.8723,"direct from dataset","1","Germany","2016",1.26,1.27,"EA",NA,NA
+"352","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0,0.01,"EA",NA,NA
+"353","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.01,0.02,"EA",NA,NA
+"354","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.02,0.03,"EA",1.27,NA
+"355","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.03,0.04,"EA",NA,NA
+"356","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.04,0.05,"EA",0.79,NA
+"357","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.05,0.06,"EA",NA,NA
+"358","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.06,0.07,"EA",1.24,NA
+"359","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.07,0.08,"EA",NA,NA
+"360","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.08,0.09,"EA",1.12,NA
+"361","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.09,0.1,"EA",NA,NA
+"362","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.1,0.11,"EA",0.46,NA
+"363","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.11,0.12,"EA",NA,NA
+"364","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.12,0.13,"EA",0.46,NA
+"365","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.13,0.14,"EA",NA,NA
+"366","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.14,0.15,"EA",0.53,NA
+"367","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.15,0.16,"EA",NA,NA
+"368","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.16,0.17,"EA",0.71,NA
+"369","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.17,0.18,"EA",1.37,NA
+"370","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.18,0.19,"EA",2.12,NA
+"371","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.19,0.2,"EA",1.13,NA
+"372","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.2,0.21,"EA",1.08,NA
+"373","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.21,0.22,"EA",NA,NA
+"374","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.22,0.23,"EA",0.5,NA
+"375","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.23,0.24,"EA",NA,NA
+"376","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.24,0.25,"EA",0.65,NA
+"377","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.25,0.26,"EA",NA,NA
+"378","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.26,0.27,"EA",0.32,NA
+"379","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.27,0.28,"EA",NA,NA
+"380","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.28,0.29,"EA",1.18,NA
+"381","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.29,0.3,"EA",NA,NA
+"382","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.3,0.31,"EA",2.06,NA
+"383","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.31,0.32,"EA",NA,NA
+"384","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.32,0.33,"EA",0.44,NA
+"385","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.33,0.34,"EA",NA,NA
+"386","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.34,0.35,"EA",0.27,NA
+"387","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.35,0.36,"EA",NA,NA
+"388","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.36,0.37,"EA",0.96,NA
+"389","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.37,0.38,"EA",NA,NA
+"390","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.38,0.39,"EA",0.45,NA
+"391","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.39,0.4,"EA",NA,NA
+"392","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.4,0.41,"EA",0.64,NA
+"393","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.41,0.42,"EA",NA,NA
+"394","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.42,0.43,"EA",0.7,NA
+"395","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.43,0.44,"EA",NA,NA
+"396","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.44,0.45,"EA",0.44,NA
+"397","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.45,0.46,"EA",NA,NA
+"398","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.46,0.47,"EA",0.63,NA
+"399","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.47,0.48,"EA",NA,NA
+"400","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.48,0.49,"EA",0.6,NA
+"401","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.49,0.5,"EA",NA,NA
+"402","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.5,0.51,"EA",0.36,NA
+"403","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.51,0.52,"EA",NA,NA
+"404","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.52,0.53,"EA",0.35,NA
+"405","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.53,0.54,"EA",NA,NA
+"406","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.54,0.55,"EA",0.45,NA
+"407","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.55,0.56,"EA",NA,NA
+"408","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.56,0.57,"EA",0.22,NA
+"409","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.57,0.58,"EA",NA,NA
+"410","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.58,0.59,"EA",0.52,NA
+"411","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.59,0.6,"EA",NA,NA
+"412","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.6,0.61,"EA",0.44,NA
+"413","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.61,0.62,"EA",NA,NA
+"414","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.62,0.63,"EA",0.29,NA
+"415","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.63,0.64,"EA",NA,NA
+"416","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.64,0.65,"EA",0.27,NA
+"417","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.65,0.66,"EA",NA,NA
+"418","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.66,0.67,"EA",0.55,NA
+"419","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.67,0.68,"EA",NA,NA
+"420","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.68,0.69,"EA",0.35,NA
+"421","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.69,0.7,"EA",NA,NA
+"422","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.7,0.71,"EA",0.17,NA
+"423","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.71,0.72,"EA",NA,NA
+"424","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.72,0.73,"EA",0.37,NA
+"425","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.73,0.74,"EA",NA,NA
+"426","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.74,0.75,"EA",0.22,NA
+"427","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.75,0.76,"EA",NA,NA
+"428","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.76,0.77,"EA",0.16,NA
+"429","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.77,0.78,"EA",NA,NA
+"430","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.78,0.79,"EA",0.27,NA
+"431","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.79,0.8,"EA",NA,NA
+"432","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.8,0.81,"EA",0.3,NA
+"433","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.81,0.82,"EA",NA,NA
+"434","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.82,0.83,"EA",0.24,NA
+"435","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.83,0.84,"EA",NA,NA
+"436","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.84,0.85,"EA",0.24,NA
+"437","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.85,0.86,"EA",0.14,NA
+"438","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.86,0.87,"EA",0.38,NA
+"439","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.87,0.88,"EA",0.15,NA
+"440","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.88,0.89,"EA",0.15,NA
+"441","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.89,0.9,"EA",NA,NA
+"442","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.9,0.91,"EA",0.34,NA
+"443","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.91,0.92,"EA",NA,NA
+"444","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.92,0.93,"EA",0.15,NA
+"445","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.93,0.94,"EA",NA,NA
+"446","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.94,0.95,"EA",0.11,NA
+"447","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.95,0.96,"EA",NA,NA
+"448","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.96,0.97,"EA",0.26,NA
+"449","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",0.98,0.99,"EA",0.15,NA
+"450","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",1,1.01,"EA",0.14,NA
+"451","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",1.02,1.03,"EA",0.17,NA
+"452","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",1.04,1.05,"EA",0.3,NA
+"453","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",1.05,1.06,"EA",NA,NA
+"454","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",1.06,1.07,"EA",0.32,NA
+"455","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",1.07,1.08,"EA",NA,NA
+"456","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",1.08,1.09,"EA",0.29,NA
+"457","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",1.1,1.11,"EA",0.12,NA
+"458","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",1.11,1.12,"EA",0.17,NA
+"459","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",1.12,1.13,"EA",0.42,NA
+"460","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",1.13,1.14,"EA",0.26,NA
+"461","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",1.14,1.15,"EA",0.23,NA
+"462","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",1.15,1.16,"EA",NA,NA
+"463","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",1.16,1.17,"EA",0.07,NA
+"464","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",1.18,1.19,"EA",0.13,NA
+"465","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",1.2,1.21,"EA",NA,NA
+"466","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",1.22,1.23,"EA",NA,NA
+"467","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",1.24,1.25,"EA",NA,NA
+"468","Bunzel et al 2019","DB GeoHH-KWK","Kaiser-Wilhelm-Koog","GeoHH-KWK","Salt marsh",53.9347,8.9069,"direct from dataset","1","Germany","2016",1.26,1.27,"EA",NA,NA

@@ -21,10 +21,14 @@ author_initials <- "PR"
 
 
 input_data02 <- input_data01 %>%
-  rename(Site = Saltmarsh_ID) %>% 
+  dplyr::rename(Site = Saltmarsh_ID) %>% 
+  group_by(Site) %>% 
+  mutate(n_core = row_number()) %>% 
+  ungroup() %>% 
+  mutate(Core = paste(Site, n_core)) %>% 
   mutate(Source = source_name,
          Source_abbr = author_initials,
-         Site_name = paste(Source_abbr, Site),
+         Site_name = paste(Source_abbr, Core),
          Habitat_type = "Salt marsh",
          Country = "UK") 
 
@@ -32,7 +36,7 @@ input_data02 <- input_data01 %>%
 #### reformat data ####
 
 input_data03 <- input_data02 %>% 
-  rename(Latitude = Lat_dec_deg,
+  dplyr::rename(Latitude = Lat_dec_deg,
          Longitude = Long_dec_deg,
          Year_collected = Year,
          OC_perc = OC_Perc, 
@@ -51,17 +55,16 @@ input_data04 <- input_data03 %>%
          L_depth_m = as.numeric(L_depth_cm)/100)# cm to m
 
 
-
 #### export ####
 
 export_data01 <- input_data04 %>% 
-  dplyr::select(Source, Site_name, Site, Habitat_type, Country, Year_collected,
+  dplyr::select(Source, Site_name, Site, Core, Habitat_type, Country, Year_collected,
                 Latitude, Longitude, accuracy_flag, accuracy_code,
                 U_depth_m, L_depth_m, Method, OC_perc, SOM_perc, BD_reported_g_cm3)
 
 
 export_data02 <- export_data01 %>% 
-  relocate(Source, Site_name, Site, Habitat_type, Latitude, Longitude, 
+  relocate(Source, Site_name, Site, Core, Habitat_type, Latitude, Longitude, 
            accuracy_flag, accuracy_code, Country, Year_collected, .before = U_depth_m) %>% 
   arrange(Site, Habitat_type)
 

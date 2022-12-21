@@ -3,6 +3,7 @@
 ## export for marsh soil C
 # contact Tania Maxwell, tlgm2@cam.ac.uk
 # 16.09.22
+# edit 20.12.22
 
 
 ##from supplementary table S1
@@ -28,7 +29,8 @@ input_data02 <- input_data01 %>%
          Site = "Jiangsu Yancheng Wetland",
          Site_name = paste(Source_abbr, Site),
          Habitat_type = "Saltmarsh",
-         Country = "China") 
+         Country = "China",
+         Plot = Site) 
 
 #### reformat data ####
 
@@ -48,7 +50,7 @@ input_data03 <- input_data02 %>%
 #### export ####
 
 export_data01 <- input_data03 %>% 
-  dplyr::select(Source, Site_name, Site, Habitat_type, Country, Year_collected,
+  dplyr::select(Source, Site_name, Site, Plot, Habitat_type, Country, Year_collected,
                 Latitude, Longitude, accuracy_flag, accuracy_code,
                 U_depth_m, L_depth_m, Method, OC_perc_mean, OC_perc_sd,
                 BD_reported_g_cm3_mean, BD_reported_g_cm3_sd)

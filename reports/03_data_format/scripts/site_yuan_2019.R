@@ -3,6 +3,7 @@
 ## export for marsh soil C
 # contact Tania Maxwell, tlgm2@cam.ac.uk
 # 09.09.22
+# edit 20.12.22
 
 
 library(tidyverse)
@@ -19,11 +20,13 @@ author_initials <- "JY"
 
 input_data02 <- input_data01 %>% 
   slice(-c(1,17:22)) %>% 
+  dplyr::rename(Plot = Site) %>% 
   mutate(Source = source_name,
          Source_abbr = author_initials,
-         Site_name = paste(Source_abbr, Site),
+         Site_name = paste(Source_abbr, Plot),
          Habitat_type = "Salt marsh",
-         Country = "China") 
+         Country = "China",
+         Site = "Yancheng National Wetland Reserve") 
 
 input_data02$SOC..g.C.kg.1. <- as.numeric(input_data02$SOC..g.C.kg.1.)
 input_data02$X <- as.numeric(input_data02$X)
@@ -50,7 +53,6 @@ input_data04 <- input_data03 %>%
   separate(Layer..cm., c("U_depth_cm", "L_depth_cm"), sep = '-') %>%    #separate upper and lower depth
   mutate(U_depth_m = as.numeric(U_depth_cm)/100 , #cm to m
          L_depth_m = as.numeric(L_depth_cm)/100)
-
 
 #### export ####
 

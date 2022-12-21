@@ -4,6 +4,7 @@
 ## export for marsh soil C
 # contact Tania Maxwell, tlgm2@cam.ac.uk
 # 26.07.22
+# edit 20.12.22
 
 library(tidyverse)
 
@@ -133,14 +134,35 @@ table(export_data04$Country)
 
 ## removing data extracted elsewhere
 ## in CCRCN: Nolte et al. 2013 Does livestock grazing affect sediment deposition and accretion rates in salt marshes? Estuarine, Coastal and Shelf Science 135, 296-305. 
-##
+## YU and Chmura 2009, Sammul et al 2012
 
 table(export_data04$Original_source)
 export_data05 <- export_data04 %>%  
-  filter(Original_source != "Nolte et al 2013")
+  filter(Original_source != "Nolte et al 2013" & 
+         Original_source != "Yu Chmura 2009" & 
+         Original_source != "Sammul et al 2012")
 
 
 
+paste3 <- function(df) {
+  if (df[, U_depth_m] > 0) {
+    Column_3 = Column_3-1
+  } else
+  Column_3 = seq(1:50)
+  return(Column_3)
+}
+
+paste(df = export_data05)
+
+## making a plot column
+export_data06 <- export_data05 %>% 
+  group_by(Original_source) %>% 
+  mutate(Column_3 = accumulate(paste3)) %>% 
+  # mutate(Column_3 = accumulate(U_depth_m == 0 , ~ifelse(.y==FALSE, 1, .x))) %>% 
+  relocate(Column_3, .before = U_depth_m)
+
+
+export_data_final <- 
 
 ## export
 

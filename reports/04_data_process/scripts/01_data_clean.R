@@ -93,6 +93,17 @@ data6 <- data5 %>%
   filter(is.na(OC_perc_combined) == FALSE | 
            is.na(SOM_perc_combined) == FALSE)
 
+
+##### 6. assign unique identifier for each core ####
+
+# data7 <- data6 %>% 
+#   mutate(GPS_combined = paste(Latitude, Longitude))
+# 
+# test <- data7 %>% 
+#   group_by(Source, Original_source, Site_name, GPS_combined) %>% 
+#   dplyr::summarise(n_layers = n())
+
+
 #### export cleaned data
 
 path_out = 'reports/04_data_process/data/'

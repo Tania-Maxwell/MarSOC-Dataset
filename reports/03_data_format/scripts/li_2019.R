@@ -4,6 +4,7 @@
 ## export for marsh soil C
 # contact Tania Maxwell, tlgm2@cam.ac.uk
 # 29.07.22
+# edit 20.12.22
 
 library(tidyverse)
 
@@ -22,12 +23,16 @@ author_initials <- "YL"
 
 
 input_data02 <- input_data01 %>% 
+  group_by(Location) %>% 
+  mutate(Rep = row_number()) %>% 
+  ungroup() %>% 
+  mutate(Site = substring(Location,1, nchar(Location)-1), #site name without number at the end
+         Plot = paste(Location, Rep, sep = "-")) %>% 
   mutate(Source = source_name,
          Source_abbr = author_initials,
-         Site_name = paste(Source_abbr, Location),
+         Site_name = paste(Source_abbr, Site),
          Habitat_type = "Salt marsh",
-         Country = "China") %>% 
-  rename(Site = Location)
+         Country = "China")
 
 #### reformat data ####
 
@@ -51,19 +56,16 @@ input_data04 <- input_data03 %>%
   mutate(U_depth_m = as.numeric(U_depth_cm)/100 , #cm to m
          L_depth_m = as.numeric(L_depth_cm)/100)# cm to m
 
-
-
-
 #### export ####
 
 export_data01 <- input_data04 %>% 
-  dplyr::select(Source, Site_name, Site, Habitat_type, Country, Year_collected,
+  dplyr::select(Source, Site_name, Site, Plot, Habitat_type, Country, Year_collected,
                 Latitude, Longitude, accuracy_flag, accuracy_code,
                 U_depth_m, L_depth_m, Method, OC_perc)
 
 
 export_data02 <- export_data01 %>% 
-  relocate(Source, Site_name, Site, Habitat_type, Latitude, Longitude, 
+  relocate(Source, Site_name, Site, Plot, Habitat_type, Latitude, Longitude, 
            accuracy_flag, accuracy_code, Country, Year_collected, .before = U_depth_m) %>% 
   arrange(Site, Habitat_type)
 

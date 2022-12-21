@@ -19,10 +19,11 @@ author_initials <- "MC"
 
 input_data02 <- input_data01 %>% 
   rename(Site = Region, 
-         Habitat_type = Habitat) %>% 
+         Habitat_type = Habitat,
+         Plot = Core.ID) %>% 
   mutate(Source = source_name,
          Source_abbr = author_initials,
-         Site_name = paste(Source_abbr, Site),
+         Site_name = paste(Source_abbr, Plot),
          Country = "Saudi Arabia") 
 
 
@@ -46,14 +47,14 @@ input_data03 <- input_data02 %>%
 #### export ####
 
 export_data01 <- input_data03 %>% 
-  dplyr::select(Source, Site_name, Site, Habitat_type, Country, Year_collected,
+  dplyr::select(Source, Site_name, Site, Plot, Habitat_type, Country, Year_collected,
                 Latitude, Longitude, accuracy_flag, accuracy_code,
                 U_depth_m, L_depth_m, Method, OC_perc_mean, OC_perc_se,
                 BD_g_cm3_mean, BD_g_cm3_se)
 
 
 export_data02 <- export_data01 %>% 
-  relocate(Source, Site_name, Site, Habitat_type, Latitude, Longitude, 
+  relocate(Source, Site_name, Site, Plot, Habitat_type, Latitude, Longitude, 
            accuracy_flag, accuracy_code, Country, Year_collected, .before = U_depth_m) %>% 
   arrange(Site, Habitat_type)
 

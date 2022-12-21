@@ -37,7 +37,8 @@ agua_amarga02 <- agua_amarga01 %>%
          Site_name = paste(Source_abbr, Site, Sampling_point),
          Habitat_type = "Salt marsh",
          Country = "Spain") %>% 
-  dplyr::rename(Plot = Treatment)
+  dplyr::rename(Vegetation = Treatment,
+                Core = Sampling_point)
 
 #### reformat data ###
 
@@ -62,13 +63,13 @@ agua_amarga04 <- agua_amarga03 %>%
 #### export 
 
 export_AA01 <- agua_amarga04 %>% 
-  dplyr::select(Source, Site_name, Site, Plot, Habitat_type, Country, Year_collected,
+  dplyr::select(Source, Site_name, Site, Core, Habitat_type, Country, Year_collected,
                 Latitude, Longitude, accuracy_flag, accuracy_code,
                 U_depth_m, L_depth_m, Method, OC_perc, BD_reported_g_cm3)
 
 
 export_AA02 <- export_AA01 %>% 
-  relocate(Source, Site_name, Site, Plot, Habitat_type, Latitude, Longitude, 
+  relocate(Source, Site_name, Site, Core, Habitat_type, Latitude, Longitude, 
            accuracy_flag, accuracy_code, Country, Year_collected, .before = U_depth_m) %>% 
   arrange(Site, Habitat_type)
 
@@ -109,8 +110,9 @@ carmoli00$Bulk_density_g_cm3_ <- as.numeric(carmoli00$Bulk_density_g_cm3_)
 
 carmoli01 <- carmoli00 %>% 
   group_by(Sampling_point, Replicate, Latitude, Longitude) %>% 
-  dplyr::summarise(across(.cols = c(TOC_g_kg_, Bulk_density_g_cm3_), .fns = mean,
-                          na.rm = T))
+  dplyr::summarise(across(.cols = c(TOC_g_kg_, Bulk_density_g_cm3_), .fns = c(mean, sd),
+                          na.rm = T)) %>% 
+  ungroup()
 
 
 ##### add informational  
@@ -125,14 +127,20 @@ carmoli02 <- carmoli01 %>%
          Site_name = paste(Source_abbr, Site, Sampling_point, "Rep", Replicate),
          Habitat_type = "Salt marsh",
          Country = "Spain") %>% 
-  dplyr::rename(Plot = Sampling_point)
+  mutate(Plot = paste(Sampling_point, "Rep", Replicate))
+
 
 #### reformat data ###
 
 carmoli03 <- carmoli02 %>% 
-  mutate(OC_perc = TOC_g_kg_/10) %>%  #per mille to per cent 
-  dplyr::rename(BD_reported_g_cm3 = Bulk_density_g_cm3_) %>% 
+  dplyr::rename(TOC_g_kg_mean = TOC_g_kg__1,
+         TOC_g_kg_sd = TOC_g_kg__2,
+         BD_reported_g_cm3_mean = Bulk_density_g_cm3__1, 
+         BD_reported_g_cm3_sd = Bulk_density_g_cm3__2) %>% 
+  mutate(OC_perc_mean = TOC_g_kg_mean/10,
+         OC_perc_sd = TOC_g_kg_sd/10) %>%  #per mille to per cent 
   mutate(Year_collected = "2005",
+         Year_collected_end = "2006",
          accuracy_flag = "direct from dataset",
          accuracy_code = "1") %>% 
   mutate(Method = "EA")
@@ -150,15 +158,15 @@ carmoli04 <- carmoli03 %>%
 #### export 
 
 export_C01 <- carmoli04 %>% 
-  dplyr::select(Source, Site_name, Site, Plot, Replicate, Habitat_type, Country, Year_collected,
+  dplyr::select(Source, Site_name, Site, Plot, Habitat_type, Country, Year_collected, Year_collected_end,
                 Latitude, Longitude, accuracy_flag, accuracy_code,
-                U_depth_m, L_depth_m, Method, OC_perc, BD_reported_g_cm3)
+                U_depth_m, L_depth_m, Method, OC_perc_mean,OC_perc_sd, BD_reported_g_cm3_mean,BD_reported_g_cm3_sd)
 
 
 export_C02 <- export_C01 %>% 
-  relocate(Source, Site_name, Site, Plot, Replicate, Habitat_type, Latitude, Longitude, 
-           accuracy_flag, accuracy_code, Country, Year_collected, .before = U_depth_m) %>% 
-  arrange(Site, Habitat_type)
+  relocate(Source, Site_name, Site, Plot, Habitat_type, Latitude, Longitude, 
+           accuracy_flag, accuracy_code, Country, Year_collected,Year_collected_end, .before = U_depth_m) %>% 
+  arrange(Site, Habitat_type)  
 
 ## export
 

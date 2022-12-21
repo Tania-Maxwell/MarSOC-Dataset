@@ -4,6 +4,7 @@
 ## export for marsh soil C
 # contact Tania Maxwell, tlgm2@cam.ac.uk
 # 05.07.22
+# edit 20.12.22
 
 library(tidyverse)
 library(measurements) #convert deg min sec to decimal degrees 
@@ -37,14 +38,12 @@ input_data_main01 <-  input_data_main01 %>%
 input_data_inner02 <- input_data_inner01 %>% 
   mutate(lat_detail ="27°59.139", #North
          long_detail = "12°17.109", #West
-         lat = gsub("°", " ",
-                    gsub("\\.", " ", lat_detail)),
-         long = gsub("°", " ",
-                     gsub("\\.", " ", long_detail)),
-         lat_dec_deg = measurements::conv_unit(lat, from = "deg_min_sec", to = "dec_deg"), #N , Keep positive
-         long_dec_deg = measurements::conv_unit(long, from = "deg_min_sec", to = "dec_deg"), #W , convert to neg
-         Latitude = as.numeric(lat_dec_deg),
-         Longitude = as.numeric(long_dec_deg)*-1,
+         lat_D = 27,
+         long_D = 12,
+         lat_M = 59.139,
+         long_M = 17.109,
+         Latitude = lat_D + lat_M/60, #N , Keep positive
+         Longitude = (long_D + long_M/60)*-1, #W , convert to neg
          accuracy_flag = "direct from dataset",
          accuracy_code = "1",
          Site = "Lacustrine_lagoon_THI")
@@ -52,14 +51,12 @@ input_data_inner02 <- input_data_inner01 %>%
 input_data_main02 <- input_data_main01 %>% 
   mutate(lat_detail = "28°01.626",
          long_detail = "12°16.558",
-         lat = gsub("°", " ",
-                    gsub("\\.", " ", lat_detail)),
-         long = gsub("°", " ",
-                     gsub("\\.", " ", long_detail)),
-         lat_dec_deg = measurements::conv_unit(lat, from = "deg_min_sec", to = "dec_deg"), #N , Keep positive
-         long_dec_deg = measurements::conv_unit(long, from = "deg_min_sec", to = "dec_deg"), #W , convert to neg
-         Latitude = as.numeric(lat_dec_deg),
-         Longitude = as.numeric(long_dec_deg)*-1,
+         lat_D = 28,
+         long_D = 12,
+         lat_M = 1.626,
+         long_M = 16.558,
+         Latitude = lat_D + lat_M/60, #N , Keep positive
+         Longitude = (long_D + long_M/60)*-1, #W , convert to neg
          accuracy_flag = "direct from dataset",
          accuracy_code = "1",
          Site = "Lacustrine_lagoon_THIII")
@@ -73,11 +70,13 @@ author_initials <- "JN"
 
 
 input_data02 <- input_data01 %>% 
+  dplyr::rename(Core = Site) %>% 
   mutate(Source = source_name,
          Source_abbr = author_initials,
-         Site_name = paste(Source_abbr, Site),
+         Site_name = paste(Source_abbr, Core),
          Habitat_type = "Lagoon near marsh",
-         Country = "Morocco") 
+         Country = "Morocco", 
+         Site = "Lacustrine lagoon") 
 
 #### reformat data ####
 
@@ -108,7 +107,7 @@ mp
 #### export ####
 
 export_data01 <- input_data03 %>% 
-  dplyr::select(Source, Site_name, Site, Habitat_type, Country, Year_collected,
+  dplyr::select(Source, Site_name, Site, Core,  Habitat_type, Country, Year_collected,
                 Latitude, Longitude, accuracy_flag, accuracy_code,
                 U_depth_m, L_depth_m, Method, OC_perc, BD_reported_g_cm3)
 

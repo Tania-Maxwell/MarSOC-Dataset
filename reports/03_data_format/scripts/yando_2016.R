@@ -32,10 +32,15 @@ author_initials <- "ESY"
 
 
 input_data03 <- input_data02 %>% 
-  mutate(Source = source_name,
+  dplyr::rename(State_abbr = State) %>% 
+  mutate(Core = Site,
+         Source = source_name,
          Source_abbr = author_initials,
-         Site_name = paste(Source_abbr, Site),
+         Site_name = paste(Source_abbr, Core),
          Country = "United States") %>% 
+  mutate(State = case_when(State_abbr == "FL" ~ "Florida",
+                           State_abbr == "LA" ~ "Louisiana",
+                           State_abbr == "TX" ~ "Texas")) %>% 
   mutate(Habitat_type = case_when(Habitat == "MF" ~ "Mud flat",
                                   Habitat == "SM" ~ "Saltmarsh")) 
 
@@ -61,6 +66,10 @@ input_data05 <- input_data04 %>%
   mutate(U_depth_m = as.numeric(U_depth_cm)/100 , #cm to m
          L_depth_m = as.numeric(L_depth_cm)/100)# cm to m
 
+test <-  input_data05 %>% 
+  mutate(GPS_combined = paste(Latitude, Longitude)) %>% 
+  group_by(Source, Site_name)  %>% 
+  dplyr::summarise(distinct_location = n_distinct(GPS_combined))
 
 
 #### export ####
@@ -70,13 +79,13 @@ export_data01 <- input_data05 %>%
 
 
 export_data02 <- export_data01 %>% 
-  dplyr::select(Source, Site_name, Site, Habitat_type, Country, State, Year_collected,
+  dplyr::select(Source, Site_name, Site, Core, Habitat_type, Country, State, Year_collected,
                 Latitude, Longitude, accuracy_flag, accuracy_code,
                 U_depth_m, L_depth_m, Method, SOM_perc, BD_reported_g_cm3, Conv_factor)
 
 
 export_data03 <- export_data02 %>% 
-  relocate(Source, Site_name, Site, Habitat_type, Latitude, Longitude, 
+  relocate(Source, Site_name, Site, Core, Habitat_type, Latitude, Longitude, 
            accuracy_flag, accuracy_code, Country, State, Year_collected, .before = U_depth_m) %>% 
   arrange(Site, Habitat_type)
 
@@ -85,7 +94,7 @@ export_data03 <- export_data02 %>%
 path_out = 'reports/03_data_format/data/exported/'
 
 export_file <- paste(path_out, source_name, ".csv", sep = '') 
-export_df <- export_data02
+export_df <- export_data03
 
 write.csv(export_df, export_file)
 

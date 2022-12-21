@@ -3,6 +3,7 @@
 ## export for marsh soil C (and previously mangrove soil C)
 # contact Tania Maxwell, tlgm2@cam.ac.uk
 # 20.09.22
+ # edit 20.12.22
 
 # NOTE - this is an aggregated dataset. Raw values are in individual datasets 
 
@@ -41,7 +42,8 @@ input_data2 <- input_data1 %>%
   mutate(Source = source_name,
          Source_abbr = author_initials,
          Site_name = paste(Source_abbr, Location)) %>% 
-  rename(Original_source = Reference) %>% 
+  rename(Original_source = Reference,
+         Plot = Location) %>% 
   mutate(Original_source = gsub("al.", "al", #replace . with nothing to match Sanderman refs
                                 Original_source))
 
@@ -97,10 +99,9 @@ data_test <- left_join(input_data5, data_compile, by = "Original_source")
 
 ## compare to other single-source data 
 input_data_fortest <- input_data5 %>% 
-  rename(This_paper = Source, 
-         Source = Original_source) # rename to match the source column in all other datasets
+  rename(This_paper = Source) # rename to match the source column in all other datasets
 
-data_test2  <- left_join(input_data_fortest, data_compile, by = "Source") 
+data_test2  <- left_join(input_data_fortest, data_compile, by = "Original_source") 
 
 ## ref from Original_source Xu et al 2014 already extracted by Hu et al 2020
 
@@ -108,14 +109,17 @@ input_data6 <- input_data5 %>%
   filter(Original_source != "Xu et al 2014")
 
 
-
 #### export data ####
 
-export_data <- input_data6 %>% 
-  select(Source, Site_name, Original_source, Habitat_type, Latitude, Longitude, 
+export_data01 <- input_data6 %>% 
+  select(Source, Site_name, Original_source, Plot, Habitat_type, Latitude, Longitude, 
          accuracy_flag, accuracy_code, Country, Year_collected, U_depth_m, L_depth_m, 
          C_stock_MgC_ha)
 
+export_data02 <- export_data01 %>% 
+  relocate(Source,Original_source, Site_name, Plot, Habitat_type, Latitude, Longitude, 
+           accuracy_flag, accuracy_code, Country, Year_collected, .before = U_depth_m) %>% 
+  arrange(Plot, Habitat_type)
 
 
 ## export
@@ -123,7 +127,7 @@ export_data <- input_data6 %>%
 path_out = 'reports/03_data_format/data/exported/'
 
 export_file <- paste(path_out, source_name, ".csv", sep = '') 
-export_df <- export_data
+export_df <- export_data02
 
 write.csv(export_df, export_file)
 

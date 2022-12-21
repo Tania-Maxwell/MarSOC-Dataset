@@ -4,7 +4,7 @@
 ## export for marsh soil C
 # contact Tania Maxwell, tlgm2@cam.ac.uk
 # 26.07.22
-
+# edit 20.12.22
 
 library(tidyverse)
 
@@ -65,24 +65,26 @@ input_data06 <- input_data05 %>%
   pivot_wider(names_from = c("name"),
               values_from = "value")
 
-
+## mean of series of cores
 input_data07 <- input_data06 %>% 
   group_by(Source, Original_source, Site_name, Site, Habitat_type, Country, Year_collected,
            Latitude, Longitude, accuracy_flag, accuracy_code,Method, U_depth_m, L_depth_m, Treatment) %>% 
-  summarise_at(vars(SOM_perc_mean, SOM_perc_SD), funs(mean))
+  summarise_at(vars(SOM_perc_mean, SOM_perc_SD), funs(mean)) %>% 
+  ungroup() %>% 
+  mutate(Plot = paste(Site, Treatment))
 
 
 
 #### export ####
 
 export_data01 <- input_data07 %>% 
-  dplyr::select(Source, Original_source, Site_name, Site, Habitat_type, Country, Year_collected,
+  dplyr::select(Source, Original_source, Site_name, Site, Plot, Habitat_type, Country, Year_collected,
                 Latitude, Longitude, accuracy_flag, accuracy_code, Treatment,
                 Method, U_depth_m, L_depth_m,SOM_perc_mean, SOM_perc_SD)
 
 
 export_data02 <- export_data01 %>% 
-  relocate(Source, Original_source, Site_name, Site, Habitat_type, Country, Year_collected,
+  relocate(Source, Original_source, Site_name, Site, Plot, Habitat_type, Country, Year_collected,
            Latitude, Longitude, accuracy_flag, accuracy_code, Treatment,
            Method, .before = U_depth_m) 
 

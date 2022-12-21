@@ -123,7 +123,6 @@ country_table <- data_compile2 %>%
   count()
 
 
-
 ## saving the list of countries 
 setwd("~/07_Cam_postdoc/SaltmarshC")
 

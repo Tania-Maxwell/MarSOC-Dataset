@@ -4,6 +4,7 @@
 ## export for marsh soil C
 # contact Tania Maxwell, tlgm2@cam.ac.uk
 # 09.09.22
+# edit 20.12.22
 
 
 library(tidyverse)
@@ -67,19 +68,19 @@ input_data06 <- input_data05 %>%
          U_depth_cm = U_depth_m..compressed.,
          L_depth_cm = L_depth_m..compressed.) %>% 
   mutate(U_depth_m = as.numeric(U_depth_cm)/100 , #cm to m
-         L_depth_m = as.numeric(L_depth_cm)/100)# cm to m
-
+         L_depth_m = as.numeric(L_depth_cm)/100) %>% # cm to m 
+  mutate(Core = paste(Site, Treatment))
 
 #### export ####
 
 export_data01 <- input_data06 %>% 
-  dplyr::select(Source, Site_name, Site, Treatment, Habitat_type, Country, Year_collected,
+  dplyr::select(Source, Site_name, Site, Core, Treatment, Habitat_type, Country, Year_collected,
                 Latitude, Longitude, accuracy_flag, accuracy_code,
                 U_depth_m, L_depth_m, Method, OC_perc, BD_reported_g_cm3, SOM_perc)
 
 
 export_data02 <- export_data01 %>% 
-  relocate(Source, Site_name, Site, Treatment, Habitat_type, Latitude, Longitude, 
+  relocate(Source, Site_name, Site, Core, Treatment, Habitat_type, Latitude, Longitude, 
            accuracy_flag, accuracy_code, Country, Year_collected, .before = U_depth_m) %>% 
   arrange(Site, Habitat_type)
 

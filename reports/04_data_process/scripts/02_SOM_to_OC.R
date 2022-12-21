@@ -26,8 +26,8 @@ country_table <- table(data_unique$Country)
 country_table
 
 
-data_CCRCN <- data_unique %>% 
-  filter(Source == "CCRCN")
+data_noCCRCN <- data_unique %>% 
+  filter(Source != "CCRCN")
 
 #### 1. background info ######
 

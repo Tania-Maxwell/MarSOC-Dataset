@@ -3,6 +3,7 @@
 ## export for marsh soil C
 # contact Tania Maxwell, tlgm2@cam.ac.uk
 # 05.07.22
+# edit 20.12.22
 
 library(tidyverse)
 
@@ -23,18 +24,22 @@ author_initials <- "DB"
 
 
 input_data02 <- input_data01 %>% 
-  rename(Site = Event.2) %>% 
+  dplyr::rename(Site = Event.2,
+         Core = Event) %>% 
   mutate(Site = fct_recode(Site, "Bay of Tumlau" = "Bay of Tümlau")) %>% 
   mutate(Source = source_name,
          Source_abbr = author_initials,
-         Site_name = paste(Source_abbr, Site),
+         Site_name = paste(Source_abbr, Core),
          Habitat_type = "Salt marsh",
          Country = "Germany") 
+
+
+
 
 #### reformat data ####
 
 input_data03 <- input_data02 %>% 
-  mutate(Year_collected = case_when(Event == "TB13-1" ~ "2013", #from paper, Bay of Tumlau August 2013
+  mutate(Year_collected = case_when(Core == "TB13-1" ~ "2013", #from paper, Bay of Tumlau August 2013
                                     TRUE ~ "2016")) %>% # all other sites Nov 2016
   rename(OC_perc = TOC....,
          U_depth_m = Depth.top..m.,
@@ -62,13 +67,13 @@ mp
 #### export ####
 
 export_data01 <- input_data03 %>% 
-  dplyr::select(Source, Site_name, Site, Habitat_type, Country, Year_collected,
+  dplyr::select(Source, Site_name, Site, Core, Habitat_type, Country, Year_collected,
                 Latitude, Longitude, accuracy_flag, accuracy_code,
                 U_depth_m, L_depth_m, Method, OC_perc, BD_reported_g_cm3)
 
 
 export_data02 <- export_data01 %>% 
-  relocate(Source, Site_name, Site, Habitat_type, Latitude, Longitude, 
+  relocate(Source, Site_name, Site, Core, Habitat_type, Latitude, Longitude, 
            accuracy_flag, accuracy_code, Country, Year_collected, .before = U_depth_m) 
 
 

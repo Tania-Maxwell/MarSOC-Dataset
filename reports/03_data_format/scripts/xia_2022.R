@@ -4,11 +4,12 @@
 ## export for marsh soil C
 # contact Tania Maxwell, tlgm2@cam.ac.uk
 # 27.07.22
+# edit 20.12.22
 
 library(tidyverse)
 
 ## import SOC data
-input_file01 <- "reports/03_data_format/data/core_level/Xia_2022_SI/Xia_2022_SI.csv"
+input_file01 <- "reports/03_data_format/data/core_level/Xia_2022_FigShare/Xia_2022_SI.csv"
 
 input_data01 <- read.csv(input_file01)
 
@@ -18,7 +19,7 @@ input_data01 <- input_data01 %>%
 
 
 ## import locations
-input_file02 <- "reports/03_data_format/data/core_level/Xia_2022_SI/Xia_2022_SI_locations.csv"
+input_file02 <- "reports/03_data_format/data/core_level/Xia_2022_FigShare/Xia_2022_SI_locations.csv"
 
 study_locations <- read.csv(input_file02)
 
@@ -29,7 +30,7 @@ input_data02 <- full_join(input_data01, study_locations, by = c("Province", "Wet
 
 ## import soil properties (bulk density)
 
-input_file03 <- "reports/03_data_format/data/core_level/Xia_2022_SI/Xia_2022_SI_properties.csv"
+input_file03 <- "reports/03_data_format/data/core_level/Xia_2022_FigShare/Xia_2022_SI_properties.csv"
 study_properties <- read.csv(input_file03)
 
 study_properties <- study_properties %>% 
@@ -58,10 +59,11 @@ input_data04 <- input_data03 %>%
                                       TRUE ~ Reference)) %>% 
   mutate(Source = source_name,
          Source_abbr = author_initials,
-         Site_name = paste(Source_abbr, Wetland, Site),
+         Core = paste(Wetland, Site),
+         Site_name = paste(Source_abbr, Core),
          Country = "China") %>% 
-  dplyr::rename(Plot = Site,
-         State = Province,
+  dplyr::rename(n_plot = Site,
+      State = Province,
          Site = Wetland)
 
 
@@ -127,19 +129,24 @@ input_data07 <- input_data06 %>%
   mutate(U_depth_m = as.numeric(U_depth_cm)/100 , #cm to m
          L_depth_m = as.numeric(L_depth_cm)/100)# cm to m
 
+input_data08 <- input_data07 %>% 
+  filter(is.na(OC_perc) == FALSE | is.na(SOC_density_Mg_ha_1_) == FALSE)
 
-
+test <-  input_data08 %>% 
+  mutate(GPS_combined = paste(Latitude, Longitude)) %>% 
+  group_by(Source, Site_name, Core)  %>% 
+  dplyr::summarise(distinct_location = n_distinct(GPS_combined))
 
 #### export ####
 
-export_data01 <- input_data07 %>% 
-  dplyr::select(Source, Original_source, Site_name, Plot, Habitat_type, Country, State, Year_collected,
+export_data01 <- input_data08 %>% 
+  dplyr::select(Source, Original_source, Site_name, Core, Habitat_type, Country, State, Year_collected,
                 Latitude, Longitude, accuracy_flag, accuracy_code,
                 U_depth_m, L_depth_m, Method, OC_perc, N_perc, BD_reported_g_cm3)
 
 
 export_data02 <- export_data01 %>% 
-  relocate(Source, Original_source, Site_name, Plot, Habitat_type, Latitude, Longitude, 
+  relocate(Source, Original_source, Site_name, Core, Habitat_type, Latitude, Longitude, 
            accuracy_flag, accuracy_code, Country, State, Year_collected, .before = U_depth_m) %>% 
   arrange(Site_name, Habitat_type)
 

@@ -30,13 +30,28 @@ author_initials <- "CS"
 
 
 input_data02 <- input_data01 %>% 
+  dplyr::rename(Site = Saltmarsh) %>% 
   mutate(Source = source_name,
          Source_abbr = author_initials,
          Site_name = paste(Source_abbr, Core_ID),
          Habitat_type = "Saltmarsh",
          Country = "UK") %>% 
-  rename(Core = Core_ID,
-         Site = Saltmarsh)
+  # some core_IDs are not unique! need to pate with the site id
+  mutate(Core = case_when(Core_ID == "1"|Core_ID == "10"|Core_ID == "11"|Core_ID == "12"|
+                            Core_ID == "13"|Core_ID == "14"|Core_ID == "15"|Core_ID == "16"|
+                            Core_ID == "17"|Core_ID == "18"|Core_ID == "19"|Core_ID == "2"|
+                            Core_ID == "20"|Core_ID == "3"|Core_ID == "4"|Core_ID == "5"|
+                            Core_ID == "6"|Core_ID == "7"|Core_ID == "8"|Core_ID == "9" 
+                          ~ paste(Site, Core_ID),
+                          
+                          #Nith 16 has 2 locations
+                          Core_ID == "Nith 16" & is.na(Wet_bulk_density_g_cm_3) == FALSE 
+                          ~ paste(Core_ID, "A"),
+                          Core_ID == "Nith 16" & is.na(Wet_bulk_density_g_cm_3) == TRUE 
+                          ~ paste(Core_ID, "B"),
+                          
+                          TRUE ~ Core_ID)) 
+
 
 #### reformat data ####
 
@@ -50,6 +65,8 @@ input_data03 <- input_data02 %>%
   mutate(accuracy_flag = "direct from dataset",
          accuracy_code = "1") %>% 
   mutate(Method = "EA")
+
+
 
 
 ## edit depth
@@ -80,6 +97,13 @@ export_data02 <- export_data01 %>%
   relocate(Source, Site_name, Site, Core, Habitat_type,Substrate, Latitude, Longitude, 
            accuracy_flag, accuracy_code, Country, Nation, Year_collected, .before = U_depth_m) %>% 
   arrange(Site, Habitat_type)
+
+
+test <-  export_data02 %>% 
+  mutate(GPS_combined = paste(Latitude, Longitude)) %>% 
+  group_by(Source, Site_name, Core)  %>% 
+  dplyr::summarise(distinct_location = n_distinct(GPS_combined))
+
 
 ## export
 

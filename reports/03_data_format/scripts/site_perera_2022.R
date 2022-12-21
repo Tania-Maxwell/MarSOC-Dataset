@@ -3,7 +3,7 @@
 ## export for marsh soil C
 # contact Tania Maxwell, tlgm2@cam.ac.uk
 # 09.09.22
-
+#edit 20.12.22
 
 library(tidyverse)
 
@@ -18,12 +18,13 @@ author_initials <- "NP"
 
 
 input_data02 <- input_data01 %>% 
-  rename(Site = Site_name) %>% 
+  dplyr::rename(Site = Site_name) %>% 
   mutate(Source = source_name,
          Source_abbr = author_initials,
          Site_name = paste(Source_abbr, Site),
          Habitat_type = "Salt marsh",
-         Country = "Sri Lanka") 
+         Country = "Sri Lanka",
+         Plot = Site) 
 
 
 
@@ -53,14 +54,14 @@ input_data04 <- input_data03 %>%
 #### export ####
 
 export_data01 <- input_data04 %>% 
-  dplyr::select(Source, Site_name, Site, Habitat_type, Country, Year_collected,
+  dplyr::select(Source, Site_name, Site, Plot, Habitat_type, Country, Year_collected,
                 Latitude, Longitude, accuracy_flag, accuracy_code,
                 U_depth_m, L_depth_m, Method, Conv_factor,
                 OC_perc_mean, OC_perc_se,BD_reported_g_cm3_mean,BD_reported_g_cm3_se )
 
 
 export_data02 <- export_data01 %>% 
-  relocate(Source, Site_name, Site, Habitat_type, Latitude, Longitude, 
+  relocate(Source, Site_name, Site, Plot, Habitat_type, Latitude, Longitude, 
            accuracy_flag, accuracy_code, Country, Year_collected, .before = U_depth_m) %>% 
   arrange(Site, Habitat_type)
 

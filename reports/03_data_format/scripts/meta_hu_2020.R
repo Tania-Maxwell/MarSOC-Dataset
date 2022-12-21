@@ -35,10 +35,9 @@ input_data02 <- input_data01 %>%
          Source = source_name,
          Source_abbr = author_initials,
          Country = "China",
-         Site_name = paste(Source_abbr, Country, ID),
+         Plot = paste(Country, ID), 
+         Site_name = paste(Source_abbr, Plot),
          Habitat_type = "Coastal wetland")
-
-
 
 #### reformat data ####
 
@@ -62,13 +61,13 @@ input_data04 <- input_data03 %>%
 #### export ####
 
 export_data01 <- input_data04 %>% 
-  dplyr::select(Source, Original_source, Site_name, Site, Habitat_type, Country, Year_collected,
+  dplyr::select(Source, Original_source, Site_name, Site, Plot, Habitat_type, Country, Year_collected,
                 Latitude, Longitude, accuracy_flag, accuracy_code,
                 U_depth_m, L_depth_m, Method, OC_perc_mean)
 
 
 export_data02 <- export_data01 %>% 
-  relocate(Source, Original_source, Site_name, Site, Habitat_type, Latitude, Longitude, 
+  relocate(Source, Original_source, Site_name, Site, Plot, Habitat_type, Latitude, Longitude, 
            accuracy_flag, accuracy_code, Country, Year_collected, .before = U_depth_m) %>% 
   arrange(Site, Habitat_type)
 

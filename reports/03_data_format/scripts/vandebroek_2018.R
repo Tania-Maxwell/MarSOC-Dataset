@@ -3,6 +3,7 @@
 ## export for marsh soil C
 # contact Tania Maxwell, tlgm2@cam.ac.uk
 # 21.07.22
+# edit 20.12.22
 
 library(readxl)  
 library(tidyverse)
@@ -146,7 +147,8 @@ soilcarbon4 <- soilcarbon3 %>%
   group_by(Site) %>% 
   mutate(U_depth_m = Depth..m. - 0.015,
          L_depth_m = Depth..m. + 0.015) %>% 
-  mutate(mid_depth_m = Depth..m.)
+  mutate(mid_depth_m = Depth..m.) %>% 
+  mutate(Core = Site)
  
 
 SOC_final <- soilcarbon4 %>%  # to use in the function         
@@ -205,13 +207,13 @@ test2 <- BD_interpol(site = "Hellegat young")
 #### export ####
 
 export_data01 <- soilcarbon5 %>% 
-  dplyr::select(Source, Site_name, Site, Habitat_type, Country, Year_collected,
+  dplyr::select(Source, Site_name, Site, Core, Habitat_type, Country, Year_collected,
                 Latitude, Longitude, accuracy_flag, accuracy_code,
                 U_depth_m, L_depth_m, Method, OC_perc, BD_interpol_g_cm3)
 
 
 export_data02 <- export_data01 %>% 
-  relocate(Source, Site_name, Site, Habitat_type, Latitude, Longitude, 
+  relocate(Source, Site_name, Site, Core, Habitat_type, Latitude, Longitude, 
            accuracy_flag, accuracy_code, Country, Year_collected, .before = U_depth_m) %>% 
   arrange(Site, Habitat_type)
 

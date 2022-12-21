@@ -1,43 +1,43 @@
-"","Source","Site_name","Site","Habitat_type","Latitude","Longitude","accuracy_flag","accuracy_code","Country","Year_collected","U_depth_m","L_depth_m","Method","OC_perc","Conv_factor","BD_reported_g_cm3"
-"1","Sammul et al 2012","MS Häädemeeste managed","Häädemeeste","Salt marsh",58.09083333,24.48555556,"direct from dataset","1","Estonia",2005,0,0.15,"Tyurin spectrophotometry",11.9,NA,0.22
-"2","Sammul et al 2012","MS Häädemeeste managed","Häädemeeste","Salt marsh",58.09083333,24.48555556,"direct from dataset","1","Estonia",2005,0.15,0.26,"Tyurin spectrophotometry",3.3,NA,1.2
-"3","Sammul et al 2012","MS Häädemeeste managed","Häädemeeste","Salt marsh",58.09083333,24.48555556,"direct from dataset","1","Estonia",2005,0.26,0.6,"Tyurin spectrophotometry",0.1,NA,1.2
-"4","Sammul et al 2012","MS Haeska managed","Haeska","Salt marsh",58.78111111,23.65666667,"direct from dataset","1","Estonia",2005,0,0.1,"Tyurin spectrophotometry",4.1,NA,0.62
-"5","Sammul et al 2012","MS Haeska managed","Haeska","Salt marsh",58.78111111,23.65666667,"direct from dataset","1","Estonia",2005,0.1,0.3,"Tyurin spectrophotometry",0.3,NA,1.2
-"6","Sammul et al 2012","MS Haeska managed","Haeska","Salt marsh",58.78111111,23.65666667,"direct from dataset","1","Estonia",2005,0.3,0.5,"Tyurin spectrophotometry",0.1,NA,1.2
-"7","Sammul et al 2012","MS Haeska restored","Haeska","Salt marsh",58.78277778,23.69555556,"direct from dataset","1","Estonia",2005,0,0.07,"Tyurin spectrophotometry",22.1,NA,0.21
-"8","Sammul et al 2012","MS Haeska restored","Haeska","Salt marsh",58.78277778,23.69555556,"direct from dataset","1","Estonia",2005,0.07,0.24,"Tyurin spectrophotometry",2.7,NA,1.4
-"9","Sammul et al 2012","MS Haeska restored","Haeska","Salt marsh",58.78277778,23.69555556,"direct from dataset","1","Estonia",2005,0.24,0.5,"Tyurin spectrophotometry",2.3,NA,1.4
-"10","Sammul et al 2012","MS Haeska abandoned","Haeska","Salt marsh",58.78472222,23.70416667,"direct from dataset","1","Estonia",2005,0,0.07,"Tyurin spectrophotometry",26.1,NA,0.1
-"11","Sammul et al 2012","MS Haeska abandoned","Haeska","Salt marsh",58.78472222,23.70416667,"direct from dataset","1","Estonia",2005,0.07,0.3,"Tyurin spectrophotometry",1.9,NA,1.4
-"12","Sammul et al 2012","MS Kastna  abandoned","Kastna ","Salt marsh",58.32583333,23.90833333,"direct from dataset","1","Estonia",2005,0,0.1,"Tyurin spectrophotometry",18.8,NA,0.25
-"13","Sammul et al 2012","MS Kastna  abandoned","Kastna ","Salt marsh",58.32583333,23.90833333,"direct from dataset","1","Estonia",2005,0.1,0.2,"Tyurin spectrophotometry",38.6,NA,0.25
-"14","Sammul et al 2012","MS Kastna  abandoned","Kastna ","Salt marsh",58.32583333,23.90833333,"direct from dataset","1","Estonia",2005,0.2,0.4,"Tyurin spectrophotometry",15,NA,0.25
-"15","Sammul et al 2012","MS Kastna  abandoned","Kastna ","Salt marsh",58.32583333,23.90833333,"direct from dataset","1","Estonia",2005,0.4,0.6,"Tyurin spectrophotometry",6.6,NA,1.2
-"16","Sammul et al 2012","MS Kavaru restored","Kavaru","Salt marsh",58.26833333,24.17694444,"direct from dataset","1","Estonia",2005,0,0.13,"Tyurin spectrophotometry",10.2,NA,0.41
-"17","Sammul et al 2012","MS Kavaru restored","Kavaru","Salt marsh",58.26833333,24.17694444,"direct from dataset","1","Estonia",2005,0.13,0.21,"Tyurin spectrophotometry",2.7,NA,1.2
-"18","Sammul et al 2012","MS Kavaru restored","Kavaru","Salt marsh",58.26833333,24.17694444,"direct from dataset","1","Estonia",2005,0.21,0.4,"Tyurin spectrophotometry",0.2,NA,1.2
-"19","Sammul et al 2012","MS Piirumi abandoned","Piirumi","Salt marsh",58.15388889,24.48,"direct from dataset","1","Estonia",2005,0,0.2,"Tyurin spectrophotometry",5,NA,0.42
-"20","Sammul et al 2012","MS Piirumi abandoned","Piirumi","Salt marsh",58.15388889,24.48,"direct from dataset","1","Estonia",2005,0.2,0.6,"Tyurin spectrophotometry",0.3,NA,1.2
-"21","Sammul et al 2012","MS Piirumi restored","Piirumi","Salt marsh",58.15833333,24.47694444,"direct from dataset","1","Estonia",2005,0,0.06,"Tyurin spectrophotometry",24.7,NA,0.15
-"22","Sammul et al 2012","MS Piirumi restored","Piirumi","Salt marsh",58.15833333,24.47694444,"direct from dataset","1","Estonia",2005,0.06,0.29,"Tyurin spectrophotometry",18.3,NA,0.15
-"23","Sammul et al 2012","MS Piirumi restored","Piirumi","Salt marsh",58.15833333,24.47694444,"direct from dataset","1","Estonia",2005,0.29,0.46,"Tyurin spectrophotometry",0.4,NA,1.2
-"24","Sammul et al 2012","MS Piirumi restored","Piirumi","Salt marsh",58.15833333,24.47694444,"direct from dataset","1","Estonia",2005,0.46,NA,"Tyurin spectrophotometry",0.3,NA,1.4
-"25","Sammul et al 2012","MS Põgari-Sassi managed","Põgari-Sassi","Salt marsh",58.80361111,23.51944444,"direct from dataset","1","Estonia",2005,0,0.08,"Tyurin spectrophotometry",14.9,NA,0.36
-"26","Sammul et al 2012","MS Põgari-Sassi managed","Põgari-Sassi","Salt marsh",58.80361111,23.51944444,"direct from dataset","1","Estonia",2005,0.08,0.11,"Tyurin spectrophotometry",4.6,NA,1.2
-"27","Sammul et al 2012","MS Põgari-Sassi managed","Põgari-Sassi","Salt marsh",58.80361111,23.51944444,"direct from dataset","1","Estonia",2005,0.11,0.28,"Tyurin spectrophotometry",0.3,NA,1.2
-"28","Sammul et al 2012","MS Põgari-Sassi managed","Põgari-Sassi","Salt marsh",58.80361111,23.51944444,"direct from dataset","1","Estonia",2005,0.28,0.45,"Tyurin spectrophotometry",0.2,NA,1.2
-"29","Sammul et al 2012","MS Pürksi abandoned","Pürksi","Salt marsh",58.9975,23.5675,"direct from dataset","1","Estonia",2005,0,0.14,"Tyurin spectrophotometry",23.7,NA,0.1
-"30","Sammul et al 2012","MS Pürksi abandoned","Pürksi","Salt marsh",58.9975,23.5675,"direct from dataset","1","Estonia",2005,0.14,0.2,"Tyurin spectrophotometry",20.2,NA,1.4
-"31","Sammul et al 2012","MS Pürksi abandoned","Pürksi","Salt marsh",58.9975,23.5675,"direct from dataset","1","Estonia",2005,0.2,0.25,"Tyurin spectrophotometry",0.7,NA,1.2
-"32","Sammul et al 2012","MS Saardu abandoned","Saardu","Salt marsh",58.78888889,23.6,"direct from dataset","1","Estonia",2005,0,0.06,"Tyurin spectrophotometry",14,NA,0.3
-"33","Sammul et al 2012","MS Saardu abandoned","Saardu","Salt marsh",58.78888889,23.6,"direct from dataset","1","Estonia",2005,0.06,0.15,"Tyurin spectrophotometry",1.2,NA,1.2
-"34","Sammul et al 2012","MS Saardu abandoned","Saardu","Salt marsh",58.78888889,23.6,"direct from dataset","1","Estonia",2005,0.15,0.3,"Tyurin spectrophotometry",0.5,NA,1.4
-"35","Sammul et al 2012","MS Salmi managed","Salmi","Salt marsh",58.73194444,23.66694444,"direct from dataset","1","Estonia",2005,0,0.08,"Tyurin spectrophotometry",11.2,NA,0.54
-"36","Sammul et al 2012","MS Salmi allpool vähe orgaanikat","Salmi","Salt marsh",58.73194444,23.66694444,"direct from dataset","1","Estonia",2005,0.08,0.3,"Tyurin spectrophotometry",0.7,NA,1.4
-"37","Sammul et al 2012","MS Suti managed","Suti","Salt marsh",58.31527778,23.975,"direct from dataset","1","Estonia",2005,0,0.16,"Tyurin spectrophotometry",10.4,NA,0.41
-"38","Sammul et al 2012","MS Suti managed","Suti","Salt marsh",58.31527778,23.975,"direct from dataset","1","Estonia",2005,0.16,0.26,"Tyurin spectrophotometry",0.4,NA,1.2
-"39","Sammul et al 2012","MS Suti managed","Suti","Salt marsh",58.31527778,23.975,"direct from dataset","1","Estonia",2005,0.26,0.52,"Tyurin spectrophotometry",0.1,NA,1.2
-"40","Sammul et al 2012","MS Tahu managed","Tahu","Salt marsh",58.99388889,23.56555556,"direct from dataset","1","Estonia",2005,0,0.05,"Tyurin spectrophotometry",14,NA,0.37
-"41","Sammul et al 2012","MS Tahu managed","Tahu","Salt marsh",58.99388889,23.56555556,"direct from dataset","1","Estonia",2005,0.05,0.1,"Tyurin spectrophotometry",3.3,NA,1.4
-"42","Sammul et al 2012","MS Tahu managed","Tahu","Salt marsh",58.99388889,23.56555556,"direct from dataset","1","Estonia",2005,0.1,0.45,"Tyurin spectrophotometry",0,NA,1.2
+"","Source","Site_name","Site","Plot","Habitat_type","Latitude","Longitude","accuracy_flag","accuracy_code","Country","Year_collected","U_depth_m","L_depth_m","Method","OC_perc","Conv_factor","BD_reported_g_cm3"
+"1","Sammul et al 2012","MS Häädemeeste managed","Häädemeeste","Häädemeeste managed","Salt marsh",58.09083333,24.48555556,"direct from dataset","1","Estonia",2005,0,0.15,"Tyurin spectrophotometry",11.9,NA,0.22
+"2","Sammul et al 2012","MS Häädemeeste managed","Häädemeeste","Häädemeeste managed","Salt marsh",58.09083333,24.48555556,"direct from dataset","1","Estonia",2005,0.15,0.26,"Tyurin spectrophotometry",3.3,NA,1.2
+"3","Sammul et al 2012","MS Häädemeeste managed","Häädemeeste","Häädemeeste managed","Salt marsh",58.09083333,24.48555556,"direct from dataset","1","Estonia",2005,0.26,0.6,"Tyurin spectrophotometry",0.1,NA,1.2
+"4","Sammul et al 2012","MS Haeska managed","Haeska","Haeska managed","Salt marsh",58.78111111,23.65666667,"direct from dataset","1","Estonia",2005,0,0.1,"Tyurin spectrophotometry",4.1,NA,0.62
+"5","Sammul et al 2012","MS Haeska managed","Haeska","Haeska managed","Salt marsh",58.78111111,23.65666667,"direct from dataset","1","Estonia",2005,0.1,0.3,"Tyurin spectrophotometry",0.3,NA,1.2
+"6","Sammul et al 2012","MS Haeska managed","Haeska","Haeska managed","Salt marsh",58.78111111,23.65666667,"direct from dataset","1","Estonia",2005,0.3,0.5,"Tyurin spectrophotometry",0.1,NA,1.2
+"7","Sammul et al 2012","MS Haeska restored","Haeska","Haeska restored","Salt marsh",58.78277778,23.69555556,"direct from dataset","1","Estonia",2005,0,0.07,"Tyurin spectrophotometry",22.1,NA,0.21
+"8","Sammul et al 2012","MS Haeska restored","Haeska","Haeska restored","Salt marsh",58.78277778,23.69555556,"direct from dataset","1","Estonia",2005,0.07,0.24,"Tyurin spectrophotometry",2.7,NA,1.4
+"9","Sammul et al 2012","MS Haeska restored","Haeska","Haeska restored","Salt marsh",58.78277778,23.69555556,"direct from dataset","1","Estonia",2005,0.24,0.5,"Tyurin spectrophotometry",2.3,NA,1.4
+"10","Sammul et al 2012","MS Haeska abandoned","Haeska","Haeska abandoned","Salt marsh",58.78472222,23.70416667,"direct from dataset","1","Estonia",2005,0,0.07,"Tyurin spectrophotometry",26.1,NA,0.1
+"11","Sammul et al 2012","MS Haeska abandoned","Haeska","Haeska abandoned","Salt marsh",58.78472222,23.70416667,"direct from dataset","1","Estonia",2005,0.07,0.3,"Tyurin spectrophotometry",1.9,NA,1.4
+"12","Sammul et al 2012","MS Kastna  abandoned","Kastna ","Kastna  abandoned","Salt marsh",58.32583333,23.90833333,"direct from dataset","1","Estonia",2005,0,0.1,"Tyurin spectrophotometry",18.8,NA,0.25
+"13","Sammul et al 2012","MS Kastna  abandoned","Kastna ","Kastna  abandoned","Salt marsh",58.32583333,23.90833333,"direct from dataset","1","Estonia",2005,0.1,0.2,"Tyurin spectrophotometry",38.6,NA,0.25
+"14","Sammul et al 2012","MS Kastna  abandoned","Kastna ","Kastna  abandoned","Salt marsh",58.32583333,23.90833333,"direct from dataset","1","Estonia",2005,0.2,0.4,"Tyurin spectrophotometry",15,NA,0.25
+"15","Sammul et al 2012","MS Kastna  abandoned","Kastna ","Kastna  abandoned","Salt marsh",58.32583333,23.90833333,"direct from dataset","1","Estonia",2005,0.4,0.6,"Tyurin spectrophotometry",6.6,NA,1.2
+"16","Sammul et al 2012","MS Kavaru restored","Kavaru","Kavaru restored","Salt marsh",58.26833333,24.17694444,"direct from dataset","1","Estonia",2005,0,0.13,"Tyurin spectrophotometry",10.2,NA,0.41
+"17","Sammul et al 2012","MS Kavaru restored","Kavaru","Kavaru restored","Salt marsh",58.26833333,24.17694444,"direct from dataset","1","Estonia",2005,0.13,0.21,"Tyurin spectrophotometry",2.7,NA,1.2
+"18","Sammul et al 2012","MS Kavaru restored","Kavaru","Kavaru restored","Salt marsh",58.26833333,24.17694444,"direct from dataset","1","Estonia",2005,0.21,0.4,"Tyurin spectrophotometry",0.2,NA,1.2
+"19","Sammul et al 2012","MS Piirumi abandoned","Piirumi","Piirumi abandoned","Salt marsh",58.15388889,24.48,"direct from dataset","1","Estonia",2005,0,0.2,"Tyurin spectrophotometry",5,NA,0.42
+"20","Sammul et al 2012","MS Piirumi abandoned","Piirumi","Piirumi abandoned","Salt marsh",58.15388889,24.48,"direct from dataset","1","Estonia",2005,0.2,0.6,"Tyurin spectrophotometry",0.3,NA,1.2
+"21","Sammul et al 2012","MS Piirumi restored","Piirumi","Piirumi restored","Salt marsh",58.15833333,24.47694444,"direct from dataset","1","Estonia",2005,0,0.06,"Tyurin spectrophotometry",24.7,NA,0.15
+"22","Sammul et al 2012","MS Piirumi restored","Piirumi","Piirumi restored","Salt marsh",58.15833333,24.47694444,"direct from dataset","1","Estonia",2005,0.06,0.29,"Tyurin spectrophotometry",18.3,NA,0.15
+"23","Sammul et al 2012","MS Piirumi restored","Piirumi","Piirumi restored","Salt marsh",58.15833333,24.47694444,"direct from dataset","1","Estonia",2005,0.29,0.46,"Tyurin spectrophotometry",0.4,NA,1.2
+"24","Sammul et al 2012","MS Piirumi restored","Piirumi","Piirumi restored","Salt marsh",58.15833333,24.47694444,"direct from dataset","1","Estonia",2005,0.46,NA,"Tyurin spectrophotometry",0.3,NA,1.4
+"25","Sammul et al 2012","MS Põgari-Sassi managed","Põgari-Sassi","Põgari-Sassi managed","Salt marsh",58.80361111,23.51944444,"direct from dataset","1","Estonia",2005,0,0.08,"Tyurin spectrophotometry",14.9,NA,0.36
+"26","Sammul et al 2012","MS Põgari-Sassi managed","Põgari-Sassi","Põgari-Sassi managed","Salt marsh",58.80361111,23.51944444,"direct from dataset","1","Estonia",2005,0.08,0.11,"Tyurin spectrophotometry",4.6,NA,1.2
+"27","Sammul et al 2012","MS Põgari-Sassi managed","Põgari-Sassi","Põgari-Sassi managed","Salt marsh",58.80361111,23.51944444,"direct from dataset","1","Estonia",2005,0.11,0.28,"Tyurin spectrophotometry",0.3,NA,1.2
+"28","Sammul et al 2012","MS Põgari-Sassi managed","Põgari-Sassi","Põgari-Sassi managed","Salt marsh",58.80361111,23.51944444,"direct from dataset","1","Estonia",2005,0.28,0.45,"Tyurin spectrophotometry",0.2,NA,1.2
+"29","Sammul et al 2012","MS Pürksi abandoned","Pürksi","Pürksi abandoned","Salt marsh",58.9975,23.5675,"direct from dataset","1","Estonia",2005,0,0.14,"Tyurin spectrophotometry",23.7,NA,0.1
+"30","Sammul et al 2012","MS Pürksi abandoned","Pürksi","Pürksi abandoned","Salt marsh",58.9975,23.5675,"direct from dataset","1","Estonia",2005,0.14,0.2,"Tyurin spectrophotometry",20.2,NA,1.4
+"31","Sammul et al 2012","MS Pürksi abandoned","Pürksi","Pürksi abandoned","Salt marsh",58.9975,23.5675,"direct from dataset","1","Estonia",2005,0.2,0.25,"Tyurin spectrophotometry",0.7,NA,1.2
+"32","Sammul et al 2012","MS Saardu abandoned","Saardu","Saardu abandoned","Salt marsh",58.78888889,23.6,"direct from dataset","1","Estonia",2005,0,0.06,"Tyurin spectrophotometry",14,NA,0.3
+"33","Sammul et al 2012","MS Saardu abandoned","Saardu","Saardu abandoned","Salt marsh",58.78888889,23.6,"direct from dataset","1","Estonia",2005,0.06,0.15,"Tyurin spectrophotometry",1.2,NA,1.2
+"34","Sammul et al 2012","MS Saardu abandoned","Saardu","Saardu abandoned","Salt marsh",58.78888889,23.6,"direct from dataset","1","Estonia",2005,0.15,0.3,"Tyurin spectrophotometry",0.5,NA,1.4
+"35","Sammul et al 2012","MS Salmi managed","Salmi","Salmi managed","Salt marsh",58.73194444,23.66694444,"direct from dataset","1","Estonia",2005,0,0.08,"Tyurin spectrophotometry",11.2,NA,0.54
+"36","Sammul et al 2012","MS Salmi allpool vähe orgaanikat","Salmi","Salmi allpool vähe orgaanikat","Salt marsh",58.73194444,23.66694444,"direct from dataset","1","Estonia",2005,0.08,0.3,"Tyurin spectrophotometry",0.7,NA,1.4
+"37","Sammul et al 2012","MS Suti managed","Suti","Suti managed","Salt marsh",58.31527778,23.975,"direct from dataset","1","Estonia",2005,0,0.16,"Tyurin spectrophotometry",10.4,NA,0.41
+"38","Sammul et al 2012","MS Suti managed","Suti","Suti managed","Salt marsh",58.31527778,23.975,"direct from dataset","1","Estonia",2005,0.16,0.26,"Tyurin spectrophotometry",0.4,NA,1.2
+"39","Sammul et al 2012","MS Suti managed","Suti","Suti managed","Salt marsh",58.31527778,23.975,"direct from dataset","1","Estonia",2005,0.26,0.52,"Tyurin spectrophotometry",0.1,NA,1.2
+"40","Sammul et al 2012","MS Tahu managed","Tahu","Tahu managed","Salt marsh",58.99388889,23.56555556,"direct from dataset","1","Estonia",2005,0,0.05,"Tyurin spectrophotometry",14,NA,0.37
+"41","Sammul et al 2012","MS Tahu managed","Tahu","Tahu managed","Salt marsh",58.99388889,23.56555556,"direct from dataset","1","Estonia",2005,0.05,0.1,"Tyurin spectrophotometry",3.3,NA,1.4
+"42","Sammul et al 2012","MS Tahu managed","Tahu","Tahu managed","Salt marsh",58.99388889,23.56555556,"direct from dataset","1","Estonia",2005,0.1,0.45,"Tyurin spectrophotometry",0,NA,1.2

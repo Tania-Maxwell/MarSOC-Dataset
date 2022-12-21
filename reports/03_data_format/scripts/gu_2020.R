@@ -5,6 +5,7 @@
 ## export for marsh soil C
 # contact Tania Maxwell, tlgm2@cam.ac.uk
 # 05.07.22
+# edit 20.12.22
 
 
 library(tidyverse)
@@ -37,9 +38,12 @@ input_data02 <- input_data01 %>%
                           Core_ID == "LP2-1" | Core_ID == "LP2-2" | Core_ID == "LP2-3" ~ "LP2",
                           Core_ID == "LP3-1" | Core_ID == "LP3-2" | Core_ID == "LP3-3" ~ "LP3",
                           Core_ID == "SP1-1" | Core_ID == "SP1-2" | Core_ID == "SP1-3" ~ "SP1")) %>% 
-  mutate(Replicate = case_when(Core_ID == "LP1-1" | Core_ID == "LP2-1" | Core_ID == "LP3-1" ~ "Oct",
-                               Core_ID == "LP1-2" | Core_ID == "LP2-2" | Core_ID == "LP3-2" ~ "May",
-                               Core_ID == "LP1-3" | Core_ID == "LP2-3" | Core_ID == "LP3-3" ~ "June",
+  mutate(Replicate = case_when(Core_ID == "LP1-1" | Core_ID == "LP2-1" | 
+                                 Core_ID == "LP3-1" | Core_ID == "SP1-1" ~ "Oct",
+                               Core_ID == "LP1-2" | Core_ID == "LP2-2" | 
+                                 Core_ID == "LP3-2" | Core_ID == "SP1-2" ~ "May",
+                               Core_ID == "LP1-3" | Core_ID == "LP2-3" | 
+                                 Core_ID == "LP3-3" | Core_ID == "SP1-3" ~ "June",
                                TRUE ~ Core_ID)) %>% 
   mutate(Source = source_name,
          Source_abbr = author_initials,
@@ -58,7 +62,8 @@ input_data03 <- input_data02 %>%
   separate(Depth_range___cm_, c("U_depth_cm", "L_depth_cm"), sep = '-') %>%  #separate upper and lower depth
   mutate(U_depth_m = as.numeric(U_depth_cm)/100,
          L_depth_m = as.numeric(L_depth_cm)/100) %>% 
-  rename(OC_perc = X_OC_Craft_et_al_1991_) %>% 
+  rename(OC_perc = X_OC_Craft_et_al_1991_,
+         Core = Core_ID) %>% 
   mutate(accuracy_flag = "estimated from GE",
          accuracy_code = "2") %>% 
   mutate(Method = "LOI",
@@ -78,7 +83,6 @@ input_data04 <- input_data03 %>%
                                Plot == "LP3" ~ 47.37590455802447,
                                Plot == "SP1" ~ 47.37590455802447))
 
-
 #### check location points ####
 
 
@@ -95,13 +99,13 @@ mp
 #### export ####
 
 export_data01 <- input_data04 %>% 
-  dplyr::select(Source, Site_name, Site, Habitat_type, Country, Year_collected,
+  dplyr::select(Source, Site_name, Site, Core, Plot, Replicate, Habitat_type, Country, Year_collected,
                 Latitude, Longitude, accuracy_flag, accuracy_code,
                 U_depth_m, L_depth_m, Method, Conv_factor, OC_perc, BD_reported_g_cm3)
 
 
 export_data02 <- export_data01 %>% 
-  relocate(Source, Site_name, Site, Habitat_type, Latitude, Longitude, 
+  relocate(Source, Site_name, Site, Core, Plot, Replicate, Habitat_type, Latitude, Longitude, 
            accuracy_flag, accuracy_code, Country, Year_collected, .before = U_depth_m) 
 
 
