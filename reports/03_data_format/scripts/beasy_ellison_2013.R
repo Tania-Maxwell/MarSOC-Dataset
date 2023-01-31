@@ -2,9 +2,8 @@
 ## from Rubicon river estuary, Tasmania,Australia
 ## export for marsh soil C
 # contact Tania Maxwell, tlgm2@cam.ac.uk
-# 23.11.22
+# 18.01.23
 
-## NOTE: still need to add location!!!! check with Tom for GE points
 
 library(tidyverse)
 input_file01 <- "reports/03_data_format/data/core_level/Beasy_Ellison_2013/Beasy_Ellison_2013.csv"
@@ -30,9 +29,17 @@ input_data02 <- input_data01 %>%
 #### reformat data ####
 
 input_data03 <- input_data02 %>% 
+  mutate(Latitude = case_when(Core == "Site 1.1" ~ -41.1544,
+                              Core == "Site 1.2" ~ -41.1548,
+                              Core == "Site 2" ~ -41.2405,
+                              Core == "Site 3" ~ -41.2284),
+         Longitude = case_when(Core == "Site 1.1" ~ 140.6006,
+                              Core == "Site 1.2" ~ 140.5994,
+                              Core == "Site 2" ~ 140.5729,
+                              Core == "Site 3" ~ 140.5645)) %>% 
   mutate(Year_collected = "2011",
-         accuracy_flag = "estimated from GEE",
-         accuracy_code = "2") 
+         accuracy_flag = "direct from dataset",
+         accuracy_code = "1") 
 
 
 ## edit depth
@@ -47,14 +54,14 @@ input_data04 <- input_data03 %>%
 
 export_data01 <- input_data04 %>% 
   dplyr::select(Source, Site_name, Site, Core, Habitat_type, Country, Nation, Year_collected,
-                #Latitude, Longitude, 
+                Latitude, Longitude, 
                 accuracy_flag, accuracy_code,
                 U_depth_m, L_depth_m, Method, OC_perc, SOM_perc, SOM_perc_Heiri)
 
 
 export_data02 <- export_data01 %>% 
   relocate(Source, Site_name, Site, Core, Habitat_type, 
-           #Latitude, Longitude, 
+           Latitude, Longitude, 
            accuracy_flag, accuracy_code, Country, Nation, Year_collected, .before = U_depth_m) %>% 
   arrange(Site, Habitat_type)
 
@@ -68,4 +75,7 @@ export_df <- export_data02
 write.csv(export_df, export_file)
 
 
-
+#visualize 
+plot(export_df$SOM_perc, export_df$OC_perc)
+abline(a = c(0,1))
+plot(export_df$SOM_perc_Heiri, export_df$OC_perc)

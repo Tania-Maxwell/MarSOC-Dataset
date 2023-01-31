@@ -83,10 +83,93 @@ test <- input_data06 %>%
 # kauffman
 
 input_data07 <- input_data06 %>% 
-  filter(Original_source != "Kaufmann et al 2018")
+  filter(Original_source != "Kaufmann et al 2018") %>% 
+  droplevels()
 
+#### add year_collected and method to complete data paper #### 
+
+
+input_data08 <- input_data07 %>% 
+  mutate(Year_collected = case_when(Original_source == "Adaime 1978" ~ 1974,
+                                   # Original_source == "Azevedo 2015-UNPUBLISHED" ~ ,
+                                    # Original_source == "Bouza et al 2017" ~ , # not presented in paper Bouza et al 2007 
+                                    Original_source == "Braga et al 2011" ~ 2007,
+                                    Original_source == "Costa et al 2019" ~ 2016,
+                                    Original_source == "Ferreira 2008" ~ 2005,
+                                    Original_source == "Flynn et al 1998" ~ 1988,
+                                    Original_source == "Hidalgo et al 2021" ~ 2011,
+                                   # Original_source == "Idaskin et al 2014" ~ , # not presented in paper
+                                  #  Original_source == "Idaskin et al 2015" ~ # not presented in paper
+                                  #Original_source == "Lacerda et al 1997" ~ , # not presented in paper
+                                  Original_source == "Marinho et al 2018" ~ 2013,
+                                  Original_source == "Negrin et al 2019" ~ 2011,
+                                  Original_source == "Neto & Lana 1997" ~ 1991,
+                                  Original_source == "" ~ ,
+                                  Original_source == "" ~ ,
+                                  Original_source == "" ~ ,
+                                  Original_source == "" ~ ,
+                                  Original_source == "" ~ ,
+                                  Original_source == "" ~ ,
+                                  Original_source == "" ~ ,
+                                  Original_source == "" ~ )) %>% 
+  mutate(Year_collected_end = case_when(Original_source == "Adaime 1978" ~ 1975,
+                                        Original_source == "Flynn et al 1998" ~ 1989,
+                                        Original_source == "Marinho et al 2018" ~ 2014,
+                                        Original_source == "Negrin et al 2019" ~ 2012)) %>% 
+  mutate(Method = case_when(Original_source == "Adaime 1978" ~ "Wilson (1973)",
+                          #  Original_source == "Azevedo 2015-UNPUBLISHED" ~ ,
+                            Original_source == "Bouza et al 2017" ~ " Tyurin (1951)", # data from Bouza et al 2007  https://doi.org/10.1016/j.geoderma.2007.01.001
+                            Original_source == "Braga et al 2011" ~ "LOI", #SOM at 550C for 4h
+                            Original_source == "Costa et al 2019" ~ "EA",
+                            Original_source == "Ferreira 2008" ~ "EA",
+                            Original_source == "Flynn et al 1998" ~ "SOM by Suguio (1973)",
+                            Original_source == "Hidalgo et al 2021" ~ "LOI",
+                            Original_source == "Idaskin et al 2014" ~ "LOI",
+                            Original_source == "Idaskin et al 2015" ~ "LOI",
+                          Original_source == "Lacerda et al 1997" ~ "LOI", #450C for 16h
+                          Original_source == "Marinho et al 2018" ~ "LOI", #450C for 4h
+                          #Original_source == "Negrin et al 2019" ~ , # not mentioned in paper "Organic matter (OM) content was
+                         # evaluated in the same sediment samples collected for metal analyses"
+                          Original_source == "Neto & Lana 1997" ~ "LOI", #Dried samples were combusted at 550C for 60 min in order to determine
+                         #organic content, and at 1000C for one additional hour to determine carbonates
+                          Original_source == "" ~ ,
+                          Original_source == "" ~ ,
+                          Original_source == "" ~ ,
+                          Original_source == "" ~ ,
+                          Original_source == "" ~ ,
+                          Original_source == "" ~ ,
+                          Original_source == "" ~ ,
+                          Original_source == "" ~ )) %>% 
+  mutate(DOI = case_when(Original_source == "Adaime 1978" ~ "https://doi.org/10.1590/S0373-55241978000200001",
+                         #  Original_source == "Azevedo 2015-UNPUBLISHED" ~ ,
+                         Original_source == "Bouza et al 2017" ~ "https://doi.org/10.1007/978-3-319-48508-9_7",
+                         Original_source == "Braga et al 2011" ~ "https://doi.org/10.1007/s11273-011-9215-5",
+                         Original_source == "Costa et al 2019" ~ "https://doi.org/10.1007/s12237-019-00596-0",
+                         Original_source == "Ferreira 2008" ~ "https://doi.org/10.13140/RG.2.2.21597.61924" ,
+                         Original_source == "Flynn et al 1998" ~ "Macrobenthic Associations of the Lower and Upper Marshes of a Tidal Flat Colonized by Spartina alterniflora in Cananeia Lagoon Estuarine Region (Southeastern Brazil). BULLETIN OF MARINE SCIENCE, 63(2): 427–442, 1998",
+                         Original_source == "Hidalgo et al 2021" ~ "https://doi.org/10.1016/j.ecss.2021.107534" ,
+                         Original_source == "Idaskin et al 2014" ~ "http://dx.doi.org/10.1016/j.marpolbul.2014.10.001",
+                         Original_source == "Idaskin et al 2015" ~ "http://dx.doi.org/10.1016/j.marpolbul.2015.09.047",
+                         Original_source == "Lacerda et al 1997" ~ "https://doi.org/10.1023/A:1009990604727",
+                         Original_source == "Marinho et al 2018" ~ "https://doi.org/10.1007/s10661-018-6975-x",
+                         Original_source == "Negrin et al 2019" ~ "https://doi.org/10.1016/j.scitotenv.2018.08.357",
+                         Original_source == "Neto & Lana 1997" ~ "https://doi.org/10.1006/ecss.1996.0154",
+                         Original_source == "" ~ ,
+                         Original_source == "" ~ ,
+                         Original_source == "" ~ ,
+                         Original_source == "" ~ ,
+                         Original_source == "" ~ ,
+                         Original_source == "" ~ ,
+                         Original_source == "" ~ ,
+                         Original_source == "" ~ ))
 
 #### export ####
+
+#### rename Isaszkin 
+
+input_data09 <- input_data08 %>% 
+  mutate(Original_source = fct_recode(Original_source, "Idaszkin et al 2014" = "Idaskin et al 2014"))
+
 
 export_data01 <- input_data07 %>% 
   dplyr::select(Source, Site_name, Original_source, Site, Core, Habitat_type, Country, Year_collected,

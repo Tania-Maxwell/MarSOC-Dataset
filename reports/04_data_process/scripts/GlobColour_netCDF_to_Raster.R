@@ -49,8 +49,11 @@ library(raster)
 
 setwd("C:/Users/Tania/Desktop/For_GEE_upload/GlobColour/years")
 
-rlist=list.files(getwd(), pattern="tif$", full.names=FALSE)
-rlist <- data.frame(rlist)
+rlist0=list.files(getwd(), pattern="tif$", full.names=FALSE)
+rlist1 <- data.frame(rlist0)
+rlist2 <- rlist1[-10,]
+rlist <- data.frame(rlist2)
+
 
 out<-list()
 
@@ -61,7 +64,7 @@ for(i in 1:nrow(rlist)){
 }
 
 files_stack <- stack(out)
-meanTSM = calc(files_stack, mean)  
+meanTSM = calc(files_stack, mean, na.rm = T)  
 
 setwd("C:/Users/Tania/Desktop/For_GEE_upload/GlobColour")
 

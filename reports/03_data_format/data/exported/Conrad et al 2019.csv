@@ -1,4 +1,4 @@
-"","Source","Site_name","Location","Core","Habitat_type","Latitude","Longitude","accuracy_flag","accuracy_code","Country","Year_collected","Depth_to_bedrock_m","U_depth_m","L_depth_m","Method","Conv_factor","OC_perc","SOM_perc","BD_reported_g_cm3"
+"","Source","Site_name","Site","Core","Habitat_type","Latitude","Longitude","accuracy_flag","accuracy_code","Country","Year_collected","Depth_to_bedrock_m","U_depth_m","L_depth_m","Method","Conv_factor","OC_perc","SOM_perc","BD_reported_g_cm3"
 "1","Conrad et al 2019","SC Coffs Site 1","Coffs","Site 1","Saltmarsh","-30.29923485884984","153.1248383998784","estimated from GE","2","Australia",2016,2.48,0.08,0.1,"LOI",0.58,8,13.79,0.86
 "2","Conrad et al 2019","SC Coffs Site 1","Coffs","Site 1","Saltmarsh","-30.29923485884984","153.1248383998784","estimated from GE","2","Australia",2016,2.48,0.28,0.3,"LOI",0.58,3,5.17,1.49
 "3","Conrad et al 2019","SC Coffs Site 1","Coffs","Site 1","Saltmarsh","-30.29923485884984","153.1248383998784","estimated from GE","2","Australia",2016,2.48,0.48,0.5,"LOI",0.58,3,5.17,0.7

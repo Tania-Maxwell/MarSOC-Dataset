@@ -92,7 +92,7 @@ In order to upload both naive search result files, we will use the `import_resul
 ```{r}
 naive_results_import  <- 
     import_results(
-    directory = "/home/lukas/Desktop/SaltmarshC/reports/01_litsearchr/native_search", #absolute path
+    directory = "C:/Users/Tania/OneDrive - University of Cambridge/Documents/07_Cam_postdoc/SaltmarshC/reports/01_litsearchr/native_search", #absolute path
     verbose = TRUE
   )
 
@@ -113,6 +113,7 @@ naive_results <-
   remove_duplicates(df = naive_results_import, field = "title", method = "exact" )
 ```
 
+After deduplication, there are a total of 386 studies. 
 
 ## Extract potential search terms
 
@@ -337,13 +338,13 @@ We want to see whether adding databases that are not from the core collection, a
 ```{r}
 wos_all_databases  <- 
     import_results(
-    directory = "/home/lukas/Desktop/SaltmarshC/reports/01_litsearchr/final_refs/wos_all_databases", #absolute path
+    directory = "C:/Users/Tania/OneDrive - University of Cambridge/Documents/07_Cam_postdoc/SaltmarshC/reports/01_litsearchr/final_refs/wos_all_databases", #absolute path
     verbose = TRUE
   )
 
 wos_core_collection  <- 
     import_results(
-    directory = "/home/lukas/Desktop/SaltmarshC/reports/01_litsearchr/final_refs/wos_core_collection", #absolute path
+    directory = "C:/Users/Tania/OneDrive - University of Cambridge/Documents/07_Cam_postdoc/SaltmarshC/reports/01_litsearchr/final_refs/wos_core_collection", #absolute path
     verbose = TRUE
   )
 
@@ -421,13 +422,13 @@ library(dplyr)
 ```{r}
 wos_final_all  <- 
     import_results(
-    directory = "/home/lukas/Desktop/SaltmarshC/reports/01_litsearchr/final_refs/wos_all_databases", #absolute path
+    directory = "C:/Users/Tania/OneDrive - University of Cambridge/Documents/07_Cam_postdoc/SaltmarshC/reports/01_litsearchr/final_refs/wos_all_databases", #absolute path
     verbose = TRUE
   )
 
 scopus_final  <- 
     import_results(
-    directory = "/home/lukas/Desktop/SaltmarshC/reports/01_litsearchr/final_refs/scopus", #absolute path
+    directory = "C:/Users/Tania/OneDrive - University of Cambridge/Documents/07_Cam_postdoc/SaltmarshC/reports/01_litsearchr/final_refs/scopus", #absolute path
     verbose = TRUE
   )
 
@@ -482,7 +483,7 @@ We will double-check our literature search using the following two sources:
 ```{r}
 alongi_refs  <- 
     import_results(
-    directory = "/home/lukas/Desktop/SaltmarshC/reports/01_litsearchr/alongi_2020", #absolute path
+    directory = "C:/Users/Tania/OneDrive - University of Cambridge/Documents/07_Cam_postdoc/SaltmarshC/reports/01_litsearchr/alongi_2020", #absolute path
     # file = "alongi_refs.ris",
     verbose = TRUE
   )
@@ -557,7 +558,7 @@ We conclude that our search terms correctly extract the available information on
 ```{r, results = 'hide', echo = T}
 ccrcn_refs  <- 
     import_results(
-    directory = "/home/lukas/Desktop/SaltmarshC/reports/01_litsearchr/CCRCN", #absolute path
+    directory = "C:/Users/Tania/OneDrive - University of Cambridge/Documents/07_Cam_postdoc/SaltmarshC/reports/01_litsearchr/CCRCN", #absolute path
     verbose = TRUE
   )
 ```

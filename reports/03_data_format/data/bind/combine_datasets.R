@@ -53,6 +53,10 @@ data_compile3 <- data_compile2 %>%
 
 ## 18.11 resolved issue of CCRCN location data 
 
+#
+data_unique <- data_compile2 %>% 
+  distinct(Latitude,Longitude, .keep_all = TRUE)
+
 
 # ## export data file
 # 
@@ -111,8 +115,6 @@ data_uk <- data_compile2 %>%
 # write.csv(data_uk, "data_uk.csv", row.names = F)
 
 
-data_unique <- data_compile2 %>% 
-  distinct(Latitude, .keep_all = TRUE)
 
 country_table <- table(data_unique$Country)
 country_table

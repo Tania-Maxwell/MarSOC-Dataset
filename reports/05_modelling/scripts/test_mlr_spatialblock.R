@@ -10,7 +10,27 @@ library(geojsonsf) #to convert GEE .geo to sf coordinates
 
 #### import data ####
 
-df0 <- read_csv("reports/05_modelling/data/export_site_v_1_2.csv")
+GEE_data <- read_csv("reports/05_modelling/data/export_site_v_1_3.csv") %>% 
+  mutate(Plot = as.factor(Plot)) %>% 
+  dplyr::select(Site_name, 
+                coastTyp, #not now that only 1 level?
+                elevation, #SRTM elevation
+                evi_med, evi_stdev,
+                flowAcc, flowAcc_1, gHM_2016 , maxTemp,
+                merit_elevation, 
+                #merit_slope, 
+                minPrecip , minTemp, M2Tide,
+                ndvi_med, ndvi_stdev, PETdry, PETwarm,
+                popDens_change, savi_med, savi_stdev, slope,
+                TSM, occurrence,
+                .geo)
+                #and the response variables
+                #SOCD_g_cm3) 
+
+
+training_data <- read_csv("reports/04_data_process/data/data_cleaned_SOMconverted.csv")
+
+df0 <- inner_join(GEE_data,training_data, by = "Site_name")
 
 
 df1 <- df0 %>% 
@@ -42,7 +62,7 @@ df <- df1 %>%
   # should have 22 
   
   dplyr::select(Depth_midpoint_m , 
-                #coastTyp, not now that only 1 level
+                coastTyp, #not now that only 1 level?
                 elevation, #SRTM elevation
                   evi_med, evi_stdev,
                   flowAcc, flowAcc_1, gHM_2016 , maxTemp,
@@ -50,12 +70,14 @@ df <- df1 %>%
                 #merit_slope, 
                 minPrecip , minTemp, M2Tide,
                 ndvi_med, ndvi_stdev, PETdry, PETwarm,
-                popDens_change, savi_med , savi_stdev , slope, occurrence,
+                popDens_change, savi_med , savi_stdev , slope,
+                TSM, occurrence,
                 #and the response variables
                 SOCD_g_cm3) %>% 
-  rename(OC = SOCD_g_cm3,
+  dplyr::rename(OC = SOCD_g_cm3,
          flowAcc_MERIT = flowAcc,
-         flowAcc_SRTM = flowAcc_1) 
+         flowAcc_SRTM = flowAcc_1) %>% 
+  mutate(coastTyp = as.factor(coastTyp))
 
 summary(df$OC)
 
@@ -64,17 +86,17 @@ coords_forsf <- st_as_sf(data.frame(df1, geom=geojson_sf(df1$.geo)))
 #how to extract coordinates from geometry column in df
 coords = sf::st_coordinates(coords_forsf) %>%
   as.data.frame %>%
-  rename(x = X, y = Y)
+  dplyr::rename(x = X, y = Y)
 
 
 #### 3. visualize data ####
 
 # first have a look at the data
 
-# df_viz <- df %>% 
-#   dplyr::select(-coastTyp)
+df_viz <- df %>%
+  dplyr::select(-coastTyp) # because a factor 
 
-d = reshape2::melt(df, id.vars = "OC")
+d = reshape2::melt(df_viz, id.vars = "OC")
 
 xyplot(OC ~ value | variable, data = d, pch = 21, fill = "lightblue",
        col = "black", ylab = "response (SOCD_g_cm3)", xlab = "predictors",
@@ -247,6 +269,8 @@ cv_sp_rf = mlr::resample(learner = wrapped_lrn_rf,
 #machine learning models are not always better
 
 cv_sp_rf
+
+
 #> cv_sp_rf
 # Resample Result
 # Task: df
@@ -262,13 +286,36 @@ cv_sp_rf
 # Aggr perf: rmse.test.rmse=0.0215683
 # Runtime: 2083.32
 
+# v 1_3
+# > cv_sp_rf
+# Resample Result
+# Task: df
+# Learner: regr.ranger.tuned
+# Aggr perf: rmse.test.rmse=0.0226545
+# Runtime: 1987.73
+
+
+
+saveRDS(cv_sp_rf, "reports/05_modelling/data/cv_sp_rf_site_v_1_3.rds")
+
+### trying to extract variable importance
 mlr::getFeatureImportance(cv_sp_rf)
 
 getLearnerModel(cv_sp_rf)
 
-
 library(randomForest)
 randomForest::importance(cv_sp_rf)
-#saveRDS(cv_sp_rf, "reports/05_modelling/data/cv_sp_rf_site.rds")
 
+imp <- FeatureImp$new(cv_sp_rf, loss = "mae")
+
+getFeatureImportanceLearner(cv_sp_rf$regr.ranger.tuned)
 ##for predictive mapping: https://github.com/geocompr/geostats_18/blob/master/code/spatial_cv/01-mlr.R
+
+#trying new tutorial
+# https://mlr-org.com/posts/2018-04-30-interpretable-machine-learning-iml-and-mlr/index.html#feature-importance
+library("iml")
+X = df[which(names(df) != "OC")]
+predictor = iml::Predictor$new(cv_sp_rf, data = X, y = df$OC)
+
+imp = iml::FeatureImp$new(predictor, loss = "mae")
+plot(imp)

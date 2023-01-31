@@ -1,11 +1,9 @@
-
-### NOTE: UNFINISHED. need to check papers cited. whether to include BD, OC estimated ####
-
-
 ## import data from Fu et al 2021, Global Change Biology
-## export for marsh soil C (and previously mangrove soil C)
+## export for marsh soil C 
 # contact Tania Maxwell, tlgm2@cam.ac.uk
 # 04.07.22
+#edit 24.01.23 
+# using only reported values (no extrapolated values)
 
 library(tidyverse)
 library(measurements) #to convert to decimal degrees
@@ -40,7 +38,8 @@ input_data1 <- input_data1 %>%
   ungroup() %>% 
   mutate(Source = source_name,
          Source_abbr = author_initials,
-         Site_name = paste(Source_abbr, Habitat_type, id))
+         Plot = paste(Habitat_type, id),
+         Site_name = paste(Source_abbr, Plot)) 
 
 
 input_data2 <- input_data1 %>% 
@@ -70,34 +69,51 @@ input_data2$accuracy_code <-as.factor(input_data2$accuracy_code)
 
 ## filter to salt marsh only
 input_data3 <- input_data2 %>% 
+  filter(Habitat_type == "Salt marsh") %>% 
+  filter(SOC_accuracy == "reported") %>% #no extrapolated values
+  filter(accuracy_flag != "no location") %>%  # no studies without locations
+  droplevels()
   
 
 
-##compare to other meta-analysis studies
+##compare to other sources studies
 
-data_test <- left_join(input_data2, data_compile, by = "Original_source")
+fu_sources <- input_data3 %>% 
+  dplyr::group_by(Original_source) %>% 
+  dplyr::count()
+
+all_sources <- data_compile %>% 
+  dplyr::group_by(Source, Original_source) %>% 
+  dplyr::count()
+
+data_test <- inner_join(fu_sources, all_sources, by = "Original_source")
+
+#liu et al 2017 found in both (fu et al 2021 and hu et al 2020) - checking source specifics 
+# in fu et al 2021, references not detailed; will remove
+
+input_data4 <- input_data3 %>% 
+  filter(Original_source != "Liu et al 2017") 
 
 ##### prepare for export  #####
 
 ## reformat
-export_data <- input_data3 %>% 
-  select(Source, Site_name, Original_source, Site, Habitat_type, Latitude, Longitude, accuracy_flag, 
+export_data01 <- input_data4 %>% 
+  select(Source, Site_name, Original_source, Site, Plot, Habitat_type, Latitude, Longitude, accuracy_flag, 
          accuracy_code, Country, Year_collected, U_depth_m, L_depth_m, 
-         OC_perc, BD_reported_g_cm3, Age_status, Reference_detail)
+         OC_perc, BD_reported_g_cm3)
 
-## subset for mangroves
-
-export_data_marsh <- export_data %>% 
-  filter(Habitat_type == "Salt marsh")
-
+export_data02 <- export_data01 %>% 
+  relocate(Source, Original_source, Site_name, Site, Plot, Habitat_type, Latitude, Longitude, 
+           accuracy_flag, accuracy_code, Country, Year_collected, .before = U_depth_m) %>% 
+  arrange(Site, Habitat_type)
 
 ## export
 
 path_out = 'reports/03_data_format/data/exported/'
 
 export_file <- paste(path_out, source_name, ".csv", sep = '') 
-export_df <- export_data_marsh
+export_df <- export_data02
 
-# write.csv(export_df, export_file)
+write.csv(export_df, export_file)
 
 

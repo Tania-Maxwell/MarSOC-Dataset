@@ -5,11 +5,13 @@
 
 rm(list=ls()) # clear the workspace
 library(tidyverse)
+library(viridis) # for plot
 library(ggpmisc) # for lm equation and R2 on graph
 library(nimble) #for the nls function
 library(propagate) #to predic nls
 library(modelr)
 library(lme4) #model with random effect
+library(MuMIn) # to get R2 from lmer
 
 
 #### import data ####
@@ -29,6 +31,10 @@ country_table
 data_noCCRCN <- data_unique %>% 
   filter(Source != "CCRCN")
 
+summary(data_noCCRCN$L_depth_m)
+
+data_noCCRCN_upper <- data_noCCRCN %>% 
+  filter(L_depth_m <0.3)
 #### 1. background info ######
 
 #19,232 observations with SOM instead of OC
@@ -126,7 +132,7 @@ c_std <- summary(quadratic_model)[['coefficients']][[3,2]]
 #calculated the predicted values at the random x values with the coefficient 
 #and full function
 
-xOC2 = seq(from = 0.01, to = 100, 
+xOC2 = seq(from = 0.00, to = 100, 
            length.out = 100)
 
 fitted_values <- SOM_to_OC(xOC2, a_est, b_est, c_est)
@@ -178,6 +184,10 @@ quadratic_randomeffect <- lmer(OC_perc_combined ~ SOM_perc_combined + I(SOM_perc
 
 summary(quadratic_randomeffect)
 
+#for the figure
+r2_quad_RE <- r.squaredGLMM(quadratic_randomeffect)[1,2]
+dimensions_quad_RE <- summary(quadratic_randomeffect)$devcomp$dims
+n_quad_RE <- dimensions_quad_RE[1]
 
 
 #CAUTION - summary of random effect model has estimates in opposite order
@@ -209,14 +219,26 @@ eq_label_tidy <- list(bquote(paste("OC = ","(", !!a_est_RE, "±", !!a_std_RE, ")
                             "(", !!c_est_RE, "±", !!c_std_RE, ")", sep = " ")))
 
 SOM_to_OC_quadratic_randomeffect <- ggplot(data_SOM_OC, aes(x = SOM_perc_combined, y = OC_perc_combined))+
-  geom_point(aes(color = Source), size = 0.75)+
+  geom_point(aes(color = Source), size = 2, shape = 17)+
   theme_bw()+
-  labs(x = "SOM (%)", y = "OC (%)")+
-  geom_line(data = fitted_df, aes(x = xOC2, y =fitted_values), col = "blue", size = 1)+ 
+  labs(x = "Soil organic matter (%)", y = "Soil organic carbon (%)")+
+  geom_line(data = fitted_df, aes(x = xOC2, y =fitted_values), col = "black", size = 1.5)+ 
   annotate(geom = "text",  label = paste("OC =", round(a_est_RE,6), "±", round(a_std_RE,6), 
                                          "OM^2 +", round(b_est_RE,3), "±", round(b_std_RE,3),
                                          "OM - ", round((c_est_RE*-1),3), "±", round(c_std_RE,3)), 
-           y = 50, x = 30)
+           size = 6, y = 45, x = 35) +
+  annotate(geom = "text",  label = paste("R2 =", round(r2_quad_RE,3), 
+                                         ", n =", n_quad_RE), 
+           size = 6, y = 40, x = 20) +
+  scale_color_viridis(name = "Source", discrete = TRUE, option = "H",
+                       guide = guide_legend(override.aes = list(size = 5,
+                                                                alpha = 1)))+
+  theme(legend.title = element_text(size = 18),
+          legend.text = element_text(size = 16),
+          axis.text = element_text(size = 14, color = 'black'),
+          axis.title = element_text(size = 16, color = 'black'))+
+  scale_x_continuous(expand = c(0,0))+
+  scale_y_continuous(expand = c(0,0), limits = c(0,50))
 SOM_to_OC_quadratic_randomeffect
 
 
@@ -228,6 +250,14 @@ lowest_AIC <- AIC_df %>%
 
 final_model <- eval(parse(text = rownames(lowest_AIC)))
 
+summary(final_model)
+
+r.squaredGLMM(final_model)
+
+#Conditional R2 is interpreted as a variance explained by the entire model, 
+#including both fixed and random effects, and is calculated according to the equation
+
+
 
 #### 5. conversion factors used ######
 table(data0$Conv_factor)
@@ -237,10 +267,11 @@ data_conv_factors <- data0 %>%
   group_by(Source, Country, Original_source) %>% 
   dplyr::count(Conv_factor) 
 
-library(gridExtra)
-png("reports/04_data_process/figures/SOM_to_OC/conversion_factors.png", height = 50*nrow(data_conv_factors), width = 200*ncol(data_conv_factors))
-grid.table(data_conv_factors)
-dev.off()
+# library(gridExtra)
+# table_name <- paste("reports/04_data_process/figures/SOM_to_OC/", Sys.Date(),"_conversion_factors.png", sep = "")
+# png(table_name, height = 50*nrow(data_conv_factors), width = 200*ncol(data_conv_factors))
+# grid.table(data_conv_factors)
+# dev.off()
 
 
 #### 6. compare study SOM conversion factors to ours ####
@@ -317,7 +348,7 @@ data_SOMconverted0 <- conversion_eq(df = data0, col = "SOM_perc_combined")
 
 
 #create a final df with a column combining observed OC, OC from study equations and OC from our equation
-data_SOMconverted <-  data_SOMconverted0 %>% 
+data_SOMconverted1 <-  data_SOMconverted0 %>% 
     #adding a column to indicate if an OC value is observed, estimated from study equation or estimated from our equation
   mutate(OC_obs_est = case_when(is.na(OC_perc_combined) == FALSE & is.na(Conv_factor) == TRUE ~  "Observed",
                                 is.na(Conv_factor) == FALSE ~ "Estimated (study equation)",
@@ -332,6 +363,34 @@ data_SOMconverted <-  data_SOMconverted0 %>%
   #               SOM_perc_combined, OC_from_SOM_our_eq, Conv_factor, Method,
   #              OC_perc_final)
 
+
+### edit for Kohfeld et al. 2022 - published both OC from EA (limiteddata)
+# but still used their own conversion factor for the rest of data
+data_SOMconverted <- data_SOMconverted1 %>% 
+  mutate(OC_perc_combined = case_when(Source == "Kohfeld et al 2022" & 
+                                        OC_obs_est == "Estimated (our equation)"
+                                      ~ SOM_perc_combined*0.44-1.80,
+         TRUE ~ OC_perc_combined)) %>% 
+  mutate(OC_obs_est = case_when(Source == "Kohfeld et al 2022" & 
+                                  OC_obs_est == "Estimated (our equation)"
+                                ~ "Estimated (study equation)",
+                                TRUE ~ OC_obs_est))%>% 
+  mutate(Conv_factor = case_when(Source == "Kohfeld et al 2022" & 
+                                  OC_obs_est == "Estimated (study equation)"
+                                ~ "OC = 0.44*OM - 1.80",
+                                TRUE ~ Conv_factor)) %>% 
+  mutate(OC_perc_final = case_when(Source == "Kohfeld et al 2022" & 
+                                   OC_obs_est == "Estimated (study equation)"
+                                 ~ OC_perc_combined,
+                                 TRUE ~ OC_perc_final)) %>% 
+  #delete negative values but keep 0
+  mutate(OC_perc_final = replace(OC_perc_final, which(OC_perc_final<=0), NA))
+  
+
+test <- data_SOMconverted %>% 
+  filter(Source == "Kohfeld et al 2022") 
+
+
 SOM_OC_converted <- data_SOMconverted %>% 
   filter(is.na(OC_perc_final) == FALSE
          & is.na(SOM_perc_combined) == FALSE) %>% 
@@ -341,6 +400,7 @@ SOM_OC_converted <- data_SOMconverted %>%
   labs(x = "SOM (%)",
        y = "OC (%) both observed and calcualted")
 SOM_OC_converted
+# note: the large green line is from Kohfeld et al 2022
 
 
 #### 9. explore OC_perc and SOM_perc data in general
@@ -359,12 +419,20 @@ SOM_OC_converted
 #### 8. figure exports ####
 path_out = 'reports/04_data_process/figures/SOM_to_OC/'
 
+##studies with SOM to OC
+export_fig <- SOM_OC_observed
+fig_main_name <- "SOM_OC_observed"
+
+export_file <- paste(path_out, fig_main_name, ".png", sep = '')
+ggsave(export_file, export_fig, width = 15.36, height = 8.14)
+
+
 ### quadratic function
 export_fig <- SOM_to_OC_quadratic_randomeffect
 fig_main_name <- "SOM_to_OC_quadratic_randomeffect"
 
 export_file <- paste(path_out, fig_main_name, ".png", sep = '')
-ggsave(export_file, export_fig, width = 14.24, height = 8.46)
+ggsave(export_file, export_fig, width = 15.36, height = 8.14)
 
 
 
@@ -374,7 +442,6 @@ fig_main_name <- "SOM_OC_converted_observed_estimated"
 
 export_file <- paste(path_out, fig_main_name, ".png", sep = '') 
 ggsave(export_file, export_fig, width = 10.69, height = 7.41)
-
 
 
 #### 9. errors #####
@@ -389,6 +456,7 @@ ggsave(export_file, export_fig, width = 10.69, height = 7.41)
 #     height = 50*nrow(test), width = 200*ncol(test))
 # grid.table(test)
 # dev.off()
+
 
 #### last. export cleaned and converted data ####
 

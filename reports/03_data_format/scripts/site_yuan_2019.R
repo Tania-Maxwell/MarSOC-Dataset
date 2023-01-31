@@ -35,12 +35,12 @@ input_data02$X <- as.numeric(input_data02$X)
 #### reformat data ####
 
 input_data03 <- input_data02 %>% 
-  mutate(Longitude = case_when(Site == "SA-1" ~ "120.6136681950972", 
-                              Site == "SA-12" ~ "120.6136681950972", 
-                              Site == "TF" ~ "120.6142708364346"),
-    Latitude = case_when(Site == "SA-1" ~ "33.60435983648976", 
-                                Site == "SA-12" ~ "33.60435983648976", 
-                                Site == "TF" ~ "33.60457407365762")) %>% 
+  mutate(Longitude = case_when(Plot == "SA-1" ~ "120.6136681950972", 
+                               Plot == "SA-12" ~ "120.6136681950972", 
+                               Plot == "TF" ~ "120.6142708364346"),
+    Latitude = case_when(Plot == "SA-1" ~ "33.60435983648976", 
+                         Plot == "SA-12" ~ "33.60435983648976", 
+                         Plot == "TF" ~ "33.60457407365762")) %>% 
   mutate(OC_perc_mean = SOC..g.C.kg.1./10, #convert from g per kg to %
            OC_perc_se = X/10) %>%  #convert from g per kg to %
   mutate(accuracy_flag = "estimated from GEE",
@@ -57,14 +57,14 @@ input_data04 <- input_data03 %>%
 #### export ####
 
 export_data01 <- input_data04 %>% 
-  dplyr::select(Source, Site_name, Site, Habitat_type, Country, Year_collected,
+  dplyr::select(Source, Site_name, Site, Plot, Habitat_type, Country, Year_collected,
                 Latitude, Longitude, accuracy_flag, accuracy_code,
                 U_depth_m, L_depth_m, Method, 
                 OC_perc_mean, OC_perc_se)
 
 
 export_data02 <- export_data01 %>% 
-  relocate(Source, Site_name, Site, Habitat_type, Latitude, Longitude, 
+  relocate(Source, Site_name, Site, Plot, Habitat_type, Latitude, Longitude, 
            accuracy_flag, accuracy_code, Country, Year_collected, .before = U_depth_m) %>% 
   arrange(Site, Habitat_type)
 

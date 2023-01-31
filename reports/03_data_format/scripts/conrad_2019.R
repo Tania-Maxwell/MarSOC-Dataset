@@ -2,6 +2,7 @@
 ## export for tidal marsh soil C (and previously mangrove soil C)
 # contact Tania Maxwell, tlgm2@cam.ac.uk
 # 04.07.22
+#edited 20.02.23 to replace location to site
 
 
 
@@ -29,7 +30,7 @@ author_initials <- "SC"
 input_data2 <- input_data1 %>% 
   mutate(Source = source_name,
          Source_abbr = author_initials,
-         Site_name = paste(Source_abbr, Location, Core))
+         Site_name = paste(Source_abbr, Location, Core)) 
 
 ## add information from paper
 
@@ -67,7 +68,8 @@ input_data3 <- input_data2 %>%
          Year_collected = case_when(Location == "Coffs" ~ 2016, 
                                     Location == "Corindi"~ 2017,
                                     Location == "Wooli" ~ 2018),
-         Country = "Australia")
+         Country = "Australia") %>% 
+  dplyr::rename(Site = Location)
 
 # ### PREVIOUS METHOD FROM FIGURE 1 MAP 
 # 
@@ -124,7 +126,7 @@ input_data4$SOM_perc <- round(input_data4$SOM_perc, 2)
 
 ## reformat
 export_data <- input_data4 %>% 
-  select(Source, Site_name, Location, Core, Habitat_type, Latitude, Longitude, 
+  select(Source, Site_name, Site, Core, Habitat_type, Latitude, Longitude, 
          accuracy_flag, accuracy_code, Country, Year_collected, Depth_to_bedrock_m, U_depth_m, L_depth_m, 
          Method, Conv_factor, OC_perc, SOM_perc, BD_reported_g_cm3)
 

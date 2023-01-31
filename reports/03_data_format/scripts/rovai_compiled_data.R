@@ -42,6 +42,10 @@ input_data03 <- input_data02 %>%
   mutate(accuracy_flag = "direct from dataset",
          accuracy_code = "1")
   
+
+test <- input_data03 %>% 
+  mutate(Core_site = coalesce(Site, Core)) %>% 
+  relocate( Core,Core_site, .after = Site)
 #rename source "This study" to Rovai
 
 input_data03$Source <- input_data03$Source %>% 
@@ -52,10 +56,28 @@ input_data03$Source <- input_data03$Source %>%
 input_data04 <- input_data03 %>% 
   mutate(OC_perc = fraction_carbon*100,
          SOM_perc = fraction_organic_matter*100) %>% 
-  dplyr::rename(BD_reported_g_cm3 = dry_bulk_density)
+  dplyr::rename(BD_reported_g_cm3 = dry_bulk_density) %>% 
+  mutate(Original_source = as.factor(Original_source))
 
 
-export_data01 <- input_data04 %>% 
+#### adding year_collected and method - investigated in each study
+
+levels(input_data04$Original_source)
+
+sources <- input_data04 %>% 
+  group_by(Source, Original_source) %>% 
+  count()
+
+
+input_data05 <- input_data04 %>% 
+  mutate(Year_collected = case_when(Original_source == "" ~ ,))
+
+list(input_data04$Original_source)
+
+
+#### export
+
+export_data01 <- input_data05 %>% 
   dplyr::select(Source, Original_source, Core, Habitat_type, Country,
                 Latitude, Longitude, accuracy_flag, accuracy_code,
                 U_depth_m, L_depth_m, OC_perc, SOM_perc, BD_reported_g_cm3)
