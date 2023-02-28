@@ -10,9 +10,9 @@ library(stringr) # extract first n values for date
 library(janitor) # to clean names
 #library(lubridate) #to clean dates - not good for TOC, etc
 
-input_file01 <- "reports/03_data_format/data/core_level/Schile_2016/Schile_2016_DRYAD_plot-info.csv"
+input_file01 <- "reports/03_data_format/data/core_level/Schile_2016_DRYAD/Schile_2016_DRYAD_plot-info.csv"
 
-input_file02 <- "reports/03_data_format/data/core_level/Schile_2016/Schile_2016_DRYAD_soil-data.csv"
+input_file02 <- "reports/03_data_format/data/core_level/Schile_2016_DRYAD/Schile_2016_DRYAD_soil-data.csv"
 
 
 input_data_plot01 <- read.csv(input_file01, header = T)
@@ -29,7 +29,7 @@ input_data_plot01 <- input_data_plot01 %>%
 
 # Converting Date to Date format 
 input_data_plot02 <- input_data_plot01 %>%
-  mutate(Date = lubridate::ymd(Date)) %>% 
+  mutate(Date = lubridate::dmy(Date)) %>% 
   mutate(Year_collected = lubridate::year(Date), #separate Year, Month, Day
          Month = lubridate::month(Date), 
          Day = lubridate::day(Date))
@@ -178,9 +178,7 @@ sum(is.na(export_data_merged01$Latitude))
 ##export marsh
 
 export_data_marsh <- export_data_merged02 %>% 
-  filter(Habitat_type == "salt marsh" | 
-           Habitat_type == "high sabkha" |
-           Habitat_type == "low sabkha") %>% 
+  filter(Habitat_type == "salt marsh" ) %>% 
   droplevels()
 
 ## export

@@ -68,7 +68,7 @@ data3 <- data2 %>%
 
 data4 <- data3 %>% 
   dplyr::select(Source:Original_source, Conv_factor, Core, Admin_unit, Depth_to_bedrock_m,
-               Treatment, Time_replicate, n_cores, Core_type, SOM_perc_mean:OC_perc_se, BD_reported_g_cm3_mean, 
+               Treatment, Time_replicate, n_cores, SOM_perc_mean:OC_perc_se, BD_reported_g_cm3_mean, 
                BD_reported_g_cm3_se, BD_reported_g_cm3_sd)
 
 
@@ -89,7 +89,8 @@ data5 <- data4 %>%
                                  Source == "Rovai compiled, reference cited in Chmura (2003)" |
                                  Source == "Rovai compiled, reference cited in Chmura (2003) and in Ouyang and Lee (2014)" |
                                  Source == "Rovai compiled, reference cited in Ouyang and Lee (2014)" |
-                                 Source == "Rovai compiled, reference cited in Ouyang and Lee (2020)" 
+                                 Source == "Rovai compiled, reference cited in Ouyang and Lee (2020)" |
+                                 Original_source == "Gao et al 2016"
                                ~ "Meta-analysis",
          TRUE ~ "Core-level")) %>% 
   relocate(Data_type, .before = OC_perc) %>% 
@@ -125,12 +126,13 @@ data7 <- data6 %>%
 
 #### 7. edit conversion factors ####
 
-table(data7$Conv_factor)
+
 
 data8 <- data7 %>% 
   mutate(Conv_factor = as.factor(Conv_factor)) %>% 
   mutate(Conv_factor = fct_recode(Conv_factor, 
                                   "OC = 0.47*OM + 0.0008*(OM^2)" = "%Corg = 0.47 x %LOI + 0.0008 x (%LOI)^2 ", #careful! space at end here
+                                  "OC = 0.4*OM + 0.0025*(OM^2)" = "(0.4*%LOI)+0.0025*(%LOI^2)",
                                   "OC = 0.8559*OM + 0.1953" = "(0.8559*SOM_perc)+0.1953",
                                   "OC = 1.1345*OM - 0.8806" = "(1.1345*SOM_perc)-0.8806",
                                   "OC = 0.22*(OM^1.1)" = "0.22*x^1.1", 
@@ -145,6 +147,7 @@ data8 <- data7 %>%
                                   "OC = 0.3102*OM - 0.066" = "OC = -0.066 + 0.3102*OM", 
                                   "OC = OM/1,724" = "SOM/1,724"))
 
+table(data8$Conv_factor)
 #### 8. edit accuracy flag ####
 
 data9 <- data8 %>% 

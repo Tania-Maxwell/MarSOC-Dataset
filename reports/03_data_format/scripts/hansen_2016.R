@@ -45,7 +45,8 @@ input_data03 <- input_data02 %>%
 
 input_data04 <- input_data03 %>% 
   rename(OC_perc = TOC_perc) %>% 
-  mutate(Year_collected = "2010,2012", 
+  mutate(Year_collected = "2010", 
+         Year_collected_end = "2012",
     accuracy_flag = "estimated from GEE",
          accuracy_code = "2") %>% 
   mutate(Method = "EA",

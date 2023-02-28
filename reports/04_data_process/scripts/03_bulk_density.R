@@ -46,7 +46,7 @@ studies_BD_reported_OC <- studies_BD_reported %>%
 ##number of values = 17065
 nrow(studies_BD_reported_OC)
 
-#42% of data has BD reported and OC
+#44% of data has BD reported and OC
 nrow(studies_BD_reported_OC)/nrow(data1)*100
 
 yesBD_yesOC <- studies_BD_reported_OC %>% 
@@ -151,10 +151,10 @@ df_fitted <- as.data.frame(cbind(xBD2, fitted_values))
 plot(residuals(model_OC_to_BD))
 
 
-
+http://127.0.0.1:20501/graphics/plot_zoom_png?width=1536&height=814
 ##### graphs #####
 OC_to_BD_graph <- ggplot(studies_BD_reported_OC, aes(x = OC_perc_combined, y = BD_reported_combined))+
-  geom_point()+
+  geom_point(aes(color = Original_source))+
   theme_bw()+
   labs(x = "Organic carbon (%)", y = "Bulk Density (g cm-3)")+
   geom_line(data = df_fitted, aes(x = xBD2, y =fitted_values), col = "blue", size = 1)+
@@ -259,6 +259,32 @@ b_est <- summary(model_SOM_to_BD)[['coefficients']][[2]]
 c_est <- summary(model_SOM_to_BD)[['coefficients']][[3]]
 d_est <- summary(model_SOM_to_BD)[['coefficients']][[4]]
 f_est <- summary(model_SOM_to_BD)[['coefficients']][[5]]
+
+
+SOM_to_BD_graph <- ggplot(studies_BD_reported_OC, aes(x = OC_perc_combined, y = BD_reported_combined))+
+  geom_point()+
+  theme_bw()+
+  labs(x = "Organic carbon (%)", y = "Bulk Density (g cm-3)")+
+  geom_line(data = df_fitted, aes(x = xBD2, y =fitted_values), col = "blue", size = 1)+
+  #annotate("text", x=60, y=4, label= "0.065 + (0.59*exp(-0.056*OC)) + (0.77*exp(-0.58*OC))", color="blue")
+  # annotate(geom = "text",  label = paste("BD =", round(a_est,3), "±", round(a_std,3), 
+  #                                      "+", round(b_est,3), "±", round(b_std,3),
+  #                                      "exp(", round((c_est*-1),3), "±", round(c_std,3)),
+  #                                       "*OC) +", round(d_est,3), "±", round(d_std,3),
+  #                                       "exp(", round((f_est*-1),3), "±", round(f_std,3),
+  #          
+  #        y = 50, x = 30)
+  annotate(geom = "text",  label = paste("BD =", round(a_est,3),  
+                                         "+", round(b_est,3),
+                                         "exp(", round((c_est*-1),3), 
+                                         "*OC ) +", round(d_est,3), 
+                                         "exp( ", round((f_est*-1),3), "*OC )"),
+           
+           y = 3, x = 30)
+
+OC_to_BD_graph
+
+
 
 
 

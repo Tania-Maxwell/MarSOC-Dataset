@@ -17,7 +17,9 @@ library(MuMIn) # to get R2 from lmer
 #### import data ####
 input_file01 <- "reports/04_data_process/data/data_cleaned.csv"
 
-data0<- read.csv(input_file01)
+data0<- read.csv(input_file01) %>% 
+  filter(Original_source != "Elsey Quirk et al 2011")   ##issue with this study (seems SOM or OC was interpreted)
+  
 
 str(data0)
 
@@ -56,7 +58,6 @@ data_SOM_OC <-data0 %>%
   filter(is.na(OC_perc_combined) == FALSE & is.na(SOM_perc_combined) == FALSE
          & Method == "EA") %>% 
   mutate(Source_country = paste(Original_source, Country)) %>% 
-  filter(Original_source != "Elsey Quirk et al 2011") %>%   ##issue with this study (seems SOM or OC was interpreted)
   filter(SOM_perc_combined > OC_perc_combined) # remove rare cases where OC > SOM %
 
 
@@ -446,16 +447,18 @@ ggsave(export_file, export_fig, width = 10.69, height = 7.41)
 
 #### 9. errors #####
 
-# test <- data_SOM_OC %>% 
-#   filter(OC_perc_combined > SOM_perc_combined) %>% 
-#   filter(Source == "CCRCN") %>% 
-#   dplyr::select(Source, Original_source, Core, SOM_perc_combined, OC_perc_combined, BD_reported_combined)
-# 
-# library(gridExtra)
-# png("reports/04_data_process/figures/SOM_to_OC/CCRCN_OC-greater-SOM.png", 
-#     height = 50*nrow(test), width = 200*ncol(test))
-# grid.table(test)
-# dev.off()
+test <- data0 %>%
+  filter(OC_perc_combined > SOM_perc_combined) %>%
+#  filter(Source == "CCRCN") %>%
+  dplyr::select(Source, Original_source, Core, Conv_factor, SOM_perc_combined, OC_perc_combined, BD_reported_combined)
+
+library(gridExtra)
+png("reports/04_data_process/figures/SOM_to_OC/OC-greater-SOM.png",
+    height = 23*nrow(test), width = 200*ncol(test))
+grid.table(test)
+dev.off()
+
+
 
 
 #### last. export cleaned and converted data ####

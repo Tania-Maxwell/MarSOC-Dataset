@@ -116,9 +116,7 @@ input_data06 <- input_data05 %>%
          BD_reported_g_cm3 = Bulk_density_g_cm_3_) %>% 
   mutate(Year_collected = NA,
          accuracy_flag = "direct from dataset",
-         accuracy_code = "1") %>% 
-  mutate(Method = case_when(Original_source == "Xia et al 2022" ~ "EA",
-                            TRUE ~ "See individual studies"))
+         accuracy_code = "1") 
 
 
 
@@ -142,19 +140,45 @@ test <-  input_data08 %>%
 export_data01 <- input_data08 %>% 
   dplyr::select(Source, Original_source, Site_name, Core, Habitat_type, Country, State, Year_collected,
                 Latitude, Longitude, accuracy_flag, accuracy_code,
-                U_depth_m, L_depth_m, Method, OC_perc, N_perc, BD_reported_g_cm3)
+                U_depth_m, L_depth_m, OC_perc, N_perc, BD_reported_g_cm3)
 
+
+## filter for saltmarsh and remove values with nd in OC_perc
 
 export_data02 <- export_data01 %>% 
-  relocate(Source, Original_source, Site_name, Core, Habitat_type, Latitude, Longitude, 
-           accuracy_flag, accuracy_code, Country, State, Year_collected, .before = U_depth_m) %>% 
-  arrange(Site_name, Habitat_type)
+  filter(Habitat_type == "Saltmarsh") %>% 
+  filter(OC_perc != "nd") %>% 
+  #remove values without Lat and Long values
+  filter(Latitude != "—") %>% 
+  mutate(N_perc = gsub("nd", NA, N_perc),
+         BD_reported_g_cm3 = gsub("nd", NA, BD_reported_g_cm3),) %>% 
+  mutate(Original_source = gsub("\\.", "",
+                    gsub("\\,", "", Original_source))) %>% 
+  mutate(Original_source = fct_recode(Original_source, "Yang et al 2016" = "Yang 2016"))
 
-
-## filter for saltmarsh
+#### add info for studies ####
 
 export_data03 <- export_data02 %>% 
-  filter(Habitat_type == "Saltmarsh")
+  mutate(Year_collected = case_when(Original_source == "Xia et al 2022" ~ "2015", # core-level
+                                    Original_source == "Gao et al 2016" ~ "2012", #SITE-LEVEL
+                                    Original_source == "Liu et al 2017" ~ "2012")) %>%  # core-level
+                                    #Original_source == "Xia et al 2022" ~ NA_real_ 
+  mutate(Year_collected_end = case_when(Original_source == "Xia et al 2022" ~ "2019",
+                                        Original_source == "Gao et al 2016" ~ "2013")) %>% 
+  mutate(Method = case_when(Original_source == "Xia et al 2022" ~ "EA",
+                            Original_source == "Gao et al 2016" ~ "EA",
+                            Original_source == "Liu et al 2017" ~ "EA")) %>% 
+                            #Original_source == "Xia et al 2022" ~ 
+  mutate(DOI = case_when(Original_source == "Xia et al 2022" ~ "https://doi.org/10.1111/gcb.16325",
+                         Original_source == "Gao et al 2016" ~ "https://doi.org/10.1016/j.ecoleng.2016.06.088",
+                         Original_source == "Liu et al 2017" ~ "https://doi.org/10.1016/j.ecoleng.2017.05.041",
+                         Original_source == "Yang et al 2016" ~ "Yang, T., Ren, H., Zhang, Z., Chen, Y., & Jiang, D. (2016). Distribution and influence factors of soil organic carbon of different land-use types in the Jiangsu coastal areas. Journal of Subtropical Resources and Environment, 11, 46–52. (in Chinese)"))
+
+
+export_data04 <- export_data03 %>% 
+  relocate(Source, Original_source, Site_name, Core, Habitat_type, Latitude, Longitude, 
+           accuracy_flag, accuracy_code, Country, State, Year_collected, .before = U_depth_m) %>% 
+  arrange(Original_source,Site_name, Habitat_type)
 
 
 ## export
@@ -162,7 +186,7 @@ export_data03 <- export_data02 %>%
 path_out = 'reports/03_data_format/data/exported/'
 
 export_file <- paste(path_out, source_name, ".csv", sep = '') 
-export_df <- export_data03
+export_df <- export_data04
 
 write.csv(export_df, export_file)
 

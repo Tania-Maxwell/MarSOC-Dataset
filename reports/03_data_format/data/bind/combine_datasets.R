@@ -12,20 +12,18 @@ library(sf) #to map
 library(rnaturalearth) #privides map of countries of world
 library(rnaturalearthdata) 
 
+##### 1. Combine data ####
 
+# setwd("~/07_Cam_postdoc/Data")
+# andre_data = read.csv("Data from Andre.csv")
 
-setwd("~/07_Cam_postdoc/Data")
-andre_data = read.csv("Data from Andre.csv")
-
-
-setwd("~/07_Cam_postdoc/SaltmarshC")  
 lst = list.files("reports/03_data_format/data/exported/", ".csv", full.names = TRUE)
 
-data_compile0 = plyr::rbind.fill(lapply(lst, function(i){read.csv(i)})) ## tom.hengl@envirometrix.net
+data_compile1 = plyr::rbind.fill(lapply(lst, function(i){read.csv(i)})) ## tom.hengl@envirometrix.net
 
-
-
-data_compile1 = plyr::rbind.fill(data_compile0, andre_data)
+# 
+# 
+# data_compile1 = plyr::rbind.fill(data_compile0, andre_data)
 
 
 data_compile2 <- data_compile1 %>% 
@@ -64,76 +62,9 @@ data_unique <- data_compile2 %>%
 setwd("~/07_Cam_postdoc/SaltmarshC/reports/03_data_format/data/bind")
 write.csv(data_compile3, "data_compile.csv", row.names =F)
 
-#### other data subsets ####
 
 
-#only run this if not running the code above ##
-input_file01 <- "reports/04_data_process/data/data_cleaned.csv"
-
-data_compile2 <- read.csv(input_file01)
-
-str(data_compile2)
-
-
-
-data_compile2$Site <- as.factor(data_compile2$Site)
-
-data_no_sites <- data_compile2 %>% 
-  group_by(Source) %>%
-  summarise(n_sites = n_distinct(Site)) %>% 
-  ungroup()
-
-
-data_no_cores <- data_compile2 %>% 
-  group_by(Source) %>%
-  summarise(n_cores = n_distinct(Latitude)) %>% 
-  ungroup()
-
-
-data_noCCRCN <- data_compile2 %>% 
-  filter(Source != "CCRCN")
-
-
-data_compile0$Latitude <- as.numeric(data_compile0$Latitude)
-data_compile0$Longitude <- as.numeric(data_compile0$Longitude)
-data_compile0$OC_perc <- as.numeric(data_compile0$OC_perc)
-data_compile0$BD_reported_g_cm3 <- as.numeric(data_compile0$BD_reported_g_cm3)
-data_compile0$SOM_perc <- as.numeric(data_compile0$SOM_perc)
-
-
-
-data_noCCRCN_andre <- data_compile0 %>% 
-  filter(Source != "CCRCN")
-
-
-data_sub <- data_compile2 %>% 
-  filter(U_depth_m > 0.3) %>% 
-  distinct(Latitude, .keep_all = TRUE)
-
-data_uk <- data_compile2 %>% 
-  filter(Country == "UK" | Country == "Ireland")
-# write.csv(data_uk, "data_uk.csv", row.names = F)
-
-
-
-country_table <- table(data_unique$Country)
-country_table
-
-country_table <- data_compile2 %>%  
-  group_by(Country) %>% 
-  distinct(Latitude, .keep_all = TRUE) %>% 
-  count()
-
-
-## saving the list of countries 
-setwd("~/07_Cam_postdoc/SaltmarshC")
-
-library(gridExtra)
-png("reports/03_data_format/data/bind/point_maps/sites_per_country.png", height = 50*nrow(country_table), width = 200*ncol(country_table))
-grid.table(country_table)
-dev.off()
-
-
+##### 2. Figures ####
 
 #### check locations ####
 
@@ -157,19 +88,19 @@ fig_n_points <- ggplot(data = world) +
 fig_n_points
 
 
-#### export figure
-path_out = 'reports/03_data_format/data/bind/point_maps/'
+# #### export figure
+# path_out = 'reports/03_data_format/data/bind/point_maps/'
+# 
+# 
+# fig_name <- paste(Sys.Date(),"n_points", sep = "_")
+# export_file <- paste(path_out, fig_name, ".png", sep = '') 
+# export_fig <- fig_n_points
+# 
+# ggsave(export_file, export_fig, width = 14.24, height = 8.46)
 
 
-fig_name <- paste(Sys.Date(),"n_points", sep = "_")
-export_file <- paste(path_out, fig_name, ".png", sep = '') 
-export_fig <- fig_n_points
 
-ggsave(export_file, export_fig, width = 14.24, height = 8.46)
-
-
-
-### figure for TNC
+### figure for TNC (simple) 
 
 fig_TNC <- ggplot(data = world) +
   geom_sf() +
@@ -185,40 +116,15 @@ fig_TNC <- ggplot(data = world) +
 
 fig_TNC
 
-#### export figure
-path_out = 'reports/03_data_format/data/bind/point_maps/'
+# #### export figure
+# path_out = 'reports/03_data_format/data/bind/point_maps/'
+# 
+# 
+# fig_name <- paste(Sys.Date(),"n_points", sep = "_")
+# export_file <- paste(path_out, fig_name, ".png", sep = '') 
+# export_fig <- fig_n_points
+# 
+# ggsave("2022_11_04_training-points_TNC.png", fig_TNC, width = 12.29, height = 7.12)
+# 
 
-
-fig_name <- paste(Sys.Date(),"n_points", sep = "_")
-export_file <- paste(path_out, fig_name, ".png", sep = '') 
-export_fig <- fig_n_points
-
-ggsave("2022_11_04_training-points_TNC.png", fig_TNC, width = 12.29, height = 7.12)
-
-
-
-
-#### exploring data (not ccrcn/andre) ####
-
-hist(data_noCCRCN_andre$OC_perc)
-
-
-
-
-#### exploring data #####
-
-### total number of original studies 
-data_compile_n_studies <- data_compile2 %>% 
-  dplyr::count(Original_source) 
-
-
-
-
-data_subset <- data_compile2 %>% 
-  filter(Latitude >60) %>% 
-  dplyr::select(Source, Original_source, Latitude, Longitude, Core, U_depth_m, L_depth_m)
-
-table(data_subset$Original_source)
-  
-
-##subset            
+        

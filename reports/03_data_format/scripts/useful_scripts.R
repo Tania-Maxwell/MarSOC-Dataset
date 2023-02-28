@@ -232,3 +232,20 @@ test4 <- as.data.frame(do.call(rbind,lapply(unique(soilcarbon4$Site), BD_interpo
 
 
 
+##### from predict_site
+
+### for the nndm function, you also need the area of prediction
+#https://gis.stackexchange.com/questions/403977/sf-create-polygon-from-minimum-x-and-y-coordinates
+# lon = c(0.6621003481445342, 0.9882569643554717) # min and max (corners)
+# lat = c(51.67979880621543, 51.78951129583516) # min and max (corners)
+# 
+# pol = st_polygon(
+#   list(
+#     cbind(
+#       lon[c(1,2,2,1,1)], 
+#       lat[c(1,1,2,2,1)])
+#   ))
+# 
+# site_polygon = st_sfc(pol, crs = 32611)
+
+

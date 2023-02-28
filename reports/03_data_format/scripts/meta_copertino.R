@@ -86,60 +86,75 @@ input_data07 <- input_data06 %>%
   filter(Original_source != "Kaufmann et al 2018") %>% 
   droplevels()
 
+
+
+#### rename studies 
+
+input_data08 <- input_data07 %>% 
+  mutate(Original_source = fct_recode(Original_source, "Idaszkin et al 2014" = "Idaskin et al 2014",
+                                      "Otero et al 2006" = "Ottero et al 2006",
+                                      "Rabelo 2012" = "Rebelo 2012"))
+
+
 #### add year_collected and method to complete data paper #### 
 
 
-input_data08 <- input_data07 %>% 
+input_data09 <- input_data08 %>% 
+  dplyr::select(-c(Year_collected, Method)) %>% 
   mutate(Year_collected = case_when(Original_source == "Adaime 1978" ~ 1974,
-                                   # Original_source == "Azevedo 2015-UNPUBLISHED" ~ ,
+                                    Original_source == "Azevedo 2015-UNPUBLISHED" ~ 2012,
                                     # Original_source == "Bouza et al 2017" ~ , # not presented in paper Bouza et al 2007 
                                     Original_source == "Braga et al 2011" ~ 2007,
                                     Original_source == "Costa et al 2019" ~ 2016,
                                     Original_source == "Ferreira 2008" ~ 2005,
                                     Original_source == "Flynn et al 1998" ~ 1988,
                                     Original_source == "Hidalgo et al 2021" ~ 2011,
-                                   # Original_source == "Idaskin et al 2014" ~ , # not presented in paper
-                                  #  Original_source == "Idaskin et al 2015" ~ # not presented in paper
+                                   # Original_source == "Idaszkin et al 2014" ~ , # not presented in paper
+                                  #  Original_source == "Idaszkin et al 2015" ~ # not presented in paper
                                   #Original_source == "Lacerda et al 1997" ~ , # not presented in paper
                                   Original_source == "Marinho et al 2018" ~ 2013,
                                   Original_source == "Negrin et al 2019" ~ 2011,
                                   Original_source == "Neto & Lana 1997" ~ 1991,
-                                  Original_source == "" ~ ,
-                                  Original_source == "" ~ ,
-                                  Original_source == "" ~ ,
-                                  Original_source == "" ~ ,
-                                  Original_source == "" ~ ,
-                                  Original_source == "" ~ ,
-                                  Original_source == "" ~ ,
-                                  Original_source == "" ~ )) %>% 
+                                  Original_source == "Newton 2017" ~ 2013,
+                                  Original_source == "Otero et al 2006" ~ 2004,
+                                 # Original_source == "Payne et al 2019" ~ , # not presented in paper
+                                  Original_source == "Rabelo 2012" ~ 2009,
+                                #  Original_source == "Rios et al 2018" ~ ,# not presented in paper
+                                  Original_source == "UNPUBLISHED" ~ 2005, 
+                                  Original_source == "Zanin 2003" ~  2000)) %>% 
+  
+  ## year_collected_end when sampling over several years
   mutate(Year_collected_end = case_when(Original_source == "Adaime 1978" ~ 1975,
                                         Original_source == "Flynn et al 1998" ~ 1989,
                                         Original_source == "Marinho et al 2018" ~ 2014,
-                                        Original_source == "Negrin et al 2019" ~ 2012)) %>% 
+                                        Original_source == "Negrin et al 2019" ~ 2012,
+                                        Original_source == "Zanin 2003" ~  2001)) %>%
+  
+  ##method for measuring OC or SOM
   mutate(Method = case_when(Original_source == "Adaime 1978" ~ "Wilson (1973)",
-                          #  Original_source == "Azevedo 2015-UNPUBLISHED" ~ ,
+                            Original_source == "Azevedo 2015-UNPUBLISHED" ~ "LOI", #best guess
                             Original_source == "Bouza et al 2017" ~ " Tyurin (1951)", # data from Bouza et al 2007  https://doi.org/10.1016/j.geoderma.2007.01.001
                             Original_source == "Braga et al 2011" ~ "LOI", #SOM at 550C for 4h
                             Original_source == "Costa et al 2019" ~ "EA",
                             Original_source == "Ferreira 2008" ~ "EA",
                             Original_source == "Flynn et al 1998" ~ "SOM by Suguio (1973)",
                             Original_source == "Hidalgo et al 2021" ~ "LOI",
-                            Original_source == "Idaskin et al 2014" ~ "LOI",
-                            Original_source == "Idaskin et al 2015" ~ "LOI",
+                            Original_source == "Idaszkin et al 2014" ~ "LOI",
+                            Original_source == "Idaszkin et al 2015" ~ "LOI",
                           Original_source == "Lacerda et al 1997" ~ "LOI", #450C for 16h
                           Original_source == "Marinho et al 2018" ~ "LOI", #450C for 4h
-                          #Original_source == "Negrin et al 2019" ~ , # not mentioned in paper "Organic matter (OM) content was
-                         # evaluated in the same sediment samples collected for metal analyses"
+                          Original_source == "Negrin et al 2019" ~ "LOI", # not mentioned in paper "Organic matter (OM) content was
+                         # evaluated in the same sediment samples collected for metal analyses" using LOI as best guess
                           Original_source == "Neto & Lana 1997" ~ "LOI", #Dried samples were combusted at 550C for 60 min in order to determine
                          #organic content, and at 1000C for one additional hour to determine carbonates
-                          Original_source == "" ~ ,
-                          Original_source == "" ~ ,
-                          Original_source == "" ~ ,
-                          Original_source == "" ~ ,
-                          Original_source == "" ~ ,
-                          Original_source == "" ~ ,
-                          Original_source == "" ~ ,
-                          Original_source == "" ~ )) %>% 
+                          Original_source == "Newton 2017" ~ "LOI", #The method is based on a two-step reaction whereby OM (carbon) is oxidised at 500-550oC 
+                         #and lost from the sediment as carbon dioxide (CO2) and at 900-1000oC CO2 is released from CaCO3
+                          Original_source == "Otero et al 2006" ~ "EA",
+                          Original_source == "Payne et al 2019" ~ "LOI",
+                          Original_source == "Rabelo 2012" ~ "LOI",
+                          Original_source == "Rios et al 2018" ~ "LOI", # 430C after dehydratation at 105C for 12 
+                          Original_source == "UNPUBLISHED" ~ "EA",
+                          Original_source == "Zanin 2003" ~ "LOI")) %>%  #450C for 2h
   mutate(DOI = case_when(Original_source == "Adaime 1978" ~ "https://doi.org/10.1590/S0373-55241978000200001",
                          #  Original_source == "Azevedo 2015-UNPUBLISHED" ~ ,
                          Original_source == "Bouza et al 2017" ~ "https://doi.org/10.1007/978-3-319-48508-9_7",
@@ -148,30 +163,39 @@ input_data08 <- input_data07 %>%
                          Original_source == "Ferreira 2008" ~ "https://doi.org/10.13140/RG.2.2.21597.61924" ,
                          Original_source == "Flynn et al 1998" ~ "Macrobenthic Associations of the Lower and Upper Marshes of a Tidal Flat Colonized by Spartina alterniflora in Cananeia Lagoon Estuarine Region (Southeastern Brazil). BULLETIN OF MARINE SCIENCE, 63(2): 427–442, 1998",
                          Original_source == "Hidalgo et al 2021" ~ "https://doi.org/10.1016/j.ecss.2021.107534" ,
-                         Original_source == "Idaskin et al 2014" ~ "http://dx.doi.org/10.1016/j.marpolbul.2014.10.001",
-                         Original_source == "Idaskin et al 2015" ~ "http://dx.doi.org/10.1016/j.marpolbul.2015.09.047",
+                         Original_source == "Idaszkin et al 2014" ~ "http://dx.doi.org/10.1016/j.marpolbul.2014.10.001",
+                         Original_source == "Idaszkin et al 2015" ~ "http://dx.doi.org/10.1016/j.marpolbul.2015.09.047",
                          Original_source == "Lacerda et al 1997" ~ "https://doi.org/10.1023/A:1009990604727",
                          Original_source == "Marinho et al 2018" ~ "https://doi.org/10.1007/s10661-018-6975-x",
                          Original_source == "Negrin et al 2019" ~ "https://doi.org/10.1016/j.scitotenv.2018.08.357",
                          Original_source == "Neto & Lana 1997" ~ "https://doi.org/10.1006/ecss.1996.0154",
-                         Original_source == "" ~ ,
-                         Original_source == "" ~ ,
-                         Original_source == "" ~ ,
-                         Original_source == "" ~ ,
-                         Original_source == "" ~ ,
-                         Original_source == "" ~ ,
-                         Original_source == "" ~ ,
-                         Original_source == "" ~ ))
+                         Original_source == "Newton 2017" ~ "http://hdl.handle.net/10026.1/9650",
+                         Original_source == "Otero et al 2006" ~ "https://doi.org/10.1016/j.apgeochem.2006.07.012",
+                         Original_source == "Payne et al 2019" ~ "https://doi.org/10.1016/j.quascirev.2019.03.022",
+                         Original_source == "Rabelo 2012" ~ "Interações entre as comunidades macrobentônicas e os fatores ambientais associadas à marismas de Spartina alterniflora Loisel (1807) na Península Bragantina (Ajuruteuae furo Grande), Pará, Brasil. Rabelo, Dayanne Mary Lima.
+                         Trabalho de Conclusão de Curso (graduação em oceanografia) – Universidade Federal do Pará, Instituto de Geociências, Faculdade de Oceanografia, Belém, 2012.",
+                         Original_source == "Rios et al 2018" ~ "https://doi.org/10.1016/j.jsames.2018.04.015",
+                        # Original_source == "UNPUBLISHED" ~ ,
+                         Original_source == "Zanin 2003" ~ "ASPECTOS ECOLÓGICOS DA MARISMA DA ENSEADA DE RATONES, ILHA DE SANTA CATARINA, SC. VANESSA TODESCATO CATANEO ZANIN. 
+                        UNIVERSIDADE FEDERAL DE SANTA CATARINA PROGRAMA DE PÓS-GRADUAÇÃO EM BIOLOGIA VEGETAL, FLORIANÓPOLIS - SC, 2003."))
+
+
+
+
+#### correct study location 
+
+input_data10 <- input_data09 %>% 
+  mutate(Latitude = case_when(Original_source == "Newton 2017" ~ -51.826229,
+                              Original_source == "Otero et al 2006" ~ -24.996546,
+                              TRUE ~ Latitude)) %>% 
+  mutate(Longitude = case_when(Original_source == "Newton 2017" ~ -58.595719,
+                               Original_source == "Otero et al 2006" ~ -47.907042,
+                               TRUE ~ Longitude))
+  
+# note: Payne et al has coarse GPS location - likely that Lat is -51.829208 and Long -58.595384 to be in saltmarsh
 
 #### export ####
-
-#### rename Isaszkin 
-
-input_data09 <- input_data08 %>% 
-  mutate(Original_source = fct_recode(Original_source, "Idaszkin et al 2014" = "Idaskin et al 2014"))
-
-
-export_data01 <- input_data07 %>% 
+export_data01 <- input_data10 %>% 
   dplyr::select(Source, Site_name, Original_source, Site, Core, Habitat_type, Country, Year_collected,
                 Latitude, Longitude, accuracy_flag, accuracy_code,
                 U_depth_m, L_depth_m, Method, Conv_factor, SOM_perc,

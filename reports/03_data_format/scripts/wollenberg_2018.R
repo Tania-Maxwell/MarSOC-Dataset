@@ -39,7 +39,7 @@ input_data03 <- input_data02 %>%
     accuracy_flag = "averaged from dataset",
          accuracy_code = "2") %>% 
   mutate(Method = "LOI",
-         Conv_factor = "0.40*x + (0.025*x)2")
+         Conv_factor = "0.40*x + (0.0025*x)2") #TYPO in paper
 
 
 

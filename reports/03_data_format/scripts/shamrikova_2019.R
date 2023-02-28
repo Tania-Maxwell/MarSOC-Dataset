@@ -30,7 +30,7 @@ input_data02 <- input_data01 %>%
 #### reformat data ####
 
 input_data03 <- input_data02 %>% 
-  mutate(Year_collected = "",
+  mutate(Year_collected = NA,
          accuracy_flag = "direct from dataset",
          accuracy_code = "1") %>% 
   mutate(Method = "EA", 
