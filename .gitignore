@@ -1,0 +1,7 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
+reports/03_data_format/data/**
+reports/05_modelling/**
