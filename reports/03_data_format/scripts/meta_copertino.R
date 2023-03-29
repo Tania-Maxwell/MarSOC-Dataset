@@ -115,7 +115,7 @@ input_data09 <- input_data08 %>%
                                   Original_source == "Marinho et al 2018" ~ 2013,
                                   Original_source == "Negrin et al 2019" ~ 2011,
                                   Original_source == "Neto & Lana 1997" ~ 1991,
-                                  Original_source == "Newton 2017" ~ 2013,
+                                  Original_source == "Newton 2017" ~ 2013, # core-level
                                   Original_source == "Otero et al 2006" ~ 2004,
                                  # Original_source == "Payne et al 2019" ~ , # not presented in paper
                                   Original_source == "Rabelo 2012" ~ 2009,

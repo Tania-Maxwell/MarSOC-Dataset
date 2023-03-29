@@ -43,7 +43,7 @@ input_data03 <- input_data02 %>%
          Habitat_type = vg_typ) %>% 
   mutate(accuracy_flag = "direct from dataset",
          accuracy_code = "1") %>% 
-  mutate(Site_name = paste(author_initials, Core))
+  mutate(Site_name = Core)
   
 
 test <- input_data03 %>% 
@@ -57,9 +57,9 @@ input_data03$Source <- input_data03$Source %>%
 
 #making carbon data  match main dataset
 input_data04 <- input_data03 %>% 
-  mutate(OC_perc = fraction_carbon*100,
-         SOM_perc = fraction_organic_matter*100) %>% 
-  dplyr::rename(BD_reported_g_cm3 = dry_bulk_density) %>% 
+  mutate(OC_perc_toedit = fraction_carbon*100,
+         SOM_perc_toedit = fraction_organic_matter*100) %>% 
+  dplyr::rename(BD_reported_g_cm3_toedit = dry_bulk_density) %>% 
   mutate(Original_source = as.factor(Original_source))
 
 
@@ -72,7 +72,7 @@ input_data05 <- input_data04 %>%
   droplevels() 
   
 input_data05$Original_source <- input_data05$Original_source %>%  
-  fct_relabel(~ gsub("Fuchs et al. 2018 1", "Fuchs et al 2018", .x)) %>% 
+  fct_relabel(~ gsub("Fuchs et al 2018 1", "Fuchs et al 2018", .x)) %>% 
   fct_relabel(~ gsub("Sousa etat 2010", "Sousa et al 2010", .x)) 
 
 
@@ -104,11 +104,11 @@ input_data06 <- input_data05 %>%
                                     & Core != "CMHG_04_Core_13" & Core != "CMHG_04_Core_14"
                                     & Core != "CMHG_04_Core_15" ~ "2000",
                                     Original_source == "Connor et al 2001" ~ "1998", #core-level
-                                    Original_source == "Craft et al 1993" ~ "1988",
+                                    Original_source == "Craft et al 1993" ~ "1988", #core-level
                                     Original_source == "Day et al 2011" ~ "1992", # SITE-LEVEL #best guess: "More details of these measurements are given in Day et al. (1994).
                                     Original_source == "Fuchs et al 2018" ~ "2016", #SITE-LEVEL
                                     #Original_source == "Hatton et al 1983" ~ , # SITE-LEVEL # collection date NOT included
-                                    Original_source == "Loomis and Craft 2010" ~ "2005" , 
+                                    Original_source == "Loomis and Craft 2010" ~ "2005" , #SITE-LEVEL
                                    # Original_source == "Macreadie et al 2017" ~  # SITE-LEVEL # compiled from studies - various dates
                                    Original_source == "Markewich et al 1998" ~ "1996", #core-level BUT TWO CORES IN SAME GEOGRAPHIC LOCATION
                                    #Original_source == "Morris and Jensen 1998" ~ "", # SITE-LEVEL, no sampling date
@@ -149,7 +149,7 @@ input_data06 <- input_data05 %>%
                          Original_source == "Bryant and Chabreck 1998" ~ "https://doi.org/10.2307/1352840",
                          Original_source == "Cahoon et al 1996" ~ "https://doi.org/10.1006/ecss.1996.0055",
                          Original_source == "Chmura and Hung 2004" ~ "https://doi.org/10.1007/BF02803561",
-                         Original_source == "Connor et al 2001" ~ "https://doi.org/10.1016/0264-2751(84)90094-5",
+                         Original_source == "Connor et al 2001" ~ "https://doi.org/10.1029/2000GB001346",
                          Original_source == "Craft et al 1993" ~ "https://doi.org/10.1006/ecss.1993.1062",
                          Original_source == "Day et al 2011" ~ "https://doi.org/10.1016/j.ecoleng.2010.11.021",
                         # Original_source == "Fuchs et al. 2018c" ~ "https://doi.org/10.1007/s41063-018-0056-9", # DATA NOT EXTRACTED
@@ -278,18 +278,47 @@ export_data01 <- input_data07 %>%
   dplyr::select(Source, Original_source, Site_name, Core, Habitat_type, Country, State, 
                 Year_collected, Year_collected_end,
                 Latitude, Longitude, accuracy_flag, accuracy_code,
-                U_depth_m, L_depth_m, OC_perc, SOM_perc, BD_reported_g_cm3, DOI)
+                U_depth_m, L_depth_m, OC_perc_toedit, SOM_perc_toedit, BD_reported_g_cm3_toedit, DOI) %>% 
+  dplyr::rename(Compiled_by = Source, 
+                Source = Original_source) 
+  
   
 #write.csv(export_data01, "Data from Andre.csv")
 
 
-### exploring the data
+#### renaming OC_perc column to OC_perc_mean when it is site-level
+
+export_data02 <- export_data01 %>% 
+  mutate(OC_perc_mean = case_when(Source == "Day et al 2011"
+                                  | Source == "Fuchs et al 2018" | Source == "Hatton et al 1983"
+                                  | Source == "Loomis and Craft 2010" | Source == "Macreadie et al 2017"
+                                  | Source == "Morris and Jensen 1998"| Source == "Sousa et al 2010"
+                                  | Source == "Sun et al 2019"| Source == "Ye et al 2015" 
+                                  | Source == "Zubrzycki et al 2013" ~ OC_perc_toedit),
+         SOM_perc_mean = case_when(Source == "Day et al 2011"
+                                  | Source == "Fuchs et al 2018" | Source == "Hatton et al 1983"
+                                  | Source == "Loomis and Craft 2010" | Source == "Macreadie et al 2017"
+                                  | Source == "Morris and Jensen 1998"| Source == "Sousa et al 2010"
+                                  | Source == "Sun et al 2019"| Source == "Ye et al 2015" 
+                                  | Source == "Zubrzycki et al 2013" ~ SOM_perc_toedit),
+         BD_reported_g_cm3_mean = case_when(Source == "Day et al 2011"
+                                  | Source == "Fuchs et al 2018" | Source == "Hatton et al 1983"
+                                  | Source == "Loomis and Craft 2010" | Source == "Macreadie et al 2017"
+                                  | Source == "Morris and Jensen 1998"| Source == "Sousa et al 2010"
+                                  | Source == "Sun et al 2019"| Source == "Ye et al 2015" 
+                                  | Source == "Zubrzycki et al 2013" ~ BD_reported_g_cm3_toedit)) %>% 
+  mutate(OC_perc = case_when(is.na(OC_perc_mean) == TRUE ~ OC_perc_toedit),
+         SOM_perc = case_when(is.na(OC_perc_mean) == TRUE ~ SOM_perc_toedit),
+         BD_reported_g_cm3 = case_when(is.na(OC_perc_mean) == TRUE ~ BD_reported_g_cm3_toedit)) # only place value here if OC_perc_mean is NA (i.e. this is core-level not site-level)
 
 
-data_subset <- export_data01 %>% 
-  filter(Latitude >60) %>% 
-  dplyr::select(Source, Original_source, Latitude, Longitude, Core, U_depth_m, L_depth_m)
 
+export_data03 <- export_data02 %>% 
+  dplyr::select(Compiled_by, Source, Site_name, Core, Habitat_type, Country, State, 
+                Year_collected, Year_collected_end,
+                Latitude, Longitude, accuracy_flag, accuracy_code,
+                U_depth_m, L_depth_m, OC_perc, SOM_perc, BD_reported_g_cm3,
+                OC_perc_mean, SOM_perc_mean, BD_reported_g_cm3_mean, DOI)
 
 
 ## export
@@ -297,7 +326,7 @@ data_subset <- export_data01 %>%
 path_out = 'reports/03_data_format/data/exported/'
 
 export_file <- paste(path_out, source_name, ".csv", sep = '') 
-export_df <- export_data01
+export_df <- export_data03
 
 write.csv(export_df, export_file)
 

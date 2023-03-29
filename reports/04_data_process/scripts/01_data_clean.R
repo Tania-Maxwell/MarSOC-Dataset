@@ -30,18 +30,25 @@ hist(data1$Year_collected)
 
 #### 2. data corrections ####
 
-## CCRCN database Keshta study has perfect fit between OC and SOM --> OC was calculated from SOM
+## note: the OC values here have now been made NAs directly in the CCRCN script
+# edit: 28.03.23
 
-data2 <- data1 %>% 
-  mutate(Conv_factor = case_when( Original_source == "Keshta et al 2020 a" ~ "0.4068x+0.6705", 
-                                  TRUE ~ Conv_factor))
+## CCRCN database Keshta study has perfect fit between OC and SOM --> OC was calculated from SOM
+# 
+# data2 <- data1 %>% 
+#   mutate(Conv_factor = case_when( Original_source == "Keshta et al 2020" ~ "0.4068x+0.6705", 
+#                                   TRUE ~ Conv_factor))
+# 
+
+### now, changing OC_perc values to NA for studies which used a generic equation
+## we will then use our equation to calculate OC_perc
 
 
 #### 3. merge columns ####
 
 #to merge OC_perc with OC_perc_mean with Soil_OCcon_mean
 
-data3 <- data2 %>% 
+data3 <- data1 %>% 
   #in column OC_perc_sd, keep OC_perc_sd values, and when empty fill with OC_perc_SD, or OC_perc_s values
   mutate(OC_perc_sd = coalesce(OC_perc_sd, OC_perc_SD, OC_perc_s)) %>% 
   mutate(OC_perc_mean = coalesce(OC_perc_mean, Soil_OCcon_mean, Soil_TCcon_mean)) %>% 
@@ -80,30 +87,24 @@ data5 <- data4 %>%
                                  Source == "Perera et al 2022" | Source == "Rathore et al 2016" |
                                  Source == "Yang et al 2021" | Source == "Yu and Chmura 2010" |
                                  Source == "Yuan et al 2019" | Source == "Voltz et al 2021"
-                               | Source == "Hayes et al 2014"~ "Site-level",
+                               | Source == "Hayes et al 2014" | Source == "Day et al 2011"
+                                 | Source == "Fuchs et al 2018" | Source == "Hatton et al 1983"
+                                 | Source == "Loomis and Craft 2010" | Source == "Macreadie et al 2017"
+                                 | Source == "Morris and Jensen 1998"| Source == "Sousa et al 2010"
+                                 | Source == "Sun et al 2019"| Source == "Ye et al 2015" 
+                                 | Source == "Zubrzycki et al 2013" ~ "Site-level",
                                Source == "Copertino et al under review" | 
                                  Source == "Fu et al 2021" | Source == "He et al 2020" |
                                  Source == "Hu et al 2020" | Source == "Meng et al 2019" |
                                  Source == "Wails et al 2021" | 
-                                 Source == "Rovai compiled" | 
-                                 Source == "Rovai compiled, reference cited in Chmura (2003)" |
-                                 Source == "Rovai compiled, reference cited in Chmura (2003) and in Ouyang and Lee (2014)" |
-                                 Source == "Rovai compiled, reference cited in Ouyang and Lee (2014)" |
-                                 Source == "Rovai compiled, reference cited in Ouyang and Lee (2020)" |
                                  Original_source == "Gao et al 2016"
-                               ~ "Meta-analysis",
+                               ~ "Review",
          TRUE ~ "Core-level")) %>% 
   relocate(Data_type, .before = OC_perc) %>% 
   mutate(OC_perc_combined = coalesce(OC_perc, OC_perc_mean)) %>% 
   mutate(SOM_perc_combined = coalesce(SOM_perc, SOM_perc_mean)) %>% 
   mutate(BD_reported_combined = coalesce(BD_reported_g_cm3, BD_reported_g_cm3_mean))
 
-
-#### 5. change habitat_type to marsh_type ####
-
-data6 <- data5 %>% 
-  filter(is.na(OC_perc_combined) == FALSE | 
-           is.na(SOM_perc_combined) == FALSE)
 
 
 #### 5. remove rows with neither OC nor SOM data ####
@@ -137,7 +138,7 @@ data8 <- data7 %>%
                                   "OC = 1.1345*OM - 0.8806" = "(1.1345*SOM_perc)-0.8806",
                                   "OC = 0.22*(OM^1.1)" = "0.22*x^1.1", 
                                   "OC = 0.4*OM + 0.0025*(OM^2)" = "0.4*x + 0.0025*x2", 
-                                  "OC = 0.40*OM + 0.025*(OM^2)" = "0.40*x + (0.025*x)2", 
+                                  "OC = 0.40*OM + 0.025*(OM^2)" = "0.40*x + (0.0025*x)2", 
                                   "OC = 0.4068*OM + 0.6705" = "0.4068x+0.6705", 
                                   "OC = 0.44*OM - 1.33" = "0.44x -1.33", 
                                   "OC = 0.47*OM" = "0.47 from Craft 1991", 
@@ -157,6 +158,7 @@ data9 <- data8 %>%
                                     "estimated from GE" = "estimated from GEE"
                                     ))
 
+  
 #### 9. export cleaned data ####
 
 path_out = 'reports/04_data_process/data/'
@@ -165,18 +167,4 @@ export_file <- paste(path_out, "data_cleaned.csv", sep = '')
 export_df <- data9
 
 write.csv(export_df, export_file, row.names = F)
-
-# 
-# ### export for GEE
-# 
-# file_name <- paste(Sys.Date(),"data_cleaned", sep = "_")
-# export_file_GEE <- paste(path_out, file_name, ".csv", sep = '')
-# 
-# data_unique <- data5 %>%
-#   filter(is.na(Latitude) == FALSE & is.na(Longitude) == FALSE) %>%
-#   distinct(Latitude, Longitude, .keep_all = TRUE)
-# 
-# 
-# write.csv(data_unique, export_file_GEE, row.names = F)
-
 
