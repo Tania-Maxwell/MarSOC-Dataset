@@ -5,6 +5,7 @@
 
 rm(list=ls()) # clear the workspace
 library(tidyverse)
+library(purrr)
 
 setwd("~/07_Cam_postdoc/SaltmarshC")
 input_file01 <- "reports/03_data_format/data/bind/data_compile.csv"
@@ -30,25 +31,147 @@ hist(data1$Year_collected)
 
 #### 2. data corrections ####
 
-## note: the OC values here have now been made NAs directly in the CCRCN script
+## note: the OC values (seemingly directly calculated from SOM) are made NAs directly in the CCRCN script
 # edit: 28.03.23
 
-## CCRCN database Keshta study has perfect fit between OC and SOM --> OC was calculated from SOM
-# 
-# data2 <- data1 %>% 
-#   mutate(Conv_factor = case_when( Original_source == "Keshta et al 2020" ~ "0.4068x+0.6705", 
-#                                   TRUE ~ Conv_factor))
-# 
 
 ### now, changing OC_perc values to NA for studies which used a generic equation
 ## we will then use our equation to calculate OC_perc
+
+#### 2.1 making sure generic eq have SOM values ####
+
+##### step 1 ####
+# derive SOM from studies with OC which was calculated from SOM 
+# from OC_perc column
+studies_no_SOM <- data1 %>% 
+  filter(Source == "Burke et al 2022" | 
+           Source == "Copertino et al under review" | 
+           Source == "Gu et al 2020"| 
+           Source == "Perera et al 2022"| 
+           Source == "Ward 2020"| 
+           Source == "Wollenberg et al 2018") %>% 
+  filter(Method == "LOI") %>% 
+  filter(is.na(OC_perc) == FALSE & is.na(SOM_perc) == TRUE) %>% 
+  droplevels()
+
+table(studies_no_SOM$Original_source)
+table(studies_no_SOM$Conv_factor)
+
+
+#OC = 0.4*OM + 0.0025*(OM^2) 
+# y = 0.0025*(x^2) + 0.4*x + 0
+
+# https://stackoverflow.com/questions/59062234/is-there-a-code-function-that-solves-an-equation-for-either-x-or-y
+#Remember in general if you want to solve y = Ax^2 + Bx + C for a particular value 
+#of y, you have to rearrange the equation to Ax^2 + Bx + (C-y) = 0. 
+# Translated to R code this is:
+
+# coeff <- c(C-y,B,A)
+# polyroot(coeff)
+### to do: add if source == Gu et al
+get_SOM_from_OC <- function(a, b, c, OC){
+  coeff <- c(c-OC,b,a) 
+  findy <- polyroot(coeff)
+  y<- Re(findy[1])
+  SOM <- round(y,2)
+  return(SOM)
+}
+
+lapply(studies_no_SOM$OC_perc, get_SOM_from_OC,c = 0, b = 0.4, a = 0.0025)
+
+data1_gu<- data1 %>% 
+  filter(Original_source == "Gu et al 2020") %>% 
+  mutate(SOM_perc_gu = lapply(OC_perc, get_SOM_from_OC,c = 0, b = 0.4, a = 0.0025)) %>% 
+  mutate(SOM_perc_gu = as.numeric(SOM_perc_gu))
+
+data1_rios<- data1 %>% 
+  filter(Original_source == "Rios et al 2018") %>% 
+  mutate(SOM_perc_rios = (OC_perc - 0.0008)/0.47) %>% 
+  mutate(SOM_perc_rios = round(as.numeric(SOM_perc_rios),2))
+
+##### step 2 ####
+# derive SOM from studies with OC mean which was calculated from SOM mean 
+# from OC_perc_mean column
+
+studies_no_SOM_mean <- data1 %>% 
+  filter(Source  == "Burke et al 2022" | 
+         Source  == "Copertino et al under review" | 
+         Source  == "Gu et al 2020"| 
+         Source  == "Perera et al 2022"| 
+         Source  == "Ward 2020"| 
+         Source  == "Wollenberg et al 2018") %>% 
+  filter(is.na(OC_perc_mean) == FALSE & is.na(SOM_perc_mean) == TRUE) %>% 
+  droplevels()
+
+
+table(studies_no_SOM_mean$Original_source)
+table(studies_no_SOM_mean$Conv_factor)
+
+# OC = 0.47*OM 
+
+data1_perera<- data1 %>% 
+  filter(Source == "Perera et al 2022") %>% 
+  mutate(SOM_perc_perrera = OC_perc_mean/0.47) %>% 
+  mutate(SOM_perc_perrera = round(as.numeric(SOM_perc_perrera),2))
+
+data1_costa<- data1 %>% 
+  filter(Original_source == "Costa et al 2019" ) %>% 
+  mutate(SOM_perc_costa = OC_perc_mean/0.47) %>% 
+  mutate(SOM_perc_costa = round(as.numeric(SOM_perc_costa),2))
+
+
+##### step 3 ####
+
+#combine previous two datasets
+# main data plus gu
+data2_gu <- left_join(data1, data1_gu) %>% 
+  mutate(SOM_perc = coalesce(SOM_perc, SOM_perc_gu)) %>% 
+  dplyr::select(-SOM_perc_gu)
+
+# main data plus gu plus rios
+data2_gu_rios <- left_join(data2_gu, data1_rios) %>% 
+  mutate(SOM_perc = coalesce(SOM_perc, SOM_perc_rios)) %>% 
+  dplyr::select(-SOM_perc_rios)
+
+# main data plus gu plus rios plus perera
+data2_gu_rios_per <- left_join(data2_gu_rios, data1_perera) %>% 
+  mutate(SOM_perc_mean = coalesce(SOM_perc_mean, SOM_perc_perrera)) %>% 
+  dplyr::select(-SOM_perc_perrera)
+
+
+# main data plus gu plus rios plus perera plus costa
+data2_all <- left_join(data2_gu_rios_per, data1_costa) %>% 
+  mutate(SOM_perc_mean = coalesce(SOM_perc_mean, SOM_perc_costa)) %>% 
+  dplyr::select(-SOM_perc_costa)
+
+
+
+#### 2.2 replacing OC values from generic eq with NA #####
+### removing OC_perc_combined values from studies which used a generic conversion equation
+## this is so that the values used are those which have come from our generated eq
+
+data2 <- data2_all %>% 
+  mutate(OC_perc= case_when(Source == "Burke et al 2022" | 
+                              Source == "Copertino et al under review" & Method == "LOI" | 
+                              Source == "Gu et al 2020"| 
+                              Source == "Ward 2020"| 
+                              Source == "Wollenberg et al 2018" ~ NA_real_,
+                            TRUE ~ OC_perc)) %>% 
+  mutate(OC_perc_mean= case_when(Source == "Perera et al 2022"| 
+                                   Source == "Copertino et al under review" & 
+                                   Method == "LOI" |
+                                   Original_source == "Idaskin et al 2015" ~ NA_real_,
+                                 TRUE ~ OC_perc_mean)) %>% 
+  mutate(SOM_perc_mean = case_when(Source == "Costal et al 2019" ~ NA_real_,
+                                   TRUE ~ SOM_perc_mean)) # seems that SOM was derived from OC. paper says TOC used
+
 
 
 #### 3. merge columns ####
 
 #to merge OC_perc with OC_perc_mean with Soil_OCcon_mean
 
-data3 <- data1 %>% 
+data3 <- data2 %>% 
   #in column OC_perc_sd, keep OC_perc_sd values, and when empty fill with OC_perc_SD, or OC_perc_s values
   mutate(OC_perc_sd = coalesce(OC_perc_sd, OC_perc_SD, OC_perc_s)) %>% 
   mutate(OC_perc_mean = coalesce(OC_perc_mean, Soil_OCcon_mean, Soil_TCcon_mean)) %>% 
@@ -149,6 +272,10 @@ data8 <- data7 %>%
                                   "OC = OM/1,724" = "SOM/1,724"))
 
 table(data8$Conv_factor)
+
+
+
+
 #### 8. edit accuracy flag ####
 
 data9 <- data8 %>% 
@@ -158,13 +285,26 @@ data9 <- data8 %>%
                                     "estimated from GE" = "estimated from GEE"
                                     ))
 
-  
+#### 9. NA for SOM > 100, SOM / BD/ OC <0 ####
+data10 <- data9 %>% 
+  mutate(SOM_perc_combined = case_when(is.na(SOM_perc_combined) == FALSE & 
+                                         SOM_perc_combined > 100 ~ NA_real_,
+                                       is.na(SOM_perc_combined) == FALSE & 
+                                         SOM_perc_combined < 0 ~ NA_real_,
+                                       TRUE ~ SOM_perc_combined)) %>% 
+  mutate(BD_reported_combined = case_when(is.na(BD_reported_combined) == FALSE & 
+                                         BD_reported_combined < 0 ~ NA_real_,
+                                       TRUE ~ BD_reported_combined)) %>% 
+  mutate(OC_perc_combined = case_when(is.na(OC_perc_combined) == FALSE & 
+                                        OC_perc_combined < 0 ~ NA_real_,
+                                        TRUE ~ OC_perc_combined))
+
 #### 9. export cleaned data ####
 
 path_out = 'reports/04_data_process/data/'
 
 export_file <- paste(path_out, "data_cleaned.csv", sep = '') 
-export_df <- data9
+export_df <- data10
 
 write.csv(export_df, export_file, row.names = F)
 

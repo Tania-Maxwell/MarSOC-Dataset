@@ -4,6 +4,8 @@
 # 16.11.22
 
 rm(list=ls()) # clear the workspace
+
+library(plyr) # for rbind.fill
 library(tidyverse)
 library(viridis) # for plot
 library(ggpmisc) # for lm equation and R2 on graph
@@ -18,10 +20,12 @@ library(merTools) # for predictInterval() function - note: only works for lmerFu
 #### import data ####
 input_file01 <- "reports/04_data_process/data/data_cleaned_outliersremoved.csv"
 
-data0<- read.csv(input_file01) %>% 
-  filter(Original_source != "Elsey Quirk et al 2011", ##issue with this study (seems SOM or OC was interpreted) 
-         Original_source != "Rodriguez et al 2022")   ##issue with this study (seems SOM or OC was interpreted)
+# import 
+read_data<- read.csv(input_file01) 
 
+#remove outliers for analysis - note: need to add at the end
+data0 <-read_data %>% 
+    filter(!grepl("Outlier", Notes, ignore.case = TRUE)) 
 
 str(data0)
 
@@ -60,10 +64,21 @@ data_SOM_OC <-data0 %>%
   filter(is.na(OC_perc_combined) == FALSE & is.na(SOM_perc_combined) == FALSE
          & Method == "EA") %>% 
   mutate(Source_country = paste(Original_source, Country)) %>% 
-  filter(SOM_perc_combined > OC_perc_combined) # remove rare cases where OC > SOM %
+  filter(SOM_perc_combined > OC_perc_combined) %>%  # remove rare cases where OC > SOM %
+  filter(OC_perc_combined != 0) # 57 values from Poppe and Rybczyk 2019 have 0 for OC 
+  
+n_CCRCN <- data_SOM_OC %>% 
+  filter(Source == "CCRCN") 
+nrow(n_CCRCN)
 
+n_poppe <- data0 %>% 
+  filter(Original_source == "Poppe and Rybczyk 2019")
 
+plot(n_poppe$SOM_perc, n_poppe$OC_perc) # note - the OC values of 0 are removed in the data paper script
 
+n_dataset <- data_SOM_OC %>% 
+  filter(Source != "CCRCN") 
+nrow(n_dataset)
 
 table(data_SOM_OC$Country)
 table(data_SOM_OC$Original_source)
@@ -71,7 +86,9 @@ table(data_SOM_OC$Source)
 
 ## Plot different slopes
 
-SOM_OC_observed <- ggplot(data_SOM_OC, aes(x = SOM_perc_combined, y = OC_perc_combined))+
+SOM_OC_observed <- data_SOM_OC %>% 
+ # filter(Source == "CCRCN") %>% 
+  ggplot(aes(x = SOM_perc_combined, y = OC_perc_combined))+
   theme_bw()+
   stat_poly_line()+
   stat_poly_eq(aes(label = paste(after_stat(eq.label),
@@ -146,20 +163,18 @@ fitted_df <- as.data.frame(cbind(xOC2, fitted_values))
 # eq_label <- expression("OC =" ~~ bquote(a_est ~ "±" ~ a_std)~"OM"^2 ~~ "+" ~~ 
 #                          (b_est ~ "±" ~ b_std)~"OM" ~~ "-" ~~ 
 #                          ((c_est*-1)~"±"~c_std))
-
-SOM_to_OC_quadratic <- ggplot(data_SOM_OC, aes(x = SOM_perc_combined, y = OC_perc_combined))+
-  geom_point(aes(color = Source), size = 0.75)+
-  theme_bw()+
-  labs(x = "SOM (%)", y = "OC (%)")+
-  geom_line(data = fitted_df, aes(x = xOC2, y =fitted_values), col = "blue", size = 1)+ 
-  annotate(geom = "text",  label = paste("OC =", round(a_est,6), "±", round(a_std,6), 
-                                         "OM^2 +", round(b_est,3), "±", round(b_std,3),
-                                             "OM - ", round((c_est*-1),3), "±", round(c_std,3)), 
-           y = 50, x = 30)
-
-SOM_to_OC_quadratic
-
-quadratic_resitudals <- plot(residuals(quadratic_model))
+# 
+# SOM_to_OC_quadratic <- ggplot(data_SOM_OC, aes(x = SOM_perc_combined, y = OC_perc_combined))+
+#   geom_point(aes(color = Source), size = 0.75)+
+#   theme_bw()+
+#   labs(x = "SOM (%)", y = "OC (%)")+
+#   geom_line(data = fitted_df, aes(x = xOC2, y =fitted_values), col = "blue", size = 1)+ 
+#   annotate(geom = "text",  label = paste("OC =", round(a_est,6), "±", round(a_std,6), 
+#                                          "OM^2 +", round(b_est,3), "±", round(b_std,3),
+#                                              "OM - ", round((c_est*-1),3), "±", round(c_std,3)), 
+#            y = 50, x = 30)
+# 
+# SOM_to_OC_quadratic
 
 
 #### 3. random effect models ######
@@ -210,13 +225,10 @@ c_std_RE <- summary(quadratic_randomeffect)[['coefficients']][[1,2]]
 fitted_values_randomeffect <- SOM_to_OC(xOC2, a_est, b_est, c_est)
 fitted_df_randomeffect <- as.data.frame(cbind(xOC2, fitted_values_randomeffect))
 
-
-
-
 #### model predictions ####
 #note, these need to be done on the quadratic model without the random effect
-# 
-# # note: this takes a while to calculate. will just import
+
+# note: this takes a while to calculate. will just import
 # SOM_OC_predict <- predictNLS(quadratic_model, newdata = data.frame(SOM_perc_combined = xOC2),
 #                       interval="pred")
 # SOM_OC_predict_full <- SOM_OC_predict
@@ -231,24 +243,96 @@ SOM_OC_predict <- read.csv("reports/04_data_process/data/SOM_OC_predict.csv") %>
   mutate(xOC2 = xOC2)
 
 
+##### 3c. fixing the intercept to 0 #####
+
+quadratic_randomeffect_0 <- lmer(OC_perc_combined ~ 0 + SOM_perc_combined + 
+                                       I(SOM_perc_combined^2)
+                               + (1|Original_source), 
+                               data = data_SOM_OC)
+
+summary(quadratic_randomeffect_0)
+
+
+#CAUTION - summary of random effect model has estimates in opposite order
+# that those in the equation SOM_to_OC()
+a_est_RE0 <- summary(quadratic_randomeffect_0)[['coefficients']][[2,1]]
+b_est_RE0 <- summary(quadratic_randomeffect_0)[['coefficients']][[1,1]]
+
+a_std_RE0 <- summary(quadratic_randomeffect_0)[['coefficients']][[1,2]]
+b_std_RE0 <- summary(quadratic_randomeffect_0)[['coefficients']][[2,2]]
+
+
+#for the figure
+r2_quad_RE0 <- r.squaredGLMM(quadratic_randomeffect_0)[1,2]
+dimensions_quad_RE0 <- summary(quadratic_randomeffect_0)$devcomp$dims
+n_quad_RE0 <- dimensions_quad_RE0[1]
+
+
+###### model predictions ####
+#note, these need to be done on the quadratic model without the random effect
+# at set with intercept to 0
+SOM_to_OC_0 <- function(x, a, b) {
+  (a*(x^2)) + (b*x)
+}
+
+## use the start values for the model from Holmquist paper
+quadratic_model_0 <- nls(OC_perc_combined ~ SOM_to_OC_0(SOM_perc_combined, a, b), 
+                       data=data_SOM_OC, 
+                       start=list(a=0.074, b=0.421))
+summary(quadratic_model_0)
+
+
+
+fitted_values_randomeffect_0 <- SOM_to_OC_0(xOC2, a_est_RE0, b_est_RE0)
+fitted_df_randomeffect_0 <- as.data.frame(cbind(xOC2, fitted_values_randomeffect_0))
+
+
+xOC2_extend = seq(from = 0.0, to = 120, 
+                       length.out = 80)
+
+# # #note: this takes a while to calculate. will just import
+# SOM_OC_predict_0 <- predictNLS(quadratic_model_0, newdata = data.frame(SOM_perc_combined = xOC2_extend),
+#                       interval="pred")
+# 
+# path_out = 'reports/04_data_process/data/'
+# export_file <- paste(path_out, "SOM_OC_predict_0.csv", sep = '')
+# export_df <- SOM_OC_predict_0$summary
+# write.csv(export_df, export_file, row.names = F)
+
+
+SOM_OC_predict_0 <- read.csv("reports/04_data_process/data/SOM_OC_predict_0.csv") %>% 
+  mutate(xOC2 = xOC2_extend)
+
+
+#### 4. compare models and finalize ####
+AIC_df <- AIC(linear_model, linear_randomeffect, quadratic_model, quadratic_model_0,
+              quadratic_randomeffect, quadratic_randomeffect_0)
+
+AIC_df
+# note: we are choosing the random effect model with a fixed intercept at 0 
+# this isn't the absolute lowest value, but is very close and makes more sense biologically
+# lowest_AIC <- AIC_df %>% 
+#   slice(which.min(AIC))
+# 
+# final_model <- eval(parse(text = rownames(lowest_AIC)))
+
+final_model <- quadratic_randomeffect_0
+
+r.squaredGLMM(final_model)
+
+#Conditional R2 is interpreted as a variance explained by the entire model, 
+#including both fixed and random effects, and is calculated according to the equation
+
 #### FINAL GRAPH ####
-
-eq_label <- expression("OC =" ~~ (a_est ~ "±" ~ a_std)~"OM"^2 ~~ "+" ~~
-                         (b_est ~ "±" ~ b_std)~"OM" ~~ "-" ~~
-                         ((c_est*-1)~"±"~c_std))
-
-eq_label_tidy <- list(bquote(paste("OC = ","(", !!a_est_RE, "±", !!a_std_RE, ")OM^2 +",
-                            "(", !!b_est_RE, "±", !!b_std_RE, ")OM +",
-                            "(", !!c_est_RE, "±", !!c_std_RE, ")", sep = " ")))
 
 data_SOM_OC_forgraph <- data_SOM_OC %>% 
   mutate(`Dataset source` = case_when(Source == "CCRCN" ~ "CCRCN",
-                                   TRUE ~ "This dataset"))
+                                      TRUE ~ "This dataset"))
 
 
 SOM_to_OC_quadratic_randomeffect <- ggplot()+
   #prediction interval ribbon first - the points will be plotted on top
-  geom_ribbon(data = SOM_OC_predict, aes(x = xOC2, ymin = Sim.2.5., ymax = Sim.97.5.),
+  geom_ribbon(data = SOM_OC_predict_0, aes(x = xOC2, ymin = Sim.2.5., ymax = Sim.97.5.),
               fill = "grey", alpha = 1) +
   # # sd1 and sd2
   # geom_ribbon(data = SOM_OC_predict, aes(x = xOC2, ymin = (Sim.Mean-Sim.sd),
@@ -256,34 +340,40 @@ SOM_to_OC_quadratic_randomeffect <- ggplot()+
   #             fill = "purple", alpha = 0.5) +
   
   geom_point(data = data_SOM_OC_forgraph, aes(x = SOM_perc_combined, y = OC_perc_combined, 
-                                     color = Source, shape = `Dataset source`), size = 2)+
+                                              color = Source, shape = `Dataset source`), size = 2)+
   theme_bw()+
   labs(x = "Soil organic matter (%)", y = "Soil organic carbon (%)")+
-# model with 2.5 and 97.5 % prediction intervals 
-  geom_line(data = fitted_df_randomeffect, aes(x = xOC2, y =fitted_values_randomeffect), col = "black", size = 1.5)+ 
-
-# # test for prediction equation
-#   geom_line(aes(x = xOC2, y = xOC2^2*(a_est_RE + a_std_RE) + xOC2*(b_est_RE + b_std_RE) + (c_est_RE + c_est_RE)), 
-#             col = "black", size = 1.5, linetype = "longdash") +
-#   geom_line(aes(x = xOC2, y = xOC2^2*(a_est_RE - a_std_RE) + xOC2*(b_est_RE - b_std_RE) + (c_est_RE - c_est_RE)),
-#             col = "black", size = 1.5, linetype = "longdash") +
-
+  # model with 2.5 and 97.5 % prediction intervals 
+  geom_line(data = fitted_df_randomeffect_0, aes(x = xOC2, y =fitted_values_randomeffect_0), col = "black", size = 1.5)+ 
+  
+  # # test for prediction equation
+  #   geom_line(aes(x = xOC2, y = xOC2^2*(a_est_RE0 + a_std_RE0) + xOC2*(b_est_RE0 + b_std_RE0), 
+  #             col = "black", size = 1.5, linetype = "longdash") +
+  #   geom_line(aes(x = xOC2, y = xOC2^2*(a_est_RE0 - a_std_RE0) + xOC2*(b_est_RE0 - b_std_RE0),
+  #             col = "black", size = 1.5, linetype = "longdash") +
+  
   #add equation to graph
-  annotate(geom = "text",  label = paste("OC =", round(a_est_RE,6), "±", round(a_std_RE,6), 
-                                         "OM^2 +", round(b_est_RE,3), "±", round(b_std_RE,3),
-                                         "OM - ", round((c_est_RE*-1),2), "±", round(c_std_RE,2)), 
+  
+  #if intercept is not set to 0
+  # annotate(geom = "text",  label = paste("OC =", round(a_est_RE,6), "±", round(a_std_RE,6), 
+  #                                        "OM^2 +", round(b_est_RE,3), "±", round(b_std_RE,3),
+  #                                        "OM - ", round((c_est_RE*-1),2), "±", round(c_std_RE,2)), 
+  #          size = 6, y = 45, x = 35) +
+  annotate(geom = "text",  label = paste("OC =", round(a_est_RE0,6), "±", round(a_std_RE0,6), 
+                                         "OM^2 +", round(b_est_RE0,3), "±", round(b_std_RE0,3),
+                                         "OM "), 
            size = 6, y = 45, x = 35) +
-  annotate(geom = "text",  label = paste("R2 =", round(r2_quad_RE,3), 
-                                         ", n =", n_quad_RE), 
+  annotate(geom = "text",  label = paste("R2 =", round(r2_quad_RE0,3), 
+                                         ", n =", n_quad_RE0), 
            size = 6, y = 40, x = 20) +
   scale_color_viridis(name = "Source", discrete = TRUE, option = "H")+
-                      # guide = guide_legend(override.aes = list(size = 5,
-                                                          #      alpha = 1, shape = 17)))+
+  # guide = guide_legend(override.aes = list(size = 5,
+  #      alpha = 1, shape = 17)))+
   scale_shape_manual(values = c("CCRCN" = 16, "This dataset"=17 ))+
   theme(legend.title = element_text(size = 18),
-          legend.text = element_text(size = 16),
-          axis.text = element_text(size = 16, color = 'black'),
-          axis.title = element_text(size = 18, color = 'black')) +
+        legend.text = element_text(size = 16),
+        axis.text = element_text(size = 16, color = 'black'),
+        axis.title = element_text(size = 18, color = 'black')) +
   coord_cartesian(ylim = c(0, 50), xlim = c(0,100)) +
   scale_x_continuous(expand = c(0,0))+
   scale_y_continuous(expand = c(0,0)) +
@@ -291,26 +381,8 @@ SOM_to_OC_quadratic_randomeffect <- ggplot()+
          shape = guide_legend(override.aes = list(size = 5, 
                                                   color = c("CCRCN" = "#4771e9", 
                                                             "This datset" = 'black'), 
-                                                title = "Original Source") ))
+                                                  title = "Original Source") ))
 SOM_to_OC_quadratic_randomeffect
-
-
-#### 4. compare models and finalize ####
-AIC_df <- AIC(linear_model, linear_randomeffect, quadratic_model, quadratic_randomeffect)
-
-lowest_AIC <- AIC_df %>% 
-  slice(which.min(AIC))
-
-final_model <- eval(parse(text = rownames(lowest_AIC)))
-
-summary(final_model)
-
-r.squaredGLMM(final_model)
-
-#Conditional R2 is interpreted as a variance explained by the entire model, 
-#including both fixed and random effects, and is calculated according to the equation
-
-
 
 #### 5. conversion factors used ######
 table(data0$Conv_factor)
@@ -338,10 +410,6 @@ data_converted_compare <-data0 %>%
   mutate(OC_perc_from_eq = replace(OC_perc_from_eq, which(OC_perc_from_eq<0.00001), NA))%>%
   mutate(OC_calcualted_diff_perc = (OC_perc_from_eq - OC_perc_combined)/OC_perc_combined*100)
 
-hist(data_converted_compare$OC_perc_from_eq)
-
-
-
 
 OC_eq_vs_OC_from_SOM <- ggplot(data_converted_compare, aes(x = OC_perc_combined, y = OC_perc_from_eq))+
   geom_point(size = 0.75, aes(color = Source))+
@@ -361,27 +429,34 @@ OC_calcualted_diff_graph
 
 #### 7. apply our conversion factor to ones without CFs ####
 
-# first, creating the conversion based on which model had the lowest AIC
-
-conversion_eq <- function (df, col) {
-  if (rownames(lowest_AIC) == "quadratic_randomeffect") {
-    df1 <-  df %>% 
-      mutate(OC_from_SOM_our_eq = eval(a_est_RE)*((df[ ,col])^2) + eval(b_est_RE)*(df[ ,col]) + eval(c_est_RE))
-    
-  } else if (rownames(lowest_AIC) == "quadratic_model" ){ 
-    df1 <-  df %>% 
-      mutate(OC_from_SOM_our_eq = a_est*((df[ ,col])^2) + b_est*(df[ ,col]) + c_est)
-    
-  } else if (rownames(lowest_AIC) == "linear_randomeffect"){ 
-    df1 <-  df %>% 
-      mutate(OC_from_SOM_our_eq = lm_slope_RE * (df[ ,col]) + lm_intercept_RE)
-    
-  } else if (rownames(lowest_AIC) == "linear_model") { 
-    df1 <-  df %>% 
-      mutate(OC_from_SOM_our_eq = lm_slope * (df[ ,col]) + lm_intercept)
-  }
-  return(df1)
+conversion_eq <- function (df, col){
+    df1 <-  df %>%
+      mutate(OC_from_SOM_our_eq = eval(a_est_RE0)*((df[ ,col])^2) 
+             + eval(b_est_RE0)*(df[ ,col]))
 }
+
+
+# first, creating the conversion based on which model had the lowest AIC
+# 
+# conversion_eq <- function (df, col) {
+#   if (rownames(lowest_AIC) == "quadratic_randomeffect") {
+#     df1 <-  df %>% 
+#       mutate(OC_from_SOM_our_eq = eval(a_est_RE)*((df[ ,col])^2) + eval(b_est_RE)*(df[ ,col]) + eval(c_est_RE))
+#     
+#   } else if (rownames(lowest_AIC) == "quadratic_model" ){ 
+#     df1 <-  df %>% 
+#       mutate(OC_from_SOM_our_eq = a_est*((df[ ,col])^2) + b_est*(df[ ,col]) + c_est)
+#     
+#   } else if (rownames(lowest_AIC) == "linear_randomeffect"){ 
+#     df1 <-  df %>% 
+#       mutate(OC_from_SOM_our_eq = lm_slope_RE * (df[ ,col]) + lm_intercept_RE)
+#     
+#   } else if (rownames(lowest_AIC) == "linear_model") { 
+#     df1 <-  df %>% 
+#       mutate(OC_from_SOM_our_eq = lm_slope * (df[ ,col]) + lm_intercept)
+#   }
+#   return(df1)
+# }
 
 # # to check that the function works
 # data_sub <- data0 %>% 
@@ -404,9 +479,11 @@ data_SOMconverted0 <- conversion_eq(df = data0, col = "SOM_perc_combined")
 data_SOMconverted1 <-  data_SOMconverted0 %>% 
     #adding a column to indicate if an OC value is observed, estimated from study equation or estimated from our equation
   mutate(OC_obs_est = case_when(is.na(OC_perc_combined) == FALSE & is.na(Conv_factor) == TRUE ~  "Observed",
-                                is.na(Conv_factor) == FALSE ~ "Estimated (study equation)",
-                                is.na(OC_perc_combined) == TRUE & is.na(Conv_factor) == TRUE ~ "Estimated (our equation)")) %>%
- 
+                                is.na(OC_perc_combined) == FALSE & is.na(Conv_factor) == FALSE & Method != "LOI" ~ "Observed",
+                                is.na(OC_perc_combined) == FALSE & is.na(Conv_factor) == FALSE & Method == "LOI" ~ "Estimated (study equation)",
+                                is.na(OC_perc_combined) == TRUE & is.na(Conv_factor) == TRUE ~ "Estimated (our equation)",
+                                is.na(OC_perc_combined) == TRUE & is.na(Conv_factor) == FALSE ~ "Estimated (our equation)")) %>%
+  
      #adding a column where if there is an OC_perc_combined values, keep, if not, take the OC_from_SOM_our_eq value
   mutate(OC_perc_final = coalesce(OC_perc_combined, OC_from_SOM_our_eq)) %>% 
   
@@ -415,6 +492,9 @@ data_SOMconverted1 <-  data_SOMconverted0 %>%
   # dplyr::select(Source, Site, Site_name, OC_perc, OC_perc_combined, OC_obs_est,
   #               SOM_perc_combined, OC_from_SOM_our_eq, Conv_factor, Method,
   #              OC_perc_final)
+
+test_NAs <- data_SOMconverted1 %>% 
+  filter(is.na(OC_obs_est) == TRUE)
 
 
 ### edit for Kohfeld et al. 2022 - published both OC from EA (limiteddata)
@@ -440,8 +520,13 @@ data_SOMconverted <- data_SOMconverted1 %>%
   mutate(OC_perc_final = replace(OC_perc_final, which(OC_perc_final<=0), NA))
   
 
-test <- data_SOMconverted %>% 
-  filter(Source == "Kohfeld et al 2022") 
+
+test_studies <- data_SOMconverted %>% 
+  filter(Source != "CCRCN") %>% 
+  filter(OC_obs_est == "Estimated (study equation)") %>% 
+  droplevels()
+
+table(test_studies$Source)
 
 
 SOM_OC_converted <- data_SOMconverted %>% 
@@ -468,6 +553,8 @@ SOM_OC_converted
 #   
 # histogram
 
+test <- data_SOMconverted %>% 
+  filter(Source == "Beasy and Ellison 2013")
 
 #### 8. figure exports ####
 path_out = 'reports/04_data_process/figures/SOM_to_OC/'
@@ -484,7 +571,7 @@ ggsave(export_file, export_fig, width = 15.36, height = 8.14)
 export_fig <- SOM_to_OC_quadratic_randomeffect
 fig_main_name <- "SOM_to_OC_quadratic_randomeffect"
 
-export_file <- paste(path_out, fig_main_name, ".png", sep = '')
+export_file <- paste(path_out, fig_main_name, ".pdf", sep = '')
 ggsave(export_file, export_fig, width = 15.36, height = 8.14)
 
 
@@ -514,16 +601,27 @@ test <- data0 %>%
 nrow(data_SOM_OC)
 
 test <- data_SOM_OC %>% 
-  filter(Source == "CCRCN")
+  filter(Source != "CCRCN")
 
 length(table(test$Original_source))
+
+
+#### 10. add outliers back onto data frame ####
+
+outliers <- read_data %>% 
+  filter(grepl("Outlier", Notes, ignore.case = TRUE)) 
+
+export_data01 <- rbind.fill(data_SOMconverted, outliers) 
+
+export_data02 <- export_data01 %>% 
+  dplyr::relocate(Notes, .after = OC_perc_final)
 
 #### last. export cleaned and converted data ####
 
 path_out = 'reports/04_data_process/data/'
 
 export_file <- paste(path_out, "data_cleaned_SOMconverted.csv", sep = '') 
-export_df <- data_SOMconverted
+export_df <- export_data02
 
 write.csv(export_df, export_file, row.names = F)
 

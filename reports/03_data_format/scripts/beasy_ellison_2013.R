@@ -3,12 +3,19 @@
 ## export for marsh soil C
 # contact Tania Maxwell, tlgm2@cam.ac.uk
 # 18.01.23
+# 09.05.23 edit with locations sent by Kim Beasy
 
 
 library(tidyverse)
 input_file01 <- "reports/03_data_format/data/core_level/Beasy_Ellison_2013/Beasy_Ellison_2013.csv"
 
-input_data01 <- read.csv(input_file01)
+input_data01 <- read.csv(input_file01) %>% 
+  dplyr::select(-c(Latitude, Longitude))
+
+input_file02 <- "reports/03_data_format/data/core_level/Beasy_Ellison_2013/Beasy_locations.csv"
+
+locations <- read.csv(input_file02)
+
 
 
 ##### add informational  
@@ -17,7 +24,7 @@ author_initials <- "KMB"
 
 
 input_data02 <- input_data01 %>% 
-  rename(Core = Site) %>% 
+  dplyr::rename(Core = Site) %>% 
   mutate(Source = source_name,
          Source_abbr = author_initials,
          Site_name = paste(Source_abbr, "Tasmania", Core),
@@ -29,14 +36,6 @@ input_data02 <- input_data01 %>%
 #### reformat data ####
 
 input_data03 <- input_data02 %>% 
-  mutate(Latitude = case_when(Core == "Site 1.1" ~ -41.1544,
-                              Core == "Site 1.2" ~ -41.1548,
-                              Core == "Site 2" ~ -41.2405,
-                              Core == "Site 3" ~ -41.2284),
-         Longitude = case_when(Core == "Site 1.1" ~ 140.6006,
-                              Core == "Site 1.2" ~ 140.5994,
-                              Core == "Site 2" ~ 140.5729,
-                              Core == "Site 3" ~ 140.5645)) %>% 
   mutate(Year_collected = "2011",
          accuracy_flag = "direct from dataset",
          accuracy_code = "1") 
@@ -48,11 +47,12 @@ input_data04 <- input_data03 %>%
   mutate(U_depth_m = as.numeric(U_depth_cm)/100 , #cm to m
          L_depth_m = as.numeric(L_depth_cm)/100)# cm to m
 
-
-
+## add location
+input_data05 <- full_join(input_data04, locations, by = "Core")
+  
 #### export ####
 
-export_data01 <- input_data04 %>% 
+export_data01 <- input_data05 %>% 
   dplyr::select(Source, Site_name, Site, Core, Habitat_type, Country, Nation, Year_collected,
                 Latitude, Longitude, 
                 accuracy_flag, accuracy_code,
@@ -79,3 +79,4 @@ write.csv(export_df, export_file)
 plot(export_df$SOM_perc, export_df$OC_perc)
 abline(a = c(0,1))
 plot(export_df$SOM_perc_Heiri, export_df$OC_perc)
+abline(a = c(0,1))

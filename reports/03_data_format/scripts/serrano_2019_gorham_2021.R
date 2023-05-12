@@ -58,18 +58,52 @@ input_data04 <- input_data03 %>%
 #instead of just calculated stocks
 # the published CSIRO dataset has been moved the folder 07_Cam_postdoc/Data/Done
 
+
+##### adding loi info from Gorham et al paper #####
+
+input_file02 <- "reports/03_data_format/data/core_level/Serrano_2019_Gorham_2021_email/sw_marsh_LOI_fromPaul.csv"
+gorham_loi01 <- read.csv(input_file02) %>% 
+  rename_with(~ gsub("..", "_", .x, fixed = TRUE)) %>% #replacing .. in columns by _
+  rename_with(~ gsub(".", "_", .x, fixed = TRUE)) %>%    #replacing . in columns by _
+  dplyr::select(Core_ID, Sample_ID, X_LOI, X_OC) %>% 
+  rename(Core = Core_ID) # to match input_data01
+
+gorham_loi02 <- gorham_loi01 %>% 
+  mutate(L_depth_cm = gsub(".*\\_", "", Sample_ID)) %>%  # remove numbers before an underscore 
+  mutate(L_depth_cm = as.numeric(L_depth_cm))
+
+str(gorham_loi02)
+
+test <- input_data04 %>% 
+  filter(Source == "Gorham et al 2021") %>% 
+  select(Core, U_depth_cm, L_depth_cm, OC_perc)
+
+test_bind <- full_join(test, gorham_loi02)
+plot(test_bind$X_OC, test_bind$OC_perc) # data are matched
+
+
+gorham_loi03 <- gorham_loi02 %>% 
+  select(Core, L_depth_cm, X_LOI) %>% 
+  rename(SOM_perc = X_LOI)
+
+input_data05 <- left_join(input_data04, gorham_loi03, by = c("Core", "L_depth_cm"))
+
+
 #### export ####
 
-export_data01 <- input_data04 %>% 
+export_data01 <- input_data05 %>% 
   dplyr::select(Source, Site_name, Core, Habitat_type, Country, Year_collected,
                 Latitude, Longitude, accuracy_flag, accuracy_code,
-                U_depth_m, L_depth_m, Method, OC_perc, BD_reported_g_cm3)
+                U_depth_m, L_depth_m, Method, OC_perc,SOM_perc, BD_reported_g_cm3)
 
 
 export_data02 <- export_data01 %>% 
   relocate(Source, Site_name, Core, Habitat_type, Latitude, Longitude, 
            accuracy_flag, accuracy_code, Country, Year_collected, .before = U_depth_m) %>% 
   arrange(Source, Site_name)
+
+
+plot(export_data02$SOM_perc, export_data02$OC_perc)
 
 ## export
 
@@ -80,9 +114,3 @@ export_file <- paste(path_out, source_name, ".csv", sep = '')
 export_df <- export_data02
 
 write.csv(export_df, export_file)
-
-
-
-
-
-

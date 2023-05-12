@@ -20,7 +20,8 @@ author_initials <- "SKR"
 input_data02 <- input_data01 %>% 
   mutate(Source = gsub("\\,", "",Source)) %>% 
   mutate(Site_name = paste(author_initials, Core)) %>% 
-  mutate(accuracy_code = 1) %>% 
+  mutate(Method = "EA",
+    accuracy_code = 1) %>% 
   mutate(across(where(is.character), str_trim)) %>%   # trim white spaces before and after character strings
   mutate(OC_perc = gsub("<0.25", "0",OC_perc)) %>%  # replace less than 0.25 with 0, as suggested by A. Jones
   mutate(OC_perc = as.numeric(OC_perc),

@@ -143,26 +143,25 @@ export_data05 <- export_data04 %>%
          Original_source != "Sammul et al 2012")
 
 
-
-paste3 <- function(df) {
-  if (df[, U_depth_m] > 0) {
-    Column_3 = Column_3-1
-  } else
-  Column_3 = seq(1:50)
-  return(Column_3)
-}
-
-paste(df = export_data05)
-
-## making a plot column
-export_data06 <- export_data05 %>% 
-  group_by(Original_source) %>% 
-  mutate(Column_3 = accumulate(paste3)) %>% 
-  # mutate(Column_3 = accumulate(U_depth_m == 0 , ~ifelse(.y==FALSE, 1, .x))) %>% 
-  relocate(Column_3, .before = U_depth_m)
-
-
-export_data_final <- 
+# 
+# paste3 <- function(df) {
+#   if (df[, "U_depth_m"] > 0) {
+#     Column_3 = Column_3-1
+#   } else
+#   Column_3 = seq(1:50)
+#   return(Column_3)
+# }
+# 
+# paste3(df = export_data05)
+# 
+# ## making a plot column
+# # https://stackoverflow.com/questions/6112803/how-to-create-a-consecutive-group-number
+# # note: this doesn't actually work because some cores have the same location
+# export_data06 <- export_data05 %>% 
+#   group_by(Original_source, Latitude, Longitude) %>% 
+#   mutate(Column_3 = cur_group_id()) %>% 
+#   # mutate(Column_3 = accumulate(U_depth_m == 0 , ~ifelse(.y==FALSE, 1, .x))) %>% 
+#   relocate(Column_3, .before = U_depth_m)
 
 ## export
 

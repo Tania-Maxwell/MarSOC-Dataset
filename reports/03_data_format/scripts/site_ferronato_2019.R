@@ -34,7 +34,7 @@ input_data02 <- input_data01 %>%
 #### reformat data ####
 
 input_data03 <- input_data02 %>% 
-  mutate(Year_collected = NA,
+  mutate(Year_collected = "2015",
          accuracy_flag = "direct from dataset",
          accuracy_code = "1") %>% 
   mutate(Method = "CF-IRMS") %>% 
@@ -46,31 +46,24 @@ input_data03 <- input_data02 %>%
 #### format depths #### 
 
 input_data04 <- input_data03 %>%  
-  mutate(U_depth_cm = case_when(horizon == "A" ~ "0",
-                                horizon == "AC" ~ "10",
-                                horizon == "C" ~ "20"),
-         L_depth_cm = case_when(horizon == "A" ~ "10",
-                                horizon == "AC" ~ "20",
-                                horizon == "C" ~ "30")) %>% 
-         
-  # mutate(U_depth_cm = case_when(ecosystem == "TES" & horizon == "A" ~ "0",
-  #                               ecosystem == "TES" & horizon == "AC" ~ "",
-  #                               ecosystem == "TES" & horizon == "C" ~ "",
-  #                               ecosystem == "ITS" & horizon == "A" ~ "0",
-  #                               ecosystem == "ITS" & horizon == "AC" ~ "",
-  #                               ecosystem == "ITS" & horizon == "C" ~ "",
-  #                               ecosystem == "SAS" & horizon == "A" ~ "0",
-  #                               ecosystem == "SAS" & horizon == "AC" ~ "",
-  #                               ecosystem == "SAS" & horizon == "C" ~ ""),
-  #        L_depth_cm = case_when(ecosystem == "TES" & horizon == "A" ~ "0",
-  #                               ecosystem == "TES" & horizon == "AC" ~ "0",
-  #                               ecosystem == "TES" & horizon == "C" ~ "0",
-  #                               ecosystem == "ITS" & horizon == "A" ~ "",
-  #                               ecosystem == "ITS" & horizon == "AC" ~ "",
-  #                               ecosystem == "ITS" & horizon == "C" ~ "",
-  #                               ecosystem == "SAS" & horizon == "A" ~ "",
-  #                               ecosystem == "SAS" & horizon == "AC" ~ "",
-  #                               ecosystem == "SAS" & horizon == "C" ~ "")) %>% 
+  mutate(U_depth_cm = case_when(ecosystem == "TES" & horizon == "A" ~ "0",
+                                ecosystem == "ITS" & horizon == "A" ~ "0",
+                                ecosystem == "SAS" & horizon == "A" ~ "0",
+                                ecosystem == "TES" & horizon == "AC" ~ "11",
+                                ecosystem == "ITS" & horizon == "AC" ~ "6",
+                                ecosystem == "SAS" & horizon == "AC" ~ "5",
+                                ecosystem == "TES" & horizon == "C" ~ "28",
+                                ecosystem == "ITS" & horizon == "C" ~ "24",
+                                ecosystem == "SAS" & horizon == "C" ~ "80"),
+         L_depth_cm = case_when(ecosystem == "TES" & horizon == "A" ~ "11",
+                                ecosystem == "ITS" & horizon == "A" ~ "6",
+                                ecosystem == "SAS" & horizon == "A" ~ "5",
+                                ecosystem == "TES" & horizon == "AC" ~ "28",
+                                ecosystem == "ITS" & horizon == "AC" ~ "24",
+                                ecosystem == "SAS" & horizon == "AC" ~ "80",
+                                ecosystem == "TES" & horizon == "C" ~ "100",
+                                ecosystem == "ITS" & horizon == "C" ~ "100",
+                                ecosystem == "SAS" & horizon == "C" ~ "118")) %>%
   mutate(U_depth_m = as.numeric(U_depth_cm)/100 , #cm to m
          L_depth_m = as.numeric(L_depth_cm)/100)# cm to m
 

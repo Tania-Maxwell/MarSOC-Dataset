@@ -5,7 +5,6 @@
 # 20.07.22
 
 library(tidyverse)
-library(measurements) #to convert to decimal degrees
 library(stringr) # extract first n values for date
 library(janitor) # to clean names
 
@@ -43,16 +42,17 @@ input_data02 <- input_data01 %>%
 
 
 input_data03 <- input_data02 %>% 
-  mutate(lat_detail = Latitude_N,
-         long_detail = Longitude_E,
-         lat = gsub("°", " ",
-                    gsub("\\.", " ", lat_detail)),
-         long = gsub("°", " ",
-                     gsub("\\.", " ", long_detail)),
-         lat_dec_deg = measurements::conv_unit(lat, from = "deg_min_sec", to = "dec_deg"), #N , Keep positive
-         long_dec_deg = measurements::conv_unit(long, from = "deg_min_sec", to = "dec_deg"), #E , Keep positive
-         Latitude = as.numeric(lat_dec_deg),
-         Longitude = as.numeric(long_dec_deg)) %>% 
+  # converted directly in csv file
+  # mutate(lat_detail = Latitude_N,
+  #        long_detail = Longitude_E,
+  #        lat = gsub("°", " ",
+  #                   gsub("\\.", " ", lat_detail)),
+  #        long = gsub("°", " ",
+  #                    gsub("\\.", " ", long_detail)),
+  #        lat_dec_deg = measurements::conv_unit(lat, from = "deg_min_sec", to = "dec_deg"), #N , Keep positive
+  #        long_dec_deg = measurements::conv_unit(long, from = "deg_min_sec", to = "dec_deg"), #E , Keep positive
+  #        Latitude = as.numeric(lat_dec_deg),
+  #        Longitude = as.numeric(long_dec_deg)) %>% 
   mutate(BD_reported_g_cm3 = NA,
          Year_collected = "2008") %>% 
   mutate(accuracy_flag = "direct from dataset",
@@ -63,7 +63,7 @@ input_data03 <- input_data02 %>%
 ## edit depth
 
 input_data04 <- input_data03 %>% 
-  separate(layer_cm, c("U_depth_cm", "L_depth_cm"), sep = '-') %>%   #separate upper and lower depth
+  separate(layer_cm, c("U_depth_cm", "L_depth_cm"), sep = '_') %>%   #separate upper and lower depth
   mutate(U_depth_m = as.numeric(U_depth_cm)/100 , #cm to m
          L_depth_m = as.numeric(L_depth_cm)/100)# cm to m
 
@@ -73,13 +73,17 @@ input_data04 <- input_data03 %>%
 export_data01 <- input_data04 %>% 
   dplyr::select(Source, Site_name, Site, Core, Habitat_type, Country, Year_collected,
                 Latitude, Longitude, accuracy_flag, accuracy_code,
-                U_depth_m, L_depth_m, Method, OC_perc, BD_reported_g_cm3)
+                U_depth_m, L_depth_m, Method, OC_perc, SOM_perc, BD_reported_g_cm3)
 
 
 export_data02 <- export_data01 %>% 
   relocate(Source, Site_name, Site, Core, Habitat_type, Latitude, Longitude, 
            accuracy_flag, accuracy_code, Country, Year_collected, .before = U_depth_m) %>% 
   arrange(Site, Habitat_type)
+
+#check SOM vs OC
+
+plot(export_data02$SOM_perc, export_data02$OC_perc)
 
 ## export
 
@@ -89,5 +93,6 @@ export_file <- paste(path_out, source_name, ".csv", sep = '')
 export_df <- export_data02
 
 write.csv(export_df, export_file)
+
 
 

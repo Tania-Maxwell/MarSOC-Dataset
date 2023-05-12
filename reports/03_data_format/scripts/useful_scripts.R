@@ -248,4 +248,12 @@ test4 <- as.data.frame(do.call(rbind,lapply(unique(soilcarbon4$Site), BD_interpo
 # 
 # site_polygon = st_sfc(pol, crs = 32611)
 
+# 
+# eq_label <- expression("OC =" ~~ (a_est ~ "±" ~ a_std)~"OM"^2 ~~ "+" ~~
+#                          (b_est ~ "±" ~ b_std)~"OM" ~~ "-" ~~
+#                          ((c_est*-1)~"±"~c_std))
+
+# eq_label_tidy <- list(bquote(paste("OC = ","(", !!a_est_RE, "±", !!a_std_RE, ")OM^2 +",
+#                                    "(", !!b_est_RE, "±", !!b_std_RE, ")OM +",
+#                                    "(", !!c_est_RE, "±", !!c_std_RE, ")", sep = " ")))
 

@@ -4,7 +4,10 @@
 # 20.01.23
 
 rm(list=ls()) # clear the workspace
+library(plyr) # rbind.fill
 library(tidyverse)
+library(misty) # to calculate ci of median
+library(ggpubr) # for ggarrange 
 
 
 #import compiled data
@@ -14,7 +17,7 @@ data0 <- read.csv(input_file01)
 
 data1 <- data0 %>% 
   #remove data with no OC_final data
-  filter(is.na(OC_perc_final) == FALSE) %>% 
+  filter(is.na(OC_perc_final) == FALSE) %>% ## this also removes all items tagged as outliers
   filter(is.na(U_depth_m) == FALSE)
   # mutate(Source = fct_recode(Source, "Rovai compiled" =  "Rovai compiled, reference cited in Chmura (2003)",
   #                            "Rovai compiled" = "Rovai compiled, reference cited in Chmura (2003) and in Ouyang and Lee (2014)",
@@ -36,7 +39,7 @@ data_paper <- data1 %>%
 # note: Year_collected has been filled in as much as possible (NA = the original study did not mention the year)
 
 test_NA <- data0 %>% 
-  filter(is.na(U_depth_m) == TRUE) # all from Rovai missing refs
+  filter(is.na(U_depth_m) == TRUE) 
 
 table(test_NA$Original_source)
 
@@ -87,6 +90,13 @@ SOM_and_OC <- data_paper %>%
   filter(is.na(SOM_perc_combined) == FALSE & is.na(OC_perc_combined) == FALSE) %>% 
   droplevels()
 
+# from CCRCN
+SOM_and_OC_CCRCN <- data0 %>% 
+  filter(is.na(Latitude) == FALSE & is.na(Longitude) == FALSE) %>%
+  filter(Source == "CCRCN")  %>% 
+  filter(is.na(SOM_perc_combined) == FALSE & is.na(OC_perc_combined) == FALSE)
+
+
 nSOM_OC <- nrow(SOM_and_OC)
 nSOM_OC
 length(table(SOM_and_OC$Source)) - 1 # note: human et al 2022 has 2 conversion factors 
@@ -125,6 +135,27 @@ nBD<- as.numeric(nrow(nBD_data))
 (nBD/nsamples)*100
 
 
+# depth of cores
+# less than 30cm
+cores_less30 <- data_paper %>% 
+  filter(L_depth_m < 0.3)
+
+ncores_less30<- as.numeric(nrow(cores_less30))
+
+#percent of data with N data
+(ncores_less30/nsamples)*100
+
+# greater than 30cm
+cores_greater30 <- data_paper %>% 
+  filter(L_depth_m >= 0.3)
+
+ncores_greater30<- as.numeric(nrow(cores_greater30))
+
+#percent of data with N data
+(ncores_greater30/nsamples)*100
+
+
+
 #### 2. export study IDs ####
 
 # path_out = 'data_paper/studies/'
@@ -151,7 +182,7 @@ fig_paper <- ggplot(data = world) +
   geom_sf() +
   coord_sf(ylim = c(-60, 80), expand = FALSE)+
   theme_bw()+
-  labs(title = "Global tidal marsh soil carbon dataset")+
+  labs(title = "Global tidal marsh soil organic carbon dataset")+
   theme(plot.title = element_text(size = 18, hjust = 0.5))+
   geom_point(data = data_paper_figure, aes(x = Longitude, y = Latitude,
                                            fill = Data_type), size = 3, shape = 21, alpha = 0.5)+
@@ -167,57 +198,176 @@ fig_paper <- ggplot(data = world) +
 
 fig_paper
 
-#### export figure
-# path_out = 'data_paper/figures/'
-# 
-# 
-# fig_name <- paste(Sys.Date(),"n_points", sep = "_")
-# export_file <- paste(path_out, fig_name, ".png", sep = '')
-# 
-# ggsave(export_file, fig_paper, width = 11.26, height = 6.11)
+##### figs for EGU #####
+data_model_figure_CCRCN <- data1 %>%
+  filter(is.na(Latitude) == FALSE & is.na(Longitude) == FALSE) %>% 
+  filter(Source == "CCRCN") %>% 
+  mutate(`Dataset source` = case_when(Source == "CCRCN" ~ "CCRCN",
+                                      TRUE ~ "Compiled dataset")) %>%
+  distinct(Latitude, Longitude, .keep_all = TRUE) 
+
+fig_model_CCRCN <- ggplot(data = world) +
+  geom_sf() +
+  coord_sf(ylim = c(-60, 80), expand = FALSE)+
+  theme_bw()+
+  theme(plot.title = element_text(size = 18, hjust = 0.5))+
+  geom_point(data = data_model_figure_CCRCN, aes(x = Longitude, y = Latitude,
+                                                 fill = `Dataset source`), 
+             shape = 21, size = 3, alpha = 0.4)+
+  scale_fill_manual(name = "Data source",values = c("#5ec962"))+
+  # geom_point(data = data_model_figure, aes(x = Longitude, y = Latitude, 
+  #                                    fill = `Dataset source`), shape = 21, size = 3, alpha = 0.4)+
+  # scale_fill_manual(name = "Data source",values = c("#fcfdbf", "#721f81"))+
+
+  guides(col = guide_legend(ncol = 2))+
+  guides(fill = guide_legend(override.aes = list(alpha = 1)))+
+  theme(legend.position = "bottom",
+        legend.title = element_text(size = 14),
+        legend.text = element_text(size = 14),
+        axis.text = element_text(size = 12, color = 'black'),
+        axis.title = element_text(size = 14, color = 'black'))
+
+fig_model_CCRCN
+
+
+data_model_figure_ours <- data1 %>%
+  filter(is.na(Latitude) == FALSE & is.na(Longitude) == FALSE) %>% 
+  filter(Source != "CCRCN") %>% 
+  mutate(`Dataset source` = case_when(Source == "CCRCN" ~ "CCRCN",
+                                      TRUE ~ "Compiled dataset")) %>%
+  distinct(Latitude, Longitude, .keep_all = TRUE) 
+
+fig_model_ours <- ggplot(data = world) +
+  geom_sf() +
+  coord_sf(ylim = c(-60, 80), expand = FALSE)+
+  theme_bw()+
+  theme(plot.title = element_text(size = 18, hjust = 0.5))+
+  geom_point(data = data_model_figure_ours, aes(x = Longitude, y = Latitude,
+                                                 fill = `Dataset source`), 
+             shape = 21, size = 3, alpha = 0.4)+
+  scale_fill_manual(name = "Data source",values = c("#440154"))+
+  # geom_point(data = data_model_figure, aes(x = Longitude, y = Latitude, 
+  #                                    fill = `Dataset source`), shape = 21, size = 3, alpha = 0.4)+
+  # scale_fill_manual(name = "Data source",values = c("#fcfdbf", "#721f81"))+
+  
+  guides(col = guide_legend(ncol = 2))+
+  guides(fill = guide_legend(override.aes = list(alpha = 1)))+
+  theme(legend.position = "bottom",
+        legend.title = element_text(size = 14),
+        legend.text = element_text(size = 14),
+        axis.text = element_text(size = 12, color = 'black'),
+        axis.title = element_text(size = 14, color = 'black'))
+
+fig_model_ours
+
+
+# # #### export figure
+path_out = 'data_paper/figures/'
+
+#fig_name <- "fig_model_forEGU_ours"
+fig_name <- paste(Sys.Date(),"n_points", sep = "_")
+export_file <- paste(path_out, fig_name, ".png", sep = '')
+
+ggsave(export_file, fig_paper, width = 11.26, height = 6.11)
 
 
 #### 4. figure distribution of points ####
-# from outliers script
 
+ ### only looking at histograms for the paper
 
-data_means <- data_paper %>% 
-  filter(is.na(Horizon_bin_cm) == FALSE) %>% 
-  group_by(Horizon_bin_cm) %>%
-  summarise(across(c(OC_perc_final, SOM_perc_combined,BD_reported_combined), 
-                   list(mean = ~ mean(.x, na.rm = T), 
-                        sd = ~ sd(.x, na.rm = T))))
-
-OC_points <- data_paper %>%
-  filter(is.na(Horizon_bin_cm) == FALSE) %>% 
+xlab<- expression("Bulk density"~~("g"~~"cm"^-3))
+BD_hist <- data_paper %>%
   ggplot()+
-  geom_jitter(aes(x = Horizon_bin_cm, y = OC_perc_final))+
-  coord_flip()+
-  geom_point(data = data_means, aes(x = Horizon_bin_cm, 
-                                    y = OC_perc_final_mean,
-                                           group = Horizon_bin_cm, 
-                                           fill = Horizon_bin_cm),
-              size = 5, shape = 23)+
-  geom_errorbar(data = data_means, aes( x = Horizon_bin_cm, 
-    ymin = OC_perc_final_mean - OC_perc_final_sd,
-                                       ymax = OC_perc_final_mean + OC_perc_final_sd,
-                                       group = Horizon_bin_cm, 
-                                       color = Horizon_bin_cm),
-                width = 0.2)+
+  geom_histogram(aes(BD_reported_combined), color = "black", fill = "#fcfdbf",  binwidth = 0.1)+
   theme_bw()+
-  labs(
-       x = "Soil depth",
-       y = "OC (%)")+
+  labs(x = "Bulk density (g cm-3)",
+       y = "Count")+
   theme(legend.position = "none",
         legend.title = element_text(size = 12),
         legend.text = element_text(size = 12),
         axis.text = element_text(size = 10, color = 'black'),
         axis.title = element_text(size = 12, color = 'black'))
-OC_points
 
 
-#### 5. figure estimated SOC stocks ####
+SOM_hist <- data_paper %>%
+  ggplot()+
+  geom_histogram(aes(SOM_perc_combined), color = "black", fill = "#fe9f6d",  binwidth = 4)+
+  theme_bw()+
+  labs(x = "Organic matter (%)",
+       y = "Count")+
+  theme(legend.position = "none",
+        legend.title = element_text(size = 12),
+        legend.text = element_text(size = 12),
+        axis.text = element_text(size = 10, color = 'black'),
+        axis.title = element_text(size = 12, color = 'black'))
 
+
+
+OC_hist <- data_paper %>%
+  ggplot()+
+  geom_histogram(aes(OC_perc_final), color = "black", fill = "#de4968",  binwidth = 2)+
+  theme_bw()+
+  labs(x = "Organic carbon (%)",
+       y = "Count")+
+  scale_y_continuous(breaks = c(1500, 3000, 4500))+
+  theme(legend.position = "none",
+        legend.title = element_text(size = 12),
+        legend.text = element_text(size = 12),
+        axis.text = element_text(size = 10, color = 'black'),
+        axis.title = element_text(size = 12, color = 'black'))
+
+distribution_plots <- ggarrange(BD_hist, SOM_hist, OC_hist, ncol = 3, 
+                                nrow = 1)
+
+distribution_plots
+
+###### export fig ######
+# path_out = 'data_paper/figures/'
+# 
+# export_fig <- distribution_plots
+# fig_main_name <- "distribution_plots"
+# export_file <- paste(path_out, fig_main_name, ".png", sep = '')
+# ggsave(export_file, export_fig, width = 7.20, height = 3.53)
+# 
+
+
+# # based on outliers script
+# data_means <- data_paper %>% 
+#   filter(is.na(Horizon_bin_cm) == FALSE) %>% 
+#   group_by(Horizon_bin_cm) %>%
+#   summarise(across(c(OC_perc_final, SOM_perc_combined,BD_reported_combined), 
+#                    list(mean = ~ mean(.x, na.rm = T), 
+#                         sd = ~ sd(.x, na.rm = T))))
+# 
+# OC_points <- data_paper %>%
+#   filter(is.na(Horizon_bin_cm) == FALSE) %>% 
+#   ggplot()+
+#   geom_jitter(aes(x = Horizon_bin_cm, y = OC_perc_final))+
+#   coord_flip()+
+#   geom_point(data = data_means, aes(x = Horizon_bin_cm, 
+#                                     y = OC_perc_final_mean,
+#                                            group = Horizon_bin_cm, 
+#                                            fill = Horizon_bin_cm),
+#               size = 5, shape = 23)+
+#   geom_errorbar(data = data_means, aes( x = Horizon_bin_cm, 
+#     ymin = OC_perc_final_mean - OC_perc_final_sd,
+#                                        ymax = OC_perc_final_mean + OC_perc_final_sd,
+#                                        group = Horizon_bin_cm, 
+#                                        color = Horizon_bin_cm),
+#                 width = 0.2)+
+#   theme_bw()+
+#   labs(
+#        x = "Soil depth",
+#        y = "OC (%)")+
+#   theme(legend.position = "none",
+#         legend.title = element_text(size = 12),
+#         legend.text = element_text(size = 12),
+#         axis.text = element_text(size = 10, color = 'black'),
+#         axis.title = element_text(size = 12, color = 'black'))
+# OC_points
+
+
+#### 5. SOC density and stocks from data paper  ####
 
 
 data_paper_stocks <- data_paper %>% 
@@ -237,7 +387,7 @@ data_paper_stocks <- data_paper %>%
 
 
 test <- data_paper_stocks %>% 
-  filter(OCD_kg_m3 > 280)
+  filter(OCD_g_cm3 > 0.2)
 ## first - calculate an average SOC density value for each horizon bin 
 
 density_means <- data_paper_stocks %>% 
@@ -259,7 +409,42 @@ stock_mean_1m <- stock_means %>%
   summarise(sum_mean = sum(OCS_t_ha),
             sum_sd = sum(OCS_t_ha_sd))
 
+###### fig SOCD #####
 
+xlab<- expression("Soil organic carbon density"~~("g"~~"cm"^-3))
+#xlab<- expression(atop("Soil organic carbon", paste("density"~~("g"~~"cm"^-3))))
+
+SOCD_hist <- data_paper_stocks %>%
+  ggplot()+
+  geom_histogram(aes(OCD_g_cm3), color = "black", fill = "#8c2981",  binwidth = 0.01)+
+  theme_bw()+
+  scale_y_continuous(breaks = c(1000, 2000, 3000))+
+  labs(x = "Carbon density (g cm-3)",
+       y = "Count")+
+  theme(axis.text = element_text(size = 10, color = 'black'),
+        axis.title = element_text(size = 12, color = 'black'))
+
+
+distribution_plots_final <- ggarrange(BD_hist, SOM_hist + rremove("ylab"), 
+                                      OC_hist+ rremove("ylab"), 
+                                      SOCD_hist + rremove("ylab"),
+                                      ncol = 4, nrow = 1,
+                                     # vjust= 0.2,
+                                      labels = c("(a)", "(b)", "(c)", "(d)"),
+                                      font.label=list(color="black",size=10))
+distribution_plots_final
+
+##### export final distribution figs ####
+# path_out = 'data_paper/figures/'
+# 
+# export_fig <- distribution_plots_final
+# fig_main_name <- "distribution_plots_final"
+# export_file <- paste(path_out, fig_main_name, ".png", sep = '')
+# ggsave(export_file, export_fig, width = 8.55, height = 3.97)
+
+
+
+##### figs data paper stocks and density ####
 
 stocks_figure <- #data_paper %>%
   ggplot()+
@@ -315,6 +500,7 @@ density_figure <- #data_paper %>%
 density_figure
 
 ###### export fig ######
+
 # path_out = 'reports/04_data_process/figures/stocks/'
 # 
 # export_fig <- density_figure
@@ -327,6 +513,7 @@ density_figure
 #### 5b values using data paper and CCRCN ##### 
 
 all_stocks <- data1 %>%
+  filter(L_depth_m < 1.05) %>% # taking out cores deeper than 1m
   filter(is.na(Latitude) == FALSE & is.na(Longitude) == FALSE) %>%
   droplevels() %>% 
   mutate(Horizon_bin_cm = as.factor(Horizon_bin_cm),
@@ -348,29 +535,70 @@ all_stocks <- data1 %>%
 
 ## first - calculate an average SOC density value for each horizon bin 
 
-all_density_means <- all_stocks %>% 
+all_density_means_meds <- all_stocks %>% 
   group_by(Horizon_bin_cm) %>%
-  summarise(OCD_kg_m3_mean = mean(OCD_kg_m3, na.rm = T),  
-            OCD_kg_m3_sd = sd(OCD_kg_m3, na.rm = T)) 
+  summarise(OCD_kg_m3_mean = mean(OCD_kg_m3, na.rm = T),
+            OCD_kg_m3_sd = sd(OCD_kg_m3, na.rm = T),
+            # median and median absolute deviation
+            OCD_kg_m3_med = median(OCD_kg_m3, na.rm = T),
+            OCD_kg_m3_med_dev = mad(OCD_kg_m3, na.rm = T),
+            n = sum(!is.na(OCD_kg_m3)),
+            OCD_g_cm3_med = median(OCD_g_cm3, na.rm = T),
+            OCD_g_cm3_med_dev = mad(OCD_g_cm3, na.rm = T)) 
+
+
 
 ## then, multiply this average SOCD value by the horizon bin thickness to get SOCS
-all_stock_means <- all_density_means %>% 
+all_stock_means_meds <- all_density_means_meds %>% 
   mutate(Horizon_thick_m = case_when(Horizon_bin_cm == "0-15cm" ~ 0.15,
                                      Horizon_bin_cm == "15-30cm" ~ 0.15,
                                      Horizon_bin_cm == "30-50cm" ~ 0.2,
                                      Horizon_bin_cm == "50-100cm" ~ 0.5)) %>% 
   mutate(OCS_t_ha = OCD_kg_m3_mean * Horizon_thick_m * 10,
-         OCS_t_ha_sd = OCD_kg_m3_sd * Horizon_thick_m * 10)#x10 to go from kg m-2 to t ha-1
+         OCS_t_ha_sd = OCD_kg_m3_sd * Horizon_thick_m * 10,
+         OCS_t_ha_med = OCD_kg_m3_med * Horizon_thick_m * 10,
+         OCS_t_ha_med_dev = OCD_kg_m3_med_dev * Horizon_thick_m * 10)#x10 to go from kg m-2 to t ha-1
 
 ## finally, take the sum of all mean values to get an average SOCS to 1m 
-all_stock_mean_1m <- all_stock_means %>% 
+all_stock_mean_med_1m <- all_stock_means_meds %>% 
   summarise(OCS_t_ha_mean_1m = sum(OCS_t_ha),
-            OCS_t_ha_sd_1m = sum(OCS_t_ha_sd))
+            OCS_t_ha_sd_1m = sum(OCS_t_ha_sd),
+            OCS_t_ha_med_1m = sum(OCS_t_ha_med),
+            OCS_t_ha_med_dev_1m = sum(OCS_t_ha_med_dev),
+            total_n = sum(n))
+
+### with the CONFIDENCE INTERVAL OF THE MEDIAN
+# 
+# all_density_med_ci <- ci.median(all_stocks$OCD_kg_m3, 
+#                                 group = all_stocks$Horizon_bin_cm, na.omit = T)$result
+# 
+# 
+# all_stock_med_ci <- all_density_med_ci %>% 
+#   mutate(Horizon_thick_m = case_when(group == "0-15cm" ~ 0.15,
+#                                      group == "15-30cm" ~ 0.15,
+#                                      group == "30-50cm" ~ 0.2,
+#                                      group == "50-100cm" ~ 0.5)) %>% 
+#   rename(OCD_kg_m3_med = med,
+#          OCD_kg_m3_low = low, 
+#          OCD_kg_m3_upp = upp) %>% 
+#   mutate(OCS_t_ha_med = OCD_kg_m3_med * Horizon_thick_m * 10,
+#          OCS_t_ha_low = OCD_kg_m3_low * Horizon_thick_m * 10,         
+#          OCS_t_ha_upp = OCD_kg_m3_upp * Horizon_thick_m * 10) 
+# 
+# 
+# 
+# all_stock_median_1m <- all_stock_med_ci %>% 
+#   summarise(OCS_t_ha_med_1m = sum(OCS_t_ha_med),
+#             OCS_t_ha_low_1m = sum(OCS_t_ha_low),
+#             OCS_t_ha_upp_1m = sum(OCS_t_ha_upp))
+
+
+
 
 ## saltmarsh area (from McOhen for now): 54,951
 area_km2 <-  54951 # km2 
 area_ha <- area_km2*100
-total_SOCS_t <- all_stock_mean_1m[1]*area_ha
+total_SOCS_t <- all_stock_mean_med_1m[, "OCS_t_ha_med_1m"]*area_ha #
 tota_SOCS_Gt <- total_SOCS_t/1000000000 # tonnes to gigatonnes (which is the same as Petagram)
 tota_SOCS_Gt
 
@@ -380,83 +608,77 @@ stocks_figure_all <- all_stocks %>%
   mutate(`Dataset source` = case_when(Source == "CCRCN" ~ "CCRCN",
                                       TRUE ~ "This dataset")) %>% 
   ggplot()+
-  geom_jitter(aes(x = Horizon_bin_cm, y = OCS_t_ha, shape = `Dataset source`), size = 2)+
-  scale_shape_manual(values = c(17,16))+ 
+  geom_jitter(aes(x = Horizon_bin_cm, y = OCS_t_ha, shape = `Dataset source`,
+                  color = `Dataset source`), size = 2, alpha = 0.5)+
+  scale_shape_manual(values = c(16,17))+ #if not fill c(17,16)
+  scale_color_manual(values = c("#4771e9ff", "#C1C0CD"))+
   coord_flip()+
-  geom_point(data = all_stock_means, aes(x = Horizon_bin_cm,
-                                     y = OCS_t_ha,
-                                     group = Horizon_bin_cm,
-                                     fill = Horizon_bin_cm),
-             size = 5, shape = 23)+
-  geom_errorbar(data = all_stock_means, aes( x = Horizon_bin_cm,
-                                        ymin = OCS_t_ha - OCS_t_ha_sd,
-                                        ymax = OCS_t_ha + OCS_t_ha_sd,
-                                        group = Horizon_bin_cm,
-                                        color = Horizon_bin_cm),
-                width = 0.2)+
+  geom_point(data = all_stock_means_meds, aes(x = Horizon_bin_cm,
+                                     y = OCS_t_ha_med,
+                                     group = Horizon_bin_cm),
+             size = 3, shape = 23, fill = "#8c2981")+
+  geom_errorbar(data = all_stock_means_meds, aes( x = Horizon_bin_cm,
+                                        ymin = OCS_t_ha_med - OCS_t_ha_med_dev,
+                                        ymax = OCS_t_ha_med + OCS_t_ha_med_dev,
+                                        group = Horizon_bin_cm),
+                width = 0.1, linewidth = 1,  color = "#8c2981")+
   theme_bw()+
   labs(
     x = "Soil depth",
     y = "Soil organic carbon stocks (t ha-1)")+
-  theme(#legend.position = "none",
+  theme(legend.position = "bottom",
         legend.title = element_text(size = 12),
         legend.text = element_text(size = 12),
         axis.text = element_text(size = 10, color = 'black'),
         axis.title = element_text(size = 12, color = 'black'))
 stocks_figure_all
 
-
-
-#### outliers? 
-#test for finding number of outliers
-qnt_OCD <- quantile(all_stocks[ ,"OCD_kg_m3"], probs=c(.05, .95), na.rm=T) #finding the quantiles of 5% and 95% for the column desired
-H_OCD<-2.2*IQR(all_stocks[,"OCD_kg_m3"], na.rm=T) #creating a variable H which is 2.2 times the interquartile range. See Kardol et al. 2018 --> they give a statistical ref.
-#replace values above the 2nd quantile + H, and below 1st quantile - H
-outliers1_OCD <-  all_stocks[all_stocks[, "OCD_kg_m3"] > (qnt_OCD[2] + H_OCD), "OCD_kg_m3"]
-outliers2_OCD <- all_stocks[all_stocks[,"OCD_kg_m3"] < (qnt_OCD[1] - H_OCD), "OCD_kg_m3"]
-
-#H1.5<-1.5*IQR(all_stocks[,"OCD_kg_m3"], na.rm=T) #creating a variable H which is 1.5 times the interquartile range. See Kardol et al. 2018 --> they give a statistical ref.
-sum(!is.na(outliers1_OCD)) #n of not previously NA values (i.e. not from missing) ABOVE limit
-
-
-
+ylab<- expression("Soil organic carbon density"~~("g"~~"cm"^-3))
 density_figure_all <- all_stocks %>%
   mutate(`Dataset source` = case_when(Source == "CCRCN" ~ "CCRCN",
                                       TRUE ~ "This dataset")) %>% 
   ggplot()+
-  geom_jitter(aes(x = Horizon_bin_cm, y = OCD_kg_m3, shape = `Dataset source`), size = 2)+
-  scale_shape_manual(values = c(17,16))+ 
+  geom_jitter(aes(x = Horizon_bin_cm, y = OCD_g_cm3, shape = `Dataset source`,
+                  color = `Dataset source`), 
+              size = 2, alpha = 0.5)+
+  scale_shape_manual(values = c(16,17))+ 
+  scale_color_manual(values = c("#4771e9ff", "#C1C0CD"))+
   coord_flip()+
-  ##outliers
-  geom_hline(aes(yintercept = qnt_OCD[2]+H_OCD), color = 'darkgreen',
-             linetype = 'dashed', size = 1.5)+
-  geom_hline(aes(yintercept = qnt_OCD[1]), color = 'gold',
-             linetype = 'dashed', size = 1.5)+
-  geom_hline(aes(yintercept = qnt_OCD[2]), color = 'gold',
-             linetype = 'dashed', size = 1.5)+
-  ##average point and error bar
-  geom_point(data = all_density_means, aes(x = Horizon_bin_cm,
-                                         y = OCD_kg_m3_mean,
-                                         group = Horizon_bin_cm,
-                                         fill = Horizon_bin_cm),
-             size = 5, shape = 23)+
-  
-  geom_errorbar(data = all_density_means, aes( x = Horizon_bin_cm,
-                                        ymin = OCD_kg_m3_mean - OCD_kg_m3_sd,
-                                        ymax = OCD_kg_m3_mean + OCD_kg_m3_sd,
-                                        group = Horizon_bin_cm,
-                                        color = Horizon_bin_cm),
-                width = 0.2)+
+  geom_point(data = all_stock_means_meds, aes(x = Horizon_bin_cm,
+                                              y = OCD_g_cm3_med ,
+                                              group = Horizon_bin_cm),
+             size = 3, shape = 23, fill = "#8c2981")+
+  geom_errorbar(data = all_stock_means_meds, aes( x = Horizon_bin_cm,
+                                                  ymin = OCD_g_cm3_med - OCD_g_cm3_med_dev,
+                                                  ymax = OCD_g_cm3_med+ OCD_g_cm3_med_dev,
+                                                  group = Horizon_bin_cm),
+                width = 0.1, linewidth = 1,  color = "#8c2981")+
   theme_bw()+
-  labs(
-    x = "Soil depth",
-    y = "Soil organic carbon density (kg m-3)")+
-  theme(#legend.position = "none",
+  labs(x = "Soil depth",
+    y = ylab)+
+  theme(legend.position = "bottom",
     legend.title = element_text(size = 12),
     legend.text = element_text(size = 12),
     axis.text = element_text(size = 10, color = 'black'),
     axis.title = element_text(size = 12, color = 'black'))
 density_figure_all
+
+
+# horizons_plots_final <- ggarrange(density_figure_all, stocks_figure_all +rremove("ylab"),
+#                                       ncol = 2, nrow = 1,
+#                                   common.legend = T,
+#                                       labels = c("(a)", "(b)"),
+#                                       font.label=list(color="black",size=10))
+
+
+
+###### export fig #####
+path_out = 'data_paper/figures/'
+
+export_fig <- density_figure_all
+fig_main_name <- "density_figure_all"
+export_file <- paste(path_out, fig_main_name, ".png", sep = '')
+ggsave(export_file, export_fig, width = 7.81, height = 5.42)
 
 
 
@@ -474,15 +696,20 @@ OC_BD_all <- all_stocks %>%
 OC_BD_all
 
 
-###### export outliers fig #####
-# path_out = 'reports/04_data_process/figures/stocks/'
-# 
-# export_fig <- OC_BD_all
-# fig_main_name <- "OC_BD_all"
-# export_file <- paste(path_out, fig_main_name, ".png", sep = '')
-# ggsave(export_file, export_fig, width = 12.91, height = 6.46)
 
 
+#### 6. stats for OCD ####
+
+library(lme4) #model with random effect
+library(lmerTest)
+mod_OCD <- lmer(OCD_kg_m3 ~ Horizon_bin_cm + (1|Original_source), 
+                data = all_stocks)
+
+anova(mod_OCD)
+
+library(RVAideMemoire)
+mood.medtest(OCD_kg_m3 ~ Horizon_bin_cm,
+             data = all_stocks)
 
 
 #### 6. conversion factor table ####
@@ -506,8 +733,7 @@ conv_fact
 SOM_and_OC_CCRCN <- data1 %>%
   filter(is.na(Latitude) == FALSE & is.na(Longitude) == FALSE) %>%
   filter(Source == "CCRCN") %>% 
-  filter(is.na(SOM_perc_combined) == FALSE & is.na(OC_perc_combined) == FALSE) %>% 
-  filter(Original_source != "Keshta et al 2020 a")
+  filter(is.na(SOM_perc_combined) == FALSE & is.na(OC_perc_combined) == FALSE) 
 table(SOM_and_OC_CCRCN$Original_source)
 nrow(SOM_and_OC_CCRCN)
 
@@ -522,13 +748,13 @@ conv_fact_xy <- conv_fact %>%
 x <- rep(1:100)
 
 ##our equation and the prediction intervals 
-dat0 <- data.frame(x, y = 0.000663*(x^2) + 0.406*x - 0.63, Source  = "Our equation")
+dat0 <- data.frame(x, y = 0.000732*(x^2) + 0.403*x, Source  = "Our equation")
 
 
-xOC2 = seq(from = 0.00, to = 100, 
-           length.out = 100) 
+xOC2 = seq(from = 0.00, to = 120, 
+           length.out = 80) 
 
-SOM_OC_predict <- read.csv("reports/04_data_process/data/SOM_OC_predict.csv") %>% 
+SOM_OC_predict_0 <- read.csv("reports/04_data_process/data/SOM_OC_predict_0.csv") %>% 
   mutate(xOC2 = xOC2)
 
 
@@ -536,7 +762,7 @@ SOM_OC_predict <- read.csv("reports/04_data_process/data/SOM_OC_predict.csv") %>
 # dat1 <- data.frame(x, y = 0.4*x + 0.0025*(x^2), Source  = "Craft equation: Burke et al 2022, 
 #                    \ Gu et al 2020, Wollenberg et al 2018")
 dat1 <- data.frame(x, y = 0.4*x + 0.0025*(x^2), Source  = "Craft et al 1991 (Louisiana, Coastal Carbon Manual)")
-dat2 <- data.frame(x, y = 0.58*x , Source  = "Conrad et al 2019 (Coffs Creek, New South Wales, Australia")
+dat2 <- data.frame(x, y = 0.58*x , Source  = "Conrad et al 2019 (Coffs Creek, New South Wales, Australia)")
 #dat3 <- data.frame(x, y = 0.47*x + 0.0008 , Source  = "Copertino et al under review")
 dat4 <- data.frame(x, y = 0.3102*x - 0.066 , Source  = "Martins et al 2022 (Ria Formosa lagoon, Portugal)")
 dat4bis <- data.frame(x, y = 0.2822*x - 0.3401 , Source  = "de los Santos et al 2022 (a) (Ria Formosa lagoon, Portugal)")
@@ -547,7 +773,7 @@ dat8 <- data.frame(x, y = 0.8559*x + 0.1953, Source  = "Human et al 2022 eq a (S
                    \ Swartkops Estuary, South Africa)")
 dat9 <- data.frame(x, y = 1.1345*x - 0.8806, Source  = "Human et al 2022 eq b (Spartina maritima zone, 
                    \ Swartkops Estuary, South Africa)")
-dat10 <- data.frame(x, y = 0.44*x - 1.80, Source  = "Kohfeld et al 2022 (Clayoquot Sound, British Columbia")
+dat10 <- data.frame(x, y = 0.44*x - 1.80, Source  = "Kohfeld et al 2022 (Clayoquot Sound, British Columbia)")
 #dat11 <- data.frame(x, y = 0.47*x, Source  = "Perera et al 2022") # using Baustian et al 2017, derived from Howard et al 2014
 dat12 <- data.frame(x, y = 0.47*x + 0.0008*(x^2) , Source  = "Howard et al 2014 (Maine, Coastal Carbon Manual)") # Ward 2020
 dat13 <- data.frame(x, y = 0.22*(x^1.1), Source  = "Ward et al 2021 (California estuaries)")
@@ -563,11 +789,11 @@ conv_fact_forgraph <- rbind(dat1, dat2,
 
 fig_conv_factors <- ggplot() +
   #prediction interval first -- so that it is in the background
-  geom_ribbon(data = SOM_OC_predict, aes(x = xOC2, ymin = Sim.2.5., ymax = Sim.97.5.),
+  geom_ribbon(data = SOM_OC_predict_0, aes(x = xOC2, ymin = Sim.2.5., ymax = Sim.97.5.),
               fill = "grey", alpha = 0.5) +
   
   #1:1 line
-  geom_abline(intercept = 0, slope = 1, linetype = "dotted", color = 'darkgrey', size =1) + 
+  #geom_abline(intercept = 0, slope = 1, linetype = "dotted", color = 'darkgrey', size =1) + 
   
   #different converstion equations
   geom_line(data = conv_fact_forgraph, aes(x,y, color = Source), linetype = 2, size = 1)+
@@ -611,13 +837,25 @@ fig_conv_factors
 
 #### 7. export data for data paper ####
 
-data_paper_export <- data_paper %>% 
+outliers <- data0 %>% 
+  filter(grepl("Outlier", Notes, ignore.case = TRUE)) %>% 
+  filter(is.na(Latitude) == FALSE & is.na(Longitude) == FALSE) %>%
+  filter(Source != "CCRCN") %>% 
+  droplevels() 
+
+data_paper_for_export <- rbind.fill(data_paper,outliers)
+
+
+
+data_paper_export <- data_paper_for_export %>% 
   dplyr::select(-c(Habitat_type, accuracy_code, 
                    SOM_perc_Heiri, # only in Beasy & Ellison 
                    Depth_to_bedrock_m, # only in Conrad et al 2019 and Gailis et al 2021
                    OC_perc_combined,
                    SOM_perc_combined,
-                   BD_reported_combined)) %>%  # narrow vs wide cores - CSIDE Smeaton projects
+                   BD_reported_combined,
+                   Horizon_mid_depth_cm,
+                   Horizon_bin_cm  )) %>%  
   dplyr::rename(BD_g_cm3 = BD_reported_g_cm3,
                 BD_g_cm3_mean = BD_reported_g_cm3_mean,
                 BD_g_cm3_se = BD_reported_g_cm3_se,
@@ -644,8 +882,15 @@ data_paper_noyear <- data_paper_export %>%
 table(data_paper_noyear$Source)
 
 
+data_paper_largeBD <- data_paper %>% 
+  filter(BD_reported_combined > 2) %>% 
+  group_by(Original_source, Horizon_bin_cm) %>% 
+  count()
+data_paper_largeBD
 
-
+test <- data_paper %>% 
+  filter(SOM_perc_combined < 0.8) %>% 
+  filter(Data_type != "Observed")
 
 
 
