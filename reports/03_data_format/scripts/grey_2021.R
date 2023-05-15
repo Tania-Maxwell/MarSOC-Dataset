@@ -4,6 +4,7 @@
 ## export for marsh soil C
 # contact Tania Maxwell, tlgm2@cam.ac.uk
 # 25.07.22
+# edit 15.05.23 to include Soil_type column
 
 
 #note: this dataset also includes mudflats and sand samples.
@@ -45,7 +46,8 @@ input_data03 <- input_data02 %>%
          Site_name = paste(Source_abbr, Site, Sample),
          Country = "Ireland") %>% 
   rename(Plot = Sample,
-         Habitat_type = Zone)
+         Habitat_type = Zone,
+         Soil_type = Sample_appearance)
 
 
 
@@ -78,13 +80,13 @@ input_data05 <- input_data04 %>%
 #### export ####
 
 export_data01 <- input_data05 %>% 
-  dplyr::select(Source, Site_name, Site, Plot, Habitat_type, Country, Year_collected,
+  dplyr::select(Source, Site_name, Site, Plot, Habitat_type, Soil_type, Country, Year_collected,
                 Latitude, Longitude, accuracy_flag, accuracy_code,
                 U_depth_m, L_depth_m, Method, OC_perc, SOM_perc, N_perc, BD_reported_g_cm3)
 
 
 export_data02 <- export_data01 %>% 
-  relocate(Source, Site_name, Site, Plot, Habitat_type, Latitude, Longitude, 
+  relocate(Source, Site_name, Site, Plot, Habitat_type, Soil_type, Latitude, Longitude, 
            accuracy_flag, accuracy_code, Country, Year_collected, .before = U_depth_m) %>% 
   arrange(Site, Habitat_type)
 

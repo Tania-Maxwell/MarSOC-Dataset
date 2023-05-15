@@ -23,7 +23,8 @@ author_initials <- "CS"
 
 
 input_data02 <- input_data01 %>% 
-  dplyr::rename(Site = Saltmarsh) %>% 
+  dplyr::rename(Site = Saltmarsh,
+                Soil_type = Substrate) %>% 
   mutate(Source = source_name,
          Source_abbr = author_initials,
          Site_name = paste(Source_abbr, Core_ID),
@@ -74,13 +75,13 @@ input_data05 <- input_data04 %>%
 #### export ####
 
 export_data01 <- input_data05 %>% 
-  dplyr::select(Source, Site_name, Site, Core, Habitat_type, Substrate, Country, Nation, Year_collected,
+  dplyr::select(Source, Site_name, Site, Core, Habitat_type, Soil_type, Country, Nation, Year_collected,
                 Latitude, Longitude, accuracy_flag, accuracy_code,
                 U_depth_m, L_depth_m, Method, OC_perc, N_perc, BD_reported_g_cm3)
 
 
 export_data02 <- export_data01 %>% 
-  relocate(Source, Site_name, Site, Core, Habitat_type,Substrate, Latitude, Longitude, 
+  relocate(Source, Site_name, Site, Core, Habitat_type,Soil_type, Latitude, Longitude, 
            accuracy_flag, accuracy_code, Country, Nation, Year_collected, .before = U_depth_m) %>% 
   arrange(Site, Habitat_type)
 

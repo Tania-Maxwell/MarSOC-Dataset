@@ -4,6 +4,7 @@
 ## export for marsh soil C
 # contact Tania Maxwell, tlgm2@cam.ac.uk
 # 05.01.23
+# edit 15.05.23 to corrected dbd and corrected depth value, and exporting soil type
 
 library(tidyverse)
 library(janitor) # to clean names
@@ -54,8 +55,9 @@ input_data03 <- full_join(input_data02, locations, by = "Core")
 input_data04 <- input_data03 %>% 
   rename(OC_perc = tc_elemental_analyser, # "Inorganic C was negligible in all 93 of the subsamples analyzed (max: 0.015 %) and assumed to be zero for all C calculation purposes."
          SOM_perc = loi,
-         BD_reported_g_cm3 = dbd_g_cm_3_uncorrected, 
-         U_depth_m = depth_soil_m_upper_depth) %>% 
+         BD_reported_g_cm3 = dbd_g_cm_3_corrected_for_compaction_usin, 
+         U_depth_m = depth_cor_m_upper_depth,
+         Soil_type = sediment_soil_type) %>% 
   mutate(accuracy_flag = "direct from dataset",
          accuracy_code = "1") %>% 
   mutate(Method = "EA") # this is the method for the OC_perc column
@@ -82,27 +84,28 @@ mp
 
 ## add a lower depth 
 
-test <- input_data04 %>% 
-  mutate(L_depth_m = U_depth_m +0.01,
-         diff = L_depth_m - U_depth_m) %>% 
-  relocate (L_depth_m, diff, .after = U_depth_m)
-
-summary(test$diff) # all core sections are 0.01 
-
 input_data05 <- input_data04 %>% 
-  mutate(L_depth_m = U_depth_m +0.01)
+  group_by(Core) %>% #calculations for each core separately
+  mutate(diff = U_depth_m - lead(U_depth_m)) %>% # difference is U_depth - the next value
+  mutate(diff = case_when(is.na(diff) == TRUE ~ lag(diff), #for the bottom of the core (when diff is NA), take the previous diff value (i.e. lag(diff))
+                          TRUE~diff)) %>% #keep diff value if not NA
+  mutate(L_depth_m = U_depth_m - diff) %>% # -diff because diff are negative values
+  relocate (diff,L_depth_m, .after = U_depth_m) %>% 
+  ungroup()
+
+table(input_data05$diff) 
 
 
 #### export ####
 
 export_data01 <- input_data05 %>% 
-  dplyr::select(Source, Site_name, Site, Core, Habitat_type, Country, State, Year_collected,
+  dplyr::select(Source, Site_name, Site, Core, Habitat_type, Soil_type, Country, State, Year_collected,
                 Latitude, Longitude, accuracy_flag, accuracy_code,
                 U_depth_m, L_depth_m, Method, OC_perc, SOM_perc, BD_reported_g_cm3)
 
 
 export_data02 <- export_data01 %>% 
-  relocate(Source, Site_name, Site, Core, Habitat_type, Latitude, Longitude, 
+  relocate(Source, Site_name, Site, Core, Habitat_type, Soil_type, Latitude, Longitude, 
            accuracy_flag, accuracy_code, Country, State, Year_collected, .before = U_depth_m) 
 
 

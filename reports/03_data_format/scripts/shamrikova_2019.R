@@ -3,7 +3,7 @@
 ## export for marsh soil C
 # contact Tania Maxwell, tlgm2@cam.ac.uk
 # 05.08.22
-
+# 15.05.23 including soil_type column
 
 library(tidyverse)
 
@@ -59,13 +59,13 @@ input_data05 <- input_data04 %>%
 #### export ####
 
 export_data01 <- input_data05 %>% 
-  dplyr::select(Source, Site_name, Site, Plot, Habitat_type, Country, Year_collected,
+  dplyr::select(Source, Site_name, Site, Plot, Habitat_type, Soil_type, Country, Year_collected,
                 Latitude, Longitude, accuracy_flag, accuracy_code,
                 U_depth_m, L_depth_m, Method, OC_perc, Ctot_perc, Cinorg_perc, Ntot_perc)
 
 
 export_data02 <- export_data01 %>% 
-  relocate(Source, Site_name, Site, Plot, Habitat_type, Latitude, Longitude, 
+  relocate(Source, Site_name, Site, Plot, Habitat_type,Soil_type, Latitude, Longitude, 
            accuracy_flag, accuracy_code, Country, Year_collected, .before = U_depth_m) %>% 
   arrange(Site, Habitat_type)
 

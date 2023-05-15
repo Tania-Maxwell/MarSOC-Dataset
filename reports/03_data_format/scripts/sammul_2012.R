@@ -4,6 +4,7 @@
 # contact Tania Maxwell, tlgm2@cam.ac.uk
 # 11.02.22
 # edit 20.12.22
+# edit 15.05.23 added soil type from notes
 
 
 library(tidyverse)
@@ -18,7 +19,8 @@ author_initials <- "MS"
 
 
 input_data02 <- input_data01 %>% 
-  rename(Treatment = kasutus) %>% 
+  rename(Treatment = kasutus,
+         Soil_type = notes) %>% 
   mutate(Source = source_name,
          Source_abbr = author_initials,
          Plot = paste(Site, Treatment),
@@ -46,13 +48,13 @@ input_data04 <- input_data03 %>%
 #### export ####
 
 export_data01 <- input_data04 %>% 
-  dplyr::select(Source, Site_name, Site, Plot, Habitat_type, Country, Year_collected,
+  dplyr::select(Source, Site_name, Site, Plot, Habitat_type, Soil_type, Country, Year_collected,
                 Latitude, Longitude, accuracy_flag, accuracy_code,
                 U_depth_m, L_depth_m, Method, OC_perc, Conv_factor, BD_reported_g_cm3)
 
 
 export_data02 <- export_data01 %>% 
-  relocate(Source, Site_name, Site, Plot, Habitat_type, Latitude, Longitude, 
+  relocate(Source, Site_name, Site, Plot, Habitat_type, Soil_type, Latitude, Longitude, 
            accuracy_flag, accuracy_code, Country, Year_collected, .before = U_depth_m) %>% 
   arrange(Site, Habitat_type)
 
