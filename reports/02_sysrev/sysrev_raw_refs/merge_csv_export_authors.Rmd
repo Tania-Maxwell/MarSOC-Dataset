@@ -1,0 +1,214 @@
+---
+title: "Merging studies from Sysrev output"
+author: "Tania L.G. Maxwell"
+date: "`r format(Sys.time(), '%d/%m/%Y')`"
+output: 
+  html_document: 
+    toc: TRUE
+    toc_float: 
+      toc_collapsed: FALSE
+      smooth_scroll: FALSE
+---
+# Introduction
+
+This is a script to collect pdfs from SysRev outputs. This will be done by merging original .ris files with the output .csv from Sysrev, using the paper title. 
+
+```{r, include=FALSE}
+# for scrollable output
+options(width = 60)
+local({
+  hook_output <- knitr::knit_hooks$get('output')
+  knitr::knit_hooks$set(output = function(x, options) {
+    if (!is.null(options$max.height)) options$attr.output <- c(
+      options$attr.output,
+      sprintf('style="max-height: %s;"', options$max.height)
+    )
+    hook_output(x, options)
+  })
+})
+```
+
+
+```{r, message = F, error=FALSE}
+# #to download the litsearchr package
+# library(remotes)
+# install_github("elizagrames/litsearchr", ref="main")
+library(litsearchr)
+library(dplyr)
+library(metagear)
+library(janitor)
+library(synthesisr)
+library(fuzzyjoin)
+library(stringr)
+```
+# Merging references to get DOIs
+
+```{r}
+
+#import the two files of bibliography, which were imported into Sysrev
+original_refs <- 
+    import_results(
+    directory = "C:/Users/Tania/OneDrive - University of Cambridge/Documents/07_Cam_postdoc/SaltmarshC/reports/01_litsearchr/exported_to_sysrev_raw", #absolute path
+    verbose = TRUE
+  )
+
+
+
+## RAW data
+
+raw_refs_ALL <- read.csv("~/07_Cam_postdoc/SaltmarshC/reports/02_sysrev/sysrev_exports_relabel/UserAnswers_P119559_0804_A1168.csv")
+
+raw_refs_ALL <- raw_refs_ALL %>% 
+  rename(title = Article.Title)
+```
+
+
+Now we can merge the two data frames by title, which will give us the 'doi' column from the original references. We can then use this in the `PDFs_collect` function of the `metagear` R package (next section). 
+
+```{r, eval = F}
+# can't get this to work
+#only 6 articles not merged
+# raw_refs_merged <- fuzzy_left_join(raw_refs_ALL, original_refs, by = c("title"))
+# 
+# raw_refs_merged <- raw_refs_ALL %>% 
+#   fuzzy_full_join(original_refs, by = "title", match_fun = str_detect)
+
+
+raw_refs_merged <- left_join(raw_refs_ALL, original_refs, by = c("title"))
+
+
+#extract first author's last name (first word until comma in column "author.y")
+raw_refs_merged$author_first <- substr(raw_refs_merged$Authors, 1, 
+                                          regexpr(",",raw_refs_merged$Authors)-1 ) 
+
+raw_refs_merged1 <- raw_refs_merged %>% 
+  mutate_if(is.character, list(~na_if(.,""))) 
+
+
+#creating a column with first author last name, year and article ID from sysrev
+#this will be used to name the PDFs
+raw_refs_merged2 <- raw_refs_merged1 %>% 
+  mutate(author_year_ID = paste(author_first, year, Article.ID, sep = "_"))
+
+```
+
+
+# Filter for included and primary data
+```{r}
+raw_refs_reduced <- raw_refs_merged2 %>% 
+  filter(Include == "TRUE", Primary.data. == "TRUE") 
+
+raw_refs_reduced <- as.data.frame(raw_refs_reduced)
+str(raw_refs_reduced)
+# raw_refs_reduced$doi < - str_trim(raw_refs_reduced$doi, side = "both")
+```
+
+
+# Finding PDFs
+
+To find the PDFs, 
+
+```{r, eval = F}
+# dir.create("metagear_downloads") #create a directory
+
+
+raw_refs_reduced_noNA <- raw_refs_reduced %>% 
+  filter(!is.na(doi))
+
+the_refs <- effort_initialize(raw_refs_reduced)
+
+
+#collect PDFs, place in created directory, name them by author_year_ID
+PDFs_collect(aDataFrame = the_refs, DOIcolumn = "doi",
+             FileNamecolumn = "author_year_ID", directory = "metagear_downloads",
+             WindowsProxy = TRUE, showSummary = TRUE) 
+```
+
+This was the final PDF download summary:
+
+PDF download summary:
+
+	 9 = no DOI
+	 60 = URL error
+
+Downloads located in: metagear_downloads
+
+# Exporting the merged csv file
+
+For RAW data: 
+```{r}
+raw_refs_reduced_toexport0 <- raw_refs_reduced %>% 
+  dplyr::select(Article.ID, Title, Location.of.interest, #selecting columns
+                Authors, abstract, year, source_type, doi, url, author_year_ID) %>% 
+  rename(title =Title, 
+         article_id = Article.ID,
+         author = Authors,
+         location = Location.of.interest) %>% 
+  relocate(article_id, author, year,  title, location, abstract, doi, #reordereing columns
+           url, .after = source_type)
+```
+
+
+```{r}
+
+
+##authors from ALL studies labeled "raw" - this is before the relableing
+# this is, in case contacting an author from the reduced list, to see if they have other studies
+raw_refs_authors0 <- raw_refs_merged2 %>%
+    dplyr::select(Article.ID, Title, Location.of.interest, #selecting columns
+                Authors, abstract, year, source_type, doi, url, author_year_ID) %>% 
+  rename(title =Title, 
+         article_id = Article.ID,
+         author = Authors,
+         location = Location.of.interest) %>% 
+  mutate(authors_full = author) %>% 
+  tidyr::separate(author, c("author_01", "author_02", "author_03"
+                            , "author_04", "author_05", "author_06"
+                            , "author_07", "author_08", "author_09"
+                            , "author_10", "author_11", "author_12"
+                            , "author_13", "author_14", "author_15"
+                            , "author_16", "author_17", "author_18",
+                            "author_19", "author_20", "author_21",
+                            "author_22", "author_23", "author_24",
+                            "author_25", "author_26"), sep = ";" ) # checked - no more than 26 authors
+
+
+### create 1 column with individual author names
+
+raw_refs_authors1 <- raw_refs_authors0 %>% 
+  pivot_longer(cols = author_01:author_26) %>% 
+  rename(author_individual = value,
+         author_position = name) %>% 
+  filter(!is.na(author_individual)) %>% 
+  arrange(author_individual) %>% 
+  relocate(article_id, year, location, author_individual, author_position, title, 
+           abstract, doi, url, .after = source_type)
+
+### authors which have duplicates
+
+raw_refs_authors2 <- raw_refs_authors1 %>% 
+  group_by(author_individual) %>% 
+  filter( n() > 1 )
+
+```
+
+
+
+
+```{r, eval = FALSE}
+
+#exporting the references as a csv, to manually edit as reading through full text
+write.csv(raw_refs_reduced_toexport0, file = "raw_refs_reduced.csv", row.names = F)
+
+#exporting data with author names 
+write.csv(raw_refs_authors2, file = "raw_refs_all_author-list_duplicates.csv", row.names = F)
+
+
+
+
+#exporting references 
+write_refs(raw_refs_reduced_toexport0, format = "bib", file = TRUE)
+```
+
+
+Note: it would be interesting to learn how to export the article ID into a field in the reference manager (i.e. the "extra" field in Zotero). I don't think the `write_refs()` function from `synthesisr` or the `write_bibliography()` function from `revtools` allows to do this 
