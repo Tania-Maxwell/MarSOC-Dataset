@@ -3,10 +3,11 @@
 ## export for marsh soil C
 # contact Tania Maxwell, tlgm2@cam.ac.uk
 # 21.03.23
+# edit 16.05.23 input data is submitted data only (in prep data not in repo)
 
 
 library(tidyverse)
-input_file01 <- "reports/03_data_format/data/core_level/Russell_unpublished_email/Russell_unpublished.csv"
+input_file01 <- "reports/03_data_format/data/core_level/Russell_unpublished_email/Russell_submitted.csv"
 
 ## keep only the submitted values 
 input_data01 <- read.csv(input_file01) 
