@@ -290,7 +290,7 @@ fitted_df_randomeffect_0 <- as.data.frame(cbind(xOC2, fitted_values_randomeffect
 xOC2_extend = seq(from = 0.0, to = 120, 
                        length.out = 80)
 
-# # #note: this takes a while to calculate. will just import
+# #note: this takes a while to calculate. will just import
 # SOM_OC_predict_0 <- predictNLS(quadratic_model_0, newdata = data.frame(SOM_perc_combined = xOC2_extend),
 #                       interval="pred")
 # 

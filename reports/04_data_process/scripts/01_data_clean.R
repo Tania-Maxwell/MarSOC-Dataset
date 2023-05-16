@@ -197,7 +197,7 @@ data3 <- data2 %>%
 
 
 data4 <- data3 %>% 
-  dplyr::select(Source:Original_source, Conv_factor, Core, Admin_unit, Depth_to_bedrock_m,
+  dplyr::select(Source:Original_source, Soil_type, Conv_factor, Core, Admin_unit, Depth_to_bedrock_m,
                Treatment, Time_replicate, n_cores, SOM_perc_mean:OC_perc_se, BD_reported_g_cm3_mean, 
                BD_reported_g_cm3_se, BD_reported_g_cm3_sd)
 
@@ -211,6 +211,7 @@ data5 <- data4 %>%
                                  Source == "Yang et al 2021" | Source == "Yu and Chmura 2010" |
                                  Source == "Yuan et al 2019" | Source == "Voltz et al 2021"
                                | Source == "Hayes et al 2014" | Source == "Day et al 2011"
+                               | Source == "Ferronato et al 2019"
                                  | Source == "Fuchs et al 2018" | Source == "Hatton et al 1983"
                                  | Source == "Loomis and Craft 2010" | Source == "Macreadie et al 2017"
                                  | Source == "Morris and Jensen 1998"| Source == "Sousa et al 2010"

@@ -85,96 +85,95 @@ data2 <- data1 %>%
                            BD_reported_combined > limit_BD ~ "Outlier - BD removed from test"))
 
 #### 3. visualize outlier rule for all data ####
-# 
-# OC_check_all <- data1 %>% 
-#   filter(Source != "CCRCN") %>% ## these are the checks for the data paper
-#   # filter(Data_type == "Meta-analysis") %>% 
-#   # filter(Source == "Copertino et al under review") %>% 
-#   ggplot(aes(x = Horizon_bin_cm, y = OC_perc_combined))+
-#   coord_flip()+
-#   geom_jitter()+
-#   # geom_hline(aes(yintercept = qnt[2]+H), color = 'purple',
-#   #            linetype = 'dashed', size = 1)+
-#   geom_hline(aes(yintercept = qnt_OC[2]+H_OC), color = 'darkgreen',
-#              linetype = 'dashed', size = 1.5)+
-#   geom_hline(aes(yintercept = qnt_OC[1]), color = 'gold',
-#              linetype = 'dashed', size = 1.5)+
-#   geom_hline(aes(yintercept = qnt_OC[2]), color = 'gold',
-#              linetype = 'dashed', size = 1.5)+
-#   theme_bw()+
-#   labs(title = "Green: 2.2x the interquartile range, Yellow: 0.05 and 0.95 quantiles",
-#        x = "Soil depth (mid-point of layer)",
-#        y = "OC (%)")+
-#   theme(legend.position = "none",
-#         legend.title = element_text(size = 12),
-#         legend.text = element_text(size = 12),
-#         axis.text = element_text(size = 10, color = 'black'),
-#         axis.title = element_text(size = 12, color = 'black'))
-# OC_check_all
-# 
-# SOM_check_all <- data1 %>% 
-#   filter(Source != "CCRCN") %>% ## these are the checks for the data paper
-#   # filter(Data_type == "Meta-analysis") %>% 
-#   # filter(Source == "Copertino et al under review") %>% 
-#   ggplot(aes(x = Horizon_bin_cm, y = SOM_perc_combined))+
-#   coord_flip()+
-#   geom_jitter()+
-#   # geom_hline(aes(yintercept = qnt[2]+H), color = 'purple',
-#   #            linetype = 'dashed', size = 1)+
-#   geom_hline(aes(yintercept = qnt_SOM[2]+H_SOM), color = 'darkgreen',
-#              linetype = 'dashed', size = 1.5)+
-#   geom_hline(aes(yintercept = qnt_SOM[1]), color = 'gold',
-#              linetype = 'dashed', size = 1.5)+
-#   geom_hline(aes(yintercept = qnt_SOM[2]), color = 'gold',
-#              linetype = 'dashed', size = 1.5)+
-#   theme_bw()+
-#   labs(title = "Green: 2.2x the interquartile range, Yellow: 0.05 and 0.95 quantiles",
-#        x = "Soil depth (mid-point of layer)",
-#        y = "SOM (%)")+
-#   theme(legend.position = "none",
-#         legend.title = element_text(size = 12),
-#         legend.text = element_text(size = 12),
-#         axis.text = element_text(size = 10, color = 'black'),
-#         axis.title = element_text(size = 12, color = 'black'))
-# SOM_check_all
-# 
-# 
-# 
-# BD_check_all <- data1 %>% 
-#   filter(Source != "CCRCN") %>% ## these are the checks for the data paper
-#   # filter(Data_type == "Meta-analysis") %>% 
-#   # filter(Source == "Copertino et al under review") %>% 
-#   ggplot(aes(x = Horizon_bin_cm, y = BD_reported_combined))+
-#   coord_flip()+
-#   geom_jitter()+
-#   # geom_hline(aes(yintercept = qnt[2]+H), color = 'purple',
-#   #            linetype = 'dashed', size = 1)+
-#   geom_hline(aes(yintercept = qnt_BD[2]+H_BD), color = 'darkgreen',
-#              linetype = 'dashed', size = 1.5)+
-#   geom_hline(aes(yintercept = qnt_BD[1]), color = 'gold',
-#              linetype = 'dashed', size = 1.5)+
-#   geom_hline(aes(yintercept = qnt_BD[2]), color = 'gold',
-#              linetype = 'dashed', size = 1.5)+
-#   theme_bw()+
-#   labs(title = "Green: 2.2x the interquartile range, Yellow: 0.05 and 0.95 quantiles",
-#        x = "Soil depth (mid-point of layer)",
-#        y = "Bulk density (g cm-3)")+
-#   theme(legend.position = "none",
-#         legend.title = element_text(size = 12),
-#         legend.text = element_text(size = 12),
-#         axis.text = element_text(size = 10, color = 'black'),
-#         axis.title = element_text(size = 12, color = 'black'))
-# BD_check_all
-# 
-# 
-# ###### export ####
-# 
-# path_out = 'reports/04_data_process/figures/outliers/'
-# export_fig <- BD_check_all
-# export_file <- paste(path_out, "BD_check_all.png", sep = '')
-# ggsave(export_file, export_fig, width = 7.85, height = 4.77)
-# 
-# 
+
+OC_check_all <- data1 %>%
+  filter(Source != "CCRCN") %>% ## these are the checks for the data paper
+  # filter(Data_type == "Meta-analysis") %>%
+  # filter(Source == "Copertino et al under review") %>%
+  ggplot(aes(x = Horizon_bin_cm, y = OC_perc_combined))+
+  coord_flip()+
+  geom_jitter()+
+  # geom_hline(aes(yintercept = qnt[2]+H), color = 'purple',
+  #            linetype = 'dashed', size = 1)+
+  geom_hline(aes(yintercept = qnt_OC[2]+H_OC), color = 'darkgreen',
+             linetype = 'dashed', size = 1.5)+
+  geom_hline(aes(yintercept = qnt_OC[1]), color = 'gold',
+             linetype = 'dashed', size = 1.5)+
+  geom_hline(aes(yintercept = qnt_OC[2]), color = 'gold',
+             linetype = 'dashed', size = 1.5)+
+  theme_bw()+
+  labs(title = "Green: 2.2x the interquartile range, Yellow: 0.05 and 0.95 quantiles",
+       x = "Soil depth (mid-point of layer)",
+       y = "OC (%)")+
+  theme(legend.position = "none",
+        legend.title = element_text(size = 12),
+        legend.text = element_text(size = 12),
+        axis.text = element_text(size = 10, color = 'black'),
+        axis.title = element_text(size = 12, color = 'black'))
+OC_check_all
+
+SOM_check_all <- data1 %>%
+  filter(Source != "CCRCN") %>% ## these are the checks for the data paper
+  # filter(Data_type == "Meta-analysis") %>%
+  # filter(Source == "Copertino et al under review") %>%
+  ggplot(aes(x = Horizon_bin_cm, y = SOM_perc_combined))+
+  coord_flip()+
+  geom_jitter()+
+  # geom_hline(aes(yintercept = qnt[2]+H), color = 'purple',
+  #            linetype = 'dashed', size = 1)+
+  geom_hline(aes(yintercept = qnt_SOM[2]+H_SOM), color = 'darkgreen',
+             linetype = 'dashed', size = 1.5)+
+  geom_hline(aes(yintercept = qnt_SOM[1]), color = 'gold',
+             linetype = 'dashed', size = 1.5)+
+  geom_hline(aes(yintercept = qnt_SOM[2]), color = 'gold',
+             linetype = 'dashed', size = 1.5)+
+  theme_bw()+
+  labs(title = "Green: 2.2x the interquartile range, Yellow: 0.05 and 0.95 quantiles",
+       x = "Soil depth (mid-point of layer)",
+       y = "SOM (%)")+
+  theme(legend.position = "none",
+        legend.title = element_text(size = 12),
+        legend.text = element_text(size = 12),
+        axis.text = element_text(size = 10, color = 'black'),
+        axis.title = element_text(size = 12, color = 'black'))
+SOM_check_all
+
+
+BD_check_all <- data1 %>%
+  filter(Source != "CCRCN") %>% ## these are the checks for the data paper
+  # filter(Data_type == "Meta-analysis") %>%
+  # filter(Source == "Copertino et al under review") %>%
+  ggplot(aes(x = Horizon_bin_cm, y = BD_reported_combined))+
+  coord_flip()+
+  geom_jitter()+
+  # geom_hline(aes(yintercept = qnt[2]+H), color = 'purple',
+  #            linetype = 'dashed', size = 1)+
+  geom_hline(aes(yintercept = qnt_BD[2]+H_BD), color = 'darkgreen',
+             linetype = 'dashed', size = 1.5)+
+  geom_hline(aes(yintercept = qnt_BD[1]), color = 'gold',
+             linetype = 'dashed', size = 1.5)+
+  geom_hline(aes(yintercept = qnt_BD[2]), color = 'gold',
+             linetype = 'dashed', size = 1.5)+
+  theme_bw()+
+  labs(title = "Green: 2.2x the interquartile range, Yellow: 0.05 and 0.95 quantiles",
+       x = "Soil depth (mid-point of layer)",
+       y = "Bulk density (g cm-3)")+
+  theme(legend.position = "none",
+        legend.title = element_text(size = 12),
+        legend.text = element_text(size = 12),
+        axis.text = element_text(size = 10, color = 'black'),
+        axis.title = element_text(size = 12, color = 'black'))
+BD_check_all
+
+
+###### export ####
+
+path_out = 'reports/04_data_process/figures/outliers/'
+export_fig <- BD_check_all # also for OC_check_all, SOM_check_all
+export_file <- paste(path_out, "BD_check_all.png", sep = '')
+ggsave(export_file, export_fig, width = 7.85, height = 4.77)
+
+
 
 
 #### 4. visualize outlier rule for per depth ####
@@ -281,7 +280,7 @@ data2 <- data1 %>%
 ##### export ####
 # path_out = 'reports/04_data_process/figures/outliers/'
 # 
-# export_fig <- OC_check_all
+# export_fig <- OC_check
 # export_file <- paste(path_out, "outliers_OC_all_2.2.png", sep = '') 
 # ggsave(export_file, export_fig, width = 8.53, height = 5.20)
 # 
@@ -344,13 +343,13 @@ SOM_OC
 
 
 ###### export outliers fig #####
-# path_out = 'reports/04_data_process/figures/outliers/'
-# 
-# ##studies with SOM to OC
-# export_fig <- SOM_OC
-# fig_main_name <- "SOM_OC"
-# export_file <- paste(path_out, fig_main_name, ".png", sep = '')
-# ggsave(export_file, export_fig, width = 7.15, height = 5.43)
+path_out = 'reports/04_data_process/figures/outliers/'
+
+##studies with SOM to OC
+export_fig <- SOM_OC
+fig_main_name <- "SOM_OC"
+export_file <- paste(path_out, fig_main_name, ".png", sep = '')
+ggsave(export_file, export_fig, width = 15.36, height = 8.14)
 
 
 
@@ -412,13 +411,13 @@ SOM_BD <- ggplot(data_outliers_removed1, aes(x = SOM_perc_combined, y = BD_repor
 SOM_BD
 
 ###### export outliers fig #####
-# path_out = 'reports/04_data_process/figures/outliers/'
-# 
-# ##studies with SOM to OC
-# export_fig <- SOM_BD
-# fig_main_name <- "SOM_BD"
-# export_file <- paste(path_out, fig_main_name, ".png", sep = '')
-# ggsave(export_file, export_fig, width = 7.15, height = 5.43)
+path_out = 'reports/04_data_process/figures/outliers/'
+
+##studies with SOM to OC
+export_fig <- SOM_BD
+fig_main_name <- "SOM_BD"
+export_file <- paste(path_out, fig_main_name, ".png", sep = '')
+ggsave(export_file, export_fig, width = 7.15, height = 5.43)
 
 
 ### remove the odd BD vs OC value

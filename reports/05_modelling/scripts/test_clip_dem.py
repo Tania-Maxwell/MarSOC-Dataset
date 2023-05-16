@@ -1,3 +1,0 @@
-# script for
-
-processing.run("gdal:cliprasterbymasklayer", {'INPUT':'C:/Users/Tania/AppData/Local/Temp/processing_wzzvbp/757bf23f418b46fc948a3fb5930bd23c/OUTPUT.tif','MASK':'C:/Users/Tania/AppData/Local/Temp/processing_wzzvbp/38109a61af45416bbab9fcb561157440/OUTPUT.gpkg','SOURCE_CRS':None,'TARGET_CRS':None,'TARGET_EXTENT':'133.906235488,180.002100474,-90.001050237,-35.562117620 [EPSG:4326]','NODATA':None,'ALPHA_BAND':False,'CROP_TO_CUTLINE':True,'KEEP_RESOLUTION':True,'SET_RESOLUTION':False,'X_RESOLUTION':None,'Y_RESOLUTION':None,'MULTITHREADING':False,'OPTIONS':'','DATA_TYPE':0,'EXTRA':'','OUTPUT':'TEMPORARY_OUTPUT'})
