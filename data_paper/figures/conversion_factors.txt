@@ -1,0 +1,18 @@
+"Source","Conv_factor","n"
+"Burke et al 2022","SOC = 0.4*SOM + 0.0025*(SOM^2)",157
+"Conrad et al 2019","SOC = 0.58*SOM",33
+"Copertino et al under review","SOC = 0.47*SOM + 0.0008",251
+"de los Santos et al 2022 (a)","SOC = 0.3102*SOM - 0.066",39
+"de los Santos et al 2022 (b)","SOC = 0.461*SOM - 0.266",7
+"Gailis et al 2021","SOC = 0.44*SOM - 1.33",22
+"Gispert et al 2020","SOC = SOM/1,724",6
+"Gispert et al 2021","SOC = SOM/1,724",4
+"Gu et al 2020","SOC = 0.4*SOM + 0.0025*(SOM^2)",147
+"Human et al 2022","SOC = 0.8559*SOM + 0.1953",412
+"Human et al 2022","SOC = 1.1345*SOM - 0.8806",412
+"Kohfeld et al 2022","SOC = 0.44*SOM - 1.80",707
+"Martins et al 2022","SOC = 0.3102*SOM - 0.066",116
+"Perera et al 2022","SOC = 0.47*SOM",16
+"Ward 2020","SOC = 0.47*SOM + 0.0008*(SOM^2)",10
+"Ward et al 2021","SOC = 0.22*(SOM^1.1)",192
+"Wollenberg et al 2018","0.40*x + (0.0025*x)2",28
