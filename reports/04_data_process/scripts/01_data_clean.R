@@ -270,7 +270,10 @@ data8 <- data7 %>%
                                   "OC = 0.58*OM" = "0.58", 
                                   "OC = 0.461*OM - 0.266" = "OC (% dw) = 0.461 x OM - 0.266", 
                                   "OC = 0.3102*OM - 0.066" = "OC = -0.066 + 0.3102*OM", 
-                                  "OC = OM/1,724" = "SOM/1,724"))
+                                  "OC = OM/1,724" = "SOM/1,724")) 
+# note: the conversion factor used in de los Santos et al (2022 a) was developped from the data from Santos et al. 2019 
+# both are from the Ria Formosa lagoon
+# also, Kohlenfeld et al 2022 has both data used to develop the conversion factor and data where it was applied
 
 table(data8$Conv_factor)
 

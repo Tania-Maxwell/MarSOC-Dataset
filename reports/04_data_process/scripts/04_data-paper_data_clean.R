@@ -678,6 +678,8 @@ conv_fact <- data_paper_export %>%
   droplevels() %>%
   mutate(Conv_factor =  gsub("OC", "SOC",
                              gsub("OM", "SOM", Conv_factor))) %>%
+  mutate(Source = fct_recode(Source, "de los Santos et al 2022 (a) from Santos et al 2019" = 
+                               "de los Santos et al 2022 (a)"))
   dplyr::count()
 conv_fact   
 
@@ -717,10 +719,10 @@ SOM_OC_predict_0 <- read.csv("reports/04_data_process/data/SOM_OC_predict_0.csv"
 #                    \ Gu et al 2020, Wollenberg et al 2018")
 dat1 <- data.frame(x, y = 0.4*x + 0.0025*(x^2), Source  = "Craft et al 1991 (Louisiana, Coastal Carbon Manual)")
 dat2 <- data.frame(x, y = 0.58*x , Source  = "Conrad et al 2019 (Coffs Creek, New South Wales, Australia)")
-#dat3 <- data.frame(x, y = 0.47*x + 0.0008 , Source  = "Copertino et al under review")
+#dat3 <- data.frame(x, y = 0.47*x + 0.0008 , Source  = "Hatje et al 2023")
 dat4 <- data.frame(x, y = 0.3102*x - 0.066 , Source  = "Martins et al 2022 (Ria Formosa lagoon, Portugal)")
-dat4bis <- data.frame(x, y = 0.2822*x - 0.3401 , Source  = "de los Santos et al 2022 (a) (Ria Formosa lagoon, Portugal)")
-dat5 <- data.frame(x, y = 0.461*x - 0.266 , Source  = "de los Santos et al 2022 (b) (Cadiz Bay, Spain)")
+dat4bis <- data.frame(x, y = 0.2822*x - 0.3401 , Source  = "Santos et al 2019 (Ria Formosa lagoon, Portugal)") # used in de los Santos et al 2022 a
+dat5 <- data.frame(x, y = 0.461*x - 0.266 , Source  = "de los Santos et al 2022 (Cadiz Bay, Spain)") # de los Santos et al 2022 b
 dat6 <- data.frame(x, y = 0.44*x - 1.33  , Source  = "Gailis et al 2021 (Boundary Bay, British Columbia)")
 #dat7 <- data.frame(x, y = x/1.724 , Source  = "Gispert et al 2020, 2021")
 dat8 <- data.frame(x, y = 0.8559*x + 0.1953, Source  = "Human et al 2022 eq a (Salicornia tegetaria zone,
@@ -800,14 +802,14 @@ write.csv(export_df, export_file, row.names = F)
 
 
 # ## export subset 
+# # 
+# data_paper_export_subset <- data_paper_export %>%
+#   filter(Source == "Hatje et al 2023")
 # 
-data_paper_export_subset <- data_paper_export %>%
-  filter(Source == "Hatje et al 2023")
-
-path_out = '../Data/' # up from root directory into Data folder
-
-file_name <- "export_Hatje_et_al_2023"
-export_file <- paste(path_out, file_name, ".csv", sep = '')
-export_df <- data_paper_export_subset
-
-write.csv(export_df, export_file, row.names = F)
+# path_out = '../Data/' # up from root directory into Data folder
+# 
+# file_name <- "export_Hatje_et_al_2023"
+# export_file <- paste(path_out, file_name, ".csv", sep = '')
+# export_df <- data_paper_export_subset
+# 
+# write.csv(export_df, export_file, row.names = F)
