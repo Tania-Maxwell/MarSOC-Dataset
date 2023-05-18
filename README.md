@@ -1,11 +1,11 @@
 # Repository Structure
 
-**Maxwell_data_globalmarshC.csv**: .csv file containing the final dataset. The data structure is described in Table 1. It contains 17,522 records distributed amongst 29 countries. 
-- data_paper/: folder containing the list of studies included in the dataset, as well as figures for this data paper (generated from the following R script: ‘reports/04_data_process/scripts/04_data-paper_data_clean.R’). 
-- reports/01_litsearchr/: folder containing .bib files with references from the original naive search, a .Rmd document describing the litsearchr analysis using nodes to go from the naive search to the final search string, and the .bib files from this final search, which were then imported into sysrev for abstract screening. 
-- reports/02_sysrev/: folder with .csv files exported from sysrev after abstract screening. These files contain the included studies with their various labels. 
-- reports/03_data_format/: folder containing all original data, associated scripts, and exported data.
-- reports/04_data_process/: folder containing data processing scripts to bind and clean the exported data, as well as a script testing the different models for predicting soil organic carbon from organic matter and finalising the equation using all available data. A script testing and removing outliers is also included. 
+**`Maxwell_marshC_dataset.csv`**: .csv file containing the final dataset. The data structure is described in Table 1, as well as in the **`Maxwell_marshC_dataset_metadata.csv`** file. It contains 17,522 records distributed amongst 29 countries. 
+- `data_paper/`: folder containing the list of studies included in the dataset, as well as figures for this data paper (generated from the following R script: ‘reports/04_data_process/scripts/04_data-paper_data_clean.R’). 
+- `reports/01_litsearchr/`: folder containing .bib files with references from the original naive search, a .Rmd document describing the litsearchr analysis using nodes to go from the naive search to the final search string, and the .bib files from this final search, which were then imported into sysrev for abstract screening. 
+- `reports/02_sysrev/`: folder with .csv files exported from sysrev after abstract screening. These files contain the included studies with their various labels. 
+- `reports/03_data_format/`: folder containing all original data, associated scripts, and exported data.
+- `reports/04_data_process/`: folder containing data processing scripts to bind and clean the exported data, as well as a script testing the different models for predicting soil organic carbon from organic matter and finalising the equation using all available data. A script testing and removing outliers is also included. 
 
 
 # Dataset Metadata 
@@ -1392,6 +1392,8 @@
 
 When using data from this dataset please cite both the publication and the dataset. The dataset version from DD-MM-2023 is archived in the following Figshare repository: [insert Figshare url]. 
 
+<div>
+<p> 
 @article{maxwell_global_2023,
 	title = {},
 	volume = {},
@@ -1404,7 +1406,6 @@ When using data from this dataset please cite both the publication and the datas
 	date = {},
 }
 
-
 @misc{maxwell_data_2023,
 	title = {},
 	url = {},
@@ -1414,6 +1415,9 @@ When using data from this dataset please cite both the publication and the datas
 	date = {2023},
 	doi = {},
 }
+</p> 
+</div>
+
 
 # Licence
 
@@ -1425,4 +1429,4 @@ We would like to thank everyone who contributed to the collection of the soil co
 
 # Contact
 
-For any queries, please contact Tania L. Maxwell (taniamaxwell7 [at] gmail.com). 
+For any queries, please contact Tania L. Maxwell (taniamaxwell7 [at] gmail.com). This dataset is currently being formatted for incoporation into the [Coastal Carbon Atlas](https://ccrcn.shinyapps.io/CoastalCarbonAtlas/). 
