@@ -169,10 +169,9 @@ BD_check_all
 ###### export ####
 
 path_out = 'reports/04_data_process/figures/outliers/'
-export_fig <- BD_check_all # also for OC_check_all, SOM_check_all
-export_file <- paste(path_out, "BD_check_all.png", sep = '')
+export_fig <- SOM_check_all # also for OC_check_all, SOM_check_all
+export_file <- paste(path_out, "SOM_check_all.png", sep = '')
 ggsave(export_file, export_fig, width = 7.85, height = 4.77)
-
 
 
 
@@ -302,7 +301,6 @@ remove_outliers <- function(df, col){
   df[!is.na(df[,col]) & df[,col] < (qnt[1] - H) , col] <- NA #also need a function for values LOWER than 2.2* IQR
   return(df)
 }
-
 
 
 data_outliers_removed <- data2 
@@ -477,7 +475,9 @@ export_df <- data_outliers_removed3
 write.csv(export_df, export_file, row.names = F)
 
 
-# ### export for GEE
+### export for GEE
+
+# path_out <- '../04_data_process_for_model/data/'
 # 
 # file_name <- paste(Sys.Date(),"data_cleaned_outliersremoved_forGEE", sep = "_")
 # export_file_GEE <- paste(path_out, file_name, ".csv", sep = '')

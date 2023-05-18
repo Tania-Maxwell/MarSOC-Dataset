@@ -28,10 +28,15 @@ input_data02 <- input_data01 %>%
   mutate(OC_perc = as.numeric(OC_perc),
          BD_reported_g_cm3 = as.numeric(BD_reported_g_cm3))
 
+input_data03 <- input_data02 %>% 
+  rename(U_depth_cm = U_depth_m, # data was enterred wrong in sheet - upper and lower depths are originally in cm not m
+         L_depth_cm = L_depth_m) %>% 
+  mutate(U_depth_m = U_depth_cm/100,
+         L_depth_m = L_depth_cm/100)
 
 #### export ####
 
-export_data01 <- input_data02 %>% 
+export_data01 <- input_data03 %>% 
   dplyr::select(Source,  Site_name, Site, Core, Habitat_type, Country, Year_collected,
                 Latitude, Longitude, accuracy_flag, accuracy_code,
                 U_depth_m, L_depth_m, Method, OC_perc, BD_reported_g_cm3)

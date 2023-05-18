@@ -96,46 +96,6 @@ table(reviews$Source)
 table(data_paper$accuracy_flag)
 
 
-#percent of data with N data, bulk density
-
-#N
-nN_perc_data <- data_paper %>% 
-  filter(is.na(N_perc) == FALSE)
-
-nN_perc <- as.numeric(nrow(nN_perc_data))
-
-#percent of data with N data
-(nN_perc/nsamples)*100
-
-# BD
-nBD_data <- data_paper %>% 
-  filter(is.na(BD_reported_g_cm3) == FALSE | 
-           is.na(BD_reported_g_cm3_mean) == FALSE)
-
-nBD<- as.numeric(nrow(nBD_data))
-
-#percent of data with N data
-(nBD/nsamples)*100
-
-
-# depth of cores
-# less than 30cm
-cores_less30 <- data_paper %>% 
-  filter(L_depth_m < 0.3)
-
-ncores_less30<- as.numeric(nrow(cores_less30))
-
-#percent of data with N data
-(ncores_less30/nsamples)*100
-
-# greater than 30cm
-cores_greater30 <- data_paper %>% 
-  filter(L_depth_m >= 0.3)
-
-ncores_greater30<- as.numeric(nrow(cores_greater30))
-
-#percent of data with N data
-(ncores_greater30/nsamples)*100
 
 
 
@@ -253,6 +213,37 @@ export_file <- paste(path_out, fig_name, ".png", sep = '')
 
 ggsave(export_file, fig_paper, width = 11.26, height = 6.11)
 
+
+##### 3b. data points with maximum depth ####
+
+max_depth <- data1 %>%
+  filter(is.na(Latitude) == FALSE & is.na(Longitude) == FALSE) %>% 
+  mutate(`Dataset source` = case_when(Source == "CCRCN" ~ "CCRCN",
+                                      TRUE ~ "Compiled dataset")) %>%
+  group_by(`Dataset source`, Source, Latitude, Longitude, Site_name) %>% 
+  summarise(max_depth = max(L_depth_m))
+  distinct(Latitude, Longitude, .keep_all = TRUE) 
+
+fig_max_depth <- ggplot(data = world) +
+    geom_sf() +
+    coord_sf(ylim = c(-60, 80), expand = FALSE)+
+    theme_bw()+
+    labs(title = "Global tidal marsh soil organic carbon dataset")+
+    theme(plot.title = element_text(size = 18, hjust = 0.5))+
+    geom_point(data = max_depth, aes(x = Longitude, y = Latitude,
+                                             fill = `Dataset source`, 
+                                     size = log(max_depth)), shape = 21, alpha = 0.5)+
+    scale_size(range = c(2,8))+
+    scale_fill_viridis(name = "Data Type:", discrete = TRUE, option = "D",
+                       guide = guide_legend(override.aes = list(size = 5,
+                                                                alpha = 1)))+
+    theme(legend.position = "bottom",
+          legend.title = element_text(size = 12),
+          legend.text = element_text(size = 12),
+          axis.text = element_text(size = 10, color = 'black'),
+          axis.title = element_text(size = 12, color = 'black'))
+  
+fig_max_depth
 
 #### 4. figure distribution of points ####
 
@@ -400,8 +391,19 @@ all_stock_mean_med_1m <- all_stock_means_meds %>%
             OCS_t_ha_med_dev_1m = sum(OCS_t_ha_med_dev),
             total_n = sum(n))
 
+all_stock_mean_med_30cm <- all_stock_means_meds %>% 
+  filter(Horizon_bin_cm == "0-15cm" | Horizon_bin_cm == "15-30cm") %>% 
+  summarise(OCS_t_ha_mean_30cm = sum(OCS_t_ha),
+            OCS_t_ha_sd_30cm = sum(OCS_t_ha_sd),
+            OCS_t_ha_med_30cm = sum(OCS_t_ha_med),
+            OCS_t_ha_med_dev_30cm = sum(OCS_t_ha_med_dev),
+            total_n = sum(n))
 
+#n for calculation to 30cm 
+all_stock_mean_med_30cm$total_n
 
+#additional n for calculation to 1m 
+all_stock_mean_med_1m$total_n - all_stock_mean_med_30cm$total_n
 ## saltmarsh area from Worthington et al. in prep
 area_km2 <-  52876 # km2 
 area_ha <- area_km2*100
@@ -508,23 +510,179 @@ OC_BD_all
 
 
 
-#### 6. Conversion Factors #####
+
+#### 6. export data for data paper ####
+
+outliers <- data0 %>% 
+  filter(grepl("Outlier", Notes, ignore.case = TRUE)) %>% 
+  filter(is.na(Latitude) == FALSE & is.na(Longitude) == FALSE) %>%
+  filter(Source != "CCRCN") %>% 
+  droplevels() 
+
+data_paper_for_export <- rbind.fill(data_paper,outliers)
+
+
+
+data_paper_export <- data_paper_for_export %>% 
+  dplyr::select(-c(Habitat_type, accuracy_code, 
+                   SOM_perc_Heiri, # only in Beasy & Ellison 
+                   Depth_to_bedrock_m, # only in Conrad et al 2019 and Gailis et al 2021
+                   OC_perc_combined,
+                   SOM_perc_combined,
+                   BD_reported_combined,
+                   Horizon_mid_depth_cm,
+                   Horizon_bin_cm  )) %>%  
+  dplyr::rename(BD_g_cm3 = BD_reported_g_cm3,
+                BD_g_cm3_mean = BD_reported_g_cm3_mean,
+                BD_g_cm3_se = BD_reported_g_cm3_se,
+                BD_g_cm3_sd = BD_reported_g_cm3_sd) %>% 
+  dplyr::relocate(Original_source, Data_type, Site, Core, 
+                  Plot, Site_name, .after = Source) %>% 
+  dplyr::relocate(Country, Admin_unit, Year_collected, 
+                  Year_collected_end, .after = accuracy_flag) %>% 
+  dplyr::relocate(OC_perc, BD_g_cm3, SOM_perc, N_perc, 
+                  Time_replicate, Treatment, .after = Conv_factor) %>% 
+  dplyr::relocate(n_cores, SOM_perc_mean, SOM_perc_sd, OC_perc_mean, 
+                   OC_perc_sd, OC_perc_se, BD_g_cm3_mean,
+                   BD_g_cm3_sd, BD_g_cm3_se, .after = Treatment) %>% 
+  dplyr::relocate(Soil_type, .after = Site_name) %>% 
+  dplyr::mutate(Source = fct_recode(Source, "Hatje et al 2023" = "Copertino et al under review"))
+
+str(data_paper_export)
+
+levels(data_paper_export$Source)
+
+##### 6b. numbers including outliers ####
+nsamples <- as.numeric(nrow(data_paper_export))
+nsamples
+
+
+nlocations <- data_paper_export %>%
+  distinct(Latitude, Longitude, .keep_all = TRUE) %>% 
+  count()
+nlocations
+
+ncountries <- length(table(data_paper_export$Country)) 
+ncountries
+
+country_table <- data_paper_export %>%  
+  group_by(Country) %>% 
+  distinct(Latitude, .keep_all = TRUE) %>% 
+  count()
+
+#percent of data with N data, bulk density
+
+#N
+nN_perc_data <- data_paper_export %>% 
+  filter(is.na(N_perc) == FALSE)
+
+nN_perc <- as.numeric(nrow(nN_perc_data))
+
+#percent of data with N data
+(nN_perc/nsamples)*100
+
+# BD
+nBD_data <- data_paper_export %>% 
+  filter(is.na(BD_g_cm3) == FALSE | 
+           is.na(BD_g_cm3_mean) == FALSE)
+
+nBD<- as.numeric(nrow(nBD_data))
+
+#percent of data with N data
+(nBD/nsamples)*100
+
+
+# depth of cores
+# less than 30cm
+cores_less30 <- data_paper_export %>% 
+  filter(L_depth_m < 0.3)
+
+ncores_less30<- as.numeric(nrow(cores_less30))
+
+#percent of data with N data
+(ncores_less30/nsamples)*100
+
+# greater than 30cm
+samples_greater30 <- data_paper_export %>% 
+  filter(L_depth_m >= 0.3)
+
+nsamples_greater30<- as.numeric(nrow(samples_greater30))
+
+#percent of data that is deeper than 30 cm
+(nsamples_greater30/nsamples)*100
+
+cores_to1m <- data_paper_export %>% 
+  group_by(Site_name) %>% 
+  filter(L_depth_m >= 1) %>% 
+  distinct(Site_name, .keep_all = TRUE) 
+
+cores_total <- data_paper_export %>% 
+  group_by(Site_name) %>% 
+#  filter(L_depth_m >= 1) %>% 
+  distinct(Site_name, .keep_all = TRUE) 
+
+cores_deeper30cm <- data_paper_export %>% 
+  group_by(Site_name) %>% 
+    filter(L_depth_m >= 0.3) %>% 
+  distinct(Site_name, .keep_all = TRUE) 
+
+nrow(cores_deeper30cm)/nrow(cores_total)*100
+nrow(cores_to1m)/nrow(cores_total)*100
+
+### with CCRCN
+cores_to1m <- data1 %>% 
+  group_by(Latitude, Longitude) %>% 
+  filter(L_depth_m >= 1) %>% 
+  distinct(Site_name, .keep_all = TRUE) 
+
+cores_total <- data1 %>% 
+  group_by(Latitude, Longitude) %>% 
+  #  filter(L_depth_m >= 1) %>% 
+  distinct(Site_name, .keep_all = TRUE) 
+
+cores_deeper30cm <- data1 %>% 
+  group_by(Latitude, Longitude) %>% 
+  filter(L_depth_m >= 0.3) %>% 
+  distinct(Site_name, .keep_all = TRUE) 
+
+nrow(cores_deeper30cm)/nrow(cores_total)*100
+nrow(cores_to1m)/nrow(cores_total)*100
+
+#### 7. check papers ####
+
+data_paper_noyear <- data_paper_export %>% 
+  filter(is.na(Year_collected) == TRUE) %>% 
+  droplevels()
+
+table(data_paper_noyear$Source)
+
+
+data_paper_largeBD <- data_paper %>% 
+  filter(BD_reported_combined > 2) %>% 
+  group_by(Original_source, Horizon_bin_cm) %>% 
+  count()
+data_paper_largeBD
+
+test <- data_paper %>% 
+  filter(SOM_perc_combined < 0.8) %>% 
+  filter(Data_type != "Observed")
+
+#### 8. Conversion Factors #####
 ###### Table S1 conversion factor table ####
 
 #see figure in 03_SOM_to_OC.R
 
-conv_fact <- data_paper %>% 
+conv_fact <- data_paper_export %>% 
   filter(is.na(Conv_factor) == FALSE) %>% 
   group_by(Source, Conv_factor) %>% 
   droplevels() %>%
   mutate(Conv_factor =  gsub("OC", "SOC",
-                             gsub("OM", "SOM", Conv_factor))) %>% 
+                             gsub("OM", "SOM", Conv_factor))) %>%
   dplyr::count()
 conv_fact   
 
-
-# write.table(conv_fact, "data_paper/conversion_factors.txt", row.names =  FALSE,
-#             sep = ",")
+write.table(conv_fact, "data_paper/figures/conversion_factors.txt", row.names =  FALSE,
+            sep = ",")
 
 SOM_and_OC_CCRCN <- data1 %>%
   filter(is.na(Latitude) == FALSE & is.na(Longitude) == FALSE) %>%
@@ -577,9 +735,9 @@ dat13 <- data.frame(x, y = 0.22*(x^1.1), Source  = "Ward et al 2021 (California 
 conv_fact_forgraph <- rbind(dat1, dat2, 
                             #dat3, 
                             dat4, dat4bis, dat5, dat6,
-                           # dat7, 
+                            # dat7, 
                             dat8, dat9, dat10, 
-                           #dat11, 
+                            #dat11, 
                             dat12, dat13)
 
 
@@ -610,7 +768,7 @@ fig_conv_factors <- ggplot() +
         legend.text = element_text(size = 12),
         axis.text = element_text(size = 10, color = 'black'),
         axis.title = element_text(size = 12, color = 'black'))+
-
+  
   #to fix the axes without removing the grey shading area
   coord_cartesian(ylim = c(0, 100), xlim = c(0,100)) +
   scale_x_continuous(expand = c(0,0))+
@@ -629,84 +787,6 @@ export_file <- paste(path_out, "conv_factors", ".png", sep = '')
 ggsave(export_file, fig_conv_factors, width = 10.48, height = 4.82)
 
 
-#### 7. export data for data paper ####
-
-outliers <- data0 %>% 
-  filter(grepl("Outlier", Notes, ignore.case = TRUE)) %>% 
-  filter(is.na(Latitude) == FALSE & is.na(Longitude) == FALSE) %>%
-  filter(Source != "CCRCN") %>% 
-  droplevels() 
-
-data_paper_for_export <- rbind.fill(data_paper,outliers)
-
-
-
-data_paper_export <- data_paper_for_export %>% 
-  dplyr::select(-c(Habitat_type, accuracy_code, 
-                   SOM_perc_Heiri, # only in Beasy & Ellison 
-                   Depth_to_bedrock_m, # only in Conrad et al 2019 and Gailis et al 2021
-                   OC_perc_combined,
-                   SOM_perc_combined,
-                   BD_reported_combined,
-                   Horizon_mid_depth_cm,
-                   Horizon_bin_cm  )) %>%  
-  dplyr::rename(BD_g_cm3 = BD_reported_g_cm3,
-                BD_g_cm3_mean = BD_reported_g_cm3_mean,
-                BD_g_cm3_se = BD_reported_g_cm3_se,
-                BD_g_cm3_sd = BD_reported_g_cm3_sd) %>% 
-  dplyr::relocate(Original_source, Data_type, Site, Core, 
-                  Plot, Site_name, .after = Source) %>% 
-  dplyr::relocate(Country, Admin_unit, Year_collected, 
-                  Year_collected_end, .after = accuracy_flag) %>% 
-  dplyr::relocate(OC_perc, BD_g_cm3, SOM_perc, N_perc, 
-                  Time_replicate, Treatment, .after = Conv_factor) %>% 
-  dplyr:: relocate(n_cores, SOM_perc_mean, SOM_perc_sd, OC_perc_mean, 
-                   OC_perc_sd, OC_perc_se, BD_g_cm3_mean,
-                   BD_g_cm3_sd, BD_g_cm3_se, .after = Treatment) %>% 
-  dplyr:: relocate(Soil_type, .after = Site_name)
-
-str(data_paper_export)
-
-
-
-##### 7b. numbers including outliers ####
-nsamples <- as.numeric(nrow(data_paper_export))
-nsamples
-
-
-nlocations <- data_paper_export %>%
-  distinct(Latitude, Longitude, .keep_all = TRUE) %>% 
-  count()
-nlocations
-
-ncountries <- length(table(data_paper_export$Country)) 
-ncountries
-
-country_table <- data_paper_export %>%  
-  group_by(Country) %>% 
-  distinct(Latitude, .keep_all = TRUE) %>% 
-  count()
-
-
-#### 8. check papers ####
-
-data_paper_noyear <- data_paper_export %>% 
-  filter(is.na(Year_collected) == TRUE) %>% 
-  droplevels()
-
-table(data_paper_noyear$Source)
-
-
-data_paper_largeBD <- data_paper %>% 
-  filter(BD_reported_combined > 2) %>% 
-  group_by(Original_source, Horizon_bin_cm) %>% 
-  count()
-data_paper_largeBD
-
-test <- data_paper %>% 
-  filter(SOM_perc_combined < 0.8) %>% 
-  filter(Data_type != "Observed")
-
 
 #### 9. export final data file ####
 
@@ -719,3 +799,15 @@ export_df <- data_paper_export
 write.csv(export_df, export_file, row.names = F)
 
 
+# ## export subset 
+# 
+data_paper_export_subset <- data_paper_export %>%
+  filter(Source == "Hatje et al 2023")
+
+path_out = '../Data/' # up from root directory into Data folder
+
+file_name <- "export_Hatje_et_al_2023"
+export_file <- paste(path_out, file_name, ".csv", sep = '')
+export_df <- data_paper_export_subset
+
+write.csv(export_df, export_file, row.names = F)
