@@ -404,7 +404,7 @@ all_stock_mean_med_30cm$total_n
 
 #additional n for calculation to 1m 
 all_stock_mean_med_1m$total_n - all_stock_mean_med_30cm$total_n
-## saltmarsh area from Worthington et al. in prep
+## saltmarsh area from Worthington et al. https://doi.org/10.1101/2023.05.26.542433
 area_km2 <-  52880 # km2 
 area_ha <- area_km2*100
 total_SOCS_t <- all_stock_mean_med_1m[, "OCS_t_ha_med_1m"]*area_ha 
