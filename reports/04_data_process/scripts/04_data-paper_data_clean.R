@@ -405,13 +405,13 @@ all_stock_mean_med_30cm$total_n
 #additional n for calculation to 1m 
 all_stock_mean_med_1m$total_n - all_stock_mean_med_30cm$total_n
 ## saltmarsh area from Worthington et al. in prep
-area_km2 <-  52876 # km2 
+area_km2 <-  52880 # km2 
 area_ha <- area_km2*100
 total_SOCS_t <- all_stock_mean_med_1m[, "OCS_t_ha_med_1m"]*area_ha 
 tota_SOCS_Gt <- total_SOCS_t/1000000000 # tonnes to gigatonnes (which is the same as Petagram)
 tota_SOCS_Gt
 
-total_SOCS_t_MAD <- all_stock_mean_med_1m[, "OCS_t_ha_med_dev_1m"]*area_ha 
+total_SOCS_t_MAD <- all_stock_mean_med_30cm[, "OCS_t_ha_med_dev_30cm"]*area_ha 
 tota_SOCS_Gt_MAD <- total_SOCS_t_MAD/1000000000 # tonnes to gigatonnes (which is the same as Petagram)
 tota_SOCS_Gt_MAD
 
@@ -623,7 +623,7 @@ cores_total <- data_paper_export %>%
 
 cores_deeper30cm <- data_paper_export %>% 
   group_by(Site_name) %>% 
-    filter(L_depth_m >= 0.3) %>% 
+  filter(L_depth_m >= 0.3) %>% 
   distinct(Site_name, .keep_all = TRUE) 
 
 nrow(cores_deeper30cm)/nrow(cores_total)*100
@@ -642,7 +642,7 @@ cores_total <- data1 %>%
 
 cores_deeper30cm <- data1 %>% 
   group_by(Latitude, Longitude) %>% 
-  filter(L_depth_m >= 0.3) %>% 
+  filter(L_depth_m >= 0.5) %>% 
   distinct(Site_name, .keep_all = TRUE) 
 
 nrow(cores_deeper30cm)/nrow(cores_total)*100
