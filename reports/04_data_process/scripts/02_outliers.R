@@ -477,18 +477,18 @@ write.csv(export_df, export_file, row.names = F)
 
 ### export for GEE
 
-# path_out <- '../04_data_process_for_model/data/'
-# 
-# file_name <- paste(Sys.Date(),"data_cleaned_outliersremoved_forGEE", sep = "_")
-# export_file_GEE <- paste(path_out, file_name, ".csv", sep = '')
-# 
-# data_unique <- data_outliers_removed3 %>%
+# export_df_GEE <- data_outliers_removed3 %>% 
+#   filter(!grepl("Outlier", Notes, ignore.case = TRUE)) %>% 
 #   filter(is.na(Latitude) == FALSE & is.na(Longitude) == FALSE) %>%
 #   distinct(Latitude, Longitude, .keep_all = TRUE)
 # 
+# setwd("C:/Users/Tania/OneDrive - University of Cambridge/Documents/07_Cam_postdoc/global-marshC-map/reports/02_data_process/data")
 # 
-# write.csv(data_unique, export_file_GEE, row.names = F)
+# file_name <- paste(Sys.Date(),"data_cleaned_outliersremoved_forGEE", sep = "_")
+# export_file_GEE <- paste(file_name, ".csv", sep = '')
 # 
+# write.csv(export_df_GEE, export_file_GEE, row.names = F)
+
 
 
 

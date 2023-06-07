@@ -15,6 +15,10 @@ input_file01 <- "reports/04_data_process/data/data_cleaned_SOMconverted.csv"
 
 data0 <- read.csv(input_file01) 
 
+#recently published paper
+data0$Source <- recode(data0$Source, "Mazarrasa et al in prep" = "Mazarrasa et al 2023")
+data0$Source <- recode(data0$Source, "Copertino et al under review" = "Hatje et al 2023")
+
 data1 <- data0 %>% 
   #remove data with no OC_final data
   filter(is.na(OC_perc_final) == FALSE) %>% ## this also removes all items tagged as outliers
@@ -32,9 +36,9 @@ data_paper <- data1 %>%
          Horizon_bin_cm = fct_relevel(Horizon_bin_cm, "100cm and up", 
                                       "50-100cm", "30-50cm", "15-30cm",
                                       "0-15cm" 
-         ) )
+         ) ) 
 
-
+table(data_paper$Source)
 # test which columns have missing values
 # note: Year_collected has been filled in as much as possible (NA = the original study did not mention the year)
 
@@ -545,12 +549,11 @@ data_paper_export <- data_paper_for_export %>%
   dplyr::relocate(n_cores, SOM_perc_mean, SOM_perc_sd, OC_perc_mean, 
                    OC_perc_sd, OC_perc_se, BD_g_cm3_mean,
                    BD_g_cm3_sd, BD_g_cm3_se, .after = Treatment) %>% 
-  dplyr::relocate(Soil_type, .after = Site_name) %>% 
-  dplyr::mutate(Source = fct_recode(Source, "Hatje et al 2023" = "Copertino et al under review"))
+  dplyr::relocate(Soil_type, .after = Site_name) 
 
 str(data_paper_export)
 
-levels(data_paper_export$Source)
+table(data_paper_export$Source)
 
 ##### 6b. numbers including outliers ####
 nsamples <- as.numeric(nrow(data_paper_export))
@@ -800,16 +803,17 @@ export_df <- data_paper_export
 
 write.csv(export_df, export_file, row.names = F)
 
-
-# ## export subset 
-# # 
+# 
+# # export subset
+# 
 # data_paper_export_subset <- data_paper_export %>%
-#   filter(Source == "Hatje et al 2023")
+#   filter(Source == "Smeaton unpublished Essex")
 # 
 # path_out = '../Data/' # up from root directory into Data folder
 # 
-# file_name <- "export_Hatje_et_al_2023"
+# file_name <- "export_Russell_et_al_submitted"
 # export_file <- paste(path_out, file_name, ".csv", sep = '')
 # export_df <- data_paper_export_subset
 # 
 # write.csv(export_df, export_file, row.names = F)
+
