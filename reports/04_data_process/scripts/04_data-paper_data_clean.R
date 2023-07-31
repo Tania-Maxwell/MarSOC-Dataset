@@ -803,15 +803,15 @@ export_df <- data_paper_export
 
 write.csv(export_df, export_file, row.names = F)
 
-# 
-# # export subset
-# 
+
+# export subset
+
 # data_paper_export_subset <- data_paper_export %>%
-#   filter(Source == "Smeaton unpublished Essex")
+#   filter(Source == "Serrano unpublished")
 # 
 # path_out = '../Data/' # up from root directory into Data folder
 # 
-# file_name <- "export_Russell_et_al_submitted"
+# file_name <- "export_Serrano_unpublished"
 # export_file <- paste(path_out, file_name, ".csv", sep = '')
 # export_df <- data_paper_export_subset
 # 

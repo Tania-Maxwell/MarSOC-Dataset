@@ -475,7 +475,11 @@ export_df <- data_outliers_removed3
 write.csv(export_df, export_file, row.names = F)
 
 
+###### NOTE: this step is now done in the global-model-map repository
+# reports/02_data_process/01_uniqueID_locations
+
 ### export for GEE
+
 
 # export_df_GEE <- data_outliers_removed3 %>% 
 #   filter(!grepl("Outlier", Notes, ignore.case = TRUE)) %>% 

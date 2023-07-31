@@ -564,7 +564,7 @@ export_fig <- SOM_OC_observed
 fig_main_name <- "SOM_OC_observed"
 
 export_file <- paste(path_out, fig_main_name, ".png", sep = '')
-ggsave(export_file, export_fig, width = 15.36, height = 8.14)
+#ggsave(export_file, export_fig, width = 15.36, height = 8.14)
 
 
 ### quadratic function
@@ -572,7 +572,7 @@ export_fig <- SOM_to_OC_quadratic_randomeffect
 fig_main_name <- "SOM_to_OC_quadratic_randomeffect"
 
 export_file <- paste(path_out, fig_main_name, ".pdf", sep = '')
-ggsave(export_file, export_fig, width = 15.36, height = 8.14)
+#ggsave(export_file, export_fig, width = 15.36, height = 8.14)
 
 
 
@@ -581,7 +581,7 @@ export_fig <- SOM_OC_converted
 fig_main_name <- "SOM_OC_converted_observed_estimated"
 
 export_file <- paste(path_out, fig_main_name, ".png", sep = '') 
-ggsave(export_file, export_fig, width = 10.69, height = 7.41)
+#ggsave(export_file, export_fig, width = 10.69, height = 7.41)
 
 
 #### 9. errors #####

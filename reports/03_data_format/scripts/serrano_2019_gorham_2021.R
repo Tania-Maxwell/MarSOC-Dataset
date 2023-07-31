@@ -89,9 +89,32 @@ gorham_loi03 <- gorham_loi02 %>%
 input_data05 <- left_join(input_data04, gorham_loi03, by = c("Core", "L_depth_cm"))
 
 
+##### editing core locations #####
+# email sent 19.07.23 
+# After revisiting the dataset and google earth, the coordinates shared initially were slightly off. Below you will find the correct coordinates:
+# MCD1: -34.778268° 138.512618°
+# MCD2: -34.778287° 138.512621°
+# MCD3: -34.778319° 138.512629°
+
+table(input_data05$Source)
+
+test <- input_data05 %>% 
+  filter(Core == "MCD1")
+
+input_data06 <- input_data05 %>% 
+  mutate(Latitude = case_when(Core == "MCD1" ~ -34.778268,
+                              Core == "MCD2" ~ -34.778287,
+                              Core == "MCD3" ~ -34.778319,
+                              TRUE ~ Latitude),
+         Longitude = case_when(Core == "MCD1" ~ 138.512618,
+                              Core == "MCD2" ~ 138.512621,
+                              Core == "MCD3" ~ 138.512629,
+                              TRUE ~ Longitude))
+
+
 #### export ####
 
-export_data01 <- input_data05 %>% 
+export_data01 <- input_data06 %>% 
   dplyr::select(Source, Site_name, Core, Habitat_type, Country, Year_collected,
                 Latitude, Longitude, accuracy_flag, accuracy_code,
                 U_depth_m, L_depth_m, Method, OC_perc,SOM_perc, BD_reported_g_cm3)
@@ -104,6 +127,9 @@ export_data02 <- export_data01 %>%
 
 
 plot(export_data02$SOM_perc, export_data02$OC_perc)
+
+
+
 
 ## export
 
