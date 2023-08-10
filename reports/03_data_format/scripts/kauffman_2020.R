@@ -51,17 +51,7 @@ input_data_location03 <- input_data_location02 %>%
 
 
 input_data_location04 <- input_data_location03 %>%
-  rename(lat_detail = Latitude, 
-         long_detail = Longitude) %>% 
-  mutate(lat = gsub("S00", "0",
-           gsub("\\.", " ", lat_detail)),
-         long = gsub("W046", "46",
-            gsub("\\.", " ", long_detail)),
-         lat_dec_deg = measurements::conv_unit(lat, from = "deg_min_sec", to = "dec_deg"), #S , need to convert dec_deg to negative
-         long_dec_deg = measurements::conv_unit(long, from = "deg_min_sec", to = "dec_deg"), #W ,  , need to convert dec_deg to negative
-         Latitude = as.numeric(lat_dec_deg)*-1,
-         Longitude = as.numeric(long_dec_deg)*-1,
-         accuracy_flag = "direct from dataset",
+   mutate(accuracy_flag = "direct from dataset",
          accuracy_code = "1")
 
 

@@ -103,10 +103,21 @@ input_data_soil4 <- input_data_soil3 %>%
   filter(U_depth_cm != "Sand layer") 
 
 
+#### edit incorrect site location for Laperouse Bay 
+# Wilson Jefferies 1996
+# map from https://www.researchgate.net/publication/255620701_Goose-induced_Changes_in_Vegetation_and_Land_Cover_between_1976_and_1997_in_an_Arctic_Coastal_Marsh/figures?lo=1 
+# new coordinate: 58.687124, -93.439282
+
+input_data_soil5 <- input_data_soil4 %>% 
+  mutate(Latitude = case_when(Original_source == "Wilson Jefferies 1996" ~ 58.687124,
+                              TRUE ~ Latitude),
+         Longitude = case_when(Original_source == "Wilson Jefferies 1996" ~ -93.439282,
+                                                                    TRUE ~ Longitude))
+         
 
 #### export ####
 
-export_data01 <- input_data_soil4 %>% 
+export_data01 <- input_data_soil5 %>% 
   dplyr::select(Source, Original_source, Site_name, DataID, Habitat_type, Country, State, Year_collected,
                 Latitude, Longitude, accuracy_flag, accuracy_code, Treatment, Publication,
                 U_depth_m, L_depth_m, Method, Soil_OCcon_n:Soil_CS_SD)

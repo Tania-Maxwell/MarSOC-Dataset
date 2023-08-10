@@ -209,6 +209,13 @@ export_data02 <- export_data01 %>%
   arrange(Site, Habitat_type)
 
 
+test_lat_long <- export_data02 %>% 
+  distinct(Latitude, Longitude, .keep_all = TRUE) %>% 
+  filter(Original_source == "Braga et al 2011")
+
+write.csv(test_lat_long, "../Data/cores_check_Braga_et_al_2011.csv")
+
+
 ## export
 
 path_out = 'reports/03_data_format/data/exported/'
