@@ -1421,7 +1421,7 @@ When using data from this dataset please cite both the publication and the datas
 
 # Licence
 
-Creative Commons Attribution 4.0 International Public License (CC-BY)
+Creative Commons License (CC0)
 
 # Acknowledgements 
 
