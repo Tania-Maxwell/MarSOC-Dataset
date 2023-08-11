@@ -8,6 +8,7 @@ library(plyr) # rbind.fill
 library(tidyverse)
 library(misty) # to calculate ci of median
 library(ggpubr) # for ggarrange 
+library(viridis)
 
 
 #import compiled data
@@ -535,7 +536,7 @@ data_paper_export <- data_paper_for_export %>%
                    SOM_perc_combined,
                    BD_reported_combined,
                    Horizon_mid_depth_cm,
-                   Horizon_bin_cm  )) %>%  
+                   Horizon_bin_cm )) %>%  
   dplyr::rename(BD_g_cm3 = BD_reported_g_cm3,
                 BD_g_cm3_mean = BD_reported_g_cm3_mean,
                 BD_g_cm3_se = BD_reported_g_cm3_se,
@@ -549,7 +550,8 @@ data_paper_export <- data_paper_for_export %>%
   dplyr::relocate(n_cores, SOM_perc_mean, SOM_perc_sd, OC_perc_mean, 
                    OC_perc_sd, OC_perc_se, BD_g_cm3_mean,
                    BD_g_cm3_sd, BD_g_cm3_se, .after = Treatment) %>% 
-  dplyr::relocate(Soil_type, .after = Site_name) 
+  dplyr::relocate(Soil_type, .after = Site_name) %>% 
+  dplyr::relocate(DOI, .after = Notes)
 
 str(data_paper_export)
 
@@ -682,7 +684,7 @@ conv_fact <- data_paper_export %>%
   mutate(Conv_factor =  gsub("OC", "SOC",
                              gsub("OM", "SOM", Conv_factor))) %>%
   mutate(Source = fct_recode(Source, "de los Santos et al 2022 (a) from Santos et al 2019" = 
-                               "de los Santos et al 2022 (a)"))
+                               "de los Santos et al 2022 (a)")) %>% 
   dplyr::count()
 conv_fact   
 

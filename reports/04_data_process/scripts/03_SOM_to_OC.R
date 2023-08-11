@@ -624,6 +624,3 @@ export_file <- paste(path_out, "data_cleaned_SOMconverted.csv", sep = '')
 export_df <- export_data02
 
 write.csv(export_df, export_file, row.names = F)
-
-
-

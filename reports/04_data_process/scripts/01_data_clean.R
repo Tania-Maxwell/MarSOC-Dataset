@@ -303,12 +303,17 @@ data10 <- data9 %>%
                                         OC_perc_combined < 0 ~ NA_real_,
                                         TRUE ~ OC_perc_combined))
 
+##rearrange DOI column
+
+data11 <- data10 %>% 
+  relocate(DOI, .after = BD_reported_combined)
+
 #### 9. export cleaned data ####
 
 path_out = 'reports/04_data_process/data/'
 
 export_file <- paste(path_out, "data_cleaned.csv", sep = '') 
-export_df <- data10
+export_df <- data11
 
 write.csv(export_df, export_file, row.names = F)
 
