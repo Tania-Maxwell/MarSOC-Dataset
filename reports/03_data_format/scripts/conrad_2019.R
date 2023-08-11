@@ -117,7 +117,8 @@ input_data4 <- input_data3 %>%
          SOM_perc = OC_perc/0.58, #reconverting back to SOM using 0.58 factor
          BD_reported_g_cm3 = DBD_g_per_cm_3_) %>%   #1 g cm-3 = 1 Mg m-3
   mutate(Method = "LOI",
-         Conv_factor = 0.58)  
+         Conv_factor = 0.58,
+         DOI = "https://doi.org/10.3389/fmars.2018.00518")  
     
 input_data4$SOM_perc <- round(input_data4$SOM_perc, 2)
 
@@ -128,7 +129,7 @@ input_data4$SOM_perc <- round(input_data4$SOM_perc, 2)
 export_data <- input_data4 %>% 
   select(Source, Site_name, Site, Core, Habitat_type, Latitude, Longitude, 
          accuracy_flag, accuracy_code, Country, Year_collected, Depth_to_bedrock_m, U_depth_m, L_depth_m, 
-         Method, Conv_factor, OC_perc, SOM_perc, BD_reported_g_cm3)
+         Method, Conv_factor, OC_perc, SOM_perc, BD_reported_g_cm3, DOI)
 
 ## subset for marshes
 export_data_marsh <- export_data %>% 

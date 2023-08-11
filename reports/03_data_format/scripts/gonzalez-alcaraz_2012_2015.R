@@ -57,7 +57,8 @@ agua_amarga04 <- agua_amarga03 %>%
   mutate(U_depth_cm = 0,
          L_depth_cm = 20) %>% 
   mutate(U_depth_m = as.numeric(U_depth_cm)/100 , #cm to m
-         L_depth_m = as.numeric(L_depth_cm)/100)# cm to m
+         L_depth_m = as.numeric(L_depth_cm)/100,
+         DOI = "https://doi.org/10.1016/j.catena.2014.11.012")# cm to m
 
 
 #### export 
@@ -65,7 +66,7 @@ agua_amarga04 <- agua_amarga03 %>%
 export_AA01 <- agua_amarga04 %>% 
   dplyr::select(Source, Site_name, Site, Core, Habitat_type, Country, Year_collected,
                 Latitude, Longitude, accuracy_flag, accuracy_code,
-                U_depth_m, L_depth_m, Method, OC_perc, BD_reported_g_cm3)
+                U_depth_m, L_depth_m, Method, OC_perc, BD_reported_g_cm3, DOI)
 
 
 export_AA02 <- export_AA01 %>% 
@@ -152,7 +153,8 @@ carmoli04 <- carmoli03 %>%
   mutate(U_depth_cm = 0,
          L_depth_cm = 10) %>% 
   mutate(U_depth_m = as.numeric(U_depth_cm)/100 , #cm to m
-         L_depth_m = as.numeric(L_depth_cm)/100)# cm to m
+         L_depth_m = as.numeric(L_depth_cm)/100,
+         DOI = "https://doi.org/10.1016/j.geoderma.2012.03.019")# cm to m
 
 
 #### export 
@@ -160,7 +162,7 @@ carmoli04 <- carmoli03 %>%
 export_C01 <- carmoli04 %>% 
   dplyr::select(Source, Site_name, Site, Plot, Habitat_type, Country, Year_collected, Year_collected_end,
                 Latitude, Longitude, accuracy_flag, accuracy_code,
-                U_depth_m, L_depth_m, Method, OC_perc_mean,OC_perc_sd, BD_reported_g_cm3_mean,BD_reported_g_cm3_sd)
+                U_depth_m, L_depth_m, Method, OC_perc_mean,OC_perc_sd, BD_reported_g_cm3_mean,BD_reported_g_cm3_sd, DOI)
 
 
 export_C02 <- export_C01 %>% 

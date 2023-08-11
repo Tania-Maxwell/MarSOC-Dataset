@@ -66,7 +66,8 @@ input_data04 <- input_data03 %>%
   mutate(L_depth_cm  = case_when(L_depth_cm == ">30" ~ "30", # unsure about the sedbury creek site
                                  TRUE ~ L_depth_cm)) %>% 
   mutate(U_depth_m = as.numeric(U_depth_cm)/100 , #cm to m
-         L_depth_m = as.numeric(L_depth_cm)/100)# cm to m
+         L_depth_m = as.numeric(L_depth_cm)/100,
+         DOI = "https://doi.org/10.1007/s13157-021-01460-3")# cm to m
 
 
 #### export ####
@@ -74,7 +75,7 @@ input_data04 <- input_data03 %>%
 export_data01 <- input_data04 %>% 
   dplyr::select(Source, Site_name, Site, Plot, Treatment, Habitat_type, Country, Year_collected,
                 Latitude, Longitude, accuracy_flag, accuracy_code,
-                U_depth_m, L_depth_m, Method, OC_perc, BD_reported_g_cm3)
+                U_depth_m, L_depth_m, Method, OC_perc, BD_reported_g_cm3, DOI)
 
 
 export_data02 <- export_data01 %>% 

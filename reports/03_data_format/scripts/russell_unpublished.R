@@ -49,7 +49,8 @@ export_data02 <- export_data01 %>%
 
 ### submitted data ONLY (i.e. not the in prep data)
 export_data03 <- export_data02 %>% 
-  filter(Source == "Russell et al submitted")
+  filter(Source == "Russell et al submitted") %>% 
+  mutate(DOI = "submitted")
 
 
 

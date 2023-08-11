@@ -5,7 +5,7 @@
 # 16.09.22
 # edit 20.12.22
 
-
+library(tidyverse)
 ##from supplementary table S1
 #https://onlinelibrary.wiley.com/doi/full/10.1002/ldr.3859 
 
@@ -53,7 +53,8 @@ export_data01 <- input_data03 %>%
   dplyr::select(Source, Site_name, Site, Plot, Habitat_type, Country, Year_collected,
                 Latitude, Longitude, accuracy_flag, accuracy_code,
                 U_depth_m, L_depth_m, Method, OC_perc_mean, OC_perc_sd,
-                BD_reported_g_cm3_mean, BD_reported_g_cm3_sd)
+                BD_reported_g_cm3_mean, BD_reported_g_cm3_sd) %>% 
+  mutate(DOI = "https://doi.org/10.1002/ldr.3859")
 
 ## export
 

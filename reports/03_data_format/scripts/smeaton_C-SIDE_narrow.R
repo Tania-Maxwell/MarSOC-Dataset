@@ -86,7 +86,8 @@ export_data01 <- input_data05 %>%
 export_data02 <- export_data01 %>% 
   relocate(Source, Site_name, Site, Core, Habitat_type,Soil_type, Latitude, Longitude, 
            accuracy_flag, accuracy_code, Country, Nation, Year_collected, .before = U_depth_m) %>% 
-  arrange(Site, Habitat_type)
+  arrange(Site, Habitat_type) %>% 
+  mutate(DOI = "unpublished")
 
 
 test <-  export_data02 %>% 

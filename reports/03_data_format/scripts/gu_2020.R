@@ -81,7 +81,8 @@ input_data04 <- input_data03 %>%
          Latitude = case_when(Plot == "LP1" ~ 47.37584461876665,
                                Plot == "LP2" ~ 47.37584461876665,
                                Plot == "LP3" ~ 47.37590455802447,
-                               Plot == "SP1" ~ 47.37590455802447))
+                               Plot == "SP1" ~ 47.37590455802447)) %>% 
+  mutate(DOI = "https://doi.org/10.17632/2dg3spxsbh.2")
 
 #### check location points ####
 
@@ -101,7 +102,7 @@ mp
 export_data01 <- input_data04 %>% 
   dplyr::select(Source, Site_name, Site, Core, Plot, Replicate, Habitat_type, Country, Year_collected,
                 Latitude, Longitude, accuracy_flag, accuracy_code,
-                U_depth_m, L_depth_m, Method, Conv_factor, OC_perc, BD_reported_g_cm3)
+                U_depth_m, L_depth_m, Method, Conv_factor, OC_perc, BD_reported_g_cm3, DOI)
 
 
 export_data02 <- export_data01 %>% 

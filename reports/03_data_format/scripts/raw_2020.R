@@ -24,7 +24,8 @@ input_data02 <- input_data01 %>%
          Latitude = gsub("°", "", Latitude),
          Longitude = gsub("°", "", Longitude)) %>% 
   mutate(Site_name = paste(author_initials, "Knysna", Subsite, Core)) %>% 
-  mutate(accuracy_code = 1)
+  mutate(accuracy_code = 1,
+         DOI = "https://doi.org/10.2989/16085914.2019.1662763")
 
 
 
@@ -33,7 +34,7 @@ input_data02 <- input_data01 %>%
 export_data01 <- input_data02 %>% 
   dplyr::select(Source,  Site_name, Site, Subsite, Core, Habitat_type, Country, Year_collected,
                 Latitude, Longitude, accuracy_flag, accuracy_code,
-                U_depth_m, L_depth_m, Method, OC_perc, BD_reported_g_cm3, Conv_factor)
+                U_depth_m, L_depth_m, Method, OC_perc, BD_reported_g_cm3, Conv_factor, DOI)
 
 
 export_data02 <- export_data01 %>% 

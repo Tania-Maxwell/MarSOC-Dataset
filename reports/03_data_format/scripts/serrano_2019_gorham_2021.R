@@ -22,12 +22,15 @@ input_data02 <- input_data01 %>%
                              "Gorham et al 2021" = "Gorham et al Ecosystems",
                              "Serrano et al 2019" = "Serrano et al 2019 NatComms",
                              "Serrano unpublished" = "unpublished")) %>% 
+  mutate(DOI = case_when(Source == "Gorham et al 2021"~ "https://doi.org/10.1007/s10021-020-00520-9",
+                         Source == "Serrano et al 2019"~ "https://doi.org/10.1038/s41467-019-12176-8",
+                         Source == "Serrano unpublished"~ "unpublished")) %>% 
   mutate(accuracy_code = 1) %>% 
   mutate(author_initials = case_when(Source == "Gorham et al 2021"~ "CG",
                                      Source == "Serrano et al 2019"~ "OS",
                                      Source == "Serrano unpublished"~ "OS")) %>% 
   mutate(Site_name = paste(author_initials, ID_CORE)) %>% 
-  rename(Core = ID_CORE,
+  dplyr::rename(Core = ID_CORE,
          Habitat_type = Habitat,
          Latitude = lat,
          Longitude = long,
@@ -117,7 +120,7 @@ input_data06 <- input_data05 %>%
 export_data01 <- input_data06 %>% 
   dplyr::select(Source, Site_name, Core, Habitat_type, Country, Year_collected,
                 Latitude, Longitude, accuracy_flag, accuracy_code,
-                U_depth_m, L_depth_m, Method, OC_perc,SOM_perc, BD_reported_g_cm3)
+                U_depth_m, L_depth_m, Method, OC_perc,SOM_perc, BD_reported_g_cm3, DOI)
 
 
 export_data02 <- export_data01 %>% 

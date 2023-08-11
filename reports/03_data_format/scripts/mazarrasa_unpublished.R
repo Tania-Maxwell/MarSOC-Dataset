@@ -24,7 +24,8 @@ input_data02 <- input_data01 %>%
   mutate(Latitude = gsub("°", "", Latitude),
          Longitude = gsub("°", " ",Longitude)) %>% 
   mutate(across(where(is.character), str_trim)) %>%  # trim white spaces before and after character strings
-  mutate(Method = "EA")
+  mutate(Method = "EA", 
+         DOI = "https://doi.org/10.1016/j.scitotenv.2023.163957")
 
 
 
@@ -33,7 +34,7 @@ input_data02 <- input_data01 %>%
 export_data01 <- input_data02 %>% 
   dplyr::select(Source,  Site_name, Site, Core, Habitat_type, Country, Year_collected,
                 Latitude, Longitude, accuracy_flag, accuracy_code,
-                U_depth_m, L_depth_m, Method, OC_perc, BD_reported_g_cm3)
+                U_depth_m, L_depth_m, Method, OC_perc, BD_reported_g_cm3, DOI)
 
 
 export_data02 <- export_data01 %>% 

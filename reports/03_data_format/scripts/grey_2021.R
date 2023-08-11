@@ -72,7 +72,8 @@ input_data05 <- input_data04 %>%
   mutate(U_depth_cm = 0,
          L_depth_cm = 10) %>% #from methods section
   mutate(U_depth_m = as.numeric(U_depth_cm)/100 , #cm to m
-         L_depth_m = as.numeric(L_depth_cm)/100)# cm to m
+         L_depth_m = as.numeric(L_depth_cm)/100,
+         DOI = "https://doi.org/10.1016/j.rsma.2021.101834")# cm to m
 
 
 
@@ -82,7 +83,7 @@ input_data05 <- input_data04 %>%
 export_data01 <- input_data05 %>% 
   dplyr::select(Source, Site_name, Site, Plot, Habitat_type, Soil_type, Country, Year_collected,
                 Latitude, Longitude, accuracy_flag, accuracy_code,
-                U_depth_m, L_depth_m, Method, OC_perc, SOM_perc, N_perc, BD_reported_g_cm3)
+                U_depth_m, L_depth_m, Method, OC_perc, SOM_perc, N_perc, BD_reported_g_cm3, DOI)
 
 
 export_data02 <- export_data01 %>% 

@@ -151,7 +151,8 @@ table(export_data04$Original_source)
 export_data05 <- export_data04 %>%  
   filter(Original_source != "Nolte et al 2013" & 
          Original_source != "Yu Chmura 2009" & 
-         Original_source != "Sammul et al 2012")
+         Original_source != "Sammul et al 2012") %>% 
+  mutate(DOI = "https://doi.org/10.1098/rstb.2019.0451")
 
 
 # 

@@ -86,7 +86,8 @@ export_data01 <- input_data07 %>%
 export_data02 <- export_data01 %>% 
   relocate(Source, Original_source, Site_name, Site, Plot, Habitat_type, Country, Year_collected,
            Latitude, Longitude, accuracy_flag, accuracy_code, Treatment,
-           Method, .before = U_depth_m) 
+           Method, .before = U_depth_m) %>% 
+  mutate(DOI = "https://doi.org/10.1007/s10530-021-02540-5")
 
 
 ###removing treatment values

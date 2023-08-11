@@ -21,7 +21,8 @@ input_data02 <- input_data01 %>%
   mutate(Core = paste(Site, core_notunique),
          Site_name = paste(author_initials, Core),
          accuracy_code = "1") %>% 
-  mutate(Method = "EA")
+  mutate(Method = "EA",
+         DOI = "https://doi.org/10.3389/fmars.2022.976457")
 
 
 #### export ####
@@ -29,7 +30,7 @@ input_data02 <- input_data01 %>%
 export_data01 <- input_data02 %>% 
   dplyr::select(Source, Site_name, Site, Core, Habitat_type, Country, Year_collected,
                 Latitude, Longitude, accuracy_flag, accuracy_code,
-                U_depth_m, L_depth_m, Method, OC_perc, SOM_perc, BD_reported_g_cm3, Conv_factor)
+                U_depth_m, L_depth_m, Method, OC_perc, SOM_perc, BD_reported_g_cm3, Conv_factor, DOI)
 
 
 export_data02 <- export_data01 %>% 

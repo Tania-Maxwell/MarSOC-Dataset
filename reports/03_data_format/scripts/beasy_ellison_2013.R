@@ -48,7 +48,8 @@ input_data04 <- input_data03 %>%
          L_depth_m = as.numeric(L_depth_cm)/100)# cm to m
 
 ## add location
-input_data05 <- full_join(input_data04, locations, by = "Core")
+input_data05 <- full_join(input_data04, locations, by = "Core") %>% 
+  mutate(DOI = "https://doi.org/10.3390/biology7020027")
   
 #### export ####
 
@@ -56,7 +57,7 @@ export_data01 <- input_data05 %>%
   dplyr::select(Source, Site_name, Site, Core, Habitat_type, Country, Nation, Year_collected,
                 Latitude, Longitude, 
                 accuracy_flag, accuracy_code,
-                U_depth_m, L_depth_m, Method, OC_perc, SOM_perc, SOM_perc_Heiri)
+                U_depth_m, L_depth_m, Method, OC_perc, SOM_perc, SOM_perc_Heiri, DOI)
 
 
 export_data02 <- export_data01 %>% 

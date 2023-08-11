@@ -30,7 +30,8 @@ input_data03 <- input_data02 %>%
   dplyr::rename(U_depth_m_original = U_depth_m,
          L_depth_m_original = L_depth_m) %>% 
   dplyr::rename(U_depth_m = U_deco_depth_m, 
-         L_depth_m = L_deco_depth_m)
+         L_depth_m = L_deco_depth_m) %>% 
+  mutate(DOI = "unpublished")
 
 
 #### outliers ####
@@ -50,7 +51,7 @@ hist(input_data03$SOM_perc)
 export_data01 <- input_data03 %>% 
   dplyr::select(Source,  Site_name, Site, Core, Habitat_type, Country, Nation, Year_collected,
                 Latitude, Longitude, accuracy_flag, accuracy_code,
-                U_depth_m, L_depth_m, Method, OC_perc, SOM_perc, BD_reported_g_cm3)
+                U_depth_m, L_depth_m, Method, OC_perc, SOM_perc, BD_reported_g_cm3, DOI)
 
 
 export_data02 <- export_data01 %>% 

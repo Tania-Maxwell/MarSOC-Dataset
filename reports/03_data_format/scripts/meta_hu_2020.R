@@ -69,7 +69,8 @@ export_data01 <- input_data04 %>%
 export_data02 <- export_data01 %>% 
   relocate(Source, Original_source, Site_name, Site, Plot, Habitat_type, Latitude, Longitude, 
            accuracy_flag, accuracy_code, Country, Year_collected, .before = U_depth_m) %>% 
-  arrange(Site, Habitat_type)
+  arrange(Site, Habitat_type) %>% 
+  mutate(DOI = "https://doi.org/10.1016/j.envres.2020.109576")
 
 ## export
 

@@ -72,14 +72,15 @@ input_data4 <- input_data3 %>%
          L_depth_m = as.numeric(as.character(L_depth_cm))/100) %>% # cm to m 
   rename(OC_perc = Percent_C, 
          BD_reported_g_cm3 = DBD_g_cm3) %>%   #1 g cm-3 = 1 Mg m-3
-mutate(Method = "MIR predicted")
+mutate(Method = "MIR predicted",
+       DOI = "https://doi.org/10.7910/DVN/6PFBO0")
 
 #### export data ####
 
 export_data <- input_data4 %>% 
   select(Source, Site_name, Site, Core, Habitat_type, Latitude, Longitude, 
          accuracy_flag, accuracy_code, Country, Year_collected, U_depth_m, L_depth_m, Method,
-         OC_perc, BD_reported_g_cm3, TC_mg_g, OC_mg_g, IC_mg_g, TN_mg_g)
+         OC_perc, BD_reported_g_cm3, TC_mg_g, OC_mg_g, IC_mg_g, TN_mg_g, DOI)
 
 ## subset for marsh
 export_data_marsh <- export_data %>% 

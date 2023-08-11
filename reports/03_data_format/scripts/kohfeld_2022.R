@@ -99,9 +99,10 @@ table(input_data05$diff)
 #### export ####
 
 export_data01 <- input_data05 %>% 
+  mutate(DOI = "https://doi.pangaea.de/10.1594/PANGAEA.947824") %>% 
   dplyr::select(Source, Site_name, Site, Core, Habitat_type, Soil_type, Country, State, Year_collected,
                 Latitude, Longitude, accuracy_flag, accuracy_code,
-                U_depth_m, L_depth_m, Method, OC_perc, SOM_perc, BD_reported_g_cm3)
+                U_depth_m, L_depth_m, Method, OC_perc, SOM_perc, BD_reported_g_cm3, DOI)
 
 
 export_data02 <- export_data01 %>% 

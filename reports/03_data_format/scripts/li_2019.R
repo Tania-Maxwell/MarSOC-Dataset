@@ -54,14 +54,15 @@ input_data04 <- input_data03 %>%
   mutate(U_depth_cm  = 0,
          L_depth_cm = 15) %>% 
   mutate(U_depth_m = as.numeric(U_depth_cm)/100 , #cm to m
-         L_depth_m = as.numeric(L_depth_cm)/100)# cm to m
+         L_depth_m = as.numeric(L_depth_cm)/100,
+         DOI = "https://doi.org/10.1371/journal.pone.0210768")# cm to m
 
 #### export ####
 
 export_data01 <- input_data04 %>% 
   dplyr::select(Source, Site_name, Site, Plot, Habitat_type, Country, Year_collected,
                 Latitude, Longitude, accuracy_flag, accuracy_code,
-                U_depth_m, L_depth_m, Method, OC_perc)
+                U_depth_m, L_depth_m, Method, OC_perc, DOI)
 
 
 export_data02 <- export_data01 %>% 

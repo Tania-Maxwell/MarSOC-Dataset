@@ -23,7 +23,8 @@ input_data02 <- input_data01 %>%
   mutate(Core = paste(Site, Core_simple)) %>% 
   mutate(Source = source_name, 
     Site_name = paste(author_initials, Core, Location)) %>% 
-  mutate(accuracy_code = 1)
+  mutate(accuracy_code = 1,
+         DOI = "https://doi.org/10.1007/s12237-012-9579-7")
 
 
 
@@ -32,7 +33,7 @@ input_data02 <- input_data01 %>%
 export_data01 <- input_data02 %>% 
   dplyr::select(Source,  Site_name, Site, Core, Habitat_type, Country, Year_collected,
                 Latitude, Longitude, accuracy_flag, accuracy_code,
-                U_depth_m, L_depth_m, Method, SOM_perc)
+                U_depth_m, L_depth_m, Method, SOM_perc, DOI)
 
 
 export_data02 <- export_data01 %>% 

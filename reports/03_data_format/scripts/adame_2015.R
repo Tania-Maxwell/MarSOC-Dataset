@@ -38,7 +38,8 @@ input_data03 <- input_data02 %>%
 input_data04 <- input_data03 %>% 
   separate(Depth, c("U_depth_cm", "L_depth_cm"), sep = '-') %>%   #separate upper and lower depth
   mutate(U_depth_m = as.numeric(U_depth_cm)/100 , #cm to m
-         L_depth_m = as.numeric(L_depth_cm)/100)# cm to m
+         L_depth_m = as.numeric(L_depth_cm)/100,
+         DOI = "https://doi.org/10.5194/bg-12-3805-2015")# cm to m
 
 
 
@@ -47,7 +48,7 @@ input_data04 <- input_data03 %>%
 export_data01 <- input_data04 %>% 
   dplyr::select(Source, Site_name, Site, Plot, Habitat_type, Country, Year_collected,
                 Latitude, Longitude, accuracy_flag, accuracy_code,
-                U_depth_m, L_depth_m, Method, OC_perc, BD_reported_g_cm3)
+                U_depth_m, L_depth_m, Method, OC_perc, BD_reported_g_cm3, DOI)
 
 
 export_data02 <- export_data01 %>% 

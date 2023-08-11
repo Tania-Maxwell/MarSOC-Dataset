@@ -169,7 +169,7 @@ export_data03 <- export_data02 %>%
                             Original_source == "Gao et al 2016" ~ "EA",
                             Original_source == "Liu et al 2017" ~ "EA")) %>% 
                             #Original_source == "Xia et al 2022" ~ 
-  mutate(DOI = case_when(Original_source == "Xia et al 2022" ~ "https://doi.org/10.1111/gcb.16325",
+  mutate(DOI = case_when(Original_source == "Xia et al 2022" ~ "https://doi.org/10.6084/m9.figshare.20180450.v1",
                          Original_source == "Gao et al 2016" ~ "https://doi.org/10.1016/j.ecoleng.2016.06.088",
                          Original_source == "Liu et al 2017" ~ "https://doi.org/10.1016/j.ecoleng.2017.05.041",
                          Original_source == "Yang et al 2016" ~ "Yang, T., Ren, H., Zhang, Z., Chen, Y., & Jiang, D. (2016). Distribution and influence factors of soil organic carbon of different land-use types in the Jiangsu coastal areas. Journal of Subtropical Resources and Environment, 11, 46–52. (in Chinese)"))

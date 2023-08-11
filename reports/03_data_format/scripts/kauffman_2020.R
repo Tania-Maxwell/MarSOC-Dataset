@@ -114,7 +114,8 @@ input_data_soil05 <- input_data_soil04 %>%
 
 
 export_data_merged01 <- full_join(input_data_soil05, input_data_location05,  
-                                  by = c("Plot", "Sub_plot"))  
+                                  by = c("Plot", "Sub_plot"))  %>% 
+  mutate(DOI = "https://doi.org/10.17528/CIFOR/DATA.00244")
 
 export_data_merged02 <- export_data_merged01 %>% 
   rename(Site = Plot, 

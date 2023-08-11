@@ -168,7 +168,8 @@ export_data_merged01 <- full_join(export_data_soil, export_data_plot,
 export_data_merged02 <- export_data_merged01 %>% 
   relocate(Source, Site_name, Site, Plot, Habitat_type, Latitude, Longitude, 
            accuracy_flag, accuracy_code, Emirate, Country, Year_collected, .before = U_depth_m) %>% 
-  arrange(Site, Habitat_type)
+  arrange(Site, Habitat_type) %>% 
+  mutate(DOI = "https://doi.org/10.15146/R3K59Z")
 
 
 sum(is.na(export_data_plot$Latitude))

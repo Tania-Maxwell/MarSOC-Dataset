@@ -75,7 +75,8 @@ input_data05 <- input_data04 %>%
                                 layer_cm == "OM_10.20" ~ 20,
                                 layer_cm == "OM_20.30" ~ 30)) %>% 
   mutate(U_depth_m = as.numeric(U_depth_cm)/100 , #cm to m
-         L_depth_m = as.numeric(L_depth_cm)/100)# cm to m
+         L_depth_m = as.numeric(L_depth_cm)/100,
+         DOI = "https://doi.org/10.5285/90457ba1-f291-4158-82dc-425d7cbb1ac5")# cm to m
 
 
 
@@ -84,7 +85,7 @@ input_data05 <- input_data04 %>%
 export_data01 <- input_data05 %>% 
   dplyr::select(Source, Site_name, Site, Core, Habitat_type, Country, Year_collected, Season,
                 Latitude, Longitude, accuracy_flag, accuracy_code,
-                U_depth_m, L_depth_m, Method, SOM_perc, BD_reported_g_cm3)
+                U_depth_m, L_depth_m, Method, SOM_perc, BD_reported_g_cm3, DOI)
 
 
 export_data02 <- export_data01 %>% 

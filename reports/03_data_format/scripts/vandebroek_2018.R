@@ -215,7 +215,8 @@ export_data01 <- soilcarbon5 %>%
 export_data02 <- export_data01 %>% 
   relocate(Source, Site_name, Site, Core, Habitat_type, Latitude, Longitude, 
            accuracy_flag, accuracy_code, Country, Year_collected, .before = U_depth_m) %>% 
-  arrange(Site, Habitat_type)
+  arrange(Site, Habitat_type) %>% 
+  mutate(DOI = "https://doi.org/10.17632/2nnv9bw3hh.2")
 
 
 mapWorld <- borders("world", colour="gray50", fill="white")

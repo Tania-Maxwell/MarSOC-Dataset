@@ -88,7 +88,8 @@ input_data03 <- input_data02 %>%
   mutate(accuracy_flag = "direct from dataset",
          accuracy_code = "1") %>% 
   mutate(Method = "EA", 
-         BD_reported_g_cm3 = "measured but not in dataset")
+         BD_reported_g_cm3 = "measured but not in dataset",
+         DOI = "https://doi.org/10.1594/PANGAEA.925024")
 
 #### check location points ####
 
@@ -109,11 +110,11 @@ mp
 export_data01 <- input_data03 %>% 
   dplyr::select(Source, Site_name, Site, Core,  Habitat_type, Country, Year_collected,
                 Latitude, Longitude, accuracy_flag, accuracy_code,
-                U_depth_m, L_depth_m, Method, OC_perc, BD_reported_g_cm3)
+                U_depth_m, L_depth_m, Method, OC_perc, BD_reported_g_cm3, DOI)
 
 
 export_data02 <- export_data01 %>% 
-  relocate(Source, Site_name, Site, Habitat_type, Latitude, Longitude, 
+  relocate(Source, Site_name, Site, Core, Habitat_type, Latitude, Longitude, 
            accuracy_flag, accuracy_code, Country, Year_collected, .before = U_depth_m) 
 
 

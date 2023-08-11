@@ -61,7 +61,8 @@ input_data04 <- input_data03 %>%
          BD_reported_g_cm3 = Dry_bulk_density_g_cm_3) %>% 
   mutate(accuracy_flag = "direct from dataset",
          accuracy_code = "1") %>% 
-  mutate(Method = "EA")
+  mutate(Method = "EA",
+         DOI = "https://doi.org/10.7489/12422-1")
 
 
 ## edit depth
@@ -78,7 +79,7 @@ input_data05 <- input_data04 %>%
 export_data01 <- input_data05 %>% 
   dplyr::select(Source, Site_name, Site, Core, Habitat_type, Country, State, Year_collected,
                 Latitude, Longitude, accuracy_flag, accuracy_code,
-                U_depth_m, L_depth_m, Method, OC_perc, N_perc, BD_reported_g_cm3)
+                U_depth_m, L_depth_m, Method, OC_perc, N_perc, BD_reported_g_cm3, DOI)
 
 
 export_data02 <- export_data01 %>% 

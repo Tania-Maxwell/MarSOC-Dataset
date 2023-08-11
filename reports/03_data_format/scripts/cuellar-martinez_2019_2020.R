@@ -56,7 +56,9 @@ input_data04 <- input_data03 %>%
   rename(U_depth_cm = layer_top,
          L_depth_cm = layer_bot) %>% 
   mutate(U_depth_m = as.numeric(U_depth_cm)/100 , #cm to m
-         L_depth_m = as.numeric(L_depth_cm)/100)# cm to m
+         L_depth_m = as.numeric(L_depth_cm)/100) %>% # cm to m
+  mutate(DOI = case_when(Source == "Cuellar-Martinez et al 2019" ~ "https://doi.org/10.1016/j.scitotenv.2019.03.388",
+                         Source == "Cuellar-Martinez et al 2020" ~ "https://doi.org/10.1016/j.gloplacha.2020.103215"))
 
 
 
@@ -65,7 +67,7 @@ input_data04 <- input_data03 %>%
 export_data01 <- input_data04 %>% 
   dplyr::select(Source, Site_name, Site, Core, Habitat_type, Country, Year_collected,
                 Latitude, Longitude, accuracy_flag, accuracy_code,
-                U_depth_m, L_depth_m, Method, OC_perc, SOM_perc, N_perc)
+                U_depth_m, L_depth_m, Method, OC_perc, SOM_perc, N_perc, DOI)
 
 
 export_data02 <- export_data01 %>% 
