@@ -37,3 +37,4 @@ OC_from_SOM_our_eq,%,"Soil organic carbon estimated from soil organic matter usi
 OC_obs_est,,"Method of OC measurement: “Observed”, “Estimated (study equation)” - OC from LOI with regional eq. (see Conv_factor column), “Estimated (our equation)” - OC from Loi with eq. 3",Character
 OC_perc_final,%,"Coalesce of all columns of OC_perc (OC_perc, OC_perc_mean, and OC_from_SOM_our_eq) ",Numeric
 Notes,,"Varying sample-specific notes (i.e., flagged outliers)",Character
+DOI,,Source study DOI url,Character
