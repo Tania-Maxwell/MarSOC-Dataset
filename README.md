@@ -1,4 +1,4 @@
-# Tidal *Mar*sh *S*oil *O*rganic *Carbon* (MarSOC) Dataset
+# Tidal *Mar*sh *S*oil *O*rganic *C*arbon (MarSOC) Dataset
 
 ## Repository Structure
 
@@ -14,10 +14,10 @@
 
 <table>
     <tr>
-        <td>Variable name</td>
-        <td>Units</td>
-        <td>Descriptor</td>
-        <td>Type</td>
+        <td><strong>Variable name</strong></td>
+        <td><strong>Units</strong></td>
+        <td><strong>Descriptor</strong></td>
+        <td><strong>Type</strong></td>
     </tr>
     <tr>
         <td>Source</td>
