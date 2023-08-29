@@ -1,8 +1,10 @@
 # Tidal *Mar*sh *S*oil *O*rganic *C*arbon (MarSOC) Dataset
 
+![Figure: distribution of data points](data_paper/figures/n_points.png)
+
 ## Repository Structure
 
-**`Maxwell_MarSOC_dataset.csv`**: .csv file containing the final dataset. The data structure is described in the **`Maxwell_MarSOC_dataset_metadata.csv`** file. It contains 17,522 records distributed amongst 29 countries. 
+**`Maxwell_MarSOC_dataset.csv`**: .csv file containing the final dataset. The data structure is described in the **`Maxwell_MarSOC_dataset_metadata.csv`** file. It contains 17,454 records distributed amongst 29 countries. 
 - `data_paper/`: folder containing the list of studies included in the dataset, as well as figures for this data paper (generated from the following R script: ‘reports/04_data_process/scripts/04_data-paper_data_clean.R’). 
 - `reports/01_litsearchr/`: folder containing .bib files with references from the original naive search, a .Rmd document describing the litsearchr analysis using nodes to go from the naive search to the final search string, and the .bib files from this final search, which were then imported into sysrev for abstract screening. 
 - `reports/02_sysrev/`: folder with .csv files exported from sysrev after abstract screening. These files contain the included studies with their various labels. 

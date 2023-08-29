@@ -1,12 +1,12 @@
 ﻿TM_comment,Core_ID,Original_source,Ecoregion,Country,State,Site,Latitude,Longitude,Year_collected,Plant genus/ species,Marsh level/estuary,Authors Code/station as in the paper,N samples,PROFILE (Yes/No),Core depth (cm),Section interval (cm),Section height (cm),METHOD,SOM_perc,SOM_perc_mean,SOM_perc_sd,OC_perc_mean,OC_perc_sd,OC_perc,g C Kg-1,BD_method,BD_reported_g_cm3,BD_estimated_g_cm3
-OK,1,Braga et al. 2011,Amazonian,Brazil,Pará,Curuça,-0.6020,-47.5796,2007,Spartina sp,Low/Mid,,3,NO ,10,0-10,10,LOI,,0.68," 0,11",0.32,,,3.204,Ruelmann and Korschens 2009,,1.436789976
-OK,2,Braga et al. 2011,Amazonian,Brazil,Pará,Marapanim,-0.6078,-47.3258,2007,Spartina sp,Low/Mid,,3,NO ,10,0-10,10,LOI,,0.67,0.07,0.32,,,3.157,Ruelmann and Korschens 2010,,1.436789976
-OK,3,Braga et al. 2011,Amazonian,Brazil,Pará,Maruda,-0.6078,-47.6336,2007,Spartina sp,Low/Mid,,3,NO ,10,0-10,10,LOI,,0.10,0.12,0.05,,,0.478,Ruelmann and Korschens 2011,,1.436789976
-OK,4,Braga et al. 2011,Amazonian,Brazil,Pará,Algodoal,-0.6786,-47.8463,2007,Spartina sp,Low/Mid,,3,NO ,10,0-10,10,LOI,,0.17," 0,07",0.08,,,0.807,Ruelmann and Korschens 2012,,1.436789976
-OK,5,Braga et al. 2011,Amazonian,Brazil,Pará,Salinas,-0.6810,-48.3900,2007,Spartina sp,Low/Mid,,3,NO ,10,0-10,10,LOI,,0.65,0.12,0.31,,,3.063,Ruelmann and Korschens 2013,,1.436789976
-OK,6,Braga et al. 2011,Amazonian,Brazil,Pará,Pirabas,-0.7529,-47.3258,2007,Spartina sp,Low/Mid,,3,NO ,10,0-10,10,LOI,,0.70,0.13,0.33,,,3.298,Ruelmann and Korschens 2014,,1.436789976
-OK,7,Braga et al. 2011,Amazonian,Brazil,Pará,Canela,-0.7874,-46.7230,2007,Spartina sp,Low/Mid,,3,NO ,10,0-10,10,LOI,,0.18," 0,06",0.09,,,0.854,Ruelmann and Korschens 2015,,1.436789976
-OK,8,Braga et al. 2011,Amazonian,Brazil,Pará,Bragança,-0.7889,-46.7217,2007,Spartina sp,Low/Mid,,3,NO ,10,0-10,10,LOI,,0.39,0.27,0.18,,,1.841,Ruelmann and Korschens 2016,,1.436789976
+changed_lat_long_seetab,1,Braga et al. 2011,Amazonian,Brazil,Pará,Curuça,-0.6901,-47.8672,2007,Spartina sp,Low/Mid,,3,NO ,10,0-10,10,LOI,,0.68," 0,11",0.32,,,3.204,Ruelmann and Korschens 2009,,1.436789976
+changed_lat_long_seetab,2,Braga et al. 2011,Amazonian,Brazil,Pará,Marapanim,-0.7236,-47.7078,2007,Spartina sp,Low/Mid,,3,NO ,10,0-10,10,LOI,,0.67,0.07,0.32,,,3.157,Ruelmann and Korschens 2010,,1.436789976
+changed_lat_long_seetab,3,Braga et al. 2011,Amazonian,Brazil,Pará,Maruda,-0.6152,-47.6346,2007,Spartina sp,Low/Mid,,3,NO ,10,0-10,10,LOI,,0.10,0.12,0.05,,,0.478,Ruelmann and Korschens 2011,,1.436789976
+changed_lat_long_seetab,4,Braga et al. 2011,Amazonian,Brazil,Pará,Algodoal,-0.5884,-47.5893,2007,Spartina sp,Low/Mid,,3,NO ,10,0-10,10,LOI,,0.17," 0,07",0.08,,,0.807,Ruelmann and Korschens 2012,,1.436789976
+changed_lat_long_seetab,5,Braga et al. 2011,Amazonian,Brazil,Pará,Salinas,-0.6031,-47.3366,2007,Spartina sp,Low/Mid,,3,NO ,10,0-10,10,LOI,,0.65,0.12,0.31,,,3.063,Ruelmann and Korschens 2013,,1.436789976
+changed_lat_long_seetab,6,Braga et al. 2011,Amazonian,Brazil,Pará,Pirabas,-0.7673,-47.1809,2007,Spartina sp,Low/Mid,,3,NO ,10,0-10,10,LOI,,0.70,0.13,0.33,,,3.298,Ruelmann and Korschens 2014,,1.436789976
+changed_lat_long_seetab,7,Braga et al. 2011,Amazonian,Brazil,Pará,Canela,-0.7869,-46.7238,2007,Spartina sp,Low/Mid,,3,NO ,10,0-10,10,LOI,,0.18," 0,06",0.09,,,0.854,Ruelmann and Korschens 2015,,1.436789976
+changed_lat_long_seetab,8,Braga et al. 2011,Amazonian,Brazil,Pará,Bragança,-0.8173,-46.6183,2007,Spartina sp,Low/Mid,,3,NO ,10,0-10,10,LOI,,0.39,0.27,0.18,,,1.841,Ruelmann and Korschens 2016,,1.436789976
 OK,9,Rabelo 2012,Amazonian,Brazil,Pará,Rio Caeté - Praia de Ajuruteua,-0.8314,-46.6028,2009,S. alterniflora,Low,,5,NO ,20,0-20,20,LOI,,2.19,0.08,1.03,,,10.301,,,
 OK,10,Rebelo 2012,Amazonian,Brazil,Pará,Rio Caeté  - Furo Grande,-0.8547,-46.6086,2009,S. alterniflora,Low,,5,NO ,20,0-20,20,LOI,,2.86,0.07,1.35,,,13.45,,,
 OK,11,Kaufmann et al 2018,Amazonian,Brazil,Pará,Bragança,-0.9122,-46.6833,2017,Eleocharis sp. ,Mid,,3,YES,>100,0-15,15,CHN,,,,,,1.74,17.4,,1.14,

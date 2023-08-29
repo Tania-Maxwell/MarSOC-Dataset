@@ -130,7 +130,7 @@ fig_paper <- ggplot(data = world) +
   geom_sf() +
   coord_sf(ylim = c(-60, 80), expand = FALSE)+
   theme_bw()+
-  labs(title = "Global tidal marsh soil organic carbon dataset")+
+  labs(title = "Tidal Marsh Soil Organic Carbon (MarSOC) dataset")+
   theme(plot.title = element_text(size = 18, hjust = 0.5))+
   geom_point(data = data_paper_figure, aes(x = Longitude, y = Latitude,
                                            fill = Data_type), size = 3, shape = 21, alpha = 0.5)+
@@ -335,7 +335,7 @@ path_out = 'data_paper/figures/'
 
 export_fig <- distribution_plots_final
 fig_main_name <- "distribution_plots_final"
-export_file <- paste(path_out, fig_main_name, ".png", sep = '')
+export_file <- paste(path_out, fig_main_name, ".pdf", sep = '')
 ggsave(export_file, export_fig, width = 8.55, height = 3.97)
 
 
@@ -366,7 +366,7 @@ all_stocks <- data1 %>%
 
 all_density_means_meds <- all_stocks %>% 
   group_by(Horizon_bin_cm) %>%
-  summarise(OCD_kg_m3_mean = mean(OCD_kg_m3, na.rm = T),
+  dplyr::summarise(OCD_kg_m3_mean = mean(OCD_kg_m3, na.rm = T),
             OCD_kg_m3_sd = sd(OCD_kg_m3, na.rm = T),
             # median and median absolute deviation
             OCD_kg_m3_med = median(OCD_kg_m3, na.rm = T),

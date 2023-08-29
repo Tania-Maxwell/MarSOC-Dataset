@@ -5,14 +5,15 @@
 # contact Tania Maxwell, tlgm2@cam.ac.uk
 # 20.07.22
 # edit 20.12.22
-
+# edit 29.08.2023 - added unique core letter manually only for salt marshes
 
 library(tidyverse)
 
 
 input_file01 <- "reports/03_data_format/data/core_level/Ward_2021_DRYAD/PublishedCoreData_edited.csv"
 
-input_data01 <- read.csv(input_file01)
+input_data01 <- read.csv(input_file01) %>% 
+  dplyr::select(-X)
 
 
 
@@ -40,10 +41,10 @@ input_data02 <- input_data01 %>%
                                   Habitat_Type == "Pan" ~ "Pan",
                                   Habitat_Type == "Salt Marsh" ~ "SM",
                                   Habitat_Type == "Seagrass" ~ "SG")) %>% 
-  group_by(Site, Habitat_abbr) %>% 
-  mutate(n_core = row_number()) %>% 
-  ungroup() %>% 
-  mutate(Core = paste(Site, Habitat_abbr, n_core)) %>% 
+  # filtering for marsh here, as have only manually added a Core_Id for SM in the original data
+  filter(Habitat_Type == "Salt Marsh") %>% 
+  rename(Core_per_site = Core_ID) %>% 
+  mutate(Core = paste(Site, Habitat_abbr, Core_per_site)) %>% 
   mutate(Source = source_name,
          Source_abbr = author_initials,
          Site_name = paste(Source_abbr, Core),
@@ -77,9 +78,17 @@ input_data04$L_depth_m <- round(input_data04$L_depth_m, 2)
 
 
 
+#### removing incorrect core locations ####
+
+input_data05 <- input_data04 %>% 
+  filter(Core != "Tomales Bay SM E", Core != "Tomales Bay SM F", 
+         Core != "Elkhorn Slough SM F", Core != "Elkhorn Slough SM G",
+         Core != "Elkhorn Slough SM H", Core != "Elkhorn Slough SM J",
+         Core != "Elkhorn Slough SM K", Core != "Elkhorn Slough SM L")
+
 #### export ####
 
-export_data01 <- input_data04 %>% 
+export_data01 <- input_data05 %>% 
   dplyr::select(Source, Site_name, Site,Core, Habitat_type, Country, Year_collected,
                 Latitude, Longitude, accuracy_flag, accuracy_code,
                 U_depth_m, L_depth_m, Method, Conv_factor,
@@ -93,16 +102,12 @@ export_data02 <- export_data01 %>%
   mutate(DOI = "https://doi.org/10.5194/bg-18-4717-2021")
 
 
-export_data03 <- export_data02 %>% 
-  filter(Habitat_type == "Salt Marsh")
-
-
 ## export
 
 path_out = 'reports/03_data_format/data/exported/'
 
 export_file <- paste(path_out, source_name, ".csv", sep = '') 
-export_df <- export_data03
+export_df <- export_data02
 
 write.csv(export_df, export_file)
 

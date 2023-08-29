@@ -169,8 +169,8 @@ BD_check_all
 ###### export ####
 
 path_out = 'reports/04_data_process/figures/outliers/'
-export_fig <- SOM_check_all # also for OC_check_all, SOM_check_all
-export_file <- paste(path_out, "SOM_check_all.png", sep = '')
+export_fig <- BD_check_all # also for OC_check_all, SOM_check_all
+export_file <- paste(path_out, "BD_check_all.png", sep = '')
 ggsave(export_file, export_fig, width = 7.85, height = 4.77)
 
 
@@ -411,9 +411,9 @@ SOM_BD
 ###### export outliers fig #####
 path_out = 'reports/04_data_process/figures/outliers/'
 
-##studies with SOM to OC
-export_fig <- SOM_BD
-fig_main_name <- "SOM_BD"
+##studies with SOM to OC # also change to SOM_BD
+export_fig <- OC_BD
+fig_main_name <- "OC_BD"
 export_file <- paste(path_out, fig_main_name, ".png", sep = '')
 ggsave(export_file, export_fig, width = 7.15, height = 5.43)
 

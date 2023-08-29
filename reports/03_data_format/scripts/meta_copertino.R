@@ -33,7 +33,8 @@ input_data02 <- input_data02 %>%
 
 input_data03 <- input_data02 %>% 
   filter(TM_comment == "OK" | 
-           TM_comment == "changed_data")
+           TM_comment == "changed_data"| 
+           TM_comment == "changed_lat_long_seetab")
 
 
 
@@ -208,13 +209,6 @@ export_data02 <- export_data01 %>%
            accuracy_flag, accuracy_code, Country, Year_collected, .before = U_depth_m) %>% 
   arrange(Site, Habitat_type) %>% 
   mutate(DOI = "https://doi.org/10.1038/s43247-023-00828-z")
-
-
-test_lat_long <- export_data02 %>% 
-  distinct(Latitude, Longitude, .keep_all = TRUE) %>% 
-  filter(Original_source == "Braga et al 2011")
-
-write.csv(test_lat_long, "../Data/cores_check_Braga_et_al_2011.csv")
 
 
 ## export
