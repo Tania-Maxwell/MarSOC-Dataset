@@ -1,4 +1,4 @@
-# Tidal **Mar**sh **S**oil **O**rganic **Carbon** Dataset
+# Tidal *Mar*sh *S*oil *O*rganic *Carbon* (MarSOC) Dataset
 
 ## Repository Structure
 
