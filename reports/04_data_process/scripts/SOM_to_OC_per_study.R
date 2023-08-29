@@ -254,6 +254,6 @@ anova_table = cbind(anova_table0,Study) %>%
 
 anova_table
 
-export_file <- paste(path_out, "TableS2S2_study_SOM_OC.csv", sep = '')
+export_file <- paste(path_out, "TableS2_study_SOM_OC.csv", sep = '')
 write.csv(anova_table,export_file, row.names = FALSE)
 
