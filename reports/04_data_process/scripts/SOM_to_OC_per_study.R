@@ -242,10 +242,18 @@ anova_table0 <- anova(main_model, model_list[[1]], model_list[[2]],
       model_list[[11]], model_list[[12]], model_list[[13]], model_list[[14]],
       model_list[[15]], model_list[[16]], model_list[[17]], model_list[[18]])
 
+
+options(scipen = 0) # decimals
+
 anova_table = cbind(anova_table0,Study) %>% 
-  relocate(Study, .before = Res.Df)
+  relocate(Study, .before = Res.Df) %>% 
+  mutate(across(where(is.numeric), round, 3)) %>% 
+  mutate(p_value_small = case_when(`Pr(>F)` < 0.0001 ~ "<0.0001")) %>% 
+  mutate(p_value = coalesce(p_value_small,as.character(`Pr(>F)`))) %>% 
+  dplyr::select(-c(`Pr(>F)`,p_value_small))
 
+anova_table
 
-export_file <- paste(path_out, "TableS2S2_study_SOM_OC.text", sep = '')
-write.table(anova_table,export_file, row.names = FALSE)
+export_file <- paste(path_out, "TableS2S2_study_SOM_OC.csv", sep = '')
+write.csv(anova_table,export_file, row.names = FALSE)
 
