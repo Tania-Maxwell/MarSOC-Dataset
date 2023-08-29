@@ -1,6 +1,8 @@
-# Repository Structure
+# Tidal **Mar**sh **S**oil **O**rganic **Carbon** Dataset
 
-**`Maxwell_marshC_dataset.csv`**: .csv file containing the final dataset. The data structure is described in Table 1, as well as in the **`Maxwell_marshC_dataset_metadata.csv`** file. It contains 17,522 records distributed amongst 29 countries. 
+## Repository Structure
+
+**`Maxwell_MarSOC_dataset.csv`**: .csv file containing the final dataset. The data structure is described in the **`Maxwell_MarSOC_dataset_metadata.csv`** file. It contains 17,522 records distributed amongst 29 countries. 
 - `data_paper/`: folder containing the list of studies included in the dataset, as well as figures for this data paper (generated from the following R script: ‘reports/04_data_process/scripts/04_data-paper_data_clean.R’). 
 - `reports/01_litsearchr/`: folder containing .bib files with references from the original naive search, a .Rmd document describing the litsearchr analysis using nodes to go from the naive search to the final search string, and the .bib files from this final search, which were then imported into sysrev for abstract screening. 
 - `reports/02_sysrev/`: folder with .csv files exported from sysrev after abstract screening. These files contain the included studies with their various labels. 
@@ -8,7 +10,7 @@
 - `reports/04_data_process/`: folder containing data processing scripts to bind and clean the exported data, as well as a script testing the different models for predicting soil organic carbon from organic matter and finalising the equation using all available data. A script testing and removing outliers is also included. 
 
 
-# Dataset Metadata 
+## Dataset Metadata 
 
 <table>
     <tr>
@@ -254,7 +256,7 @@
 </table>
 
 
-# Citation
+## Citation
 
 When using data from this dataset please cite both the publication and the dataset. The dataset version from DD-MM-2023 is archived in the following Figshare repository: [insert Figshare url]. 
 
@@ -285,14 +287,14 @@ When using data from this dataset please cite both the publication and the datas
 </div>
 
 
-# Licence
+## Licence
 
 Creative Commons License (CC0)
 
-# Acknowledgements 
+## Acknowledgements 
 
 We would like to thank everyone who contributed to the collection of the soil cores and their lab analyses, without whom this dataset compilation would not be possible. Specifically, we would like to thank Andre Rovai, Maria Fernanda Adame, Janine B. Adams, J. Álvarez-Rogel, William E.N. Austin, Kim Beasy, Francesco Boscutti, Michael E. Böttcher, Tjeerd Joris Bouma, Richard H. Bulmer, Annette Burden, Shannon A. Burke, Saritta Camacho, Doongar Chaudhary, Gail L. Chmura, Margareth Copertino, Grace M. Cott, Christopher Craft, John Day, Carmen B. de los Santos, Weixin Ding, Lionel Denis, Joanna C. Ellison, Carolyn J. Ewers Lewis, Luise Giani, Maria Gispert, Swanne Gontharet, José A. González-Pérez, M. Nazaret González-Alcaraz, Connor Gorham, Anna Elizabeth Graversen, Anthony Grey, Roberta  Guerra, Qiang He, James R. Holmquist, Alice R. Jones, José A. Juanes, Brian P Kelleher, Karen Kohfeld, Dorte Krause-Jensen, Anna Lafratta, Paul S Lavery, Edward A. Laws, Carmen Leiva-Dueñas, Pei Sun Loh, Catherine E. Lovelock, Carolyn J. Lundquist, Peter I. Macreadie, Inés Mazarrasa, J. Patrick Megonigal, Joao M. Neto, Juliana Nogueira, Michael J. Osland, Jordi F. Pagès, Nipuni Perera, Eva-Maria Pfeiffer, Thomas Pollmann, Jacqueline L. Raw, María Recio, Ana Carolina Ruiz-Fernández, Sophie K. Russell , John M. Rybczyk, Marek Sammul, Christian Sanders, Rui Santos , Oscar Serrano, Matthias Siewert, Craig Smeaton, Zhaoliang Song, Carmen Trasar-Cepeda, Robert R. Twilley, Marijn Van de Broek, Stefano Vitti, Livia Vittori Antisari, Baptiste Voltz, Christy Wails, Raymond D. Ward, Melissa Ward, Jaxine Wolfe, Renmin Yang, Sebastian Zubrzycki, Emily Landis, Lindsey Smart, Mark Spalding, and Thomas A. Worthington. The research was funded by The Nature Conservancy through the Bezos Earth Fund and other donor support. 
 
-# Contact
+## Contact
 
 For any queries, please contact Tania L. Maxwell (taniamaxwell7 [at] gmail.com). This dataset is currently being formatted for incoporation into the [Coastal Carbon Atlas](https://ccrcn.shinyapps.io/CoastalCarbonAtlas/). 

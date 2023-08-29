@@ -799,7 +799,7 @@ ggsave(export_file, fig_conv_factors, width = 10.48, height = 4.82)
 
 path_out = '' # root directory
 
-file_name <- paste("Maxwell_marshC_dataset", sep = "_")
+file_name <- paste("Maxwell_MarSOC_dataset", sep = "_")
 export_file <- paste(path_out, file_name, ".csv", sep = '')
 export_df <- data_paper_export
 
