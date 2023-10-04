@@ -262,8 +262,7 @@
 
 When using data from this dataset please cite both the publication and the dataset. The dataset version from DD-MM-2023 is archived in the following Figshare repository: [insert Figshare url]. 
 
-<div>
-<p> 
+```
 @article{maxwell_global_2023,
     title = {Global dataset of soil organic carbon in tidal marshes},
     author = {Maxwell, Tania L. and Rovai, André S. and Adame, Maria Fernanda and Adams, Janine B. and Álvarez-Rogel, J. and Austin, William E.N. and Beasy, Kim and Boscutti, Francesco and Böttcher, Michael E. and Bouma, Tjeerd Joris and Bulmer, Richard H. and Burden, Annette and Burke, Shannon A. and Camacho, Saritta and Chaudhary, Doongar and Chmura, Gail L. and Copertino, Margareth and Cott, Grace M. and Craft, Christopher and Day, John and de los Santos, Carmen B. and Ding, Weixin and Denis, Lionel and Ellison, Joanna C. and Ewers Lewis, Carolyn J. and Giani, Luise and Gispert, Maria and Gontharet, Swanne and González-Pérez, José A. and González-Alcaraz, M. Nazaret and Gorham, Connor and Graversen, Anna Elizabeth and Grey, Anthony and Guerra, Roberta  and He, Qiang and Holmquist, James R. and Jones, Alice R. and Juanes, José A. and Kelleher, Brian P and Kohfeld, Karen and Krause-Jensen, Dorte and Lafratta, Anna and Lavery, Paul S and Laws, Edward A. and Leiva-Dueñas, Carmen and Loh, Pei Sun and Lovelock, Catherine E. and Lundquist, Carolyn J. and Macreadie, Peter I. and Mazarrasa, Inés and Megonigal, J. Patrick and Neto, Joao M. and Nogueira, Juliana and Osland, Michael J. and Pagès, Jordi F. and Perera, Nipuni and Pfeiffer, Eva-Maria and Pollmann, Thomas and Raw, Jacqueline L. and Recio, María and Ruiz-Fernández, Ana Carolina and Russell , Sophie K. and Rybczyk, John M. and Sammul, Marek and Sanders, Christian and Santos , Rui and Serrano, Oscar and Siewert, Matthias and Smeaton, Craig and Song, Zhaoliang and Trasar-Cepeda, Carmen and Twilley, Robert R. and Van de Broek, Marijn and Vitti, Stefano and Vittori Antisari, Livia and Voltz, Baptiste and Wails, Christy and Ward, Raymond D. and Ward, Melissa and Wolfe, Jaxine and Yang, Renmin and Zubrzycki, Sebastian and Landis, Emily and Smart, Lindsey and Spalding, Mark D. and Worthington, Thomas A.},
@@ -283,9 +282,7 @@ When using data from this dataset please cite both the publication and the datas
 	publisher = {Zenodo},
 	doi = {},
 }
-</p> 
-</div>
-
+```
 
 ## Licence
 
