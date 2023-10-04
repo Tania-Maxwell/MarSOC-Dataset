@@ -265,24 +265,22 @@ When using data from this dataset please cite both the publication and the datas
 <div>
 <p> 
 @article{maxwell_global_2023,
-	title = {},
-	volume = {},
-	issn = {},
-	url = {},
-	abstract = {,
-	journaltitle = {},
-	author = {},
-	urldate = {},
-	date = {},
+    title = {Global dataset of soil organic carbon in tidal marshes},
+    author = {Maxwell, Tania L. and Rovai, André S. and Adame, Maria Fernanda and Adams, Janine B. and Álvarez-Rogel, J. and Austin, William E.N. and Beasy, Kim and Boscutti, Francesco and Böttcher, Michael E. and Bouma, Tjeerd Joris and Bulmer, Richard H. and Burden, Annette and Burke, Shannon A. and Camacho, Saritta and Chaudhary, Doongar and Chmura, Gail L. and Copertino, Margareth and Cott, Grace M. and Craft, Christopher and Day, John and de los Santos, Carmen B. and Ding, Weixin and Denis, Lionel and Ellison, Joanna C. and Ewers Lewis, Carolyn J. and Giani, Luise and Gispert, Maria and Gontharet, Swanne and González-Pérez, José A. and González-Alcaraz, M. Nazaret and Gorham, Connor and Graversen, Anna Elizabeth and Grey, Anthony and Guerra, Roberta  and He, Qiang and Holmquist, James R. and Jones, Alice R. and Juanes, José A. and Kelleher, Brian P and Kohfeld, Karen and Krause-Jensen, Dorte and Lafratta, Anna and Lavery, Paul S and Laws, Edward A. and Leiva-Dueñas, Carmen and Loh, Pei Sun and Lovelock, Catherine E. and Lundquist, Carolyn J. and Macreadie, Peter I. and Mazarrasa, Inés and Megonigal, J. Patrick and Neto, Joao M. and Nogueira, Juliana and Osland, Michael J. and Pagès, Jordi F. and Perera, Nipuni and Pfeiffer, Eva-Maria and Pollmann, Thomas and Raw, Jacqueline L. and Recio, María and Ruiz-Fernández, Ana Carolina and Russell , Sophie K. and Rybczyk, John M. and Sammul, Marek and Sanders, Christian and Santos , Rui and Serrano, Oscar and Siewert, Matthias and Smeaton, Craig and Song, Zhaoliang and Trasar-Cepeda, Carmen and Twilley, Robert R. and Van de Broek, Marijn and Vitti, Stefano and Vittori Antisari, Livia and Voltz, Baptiste and Wails, Christy and Ward, Raymond D. and Ward, Melissa and Wolfe, Jaxine and Yang, Renmin and Zubrzycki, Sebastian and Landis, Emily and Smart, Lindsey and Spalding, Mark D. and Worthington, Thomas A.},
+    year = {2023},
+    journal = {Scientific Data},
+    volume = {},
+    number = {},
+    pages = {},
+    doi = {}
 }
 
 @misc{maxwell_data_2023,
-	title = {Database: global marsh soil carbon},
-	url = {},
-	abstract = {},
-	publisher = {FigShare},
+	title = {Database: Tidal Marsh Soil Organic Carbon {{(MarSOC)}} Dataset},
 	author = {Maxwell, Tania L. and Rovai, André S. and Adame, Maria Fernanda and Adams, Janine B. and Álvarez-Rogel, J. and Austin, William E.N. and Beasy, Kim and Boscutti, Francesco and Böttcher, Michael E. and Bouma, Tjeerd Joris and Bulmer, Richard H. and Burden, Annette and Burke, Shannon A. and Camacho, Saritta and Chaudhary, Doongar and Chmura, Gail L. and Copertino, Margareth and Cott, Grace M. and Craft, Christopher and Day, John and de los Santos, Carmen B. and Ding, Weixin and Denis, Lionel and Ellison, Joanna C. and Ewers Lewis, Carolyn J. and Giani, Luise and Gispert, Maria and Gontharet, Swanne and González-Pérez, José A. and González-Alcaraz, M. Nazaret and Gorham, Connor and Graversen, Anna Elizabeth and Grey, Anthony and Guerra, Roberta  and He, Qiang and Holmquist, James R. and Jones, Alice R. and Juanes, José A. and Kelleher, Brian P and Kohfeld, Karen and Krause-Jensen, Dorte and Lafratta, Anna and Lavery, Paul S and Laws, Edward A. and Leiva-Dueñas, Carmen and Loh, Pei Sun and Lovelock, Catherine E. and Lundquist, Carolyn J. and Macreadie, Peter I. and Mazarrasa, Inés and Megonigal, J. Patrick and Neto, Joao M. and Nogueira, Juliana and Osland, Michael J. and Pagès, Jordi F. and Perera, Nipuni and Pfeiffer, Eva-Maria and Pollmann, Thomas and Raw, Jacqueline L. and Recio, María and Ruiz-Fernández, Ana Carolina and Russell , Sophie K. and Rybczyk, John M. and Sammul, Marek and Sanders, Christian and Santos , Rui and Serrano, Oscar and Siewert, Matthias and Smeaton, Craig and Song, Zhaoliang and Trasar-Cepeda, Carmen and Twilley, Robert R. and Van de Broek, Marijn and Vitti, Stefano and Vittori Antisari, Livia and Voltz, Baptiste and Wails, Christy and Ward, Raymond D. and Ward, Melissa and Wolfe, Jaxine and Yang, Renmin and Zubrzycki, Sebastian and Landis, Emily and Smart, Lindsey and Spalding, Mark D. and Worthington, Thomas A.},
-	date = {2023},
+	year = {2023},
+    url = {},
+	publisher = {Zenodo},
 	doi = {},
 }
 </p> 
@@ -291,11 +289,11 @@ When using data from this dataset please cite both the publication and the datas
 
 ## Licence
 
-Creative Commons License (CC0)
+Creative Commons Attribution 4.0 International Licence (CC BY).
 
 ## Acknowledgements 
 
-We would like to thank everyone who contributed to the collection of the soil cores and their lab analyses, without whom this dataset compilation would not be possible. Specifically, we would like to thank Andre Rovai, Maria Fernanda Adame, Janine B. Adams, J. Álvarez-Rogel, William E.N. Austin, Kim Beasy, Francesco Boscutti, Michael E. Böttcher, Tjeerd Joris Bouma, Richard H. Bulmer, Annette Burden, Shannon A. Burke, Saritta Camacho, Doongar Chaudhary, Gail L. Chmura, Margareth Copertino, Grace M. Cott, Christopher Craft, John Day, Carmen B. de los Santos, Weixin Ding, Lionel Denis, Joanna C. Ellison, Carolyn J. Ewers Lewis, Luise Giani, Maria Gispert, Swanne Gontharet, José A. González-Pérez, M. Nazaret González-Alcaraz, Connor Gorham, Anna Elizabeth Graversen, Anthony Grey, Roberta  Guerra, Qiang He, James R. Holmquist, Alice R. Jones, José A. Juanes, Brian P Kelleher, Karen Kohfeld, Dorte Krause-Jensen, Anna Lafratta, Paul S Lavery, Edward A. Laws, Carmen Leiva-Dueñas, Pei Sun Loh, Catherine E. Lovelock, Carolyn J. Lundquist, Peter I. Macreadie, Inés Mazarrasa, J. Patrick Megonigal, Joao M. Neto, Juliana Nogueira, Michael J. Osland, Jordi F. Pagès, Nipuni Perera, Eva-Maria Pfeiffer, Thomas Pollmann, Jacqueline L. Raw, María Recio, Ana Carolina Ruiz-Fernández, Sophie K. Russell , John M. Rybczyk, Marek Sammul, Christian Sanders, Rui Santos , Oscar Serrano, Matthias Siewert, Craig Smeaton, Zhaoliang Song, Carmen Trasar-Cepeda, Robert R. Twilley, Marijn Van de Broek, Stefano Vitti, Livia Vittori Antisari, Baptiste Voltz, Christy Wails, Raymond D. Ward, Melissa Ward, Jaxine Wolfe, Renmin Yang, Sebastian Zubrzycki, Emily Landis, Lindsey Smart, Mark Spalding, and Thomas A. Worthington. The research was funded by The Nature Conservancy through the Bezos Earth Fund and other donor support. 
+We would like to thank everyone who contributed to the collection of the soil cores and their lab analyses, without whom this dataset compilation would not be possible. The research for the dataset compilation was funded by The Nature Conservancy through the Bezos Earth Fund and other donor support.
 
 ## Contact
 
