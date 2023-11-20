@@ -294,3 +294,9 @@ We would like to thank everyone who contributed to the collection of the soil co
 ## Contact
 
 For any queries, please contact Tania L. Maxwell (taniamaxwell7 [at] gmail.com). This dataset is currently being formatted for incoporation into the [Coastal Carbon Atlas](https://ccrcn.shinyapps.io/CoastalCarbonAtlas/). 
+
+## Version History
+
+- v1 | October 6, 2023 | First release for Zenodo 
+- v1.1 | November 20, 2023 | Corrected N to to % for the Xia et al 2022 paper
+
