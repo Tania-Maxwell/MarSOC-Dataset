@@ -7,7 +7,7 @@ rm(list=ls()) # clear the workspace
 library(tidyverse)
 library(purrr)
 
-setwd("~/07_Cam_postdoc/SaltmarshC")
+setwd("~/07_Cam_postdoc/MarSOC-Dataset")
 input_file01 <- "reports/03_data_format/data/bind/data_compile.csv"
 
 data0 <- read.csv(input_file01)
@@ -16,10 +16,10 @@ str(data0)
 
 #### 1. basic data cleaning ####
 
+data0[data0==""] <- NA # replacing blanks with na (NOTE: this is because mutate_all(na_if,"") doesn't work anymore)
 
 ## year_collected
 data1 <- data0 %>% 
-  mutate_all(na_if,"") %>% # replacing blanks with na
   dplyr::select(-ID) %>%  #ID from each export; doesn't have meaning
   separate(Year_collected, c("Year_collected", "Year_collected_end"), sep = '-' ) %>% 
   mutate(Year_collected = as.numeric(Year_collected)) %>% 

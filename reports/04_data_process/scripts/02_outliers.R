@@ -5,7 +5,7 @@
 rm(list=ls()) # clear the workspace
 library(tidyverse)
 
-setwd("~/07_Cam_postdoc/SaltmarshC")
+setwd("~/07_Cam_postdoc/MarSOC-Dataset")
 input_file01 <- "reports/04_data_process/data/data_cleaned.csv"
 
 data0 <- read.csv(input_file01)
@@ -77,12 +77,25 @@ limit_BD <- qnt_BD[2] + H_BD
 #H1.5<-1.5*IQR(data1[,"BD_reported_combined"], na.rm=T) #creating a variable H which is 1.5 times the interquartile range. See Kardol et al. 2018 --> they give a statistical ref.
 sum(!is.na(outliers1_BD)) #n of not previously NA values (i.e. not from missing) ABOVE limit
 
+##### N_perc ###
+
+#test for finding number of outliers
+qnt_N <- quantile(data1[ ,"N_perc"], probs=c(.05, .95), na.rm=T) #finding the quantiles of 5% and 95% for the column desired
+H_N<-2.2*IQR(data1[,"N_perc"], na.rm=T) #creating a variable H which is 2.2 times the interquartile range. See Kardol et al. 2018 --> they give a statistical ref.
+#replace values above the 2nd quantile + H, and below 1st quantile - H
+outliers1_N <-  data1[data1[, "N_perc"] > (qnt_N[2] + H_N), "N_perc"]
+outliers2_N <- data1[data1[,"N_perc"] < (qnt_N[1] - H_N), "N_perc"]
+
+limit_N <- qnt_N[2] + H_N
+#H1.5<-1.5*IQR(data1[,"N_perc"], na.rm=T) #creating a variable H which is 1.5 times the interquartile range. See Kardol et al. 2018 --> they give a statistical ref.
+sum(!is.na(outliers1_N)) #n of not previously NA values (i.e. not from missing) ABOVE limit
 
 
 data2 <- data1 %>% 
   mutate(Notes = case_when(OC_perc_combined > limit_OC ~ "Outlier - OC removed from test",
                            SOM_perc_combined > limit_SOM ~ "Outlier - SOM removed from test",
-                           BD_reported_combined > limit_BD ~ "Outlier - BD removed from test"))
+                           BD_reported_combined > limit_BD ~ "Outlier - BD removed from test",
+                           N_perc > limit_N ~ "Outlier - N removed from test"))
 
 #### 3. visualize outlier rule for all data ####
 
@@ -309,6 +322,7 @@ data_outliers_removed <- data2
 data_outliers_removed <- remove_outliers(df = data_outliers_removed, col = "OC_perc_combined")
 data_outliers_removed <- remove_outliers(df = data_outliers_removed, col = "SOM_perc_combined")
 data_outliers_removed <- remove_outliers(df = data_outliers_removed, col = "BD_reported_combined")
+data_outliers_removed <- remove_outliers(df = data_outliers_removed, col = "N_perc")
 
 
 ### percent of values removed from both CCRCN and this dataset
@@ -324,7 +338,10 @@ n_outliers_SOM/length(data1$SOM_perc_combined)*100
 n_outliers_BD <- (sum(!is.na(data1$BD_reported_combined))- sum(!is.na(data_outliers_removed$BD_reported_combined)))
 n_outliers_BD/length(data1$BD_reported_combined)*100  
 
-  
+#N percent 
+n_outliers_N <- (sum(!is.na(data1$N_perc))- sum(!is.na(data_outliers_removed$N_perc)))
+n_outliers_N/length(data1$N_perc)*100  
+
 #### 6. last checks: OC to BD and SOM to BD relationships ####
 
 SOM_OC <- data_outliers_removed %>% 
@@ -337,7 +354,6 @@ SOM_OC <- data_outliers_removed %>%
   geom_abline(intercept = 0, slope = 1, linetype = "dashed", color = 'purple', size =1) + 
   labs(x = "SOM (%)", y = "OC (%)")
 
-SOM_OC
 
 
 ###### export outliers fig #####
@@ -465,12 +481,28 @@ SOM_removed <- data_outliers_removed3 %>%
 SOM_removed
 
 
-#### 6. export cleaned data ####
+###### check OC vs N ####
+OC_N <- data_outliers_removed3 %>% 
+  filter(is.na(OC_perc_combined) == FALSE & is.na(N_perc) == FALSE) %>% 
+  droplevels() %>% 
+  ggplot(aes(x = OC_perc_combined, y = N_perc, color= Original_source))+
+  theme_bw()+
+  geom_point()+
+  geom_abline(intercept = 0, slope = 1, linetype = "dashed", color = 'purple', size =1) + 
+  labs(x = "OC (%)", y = "N (%)")
+OC_N
+
+data_outliers_removed4 <- data_outliers_removed3 %>% 
+  mutate(Notes = case_when(N_perc > OC_perc_combined ~ 
+                             "Caution - N greater than OC",
+                           TRUE ~ Notes))
+
+#### 7. export cleaned data ####
 
 path_out = 'reports/04_data_process/data/'
 
 export_file <- paste(path_out, "data_cleaned_outliersremoved.csv", sep = '') 
-export_df <- data_outliers_removed3
+export_df <- data_outliers_removed4
 
 write.csv(export_df, export_file, row.names = F)
 

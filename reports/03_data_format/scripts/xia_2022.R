@@ -5,6 +5,7 @@
 # contact Tania Maxwell, tlgm2@cam.ac.uk
 # 27.07.22
 # edit 20.12.22, 04.04.23 for permille to percent
+# edit 16.11.23 for permille to percent for nitrogen as well
 
 library(tidyverse)
 
@@ -112,7 +113,7 @@ data_test <- input_data05 %>%
 
 input_data06 <- input_data05 %>% 
   mutate(OC_perc = as.numeric(SOC_content__g_kg_1_)/10, # from per mill to per cent
-         N_perc = as.numeric(TN__g_kg_1_),
+         N_perc = as.numeric(TN__g_kg_1_)/10, # from per mill to per cent
          BD_reported_g_cm3 = as.numeric(Bulk_density_g_cm_3_)) %>% 
   mutate(Year_collected = NA,
          accuracy_flag = "direct from dataset",
